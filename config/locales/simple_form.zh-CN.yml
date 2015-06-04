@@ -3,22 +3,23 @@ zh-CN:
     "yes": 'Yes'
     "no": 'No'
     required:
-      text: 'required'
-      mark: '*'
+      # text: 'required'
+      # mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
-      # html: '<abbr title="required">*</abbr>'
+      html: '<abbr title="required" style="color:red;">*</abbr>'
     error_notification:
       default_message: "请修正以下问题:"
     labels:
       user:
-        email: "注册邮箱"
+        email: "邮箱"
         email_confirmation: "确认邮箱"
-        password: "设置密码"
+        password: "密码"
         password_confirmation: "确认密码"
         remember_me: "记住我"
         name: "真实姓名"
-        ID_number: "省份证号"
+        ID_number: "身份证号"
+        gender: "性别"
         birth: "出生日期"
         school: "所在学校"
         academy: "所在院系"

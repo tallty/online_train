@@ -44,4 +44,9 @@ class User < ActiveRecord::Base
   attr_accessor :email_confirmation
 
   enum gender: {male: true, female: false}
+  UserGender = {male: '男', female: '女'}
+
+  validates_confirmation_of :email
+  validates :name, presence: true
+
 end

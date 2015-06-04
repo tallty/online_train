@@ -1,0 +1,21 @@
+body.devise__sessions__new {
+  .col-sm-6 {
+    padding: 15px;
+  }
+  .panel-body {
+    padding-bottom: 0px;
+    table {
+      margin-bottom: 0px;
+      tr td {
+        border: 0;
+        .form-group {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+  
+  div.checkbox {
+    margin: 0px;
+  }
+}

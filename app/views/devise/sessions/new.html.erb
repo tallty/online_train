@@ -1,15 +1,61 @@
-<h2>Log in</h2>
-
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="row panel panel-default">
+        <div class="panel-heading">用户中心</div>
+        <div class="panel-body">
+          <% flash.each do |key, value| %>
+            <% if value.present? %>
+                <p class="text-danger"><%= value%></p>
+            <% end %>
+          <% end %>
+          <div class="form-inputs table-responsive">
+            <table class="table">
+              <tr align="center">
+                <td colspan="2"><%= f.input :email, required: false, label: false, autofocus: true %></td>
+                <td><%= f.button :submit, "登录", class: "btn btn-success" %></td>
+              </tr>
+              <tr align="center">
+                <td colspan="2"><%= f.input :password, label: false, required: false %></td>
+                <td><%= link_to "注册", new_registration_path(resource_name), class: "btn btn-primary" %></td>
+              </tr>
+              <tr>
+                <td><%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %></td>
+                <td align="right"><%= link_to "忘记密码?", new_password_path(resource_name) %></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row panel panel-default">
+        <div class="panel-heading">关于我们</div>
+        <div class="panel-body">
+          <ul class="list-group">
+            <li class="list-group-item">单位：全国高职高专教育教师培训联盟秘书处</li>
+            <li class="list-group-item">地址：北京市朝阳区惠新东街4号富豪大厦</li>
+            <li class="list-group-item">邮编：100029</li>
+            <li class="list-group-item">业务咨询：010-58581444</li>
+            <li class="list-group-item">技术支持：010-58581854</li>
+            <li class="list-group-item">证书办理：010-58581602</li>
+            <li class="list-group-item">QQ群：226595293</li>
+            <li class="list-group-item">邮箱咨询：206174801@qq.com</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="row panel panel-default">
+        <div class="panel-heading">师资培训计划</div>
+        <div class="panel-body">
+          
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
 <% end %>
 
-<%= render "devise/shared/links" %>

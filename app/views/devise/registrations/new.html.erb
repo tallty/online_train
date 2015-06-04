@@ -1,8 +1,5 @@
-
-
-
 <div class="container-fluid">
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), wrapper: "horizontal_form") do |f| %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), wrapper: :horizontal_form) do |f| %>
   <%= f.error_notification %>
   <div class="row">
     <div class="col-sm-6">
@@ -13,14 +10,14 @@
       <%= f.input :name, required: true %>
       <%= f.input :ID_number, required: true %>
       <%= f.input :nation, required: true %>
-      <%= f.input :gender, required: true, collection: User.genders, as: :radio_buttons, wrapper: "horizontal_radio_and_checkboxes", item_wrapper_class: "radio-inline" %>
-      <%= f.input :birth, required: true %>
-      <%= f.input :city, required: true, input_html: {class: ""} ,as: :select %>
+      <%= f.input :gender, required: true, collection: User::UserGender.invert, as: :radio_buttons, wrapper: :horizontal_radio_and_checkboxes, item_wrapper_class: "radio-inline" %>
+      <%= f.input :birth, as: :date, start_year: Date.today.year - 90,end_year: Date.today.year - 1, required: true %>
+      <%= f.input :city, required: true, input_html: {class: "city-select"}, wrapper_html: {class: "form-group select required user_city city-group"}, collection: ChinaCity.list ,as: :select, prompt: true %>
       <%= f.input :school, required: true %>
-      <%= f.input :academy, required: true %>
-      <%= f.input :certificate, required: true %>
-      <%= f.input :position_name, required: true %>
-      <%= f.input :position, required: true %>
+      <%= f.input :academy, required: false %>
+      <%= f.input :certificate, required: false %>
+      <%= f.input :position_name, required: false %>
+      <%= f.input :position, required: false %>
     </div>
     <div class="col-sm-6">
       <div class="row">
@@ -28,11 +25,11 @@
         <%= f.input :zip_code, required: true %>
         <%= f.input :telephone, required: true %>
         <%= f.input :phone, required: true %>
-        <%= f.input :qq_no, required: true %>
+        <%= f.input :qq_no, required: false %>
       </div>
       
       <div>
-        <%= f.input :summary, required: true %>
+        <%= f.input :summary, required: false %>
       </div>
     </div>
   </div>
