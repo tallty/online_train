@@ -19,3 +19,9 @@ body.devise__sessions__new {
     margin: 0px;
   }
 }
+
+body.devise__registrations__new {
+  abbr {
+    color: red;
+  }
+}

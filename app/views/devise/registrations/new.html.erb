@@ -1,44 +1,50 @@
 <div class="container-fluid">
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), wrapper: :horizontal_form) do |f| %>
-  <%= f.error_notification %>
-  <div class="row">
-    <div class="col-sm-6">
-      <%= f.input :email, required: true, autofocus: true, placeholder: false %>
-      <%= f.input :email_confirmation, required: true %>
-      <%= f.input :password, required: true, placeholder: false  %>
-      <%= f.input :password_confirmation, required: true %>
-      <%= f.input :name, required: true %>
-      <%= f.input :ID_number, required: true %>
-      <%= f.input :nation, required: true %>
-      <%= f.input :gender, required: true, collection: User::UserGender.invert, as: :radio_buttons, wrapper: :horizontal_radio_and_checkboxes, item_wrapper_class: "radio-inline" %>
-      <%= f.input :birth, as: :date, start_year: Date.today.year - 90,end_year: Date.today.year - 1, required: true %>
-      <%= f.input :city, required: true, input_html: {class: "city-select"}, wrapper_html: {class: "form-group select required user_city city-group"}, collection: ChinaCity.list ,as: :select, prompt: true %>
-      <%= f.input :school, required: true %>
-      <%= f.input :academy, required: false %>
-      <%= f.input :certificate, required: false %>
-      <%= f.input :position_name, required: false %>
-      <%= f.input :position, required: false %>
-    </div>
-    <div class="col-sm-6">
-      <div class="row">
-        <%= f.input :address, required: true %>
-        <%= f.input :zip_code, required: true %>
-        <%= f.input :telephone, required: true %>
-        <%= f.input :phone, required: true %>
-        <%= f.input :qq_no, required: false %>
+    <%= f.error_notification %>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="row panel panel-default">
+          <div class="panel-heading">基本信息</div>
+          <div class="panel-body">
+            <%= f.input :email, required: true, autofocus: true, placeholder: false %>
+            <%= f.input :email_confirmation, required: true %>
+            <%= f.input :password, required: true, placeholder: false  %>
+            <%= f.input :password_confirmation, required: true %>
+            <%= f.input :name, required: true %>
+            <%= f.input :ID_number, required: true %>
+            <%= f.input :nation, required: true %>
+            <%= f.input :gender, required: true, collection: User::UserGender.invert, as: :radio_buttons, wrapper: :horizontal_radio_and_checkboxes, item_wrapper_class: "radio-inline" %>
+            <%= f.input :birth, as: :date, start_year: Date.today.year - 90,end_year: Date.today.year - 1, required: true %>
+            <%= f.input :city, required: true, input_html: {class: "city-select"}, wrapper_html: {class: "form-group select required user_city city-group"}, collection: ChinaCity.list ,as: :select, prompt: true %>
+            <%= f.input :school, required: true %>
+            <%= f.input :academy, required: false %>
+            <%= f.input :certificate, required: false %>
+            <%= f.input :position_name, required: false %>
+            <%= f.input :position, required: false %>
+          </div>
+        </div>
       </div>
-      
-      <div>
-        <%= f.input :summary, required: false %>
-      </div>
-    </div>
-  </div>
-  
+      <div class="col-sm-6">
+        <div class="row panel panel-default">
+          <div class="panel-heading">关于我们</div>
+          <div class="panel-body">
+            <%= f.input :address, required: true %>
+            <%= f.input :zip_code, required: true %>
+            <%= f.input :telephone, required: true %>
+            <%= f.input :phone, required: true %>
+            <%= f.input :qq_no, required: false %>
+          </div>
+        </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+        <div class="row panel panel-default">
+          <div class="panel-heading">关于我们</div>
+          <div class="panel-body">
+            <%= f.input :summary, required: false %>
+            验证码<br>
+            <p class="text-center"><%= f.button :submit, "确认提交" %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
-
-<%= render "devise/shared/links" %>
