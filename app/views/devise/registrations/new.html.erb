@@ -1,0 +1,47 @@
+
+
+
+<div class="container-fluid">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), wrapper: "horizontal_form") do |f| %>
+  <%= f.error_notification %>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.input :email, required: true, autofocus: true, placeholder: false %>
+      <%= f.input :email_confirmation, required: true %>
+      <%= f.input :password, required: true, placeholder: false  %>
+      <%= f.input :password_confirmation, required: true %>
+      <%= f.input :name, required: true %>
+      <%= f.input :ID_number, required: true %>
+      <%= f.input :nation, required: true %>
+      <%= f.input :gender, required: true, collection: User.genders, as: :radio_buttons, wrapper: "horizontal_radio_and_checkboxes", item_wrapper_class: "radio-inline" %>
+      <%= f.input :birth, required: true %>
+      <%= f.input :city, required: true, input_html: {class: ""} ,as: :select %>
+      <%= f.input :school, required: true %>
+      <%= f.input :academy, required: true %>
+      <%= f.input :certificate, required: true %>
+      <%= f.input :position_name, required: true %>
+      <%= f.input :position, required: true %>
+    </div>
+    <div class="col-sm-6">
+      <div class="row">
+        <%= f.input :address, required: true %>
+        <%= f.input :zip_code, required: true %>
+        <%= f.input :telephone, required: true %>
+        <%= f.input :phone, required: true %>
+        <%= f.input :qq_no, required: true %>
+      </div>
+      
+      <div>
+        <%= f.input :summary, required: true %>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+</div>
+
+<%= render "devise/shared/links" %>

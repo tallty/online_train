@@ -1,0 +1,47 @@
+zh-CN:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "请修正以下问题:"
+    labels:
+      user:
+        email: "注册邮箱"
+        email_confirmation: "确认邮箱"
+        password: "设置密码"
+        password_confirmation: "确认密码"
+        remember_me: "记住我"
+        name: "真实姓名"
+        ID_number: "省份证号"
+        birth: "出生日期"
+        school: "所在学校"
+        academy: "所在院系"
+        certificate: "职业资格证书"
+        city: "所在省市"
+        nation: "民族"
+        position_name: "职称"
+        position: "职务"
+        address: "通信地址"
+        zip_code: "邮编"
+        telephone: "电话"
+        phone: "手机"
+        qq_no: "QQ"
+        summary: "简介"
+    placeholders:
+      user:
+        email: '请输入电子邮箱'
+        password: '请输入密码'
+    prompts:
+      user:
+        city: '--选择省市--'
+    options:
+      user:
+        gender:
+          male: '男'
+          female: '女'

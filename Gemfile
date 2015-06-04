@@ -50,3 +50,6 @@ gem 'devise', '~> 3.4.1'
 
 gem 'simple_form', '~> 3.1.0'
 
+gem 'china_city'
+
+
