@@ -1,29 +1,26 @@
-<div class="container">
+<div class="container-fluid">
   <div class="wrapper">
     <div class="row">
-      <div class="personal_center col-md-3">
-      <div class="col-md-12 center_tab">个人中心</div>
+      <div class="personal_center col-md-2">
+      <div class="row">
+      <div class="col-md-12 center_tab"><span>个人中心</span></div>
       <div class="col-md-12">
-        <ul class="nav nav-tabs" id="myTab">
-          <li role="presentation" class=" active course_tab"><a href="#coursetab">我的课程</a>
-          <hr>
-          </li>
-          <li role="presentation" class="task_tab"><a href="#tasktab">我的作业</a>
-          <hr>
-          </li>
-          <li role="presentation" class="journal_tab"><a href="#journaltab">我的日志</a>
-          <hr>
-          </li>
-          <li role="presentation" class="message_tab"><a href="#messagetab">我的消息</a><hr></li>
-          <li role="presentation" class="information_tab"><a href="#informationtab">个人信息</a></li>
+        <ul class="nav " id="myTab">
+          <li role="presentation" class=" active course_tab"><a href="#coursetab"><span>我的课程</span></a><hr></li>
+          <li role="presentation" class="task_tab"><a href="#tasktab"><span>我的作业</span></a><hr></li>
+          <li role="presentation" class="journal_tab"><a href="#journaltab"><span>我的日志</span></a><hr></li>
+          <li role="presentation" class="message_tab"><a href="#messagetab"><span>我的消息</span></a><hr></li>
+          <li role="presentation" class="information_tab"><a href="#informationtab"><span>个人信息</span></a></li>
         </ul>
-        </div>
       </div>
-      <div class="tab-content courses col-md-9">
+      </div>
+      </div>
+      <div class="tab-content courses col-md-9 pull-right">
         <div class="tab-pane active" id="coursetab">
-          <div class="panel-heading">我的课程&nbsp
-            已完成课程</div>
-            <p><h4>正在进行的课程</h4></p>
+
+        <div class="panel">
+          <div class="panel-heading">我的课程&nbsp已完成课程</div>
+          <div class="panel-body"><p><h4>正在进行的课程</h4></p></div>
             <table border="1">
               <tr>
                 <th>计划</th>
@@ -47,7 +44,7 @@
                 <td>正在进行</td>
                 <td>39</td>
                 <td>15</td>
-                <td>审核通过</td>
+                <td class="check">审核通过</td>
                 <td>是</td>
                 <td></td>
                 <td></td>
@@ -58,7 +55,7 @@
                 </td>
               </tr>
             </table>
-            <p><h4>即将开始的课程</h4></p>
+            <div class="panel-body"><p><h4>即将开始的课程</h4></p></div>
             <table border="1">
               <tr>
                 <th>计划</th>
@@ -83,7 +80,7 @@
                 <td>正在进行</td>
                 <td>39</td>
                 <td>15</td>
-                <td>审核通过</td>
+                <td class="check">审核通过</td>
                 <td>是</td>
                 <td></td>
                 <td></td>
@@ -96,9 +93,12 @@
               <% end %>
             </table>
           </div>
+          </div>
 
           <div class="tab-pane " id="tasktab">
-            <h4>我的作业</h4>
+          <div class="panel">
+          <div class="panel-heading">
+            <h4>我的作业</h4></div>
             <table border="1">
               <tr>
                 <th>培训班</th>
@@ -123,6 +123,7 @@
               </tr>
               <% end %>
             </table>
+            </div>
           </div>
 
           <div class="tab-pane " id="journaltab">
@@ -179,7 +180,7 @@
                 <td>正在进行</td>
                 <td>39</td>
                 <td>15</td>
-                <td>审核通过</td>
+                <td class="check">审核通过</td>
                 <td>是</td>
                 <td></td>
                 <td></td>

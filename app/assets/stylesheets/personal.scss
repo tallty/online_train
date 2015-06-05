@@ -1,16 +1,21 @@
-.wrapper {
-  width:85%;
-  .center_tab {
-    align:center;
+.center_tab {
+  background:url('08-1.png') center no-repeat;
+  text-align:center;
+  line-height:35px;
+  margin-top:20px;
+  span {
+    font-size:16px;
+    color:#fff;
   }
-  .personal_center {
-    border:#dfdfdf;
+}
+.personal_center {
+  text-align:center;
+  margin-left:15px;
+#myTab {
+  span {
+    font-size:16px;
   }
-  #myTab {
-
-    li {
-    float:none !important;
-    align:center!important;
+  li {
     a:link {
       color:#010101;
       border:none;
@@ -18,7 +23,7 @@
     a:hover {
       color:#345ab3;
       border:none;
-      background:url('08-2.png') left top no-repeat;
+      background:url('08-2.png') no-repeat;
     }
     a:visited {
       color:#010101;
@@ -26,20 +31,35 @@
     }
   }
 }
+}
+.courses {
+  margin:20px 10px 20px 0;
   table {
-    width:100%;
-    border-color:#dfdfdf;
-    align:center;
+    width:98%;
+    margin-left:8px;
+    border-color:#bfbfbf;
+    text-align:center;
+    .check {
+      color:green;
+    }
+    .glyphicon-list-alt {
+      color:blue;
+    }
+    .glyphicon-eye-open {
+      color:green;
+    }
+    .glyphicon-pencil {
+      color:red;
+    }
   }
-  .courses {
-    border:1px!important;
+}
+.panel {
+  .panel-heading {
+    background:url('08-3.png') no-repeat;
+    font-size:16px;
+    color:#fff;
   }
-  hr {
-    border-style:dashed;
-    border-color:#dfdfdf;
-    border:1px;
-  }
-  .information_form {
-    align:center;
-  }
+}
+.information_form {
+  text-align:center;
 }
