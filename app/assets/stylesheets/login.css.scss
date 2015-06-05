@@ -1,0 +1,95 @@
+//登录
+body.devise__sessions__new {
+  .panel-body {
+    font-family: "STSong";
+    padding-bottom: 0px;
+    table {
+      margin-bottom: 0px;
+      tr td {
+        border: 0;
+        .form-group {
+          margin-bottom: 0px;
+        }
+      }
+    }
+    p {
+      text-indent: 2em;
+    }
+  }
+  
+  div.checkbox {
+    margin: 0px;
+  }
+
+  .half-width {
+      width: 49%;
+  }
+
+  .panel-list, .oh {
+      overflow: hidden;
+  }
+
+  .panel-bg {
+    height: 37px;
+    background: image-url("panel-bg.png") repeat-x 0 0;
+  }
+  .panel {
+    position: relative;
+    border-top: 0 none;
+  }
+  .title-bg {
+    height: 37px;
+    width: 127px;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    text-align: center;
+    line-height: 37px;
+    color: #fff;
+    background: image-url("login-bg.png") no-repeat 0 0;
+  }
+}
+
+
+//注册
+body.devise__registrations__new, body.devise__registrations__create {
+  .text-red {
+    color: red;
+  }
+ 
+  img[alt='captcha']:hover {
+    cursor:pointer;
+  }
+
+  .half-width {
+      width: 49%;
+  }
+
+  .panel-list, .oh {
+      overflow: hidden;
+  }
+
+  .panel-bg {
+    height: 37px;
+    background: image-url("panel-bg.png") repeat-x 0 0;
+  }
+  .panel {
+    position: relative;
+    border-top: 0 none;
+    font-family: "STSong";
+    label {
+      font-weight: normal;
+    }
+  }
+  .title-bg {
+    height: 37px;
+    width: 127px;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    text-align: center;
+    line-height: 37px;
+    color: #fff;
+    background: image-url("login-bg.png") no-repeat 0 0;
+  }
+}

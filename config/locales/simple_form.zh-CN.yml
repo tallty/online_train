@@ -7,9 +7,10 @@ zh-CN:
       # mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
-      html: '<abbr title="required">*</abbr>'
+      # html: '<abbr title="required">*</abbr>'
+      html: '<span title="required" class="text-red">*</span>'
     error_notification:
-      default_message: "请修正以下问题:"
+      default_message: "请重新填写红色框内容:"
     labels:
       user:
         email: "邮箱"
@@ -41,7 +42,7 @@ zh-CN:
         password: '请输入密码'
     prompts:
       user:
-        city: '--选择省市--'
+        school: '--请选择学校--'
     options:
       user:
         gender:

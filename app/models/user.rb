@@ -52,5 +52,15 @@ class User < ActiveRecord::Base
   validates_confirmation_of :email
   validates :name, presence: true
   #validate :valid_captcha?, on: :create
+  validates :ID_number, presence: true
+  validates :nation, presence: true
+  validates :gender, presence: true
+  validates :birth, presence: true
+  validates :school, presence: true
+  validates :academy, presence: true
+  validates :address, presence: true
+  validates :zip_code, presence: true
+  validates :telephone, presence: true
+  validates :phone, presence: true
 
 end
