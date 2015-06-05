@@ -1,0 +1,22 @@
+// Place all the styles related to the project controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper{
+	width: 90%;
+	
+}
+.left-nav{
+	background: url(/assets/left_title_bg.png) no-repeat;
+	height: 50px;
+	margin-left: 30px;
+	.platform{
+		color: white;
+	}
+}
+	.right-nav{
+		background:url(/assets/right_title_bg.png) no-repeat;
+		height: 50px;
+		margin-top: 8px;
+	}
+
+	

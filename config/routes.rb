@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'train/notice_index'
 
   get 'train/notice_info'
@@ -9,6 +10,11 @@ Rails.application.routes.draw do
 
   captcha_route
   devise_for :users
+
+  get 'project/about'
+
+  get 'project/background'
+
   root "home#index"
   mount ChinaCity::Engine => '/china_city'
 end
