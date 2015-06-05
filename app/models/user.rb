@@ -35,6 +35,9 @@
 #
 
 class User < ActiveRecord::Base
+
+  acts_as_easy_captcha
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -48,5 +51,6 @@ class User < ActiveRecord::Base
 
   validates_confirmation_of :email
   validates :name, presence: true
+  #validate :valid_captcha?, on: :create
 
 end

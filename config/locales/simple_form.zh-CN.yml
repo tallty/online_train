@@ -34,6 +34,7 @@ zh-CN:
         phone: "手机"
         qq_no: "QQ"
         summary: "简介"
+        captcha: "验证码"
     placeholders:
       user:
         email: '请输入电子邮箱'

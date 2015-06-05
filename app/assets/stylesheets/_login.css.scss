@@ -1,8 +1,6 @@
 body.devise__sessions__new {
-  .col-sm-6 {
-    padding: 15px;
-  }
   .panel-body {
+    font-family: "STSong";
     padding-bottom: 0px;
     table {
       margin-bottom: 0px;
@@ -12,6 +10,9 @@ body.devise__sessions__new {
           margin-bottom: 0px;
         }
       }
+    }
+    p {
+      text-indent: 2em;
     }
   }
   
@@ -24,4 +25,5 @@ body.devise__registrations__new {
   abbr {
     color: red;
   }
+ 
 }

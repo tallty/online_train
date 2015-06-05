@@ -1,61 +1,64 @@
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="row panel panel-default">
-        <div class="panel-heading">用户中心</div>
-        <div class="panel-body">
-          <% flash.each do |key, value| %>
-            <% if value.present? %>
-                <p class="text-danger"><%= value%></p>
+<div class="wrapper">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">用户中心</div>
+          <div class="panel-body">
+            <% flash.each do |key, value| %>
+              <% if value.present? %>
+                  <p class="text-danger"><%= value%></p>
+              <% end %>
             <% end %>
-          <% end %>
-          <div class="form-inputs table-responsive">
-            <table class="table">
-              <tr align="center">
-                <td colspan="2"><%= f.input :email, required: false, label: false, autofocus: true %></td>
-                <td><%= f.button :submit, "登录", class: "btn btn-success" %></td>
-              </tr>
-              <tr align="center">
-                <td colspan="2"><%= f.input :password, label: false, required: false %></td>
-                <td><%= link_to "注册", new_registration_path(resource_name), class: "btn btn-primary" %></td>
-              </tr>
-              <tr>
-                <td><%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %></td>
-                <td align="right"><%= link_to "忘记密码?", new_password_path(resource_name) %></td>
-                <td></td>
-              </tr>
-            </table>
+            <div class="form-inputs table-responsive">
+              <table class="table">
+                <tr align="center">
+                  <td colspan="2"><%= f.input :email, required: false, label: false, autofocus: true %></td>
+                  <td><%= f.button :submit, "登录", class: "btn btn-success" %></td>
+                </tr>
+                <tr align="center">
+                  <td colspan="2"><%= f.input :password, label: false, required: false %></td>
+                  <td><%= link_to "注册", new_registration_path(resource_name), class: "btn btn-primary" %></td>
+                </tr>
+                <tr>
+                  <td><%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %></td>
+                  <td align="right"><%= link_to "忘记密码?", new_password_path(resource_name) %></td>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">关于我们</div>
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item">单位：全国高职高专教育教师培训联盟秘书处</li>
+              <li class="list-group-item">地址：北京市朝阳区惠新东街4号富豪大厦</li>
+              <li class="list-group-item">邮编：100029</li>
+              <li class="list-group-item">业务咨询：010-58581444</li>
+              <li class="list-group-item">技术支持：010-58581854</li>
+              <li class="list-group-item">证书办理：010-58581602</li>
+              <li class="list-group-item">QQ群：226595293</li>
+              <li class="list-group-item">邮箱咨询：206174801@qq.com</li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <div class="row panel panel-default">
-        <div class="panel-heading">关于我们</div>
-        <div class="panel-body">
-          <ul class="list-group">
-            <li class="list-group-item">单位：全国高职高专教育教师培训联盟秘书处</li>
-            <li class="list-group-item">地址：北京市朝阳区惠新东街4号富豪大厦</li>
-            <li class="list-group-item">邮编：100029</li>
-            <li class="list-group-item">业务咨询：010-58581444</li>
-            <li class="list-group-item">技术支持：010-58581854</li>
-            <li class="list-group-item">证书办理：010-58581602</li>
-            <li class="list-group-item">QQ群：226595293</li>
-            <li class="list-group-item">邮箱咨询：206174801@qq.com</li>
-          </ul>
+      <div class="col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">师资培训计划</div>
+          <div class="panel-body">
+            <p>为贯彻落实全国教育工作会议精神和《国家中长期教育改革和发展规划纲要（2010-2020年）》提出的完成培训一大批“双师型”教师、聘任（聘用）一大批有实践经验和技能的专兼职教师的工作要求，进一步推动和加强职业院校教师队伍建设，促进职业教育科学发展，教育部、财政部决定2011-2015年实施职业院校教师素质提高计划。</p><br>
+            <p>2011-2015年，将组织45万名职业院校专业骨干教师参加培训，其中中央财政重点支持培训10万名，省级培训35万名，提高教师的教育教学水平特别是实践教学和课程设计开发能力；支持2万名中等职业学校青年教师到企业实践，提高教师的产业文化素养和专业技能水平；支持职业院校设立兼职教师岗位，优化职业院校教师队伍的人员结构；支持国家职业教育师资基地重点建设300个职教师资专业点，开发100个职教师资本科专业的培养标准、培养方案、核心课程和特色教材, 加强基地的实训条件和内涵建设，完善适应教师专业化要求的培养培训体系。</p><br>
+            <p>实施职业院校教师素质提高计划，是《国家中长期教育改革和发展规划纲要（2010-2020年）》提出的重大项目，是新时期新阶段推动职业教育科学发展的迫切要求，是提高职业院校教师队伍整体素质的重要举措。各级教育、财政部门和有关单位要切实提高重视程度，加强组织领导，周密安排部署，精心组织实施。</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="col-sm-6">
-      <div class="row panel panel-default">
-        <div class="panel-heading">师资培训计划</div>
-        <div class="panel-body">
-          
-        </div>
-      </div>
-    </div>
-  </div>
+  <% end %>
 
-<% end %>
-
+</div>

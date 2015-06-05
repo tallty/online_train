@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'train/apply_info'
 
+  captcha_route
   devise_for :users
   root "home#index"
   mount ChinaCity::Engine => '/china_city'

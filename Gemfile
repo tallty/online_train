@@ -52,4 +52,4 @@ gem 'simple_form', '~> 3.1.0'
 
 gem 'china_city'
 
-
+gem 'easy_captcha', git: "https://github.com/phatworx/easy_captcha.git"
