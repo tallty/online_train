@@ -1,2 +1,66 @@
 .home__index {
+	.main-content {
+		.half-width {
+			width: 49%;
+		}
+		.panel-list, .oh {
+			overflow: hidden;
+		}
+		.panel-bg {
+			height: 37px;
+			background: image-url("panel-bg.png") repeat-x 0 0;
+		}
+		.panel {
+      border-top: 0 none;
+		}
+		.title-bg {
+			height: 36px;
+			width: 176px;
+			line-height: 36px;
+			text-align: center;
+			color: #fff;
+		  position: absolute;
+		  left: 50%;
+		  z-index: 2333;
+			background: image-url("title-bg.png") no-repeat 0 0;
+			&.pxtz {
+				margin-left: -480px;
+		    top: 365px;
+			}
+			&.pxbm {
+				margin-left: 28px;
+		    top: 365px;
+			}
+			&.yqlj {
+				left: 50%;
+			  margin-left: -480px;
+			  top: 853px;
+			}
+		}
+		ul {
+			height: 390px;
+      overflow: hidden;
+		}
+		ul li {
+			height: 40px;
+			line-height: 40px;
+			border-bottom: dotted 1px #ccc;
+			overflow: hidden;
+			position: relative;
+			&:before {
+				content: image-url("li-squ.png");
+				height: 24px;
+				line-height: 24px;
+        position: absolute;
+        top: 6px;
+			}
+			a {
+				color: #333;
+				padding-left: 12px;
+				&:hover {
+					color: #345ab3;
+				}
+			}
+		}
+	}
 }

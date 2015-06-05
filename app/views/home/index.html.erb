@@ -1,2 +1,54 @@
-<p>test bootstrap</p>
-<span class="glyphicon glyphicon-glass"></span>
+<div class="main-content wrapper">
+  <div class="panel-list">
+  	<div class="panel panel-default half-width pull-left">
+			<div class="panel-heading panel-bg oh">
+		    <span class="pull-left title-bg pxtz">培训通知</span>
+		    <%= link_to "MORE", "", class: "pull-right" %>
+		  </div>
+			<div class="panel-body">
+			  <ul>
+			    <!-- 最多显示10行 -->
+			    <% 10.times do %>
+				  	<li>
+				  	  <a href="" class="pull-left">各身份用各身份用户帮助文档户帮助文档</a>
+				  	  <span class="pull-right">2015-04-22</span>
+				  	</li>
+				  <% end %>
+			  </ul>
+			</div>
+		</div>
+	  <div class="panel panel-default half-width pull-right">
+		  <div class="panel-heading panel-bg oh">
+		  	<span class="pull-left title-bg pxbm">培训报名</span>
+		    <%= link_to "MORE", "", class: "pull-right" %>
+		  </div>
+		  <div class="panel-body">
+		    <ul>
+			    <!-- 最多显示10行 -->
+			    <% 10.times do %>
+				  	<li>
+				  	  <a href="" class="pull-left">各身份用各身份用户帮助文档户帮助文档</a>
+				  	  <span class="pull-right">2015-04-22</span>
+				  	</li>
+				  <% end %>
+			  </ul>
+		  </div>
+		</div>
+  </div>
+	<div class="panel panel-default">
+	  <div class="panel-heading panel-bg">
+	    <span class="title-bg yqlj">友情链接</span>
+	  </div>
+	  <div class="panel-body">
+	    <div class="row">
+	      <% 6.times do %>
+				  <div class="col-xs-6 col-md-2 col-sm-2">
+				    <a href="#" class="thumbnail">
+				      <%= image_tag("flink-1.png")%>
+				    </a>
+				  </div>
+				<% end %>
+			</div>
+	  </div>
+	</div>
+</div>

@@ -4,6 +4,12 @@
 	overflow: hidden;
 }
 
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
 /* 全局页面顶部 */
 header {
 	position: relative;
