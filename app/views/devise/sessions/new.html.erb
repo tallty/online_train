@@ -14,11 +14,13 @@
           <div class="form-inputs table-responsive">
             <table class="table">
               <tr align="center">
-                <td colspan="2"><%= f.input :email, required: false, label: false, autofocus: true %></td>
+                <td colspan="2">
+                  <%= f.input :email, wrapper: :login_input, autofocus: true %>
+                </td>
                 <td><%= f.button :submit, "登录", class: "btn btn-success" %></td>
               </tr>
               <tr align="center">
-                <td colspan="2"><%= f.input :password, label: false, required: false %></td>
+                <td colspan="2"><%= f.input :password, label: false, required: false, wrapper: :password_input %></td>
                 <td><%= link_to "注册", new_registration_path(resource_name), class: "btn btn-primary" %></td>
               </tr>
               <tr>
@@ -47,15 +49,15 @@
           <span class="pull-left title-bg yqlj">关于我们</span>
         </div>
         <div class="panel-body">
-          <ul class="list-group">
-            <li class="list-group-item">单位：全国高职高专教育教师培训联盟秘书处</li>
-            <li class="list-group-item">地址：北京市朝阳区惠新东街4号富豪大厦</li>
-            <li class="list-group-item">邮编：100029</li>
-            <li class="list-group-item">业务咨询：010-58581444</li>
-            <li class="list-group-item">技术支持：010-58581854</li>
-            <li class="list-group-item">证书办理：010-58581602</li>
-            <li class="list-group-item">QQ群：226595293</li>
-            <li class="list-group-item">邮箱咨询：206174801@qq.com</li>
+          <ul class="list-group" type="disc">
+            <li class="list-group-item"><span>单位：全国高职高专教育教师培训联盟秘书处</span></li>
+            <li class="list-group-item"><span>地址：北京市朝阳区惠新东街4号富豪大厦</span></li>
+            <li class="list-group-item"><span>邮编：100029</span></li>
+            <li class="list-group-item"><span>业务咨询：010-58581444</span></li>
+            <li class="list-group-item"><span>技术支持：010-58581854</span></li>
+            <li class="list-group-item"><span>证书办理：010-58581602</span></li>
+            <li class="list-group-item"><span>QQ群：226595293</span></li>
+            <li class="list-group-item"><span>邮箱咨询：206174801@qq.com</span></li>
           </ul>
         </div>
       </div>

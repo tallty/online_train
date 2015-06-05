@@ -21,6 +21,10 @@ body.devise__sessions__new {
     margin: 0px;
   }
 
+  div.input-group {
+    width: 100%;
+  }
+
   .half-width {
       width: 49%;
   }
@@ -47,6 +51,19 @@ body.devise__sessions__new {
     line-height: 37px;
     color: #fff;
     background: image-url("login-bg.png") no-repeat 0 0;
+  }
+
+  ul li.list-group-item {
+    border: 0px;
+    overflow: hidden;
+    position: relative;
+    &:before {
+      content: image-url("our-cir.png");
+      position: absolute;
+    }
+    span {
+      padding-left: 15px;
+    }
   }
 }
 
