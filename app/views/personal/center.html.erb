@@ -1,0 +1,247 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="row">
+      <div class="personal_center col-md-3">
+      <div class="col-md-12 center_tab">个人中心</div>
+      <div class="col-md-12">
+        <ul class="nav nav-tabs" id="myTab">
+          <li role="presentation" class=" active course_tab"><a href="#coursetab">我的课程</a>
+          <hr>
+          </li>
+          <li role="presentation" class="task_tab"><a href="#tasktab">我的作业</a>
+          <hr>
+          </li>
+          <li role="presentation" class="journal_tab"><a href="#journaltab">我的日志</a>
+          <hr>
+          </li>
+          <li role="presentation" class="message_tab"><a href="#messagetab">我的消息</a><hr></li>
+          <li role="presentation" class="information_tab"><a href="#informationtab">个人信息</a></li>
+        </ul>
+        </div>
+      </div>
+      <div class="tab-content courses col-md-9">
+        <div class="tab-pane active" id="coursetab">
+          <div class="panel-heading">我的课程&nbsp
+            已完成课程</div>
+            <p><h4>正在进行的课程</h4></p>
+            <table border="1">
+              <tr>
+                <th>计划</th>
+                <th>培训班</th>
+                <th>培训地点</th>
+                <th>开班起止时间</th>
+                <th>班级状态</th>
+                <th>计划</th>
+                <th>剩余</th>
+                <th>报名状态</th>
+                <th>来班</th>
+                <th>评价</th>
+                <th>证书编号</th>
+                <th>操作</th>
+              </tr>
+              <tr>
+                <td>2013</td>
+                <td>（国内 常州）<br> 通信专业LTE技术培训 <br>（国培代码：10131010）</td>
+                <td>浙江 杭州</td>
+                <td>2015-07-06 <br> 2014-07-26</td>
+                <td>正在进行</td>
+                <td>39</td>
+                <td>15</td>
+                <td>审核通过</td>
+                <td>是</td>
+                <td></td>
+                <td></td>
+                <td>
+                  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><br>
+                  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><br>
+                  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                </td>
+              </tr>
+            </table>
+            <p><h4>即将开始的课程</h4></p>
+            <table border="1">
+              <tr>
+                <th>计划</th>
+                <th>培训班</th>
+                <th>培训地点</th>
+                <th>开班起止时间</th>
+                <th>班级状态</th>
+                <th>计划</th>
+                <th>剩余</th>
+                <th>报名状态</th>
+                <th>来班</th>
+                <th>评价</th>
+                <th>证书编号</th>
+                <th>操作</th>
+              </tr>
+              <% (1..4) .each do |i|%>
+              <tr>
+                <td>2013</td>
+                <td>（国内 常州）<br> 通信专业LTE技术培训 <br>（国培代码：10131010）</td>
+                <td>浙江 杭州</td>
+                <td>2015-07-06 <br> 2014-07-26</td>
+                <td>正在进行</td>
+                <td>39</td>
+                <td>15</td>
+                <td>审核通过</td>
+                <td>是</td>
+                <td></td>
+                <td></td>
+                <td>
+                  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><br>
+                  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><br>
+                  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                </td>
+              </tr>
+              <% end %>
+            </table>
+          </div>
+
+          <div class="tab-pane " id="tasktab">
+            <h4>我的作业</h4>
+            <table border="1">
+              <tr>
+                <th>培训班</th>
+                <th>布置作业</th>
+                <th>作业提交</th>
+                <th>创建时间</th>
+                <th>操作</th>
+              </tr>
+              <% (1..7) .each do |i|%>
+              <tr>
+                <td>
+                  （国内 常州）<br> 通信专业LTE技术培训 <br>（国培代码：10131010）
+                </td>
+                <td>7月21日作业-EPC</td>
+                <td>7月21日作业-EPC<br>[作业附件]作业4.docx</td>
+                <td>2015-04-25 <br> 21:30</td>
+                <td>
+                  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><br>
+                  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><br>
+                  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                </td>
+              </tr>
+              <% end %>
+            </table>
+          </div>
+
+          <div class="tab-pane " id="journaltab">
+            <h4>我的作业</h4>
+            <table border="1">
+              <tr>
+                <th>培训班</th>
+                <th>日志提交</th>
+                <th>日期</th>
+                <th>创建时间</th>
+                <th>操作</th>
+              </tr>
+              <% (1..7) .each do |i|%>
+              <tr>
+                <td>
+                  （国内 常州）<br> 通信专业LTE技术培训 <br>（国培代码：10131010）
+                </td>
+                <td>7月31日日志</td>
+                <td>2014-07-31</td>
+                <td>2015-04-25 <br> 21:30</td>
+                <td>
+                  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><br>
+                  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><br>
+                  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                </td>
+              </tr>
+              <% end %>
+            </table>
+          </div>
+
+          <div class="tab-pane " id="messagetab">
+            <h4>我的消息</h4>
+            <table border="1">
+              <tr>
+                <th>计划</th>
+                <th>培训班</th>
+                <th>培训地点</th>
+                <th>开班起止时间</th>
+                <th>班级状态</th>
+                <th>计划</th>
+                <th>剩余</th>
+                <th>报名状态</th>
+                <th>来班</th>
+                <th>评价</th>
+                <th>证书编号</th>
+                <th>操作</th>
+              </tr>
+              <% (1..7) .each do |i|%>
+              <tr>
+                <td>2013</td>
+                <td>（国内 常州）<br> 通信专业LTE技术培训 <br>（国培代码：10131010）</td>
+                <td>浙江 杭州</td>
+                <td>2015-07-06 <br> 2014-07-26</td>
+                <td>正在进行</td>
+                <td>39</td>
+                <td>15</td>
+                <td>审核通过</td>
+                <td>是</td>
+                <td></td>
+                <td></td>
+                <td>
+                  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><br>
+                  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><br>
+                  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                </td>
+              </tr>
+              <% end %>
+            </table>
+          </div>
+
+          <div class="tab-pane " id="informationtab">
+
+            <form class="information_form">
+              <p>*注册邮箱: <input type="text" /></p>
+              <p>*确认邮箱: <input type="text" /></p>
+              <p>*设置密码: <input type="password" /></p>
+              <p>*确认密码: <input type="password" /></p>
+              <p>*真实姓名: <input type="text" /></p>
+              <p>*身份证号: <input type="text" /></p>
+
+              <p>*性别: 
+              <input type="radio" checked="checked" name="Sex" value="男" />男
+              <input type="radio" checked="checked" name="Sex" value="女" />女
+              </p>
+               
+              <p>*出生日期: <input type="text" /></p>
+              <p>*所在省市: <input type="text" /></p>
+              <p>*所在学校: <input type="text" /></p>
+              <p>*所在院系: <input type="text" /></p>
+              <p>*职业资格证书: <input type="text" /></p>
+              <p>*职称: <input type="text" /></p>
+              <p>*职务: <input type="text" /></p>
+              <p>*通讯地址: <input type="text" /></p>
+              <p>*邮编: <input type="text" /></p>
+              <p>*电话: <input type="text" /></p>
+              <p>*手机: <input type="text" /></p>
+              <p>QQ: <input type="text" /></p>
+              <p>简介: <input type="text" /></p>
+              <p>验证码: <input type="text" /></p>
+                    4516
+              <input type="submit" value="确认提交" />
+              <input type="submit" value="取消编辑" />
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script> 
+  $(function () { 
+        $('#myTab a:last').tab('show');//初始化显示哪个tab 
+
+        $('#myTab a').click(function (e) { 
+          e.preventDefault();//阻止a链接的跳转行为 
+          $(this).tab('show');//显示当前选中的链接及关联的content 
+        }) 
+      }) 
+</script>

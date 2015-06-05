@@ -1,0 +1,45 @@
+.wrapper {
+  width:85%;
+  .center_tab {
+    align:center;
+  }
+  .personal_center {
+    border:#dfdfdf;
+  }
+  #myTab {
+
+    li {
+    float:none !important;
+    align:center!important;
+    a:link {
+      color:#010101;
+      border:none;
+    }
+    a:hover {
+      color:#345ab3;
+      border:none;
+      background:url('08-2.png') left top no-repeat;
+    }
+    a:visited {
+      color:#010101;
+      border:none;
+    }
+  }
+}
+  table {
+    width:100%;
+    border-color:#dfdfdf;
+    align:center;
+  }
+  .courses {
+    border:1px!important;
+  }
+  hr {
+    border-style:dashed;
+    border-color:#dfdfdf;
+    border:1px;
+  }
+  .information_form {
+    align:center;
+  }
+}
