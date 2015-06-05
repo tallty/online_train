@@ -6,6 +6,8 @@
 
 /* 全局页面顶部 */
 header {
+	position: relative;
+	margin-bottom: 30px;
 	.main-header{
 		width: 100%;
 		height: 340px;
@@ -14,6 +16,10 @@ header {
 	.navbar-custom {
   	height: 39px;
   	background: image-url("nav-bg.png") repeat-x 0 0;
+  	position: absolute;
+  	left: 50%;
+  	top: 320px;
+  	margin-left: -500px;
   	a {
   		text-align: center;
   		height: 29px;
