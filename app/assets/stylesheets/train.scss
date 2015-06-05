@@ -4,7 +4,6 @@
 @import "variables";
 .content{
 	border-radius: 5px;
-	text-align: center;
 	.left-head{
 		background: url(/assets/left_title_bg.png) no-repeat;
 		background-size: 100% 100%;
@@ -16,12 +15,14 @@
 		border:1px solid $color-gray-border;
 		border-top: 0px;
 		border-radius:0px 0px 8px 8px;
+		padding: 5px 0;
 		a{
 			color: $color-black;
 			&.active{
 				background: url(/assets/left_item_bg.png) no-repeat;
-				background-size: 100% 100%;
+				background-size: 95% 100%;
 				color: $color-blue;
+				background-position: center;
 			}
 		}
 	}
@@ -32,11 +33,48 @@
 		line-height: 35px;
 		margin-top: 5px;
 		color: $color-white;
+		.btn-xs{
+			font-size: 14px;
+			padding: 1px 12px;
+			border-radius: 12px;
+			margin-bottom: 5px;
+		}
+		.apply-input{
+			width: 150px;
+			height: 25px;
+			border-radius:12px; 
+			margin-bottom: 5px;
+		}
 	}
 	.right-body{
 		border:1px solid $color-gray-border;
 		border-radius:0px 0px 8px 8px;
 		border-top: 0px;
+		padding: 20px 10px;
+		.notice-info{
+			color: $color-gray;
+			font-size: 12px;
+		}
+		.share-btn{
+			background: url(/assets/share_bg.png) no-repeat;
+			background-size: 100% 100%;
+			height: 18px;
+			width: 120px;
+			float: right;
+			a{
+				display: block;
+				height: 18px;
+				width: 20px;
+				float: left;
+			}
+		}
+		.table > thead:first-child > tr:first-child > th, .table-bordered > tbody > tr > td{
+			text-align: center;
+			vertical-align: middle;
+			.cell-width{
+				width: 35px;
+			}
+		}
 	}
 	.divider{
 		margin: 0 10px 0 10px;

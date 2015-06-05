@@ -1,7 +1,7 @@
 <div class="wrapper">
 	<div class="row">
 		<div class="col-md-3">
-			<div class="content">
+			<div class="content text-center">
 				<div class="left-head"><strong>培训计划</strong></div>
 				<div class="left-body">
 					<ul class="nav nav-stacked">
@@ -11,7 +11,7 @@
 						<hr class="divider">
 						<li role="presentation"><a href="#">培训通知</a></li>
 						<hr class="divider">
-						<li role="presentation" class="active"><a href="#">培训报名</a></li>
+						<li role="presentation"><a href="#" class="active">培训报名</a></li>
 					</ul>
 				</div>
 			</div>
@@ -19,10 +19,95 @@
 		<div class="col-md-9">
 			<div class="content">
 				<div class="right-head">
-					<div class="col-xs-2"><strong>培训通知</strong></div>
+					<div class="row">
+						<div class="col-xs-3 text-center"><strong>培训通知</strong></div>
+						<div class="col-xs-9">
+							<form class="form-inline">
+								<div class="form-group dropdown">
+									<button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+										培训计划 <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+										<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+									</ul>
+								</div>
+								<div class="form-group dropdown">
+									<button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+										培训类别 <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+										<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+									</ul>
+								</div>
+								<div class="form-group dropdown">
+									<button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+										培训专业大类 <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+										<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+									</ul>
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="exampleInputEmail3">Email address</label>
+									<input type="email" class="form-control apply-input" id="exampleInputEmail3" placeholder="">
+								</div>
+								<button type="submit" class="btn btn-default btn-xs" style="margin-top:2px;">搜索</button>
+							</form>
+						</div>
+					</div>
 				</div>
 				<div class="right-body">
-				
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">		
+							<thead>
+								<tr class="text-center">
+									<th>计划</th>
+									<th>培训班名称</th>
+									<th>培训机构名称</th>
+									<th><div class="cell-width">地点</div></th>
+									<th>时间</th>
+									<th><div class="cell-width">可报</div></th>
+									<th><div class="cell-width">剩余</div></th>
+									<th><div class="cell-width">状态</div></th>
+								</tr>
+							</thead>
+							<tbody>
+							<%(0..9).each do |row| %>
+								<tr>
+									<td scope="row">2015</td>
+									<td>(企业顶岗) (天津) Android高级应用开发(国培代码：02152005)</td>
+									<td>天津电子信息职业技术学院</td>
+									<td>天津</td>
+									<td>2015-07-17至2015-09-11</td>
+									<td>100</td>
+									<td>100</td>
+									<td>报名</td>
+								</tr>
+							<% end %>
+							</tbody>   
+						</table>
+					</div>
+
+					<nav>
+						<ul class="pagination">
+							<li>
+								<a href="#" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+								</a>
+							</li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li>
+								<a href="#" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+
 				</div>
 			</div>
 		</div>
