@@ -26,4 +26,7 @@ body.devise__registrations__new {
     color: red;
   }
  
+  img[alt='captcha']:hover {
+    cursor:pointer;
+  }
 }
