@@ -1,86 +1,91 @@
 .center_tab {
-  background:url('08-1.png') 40% 30% no-repeat;
-  text-align:center;
-  line-height:35px;
+  background: url(08-1.png) no-repeat;
+  background-size: 100% 100%;
+  height: 40px;
   margin-top:20px;
-  span {
-    font-size:16px;
-    color:#fff;
-  }
+  line-height: 35px;
 }
 .personal_center {
   text-align:center;
   margin-right:-15px;
   padding:0 20px;
-#myTab {
-  hr {
-    margin:-1px;
-    width:85%;
-    position:relative;
-    left:8%;
-  }
-  span {
-    font-size:16px;
-  }
-  li {
-    padding:4px 2px;
-    a:link {
-      color:#010101;
-      border:none;
+}
+  #myTab {
+    border:1px solid #dfdfdf;
+    border-radius: 0 0 10px 10px;
+    list-style: none;
+    padding:15px 0 ;
+    hr {
+      border-style: dashed none none;
+      margin: 0px 10px;
     }
     a:hover {
-      color:#345ab3;
-      border:none;
-      background:url('08-2.png') 60% 40% no-repeat;
+      background: url(08-2.png) no-repeat;
+      background-size: 90% 100%;
+      background-position: center;
     }
-    a:visited {
-      color:#010101;
-      border:none;
+    li{
+      padding: 15px 0;
+      line-height:2em;
+      a{
+        text-decoration: none;
+        color: #000;
+      }
+    } 
+  }
+  .courses {
+    margin:20px 0 20px 0;
+    h4 {
+      padding-left:40px;
+    }
+    table {
+      width:100%;
+      margin-top:30px;
+      border-color:#bfbfbf;
+      text-align:center;
+      td {
+        border-color:#bfbfbf;
+      }
+      th {
+        color:blue;
+        padding:10px 0 10px 0 !important;
+        border-radius:10px 10px 0 0 !important;
+        border-color:#bfbfbf;
+        text-align:center !important;
+      }
+      .check {
+        color:green;
+      }
+      .glyphicon-list-alt {
+        color:blue;
+      }
+      .glyphicon-eye-open {
+        color:green;
+      }
+      .glyphicon-pencil {
+        color:red;
+      }
     }
   }
-}
-}
-.courses {
-  margin:20px 1px 20px 0;
-  table {
-    width:98%;
-    margin-left:8px;
-    border-color:#bfbfbf;
+  .right-nav-tab {
+    background:url(right_title_bg.png) no-repeat;
+  margin: 5px 0  0;
+  padding:0 3px 40px 3px;
+  }
+  .personal_center_content {
+    width:100%;
+    border-radius: 0 0 10px 10px;
+    border:1px solid #dfdfdf;
+  }
+
+  .information_form {
+    margin-top:20px;
     text-align:center;
-    th {
-      color:blue;
-      text-align:center !important;
+    padding-right:150px;
+    p {
+      line-height:20px;
     }
-    .check {
-      color:green;
-    }
-    .glyphicon-list-alt {
-      color:blue;
-    }
-    .glyphicon-eye-open {
-      color:green;
-    }
-    .glyphicon-pencil {
+    span {
       color:red;
     }
   }
-}
-.panel {
-  .panel-heading {
-    background:url('08-3.png') no-repeat;
-    padding-top:-10px;
-    color:#fff;
-  }
-}
-.information_form {
-  margin-top:20px;
-  text-align:center;
-  padding-right:100px;
-  p {
-    line-height:20px;
-  }
-  span {
-    color:red;
-
-  }
-}

@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <div class="wrapper">
     <div class="row">
-      <div class="personal_center col-md-3">
-      <div class="center_tab">
+      <div class="personal_center fnt-size col-md-3">
+      <div class="center_tab text-center">
       <span>个人中心</span>
       </div>
         <ul class="nav " id="myTab">
@@ -15,13 +15,10 @@
       </div>
 
       <div class="tab-content courses col-md-9 pull-right">
-        <div class="tab-pane active" id="coursetab">
-        <div class="panel">
-          <div class="panel-heading">
-          <span><h4>我的课程</h4></span>
-          <a href="#coursedtab"><span><h4>已完成课程</h4></span></a>
-          </div>
-          <div class="panel-body"><p><h4>正在进行的课程</h4></p></div>
+        <div class="tab-pane" id="coursetab">
+        <div class="row personal_center_content right-nav-tab">
+         <h4 class="font-size">我的课程&nbsp已完成课程</h4>
+          <h4>正在进行的课程</h4>
             <table border="1">
               <tr>
                 <th>计划</th>
@@ -56,7 +53,7 @@
                 </td>
               </tr>
             </table>
-            <div class="panel-body"><p><h4>即将开始的课程</h4></p></div>
+          <h4>即将开始的课程</h4>
             <table border="1">
               <tr>
                 <th>计划</th>
@@ -97,9 +94,8 @@
           </div>
 
           <div class="tab-pane " id="tasktab">
-          <div class="panel">
-          <div class="panel-heading">
-            <h4>我的作业</h4></div>
+          <div class="row personal_center_content right-nav-tab">
+            <h4 class="fnt-size">我的作业</h4>
             <table border="1">
               <tr>
                 <th>培训班</th>
@@ -110,9 +106,7 @@
               </tr>
               <% (1..7) .each do |i|%>
               <tr>
-                <td>
-                  （国内 常州）<br> 通信专业LTE技术培训 <br>（国培代码：10131010）
-                </td>
+                <td>（国内 常州）通信专业LTE技术培训（国培代码：10131010）</td>
                 <td>7月21日作业-EPC</td>
                 <td>7月21日作业-EPC<br>[作业附件]作业4.docx</td>
                 <td>2015-04-25 <br> 21:30</td>
@@ -125,12 +119,11 @@
               <% end %>
             </table>
             </div>
-          </div>
+            </div>
 
           <div class="tab-pane " id="journaltab">
-          <div class="panel">
-          <div class="panel-heading">
-            <h4>我的日志</h4></div>
+          <div class="row personal_center_content right-nav-tab">
+            <h4 class=" fnt-size">我的日志</h4>
             <table border="1">
               <tr>
                 <th>培训班</th>
@@ -142,7 +135,7 @@
               <% (1..7) .each do |i|%>
               <tr>
                 <td>
-                  （国内 常州）<br> 通信专业LTE技术培训 <br>（国培代码：10131010）
+                  （国内 常州）通信专业LTE技术培训（国培代码：10131010）
                 </td>
                 <td>7月31日日志</td>
                 <td>2014-07-31</td>
@@ -159,9 +152,8 @@
           </div>
 
           <div class="tab-pane " id="messagetab">
-          <div class="panel">
-          <div class="panel-heading">
-            <h4>我的消息</h4></div>
+          <div class="row personal_center_content right-nav-tab">
+            <h4 class=" fnt-size">我的消息</h4>
             <table border="1">
               <tr>
                 <th>计划</th>
@@ -202,9 +194,8 @@
           </div>
 
           <div class="tab-pane " id="informationtab">
-          <div class="panel">
-          <div class="panel-heading"><h4>个人信息</h4></div>
-
+          <div class="row right-nav-tab personal_center_content">
+          <h4 class=" fnt-size">个人信息</h4>
             <form class="information_form">
               <p><span>*</span>注册邮箱: <input type="text" /></p>
               <p><span>*</span>确认邮箱: <input type="text" /></p>
@@ -236,7 +227,6 @@
               <input type="submit" value="确认提交" />
               <input type="submit" value="取消编辑" />
             </form>
-
           </div>
           </div>
 
