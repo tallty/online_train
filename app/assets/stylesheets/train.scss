@@ -68,12 +68,15 @@
 				float: left;
 			}
 		}
-		.table > thead:first-child > tr:first-child > th, .table-bordered > tbody > tr > td{
+		.table > thead:first-child > tr:first-child > th, .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th{
 			text-align: center;
 			vertical-align: middle;
 			.cell-width{
 				width: 35px;
 			}
+		}
+		.table > thead:first-child > tr:first-child > th{
+			color: $color-blue;
 		}
 	}
 	.divider{
@@ -88,4 +91,7 @@
 }
 .font-blue{
 	color: $color-blue;
+}
+.font-green{
+	color:$color-green;
 }
