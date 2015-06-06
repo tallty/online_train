@@ -1,10 +1,10 @@
 <div class="container-fluid">
   <div class="wrapper">
     <div class="row">
-      <div class="personal_center col-md-2">
-      <div class="row">
-      <div class="col-md-12 center_tab"><span>个人中心</span></div>
-      <div class="col-md-12">
+      <div class="personal_center col-md-3">
+      <div class="center_tab">
+      <span>个人中心</span>
+      </div>
         <ul class="nav " id="myTab">
           <li role="presentation" class=" active course_tab"><a href="#coursetab"><span>我的课程</span></a><hr></li>
           <li role="presentation" class="task_tab"><a href="#tasktab"><span>我的作业</span></a><hr></li>
@@ -13,13 +13,14 @@
           <li role="presentation" class="information_tab"><a href="#informationtab"><span>个人信息</span></a></li>
         </ul>
       </div>
-      </div>
-      </div>
+
       <div class="tab-content courses col-md-9 pull-right">
         <div class="tab-pane active" id="coursetab">
-
         <div class="panel">
-          <div class="panel-heading">我的课程&nbsp已完成课程</div>
+          <div class="panel-heading">
+          <span><h4>我的课程</h4></span>
+          <a href="#coursedtab"><span><h4>已完成课程</h4></span></a>
+          </div>
           <div class="panel-body"><p><h4>正在进行的课程</h4></p></div>
             <table border="1">
               <tr>
@@ -127,7 +128,9 @@
           </div>
 
           <div class="tab-pane " id="journaltab">
-            <h4>我的作业</h4>
+          <div class="panel">
+          <div class="panel-heading">
+            <h4>我的日志</h4></div>
             <table border="1">
               <tr>
                 <th>培训班</th>
@@ -153,9 +156,12 @@
               <% end %>
             </table>
           </div>
+          </div>
 
           <div class="tab-pane " id="messagetab">
-            <h4>我的消息</h4>
+          <div class="panel">
+          <div class="panel-heading">
+            <h4>我的消息</h4></div>
             <table border="1">
               <tr>
                 <th>计划</th>
@@ -193,33 +199,36 @@
               <% end %>
             </table>
           </div>
+          </div>
 
           <div class="tab-pane " id="informationtab">
+          <div class="panel">
+          <div class="panel-heading"><h4>个人信息</h4></div>
 
             <form class="information_form">
-              <p>*注册邮箱: <input type="text" /></p>
-              <p>*确认邮箱: <input type="text" /></p>
-              <p>*设置密码: <input type="password" /></p>
-              <p>*确认密码: <input type="password" /></p>
-              <p>*真实姓名: <input type="text" /></p>
-              <p>*身份证号: <input type="text" /></p>
+              <p><span>*</span>注册邮箱: <input type="text" /></p>
+              <p><span>*</span>确认邮箱: <input type="text" /></p>
+              <p><span>*</span>设置密码: <input type="password" /></p>
+              <p><span>*</span>确认密码: <input type="password" /></p>
+              <p><span>*</span>真实姓名: <input type="text" /></p>
+              <p><span>*</span>身份证号: <input type="text" /></p>
 
-              <p>*性别: 
+              <p><span>*</span>性别: 
               <input type="radio" checked="checked" name="Sex" value="男" />男
               <input type="radio" checked="checked" name="Sex" value="女" />女
               </p>
                
-              <p>*出生日期: <input type="text" /></p>
-              <p>*所在省市: <input type="text" /></p>
-              <p>*所在学校: <input type="text" /></p>
-              <p>*所在院系: <input type="text" /></p>
-              <p>*职业资格证书: <input type="text" /></p>
-              <p>*职称: <input type="text" /></p>
-              <p>*职务: <input type="text" /></p>
-              <p>*通讯地址: <input type="text" /></p>
-              <p>*邮编: <input type="text" /></p>
-              <p>*电话: <input type="text" /></p>
-              <p>*手机: <input type="text" /></p>
+              <p><span>*</span>出生日期: <input type="text" /></p>
+              <p><span>*</span>所在省市: <input type="text" /></p>
+              <p><span>*</span>所在学校: <input type="text" /></p>
+              <p><span>*</span>所在院系: <input type="text" /></p>
+              <p><span>*</span>职业资格证书: <input type="text" /></p>
+              <p><span>*</span>职称: <input type="text" /></p>
+              <p><span>*</span>职务: <input type="text" /></p>
+              <p><span>*</span>通讯地址: <input type="text" /></p>
+              <p><span>*</span>邮编: <input type="text" /></p>
+              <p><span>*</span>电话: <input type="text" /></p>
+              <p><span>*</span>手机: <input type="text" /></p>
               <p>QQ: <input type="text" /></p>
               <p>简介: <input type="text" /></p>
               <p>验证码: <input type="text" /></p>
@@ -229,12 +238,12 @@
             </form>
 
           </div>
+          </div>
 
         </div>
       </div>
     </div>
   </div>
-</div>
 
 <script> 
   $(function () { 

@@ -1,5 +1,5 @@
 .center_tab {
-  background:url('08-1.png') center no-repeat;
+  background:url('08-1.png') 40% 30% no-repeat;
   text-align:center;
   line-height:35px;
   margin-top:20px;
@@ -10,12 +10,20 @@
 }
 .personal_center {
   text-align:center;
-  margin-left:15px;
+  margin-right:-15px;
+  padding:0 20px;
 #myTab {
+  hr {
+    margin:-1px;
+    width:85%;
+    position:relative;
+    left:8%;
+  }
   span {
     font-size:16px;
   }
   li {
+    padding:4px 2px;
     a:link {
       color:#010101;
       border:none;
@@ -23,7 +31,7 @@
     a:hover {
       color:#345ab3;
       border:none;
-      background:url('08-2.png') no-repeat;
+      background:url('08-2.png') 60% 40% no-repeat;
     }
     a:visited {
       color:#010101;
@@ -33,12 +41,16 @@
 }
 }
 .courses {
-  margin:20px 10px 20px 0;
+  margin:20px 1px 20px 0;
   table {
     width:98%;
     margin-left:8px;
     border-color:#bfbfbf;
     text-align:center;
+    th {
+      color:blue;
+      text-align:center !important;
+    }
     .check {
       color:green;
     }
@@ -56,10 +68,19 @@
 .panel {
   .panel-heading {
     background:url('08-3.png') no-repeat;
-    font-size:16px;
+    padding-top:-10px;
     color:#fff;
   }
 }
 .information_form {
+  margin-top:20px;
   text-align:center;
+  padding-right:100px;
+  p {
+    line-height:20px;
+  }
+  span {
+    color:red;
+
+  }
 }
