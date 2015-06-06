@@ -5,12 +5,12 @@
 	  	<%= link_to root_path, class: "col-sm-2 col-md-2 col-xs-2 active" do %>
         首页
 	  	<% end %>
-		  <%= link_to "", class: "col-sm-2 col-md-2 col-xs-2" do %>
+		  <%= link_to project_about_path, class: "col-sm-2 col-md-2 col-xs-2" do %>
 		    平台简介
 		  <% end %>
-		  <%= link_to "平台背景", "", class: "col-sm-2 col-md-2 col-xs-2"%>
-		  <%= link_to "培训通知", "", class: "col-sm-2 col-md-2 col-xs-2"%>
-		  <%= link_to "培训报名", "", class: "col-sm-2 col-md-2 col-xs-2"%>
+		  <%= link_to "平台背景", project_background_path, class: "col-sm-2 col-md-2 col-xs-2"%>
+		  <%= link_to "培训通知", train_notice_index_path, class: "col-sm-2 col-md-2 col-xs-2"%>
+		  <%= link_to "培训报名", train_apply_index_path, class: "col-sm-2 col-md-2 col-xs-2"%>
 		  <%= link_to "个人中心", "", class: "col-sm-2 col-md-2 col-xs-2"%>
 	  </span>
 	  <span class="col-sm-4 col-md-4 col-xs-4 login-content">
