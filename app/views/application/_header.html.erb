@@ -37,3 +37,9 @@
 	  </span>
   </nav>
 </header>
+<script type="text/javascript">
+	$(function(){
+		$("header a").removeClass("active");
+		$("header a:eq(<%= get_menu_index %>)").addClass("active");
+	});
+</script>
