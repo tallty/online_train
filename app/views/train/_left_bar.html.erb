@@ -1,31 +1,21 @@
-<% active_train_apply_index = false %>
-<% active_project_background = false %>
-<% active_train_apply_index = false %>
-<% active_train_notice_index = false %>
-<% if controller.controller_path == 'project' && controller.action_name == 'about' %>
-  <% active_project_about = true %>
-<% end %>
-<% if controller.controller_path == 'project' && controller.action_name == 'background' %>
-  <% active_project_background = true %>
-<% end %>
-<% if controller.controller_path == 'train' && controller.action_name == 'apply_index' %>
-  <% active_train_apply_index = true %>
-<% end %>
-<% if controller.controller_path == 'train' && controller.action_name == 'notice_index' %>
-  <% active_train_notice_index = true %>
-<% end %>
-
-<div class="content text-center">
+<div id="leftMenu" class="content text-center">
 	<div class="left-head"><strong>培训计划</strong></div>
 	<div class="left-body">
 		<ul class="nav nav-stacked">
-		  <li role="presentation"><%= link_to "平台简介", project_about_path, class: "#{active_project_about ? 'active' : ''}"%></li>
+		  <li role="presentation"><%= link_to "平台简介", project_about_path %></li>
 		  <hr class="divider">
-		  <li role="presentation"><%= link_to "平台背景", project_background_path, class: "#{active_project_background ? 'active' : ''}"%></li>
+		  <li role="presentation"><%= link_to "平台背景", project_background_path %></li>
 		  <hr class="divider">
-		  <li role="presentation"><%= link_to "培训通知", train_apply_index_path, class: "#{active_train_apply_index ? 'active' : ''}"%></li>
+		  <li role="presentation"><%= link_to "培训通知", train_notice_index_path %></li>
 		  <hr class="divider">
-		  <li role="presentation"><%= link_to "培训报名", train_notice_index_path, class: "#{active_train_notice_index ? 'active' : ''}"%></li>
+		  <li role="presentation"><%= link_to "培训报名", train_apply_index_path %></li>
 		</ul>
 	</div>
 </div>
+
+<script type="text/javascript">
+  $(function(){
+    $("#leftMenu a").removeClass("active");
+    $("#leftMenu a:eq(<%= left_menu_index %>)").addClass("active");
+  });
+</script>

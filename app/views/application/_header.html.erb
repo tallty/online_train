@@ -22,7 +22,7 @@
 			  <%= link_to destroy_session_path(:user), method: :delete do %>
 		      <span class="glyphicon glyphicon-log-out"></span> 退出
 			  <% end %>
-			  <%= link_to "", method: :delete do %>
+			  <%= link_to "" do %>
 		      <span class="glyphicon glyphicon-user"></span> <%= current_user.name %>
 			  <% end %>
 		  <% else %>
