@@ -5,7 +5,7 @@
         <%= render "personal_nav"%>
       </div>
       <div class="tab-content courses col-md-9 pull-right">
-          <div class="row personal_center_content right-nav-tab">
+          <div class="personal_center_content right-nav-tab">
             <h4 class="fnt-size">我的作业</h4>
             <table border="1">
               <tr>
@@ -13,7 +13,7 @@
                 <th>布置作业</th>
                 <th>作业提交</th>
                 <th>创建时间</th>
-                <th>操作</th>
+                <th id="operation">操作</th>
               </tr>
               <% (1..7) .each do |i|%>
               <tr>

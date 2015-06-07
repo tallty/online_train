@@ -1,10 +1,41 @@
-body.user__center, body.user_update, body.user__journal, body.user__work, body.user__message, body.user__course {
-
-  .center_tab {
-    background: url(08-1.png) no-repeat;
-    background-size: 100% 100%;
-    height: 40px;
-    line-height: 30px;
+.center_tab {
+  background: url(08-1.png) no-repeat;
+  background-size: 100% 100%;
+  height: 40px;
+  line-height: 30px;
+}
+.personal_center {
+  text-align:center;
+}
+#myTab {
+  border:1px solid #dfdfdf;
+  border-radius: 0 0 10px 10px;
+  list-style: none;
+  padding:1px 0 ;
+  :hover {
+    background: url(08-2.png) no-repeat;
+    background-position: center;
+  }
+  hr {
+    border-style: dashed none none;
+    margin: 0px 20px;
+  }
+    a{
+      text-decoration: none;
+      color: #000;
+    }
+}
+.courses {
+  margin-bottom:20px;
+  padding-left:10px!important;
+  #operation {
+    width:38px;
+  }
+  .message_hr {
+    margin:0 auto!important;
+  }
+  h4 {
+    padding-left:40px;
   }
   .personal_center {
     text-align:center;

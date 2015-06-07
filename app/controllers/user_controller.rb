@@ -8,7 +8,10 @@ class UserController < ApplicationController
   def course
   end
 
-  def message
+  def message1
+  end
+  def message2
+
   end
 
   def work
