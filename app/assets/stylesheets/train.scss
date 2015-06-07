@@ -55,6 +55,11 @@
 			color: $color-gray;
 			font-size: 12px;
 		}
+		.row > div{
+			overflow: hidden; 
+			text-overflow:ellipsis;
+			white-space:nowrap;
+		}
 		.share-btn{
 			background: url(/assets/share_bg.png) no-repeat;
 			background-size: 100% 100%;
