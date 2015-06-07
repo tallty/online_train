@@ -42,4 +42,14 @@ module ApplicationHelper
     }
     menu[con_name][action_name] if menu.has_key?(con_name) and menu[con_name].has_key?(action_name)
   end
+
+  #个人中心左侧菜单栏选中
+  def self_left_menu_index
+    con_name = controller.controller_path.to_sym
+    action_name = controller.action_name.to_sym
+    menu = {
+      user: {course: 0, work: 1, journal: 2, message: 3, center: 4},
+    }
+    menu[con_name][action_name] if menu.has_key?(con_name) and menu[con_name].has_key?(action_name)
+  end
 end
