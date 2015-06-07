@@ -8,64 +8,60 @@
 				<div class="right-head">
 					<div class="col-xs-2 text-center"><strong>培训通知</strong></div>
 				</div>
-				<div class="right-body text-center">
+				<div id="tranApplyInfoContent" class="right-body text-center">
 					<ul class="nav nav-pills nav-justified">
-						<li role="presentation" class="active"><a href="#">培训班级信息</a></li>
-						<li role="presentation"><a href="#">培训项目信息</a></li>
-						<li role="presentation"><a href="#">机构背景</a></li>
-						<li role="presentation"><a href="#">培训目标</a></li>
-						<li role="presentation"><a href="#">培训内容</a></li>
-						<li role="presentation"><a href="#">考核方法</a></li>
-						<li role="presentation"><a href="#">授课教师</a></li>
+						<li role="presentation" class="active"><a href="javascript:void(0);">培训班级信息</a></li>
+						<li role="presentation"><a href="javascript:void(0);">培训项目信息</a></li>
+						<li role="presentation"><a href="javascript:void(0);">机构背景</a></li>
+						<li role="presentation"><a href="javascript:void(0);">培训目标</a></li>
+						<li role="presentation"><a href="javascript:void(0);">培训内容</a></li>
+						<li role="presentation"><a href="javascript:void(0);">考核方法</a></li>
+						<li role="presentation"><a href="javascript:void(0);">授课教师</a></li>
 					</ul>
 					<br>
-					<div class="table-responsive">
-						<table class="table table-bordered table-hover">		
-							<thead>
-								<tr class="active text-center">
-									<th colspan="4">培训班级信息</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<th scope="row">培训班级名称</th>
-									<td colspan="3">(企业顶岗) (天津) Android高级应用开发(国培代码：02152005)</td>
-								</tr>
-								<tr>
-									<th scope="row">培训机构</th>
-									<td colspan="3">天津电子信息职业技术学院</td>
-								</tr>
-								<tr>
-									<th scope="row">培训项目负责人</th>
-									<td>杨长梅</td>
-									<th>联系方式</th>
-									<td>0451-86703959<br>13212909823<br>hngzyzsb@tom.com</td>
-								</tr>
-								<tr>
-									<th scope="row">班级负责人</th>
-									<td colspan="3">梁宝军 0451-86703959 13796607033</td>
-								</tr>
-								<tr>
-									<th scope="row">起止时间</th>
-									<td>2015-07-17至2015-09-11</td>
-									<th>计划人数</th>
-									<td class="font-red">100</td>
-								</tr>
-								<tr>
-									<th scope="row">培训天数</th>
-									<td>24</td>
-									<th>剩余名额</th>
-									<td class="font-green">100</td>
-								</tr>
-								<tr>
-									<th scope="row">培训地点</th>
-									<td colspan="3">天津电子信息职业技术学院</td>
-								</tr>								
-							</tbody>   
-						</table>
+
+					<!-- ================培训班级信息=============== -->
+					<div class="apply-info-tab">
+						<%= render "/train/apply/grade_info" %>
 					</div>
-					<br>
-					<%= link_to(image_tag("btn_apply.png"), "#")%>
+					<!-- ================培训班级信息=============== -->
+
+					<!-- ================培训项目信息=============== -->
+					<div class="apply-info-tab" style="display: none;">
+						<%= render "/train/apply/project_info" %>
+					</div>
+					<!-- ================培训项目信息=============== -->
+
+					<!-- ================机构背景=============== -->
+					<div class="apply-info-tab" style="display: none;">
+						<%= render "/train/apply/background" %>
+					</div>
+					<!-- ================机构背景=============== -->
+
+					<!-- ================培训目标=============== -->
+					<div class="apply-info-tab" style="display: none;">
+						<%= render "/train/apply/target" %>
+					</div>
+					<!-- ================培训目标=============== -->
+
+					<!-- ================培训内容=============== -->
+					<div class="apply-info-tab" style="display: none;">
+						<%= render "/train/apply/content" %>
+					</div>
+					<!-- ================培训内容=============== -->
+
+					<!-- ================考核方法=============== -->
+					<div class="apply-info-tab" style="display: none;">
+						<%= render "/train/apply/menus" %>
+					</div>
+					<!-- ================考核方法=============== -->
+
+					<!-- ================授课教师=============== -->
+					<div class="apply-info-tab" style="display: none;">
+						<%= render "/train/apply/teachers" %>
+					</div>
+					<!-- ================授课教师=============== -->
+
 					<br><br>
 				</div>
 			</div>
