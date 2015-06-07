@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
   validates :ID_number, presence: true
   validates :nation, presence: true
   validates :gender, presence: true
-  validates :birth, presence: true
+  validates :birth, presence: {message: :date_format }
   validates :school, presence: true
   validates :academy, presence: true
   validates :address, presence: true

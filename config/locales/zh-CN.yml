@@ -116,6 +116,7 @@ zh-CN:
       not_an_integer: 必须是整数
       odd: 必须为单数
       record_invalid: '验证失败: %{errors}'
+      date_format: '请输入YYYY-MM-DD格式的日期（例：1989-01-12）'
       restrict_dependent_destroy:
         one: 由于 %{record} 需要此记录，所以无法移除记录
         many: 由于 %{record} 需要此记录，所以无法移除记录

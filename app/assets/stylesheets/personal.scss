@@ -1,112 +1,60 @@
-.center_tab {
-  background: url(08-1.png) no-repeat;
-  background-size: 100% 100%;
-  height: 40px;
-  line-height: 30px;
-}
-.personal_center {
-  text-align:center;
-}
-#myTab {
-  border:1px solid #dfdfdf;
-  border-radius: 0 0 10px 10px;
-  list-style: none;
-  padding:1px 0 ;
-  :hover {
-    background: url(08-2.png) no-repeat;
-    background-position: center;
+body.user__center, body.user_update, body.user__journal, body.user__work, body.user__message, body.user__course {
+
+  .center_tab {
+    background: url(08-1.png) no-repeat;
+    background-size: 100% 100%;
+    height: 40px;
+    line-height: 30px;
   }
-  hr {
-    border-style: dashed none none;
-    margin: 0px 20px;
-  }
-    a{
-      text-decoration: none;
-      color: #000;
-    }
-}
-.courses {
-  margin-bottom:20px;
-  padding-right:-40px !important;
-  h4 {
-    padding-left:40px;
-  }
-  table {
-    width:100%;
-    margin-top:30px;
-    border-color:#bfbfbf;
+  .personal_center {
     text-align:center;
-    td {
+  }
+  .courses {
+    margin-bottom:20px;
+    padding-right:-40px !important;
+    h4 {
+      padding-left:40px;
+    }
+    table {
+      width:100%;
+      margin-top:30px;
       border-color:#bfbfbf;
-    }
-    th {
-      color:blue;
-      padding:10px 0 10px 0 !important;
-      border-radius:10px 10px 0 0 !important;
-      border-color:#bfbfbf;
-      text-align:center !important;
-    }
-    .check {
-      color:green;
-    }
-    .glyphicon-list-alt {
-      color:blue;
-    }
-    .glyphicon-eye-open {
-      color:green;
-    }
-    .glyphicon-pencil {
-      color:red;
+      text-align:center;
+      td {
+        border-color:#bfbfbf;
+      }
+      th {
+        color:blue;
+        padding:10px 0 10px 0 !important;
+        border-radius:10px 10px 0 0 !important;
+        border-color:#bfbfbf;
+        text-align:center !important;
+      }
+      .check {
+        color:green;
+      }
+      .glyphicon-list-alt {
+        color:blue;
+      }
+      .glyphicon-eye-open {
+        color:green;
+      }
+      .glyphicon-pencil {
+        color:red;
+      }
     }
   }
-}
-.right-nav-tab {
-  background:url(right_title_bg.png) no-repeat;
-  margin: 5px 0  0;
-  padding:0 3px 40px 3px;
-}
-.personal_center_content {
-  width:100%;
-  border-radius: 0 0 10px 10px;
-  border:1px solid #dfdfdf;
-}
+  .right-nav-tab {
+    background:url(right_title_bg.png) no-repeat;
+    margin: 5px 0  0;
+    padding:0 3px 40px 3px;
+  }
+  .personal_center_content {
+    width:100%;
+    border-radius: 0 0 10px 10px;
+    border:1px solid #dfdfdf;
+  }
 
-.information_form {
-  margin-top:20px;
-  text-align:center;
-  padding-right:100px;
-  p {
-    line-height:20px;
-  }
-  span {
-    color:red;
-    padding-right:10px;
-    font-size:26px;
-  }
-  #sex {
-    padding-right:90px;
-  }
-  #job {
-    padding-right:30px;
-  }
-  #text {
-    padding-left:70px;
-  }
-  .two-wold {
-    padding-left:30px;
-  }
-  .two-wold1 {
-    padding-left:52px;
-  }
-  .two-wold2 {
-    padding-left:51px;
-  }
-  .btn-info {
-    margin: 10px 50px;
-  }
-}
-
-body.user__center, body.user_update {
   form {
     padding-top: 15px;
   }
