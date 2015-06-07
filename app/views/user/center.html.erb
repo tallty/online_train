@@ -7,11 +7,11 @@
       <div class="tab-content courses col-md-9 pull-right">
           <div class="row right-nav-tab personal_center_content">
             <h4 class=" fnt-size">个人信息</h4>
-            <%= simple_form_for(current_user, as: :user, url: user_path(current_user.id), wrapper: :horizontal_form, html: {class: "form-horizontal"}) do |f| %>
+            <%= simple_form_for(@user, as: :user, url: user_path(@user.id), wrapper: :horizontal_form, html: {class: "form-horizontal"}) do |f| %>
               <%= f.error_notification %>
-              <%= f.input :email, required: true, autofocus: true, placeholder: false, label: "注册邮箱" %>
-              <%= f.input :password, required: true, placeholder: false, label: "设置密码"  %>
-              <%= f.input :password_confirmation, required: true %>
+              <%= f.input :email, required: true, autofocus: true, placeholder: false, readonly: true %>
+              <%#= f.input :password, required: true, placeholder: false, label: "设置密码"  %>
+              <%#= f.input :password_confirmation, required: true %>
               <%= f.input :name, required: true %>
               <%= f.input :ID_number, required: true %>
               <%= f.input :nation, required: true %>
