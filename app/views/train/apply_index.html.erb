@@ -1,20 +1,7 @@
 <div class="wrapper">
 	<div class="row">
 		<div class="col-md-3">
-			<div class="content text-center">
-				<div class="left-head"><strong>培训计划</strong></div>
-				<div class="left-body">
-					<ul class="nav nav-stacked">
-						<li role="presentation"><a href="#">平台简介</a></li>
-						<hr class="divider">
-						<li role="presentation"><a href="#">平台背景</a></li>
-						<hr class="divider">
-						<li role="presentation"><a href="#">培训通知</a></li>
-						<hr class="divider">
-						<li role="presentation"><a href="#" class="active">培训报名</a></li>
-					</ul>
-				</div>
-			</div>
+			<%= render "left_bar"%>
 		</div>
 		<div class="col-md-9">
 			<div class="content">
@@ -81,7 +68,7 @@
 									<td>2015-07-17至2015-09-11</td>
 									<td>100</td>
 									<td>100</td>
-									<td>报名</td>
+									<td><%= link_to "报名"%></td>
 								</tr>
 							<% end %>
 							</tbody>   
