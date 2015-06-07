@@ -7,36 +7,32 @@
       <div class="tab-content courses col-md-9 pull-right">
           <div class="row right-nav-tab personal_center_content">
             <h4 class=" fnt-size">个人信息</h4>
-            <form class="information_form">
-              <p><span>*</span>注册邮箱: <input type="text" /></p>
-              <p><span>*</span>确认邮箱: <input type="text" /></p>
-              <p><span>*</span>设置密码: <input type="password" /></p>
-              <p><span>*</span>确认密码: <input type="password" /></p>
-              <p><span>*</span>真实姓名: <input type="text" /></p>
-              <p><span>*</span>身份证号: <input type="text" /></p>
-
-              <p id="sex"><span>*</span>性别: 
-                <input type="radio" checked="checked" name="Sex" value="男" />男
-                <input type="radio" checked="checked" name="Sex" value="女" />女
-              </p>
-
-              <p><span>*</span>出生日期: <input type="text" /></p>
-              <p><span>*</span>所在省市: <input type="text" /></p>
-              <p><span>*</span>所在学校: <input type="text" /></p>
-              <p><span>*</span>所在院系: <input type="text" /></p>
-              <p id="job"><span>*</span>职业资格证书: <input type="text" /></p>
-              <p class="two-wold"><span>*</span>职称: <input type="text" /></p>
-              <p class="two-wold"><span>*</span>职务: <input type="text" /></p>
-              <p><span>*</span>通讯地址: <input type="text" /></p>
-              <p class="two-wold"><span>*</span>邮编: <input type="text" /></p>
-              <p class="two-wold"><span>*</span>电话: <input type="text" /></p>
-              <p class="two-wold"><span>*</span>手机: <input type="text" /></p>
-              <p class="two-wold1">QQ: <input type="text" /></p>
-              <p class="two-wold2">简介: <textarea  type="textarea" cols="18" row="5" /></textarea></p>
-              <p id="text">验证码: <input type="text" />4516</p>
-              <input class="btn btn-info" type="submit" value="确认提交" />
-              <input class="btn btn-danger" type="submit" value="取消编辑" />
-            </form>
+            <%= simple_form_for(current_user, as: :user, url: user_path(current_user.id), wrapper: :horizontal_form, html: {class: "form-horizontal"}) do |f| %>
+              <%= f.error_notification %>
+              <%= f.input :email, required: true, autofocus: true, placeholder: false, label: "注册邮箱" %>
+              <%= f.input :password, required: true, placeholder: false, label: "设置密码"  %>
+              <%= f.input :password_confirmation, required: true %>
+              <%= f.input :name, required: true %>
+              <%= f.input :ID_number, required: true %>
+              <%= f.input :nation, required: true %>
+              <%= f.input :gender, required: true, collection: User::UserGender.invert, as: :radio_buttons, wrapper: :horizontal_radio_and_checkboxes, item_wrapper_class: "radio-inline" %>
+              <%= f.input :birth, as: :string, required: true %>
+              <%#= f.input :city, required: true, input_html: {class: "city-select"}, wrapper_html: {class: "form-group select required user_city city-group"}, collection: ChinaCity.list ,as: :select, prompt: true %>
+              <%= f.input :school, required: true, as: :select, collection: all_school, prompt: true %>
+              <%= f.input :academy, required: true, collection: all_academy, prompt: true %>
+              <%= f.input :certificate %>
+              <%= f.input :position_name %>
+              <%= f.input :position %>
+              <%= f.input :address, required: true %>
+              <%= f.input :zip_code, required: true %>
+              <%= f.input :telephone, required: true %>
+              <%= f.input :phone, required: true %>
+              <%= f.input :qq_no, required: false %>
+              <%= f.input :summary, required: false %>
+              <%= f.input :captcha, required: false %>
+              <div class="col-sm-offset-5"><%= captcha_tag %></div><br>
+              <p class="text-center"><%= f.button :submit, "确认提交", class: "btn btn-primary" %></p>
+            <% end %>
           </div>
       </div>
     </div>

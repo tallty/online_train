@@ -70,9 +70,6 @@ body.devise__sessions__new {
 
 //注册
 body.devise__registrations__new, body.devise__registrations__create {
-  .text-red {
-    color: red;
-  }
  
   img[alt='captcha']:hover {
     cursor:pointer;

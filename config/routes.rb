@@ -9,16 +9,16 @@ Rails.application.routes.draw do
   get 'train/apply_info'
 
   captcha_route
-  
-  get 'user/center'
 
-  get 'user/journal'
-
-  get 'user/work'
-
-  get 'user/message'
-  
-  get 'user/course'
+  resources :user, only: [:update] do
+    collection do
+      get :center
+      get :journal
+      get :work
+      get :message
+      get :course
+    end
+  end
 
   devise_for :users
 
