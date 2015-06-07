@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get 'train/apply_info'
 
   captcha_route
-  get 'personal/center'
+  
+  get 'user/center'
 
   devise_for :users
 
