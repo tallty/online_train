@@ -2,9 +2,9 @@
   <div class="wrapper">
     <div class="row">
       <div class="personal_center fnt-size col-md-3">
-      <div class="center_tab text-center">
-      <span>个人中心</span>
-      </div>
+        <div class="center_tab text-center">
+          <span>个人中心</span>
+        </div>
         <ul class="nav " id="myTab">
           <li role="presentation" class=" active course_tab"><a href="#coursetab"><span>我的课程</span></a><hr></li>
           <li role="presentation" class="task_tab"><a href="#tasktab"><span>我的作业</span></a><hr></li>
@@ -16,9 +16,9 @@
 
       <div class="tab-content courses col-md-9 pull-right">
         <div class="tab-pane" id="coursetab">
-        <div class="row personal_center_content right-nav-tab">
-         <h4 class="fnt-size">我的课程<span style="color:blue;padding-left:70px;">已完成课程</span></h4>
-          <h4 style="padding-top:20px;">正在进行的课程</h4>
+          <div class="row personal_center_content right-nav-tab">
+            <h4 class="fnt-size">我的课程<span style="color:blue;padding-left:70px;">已完成课程</span></h4>
+            <h4 style="padding-top:20px;">正在进行的课程</h4>
             <table border="1">
               <tr>
                 <th>计划</th>
@@ -53,7 +53,7 @@
                 </td>
               </tr>
             </table>
-          <h4 style="padding-top:20px;">即将开始的课程</h4>
+            <h4 style="padding-top:20px;">即将开始的课程</h4>
             <table border="1">
               <tr>
                 <th>计划</th>
@@ -91,9 +91,9 @@
               <% end %>
             </table>
           </div>
-          </div>
+        </div>
 
-          <div class="tab-pane " id="tasktab">
+        <div class="tab-pane " id="tasktab">
           <div class="row personal_center_content right-nav-tab">
             <h4 class="fnt-size">我的作业</h4>
             <table border="1">
@@ -118,10 +118,10 @@
               </tr>
               <% end %>
             </table>
-            </div>
-            </div>
+          </div>
+        </div>
 
-          <div class="tab-pane " id="journaltab">
+        <div class="tab-pane " id="journaltab">
           <div class="row personal_center_content right-nav-tab">
             <h4 class=" fnt-size">我的日志</h4>
             <table border="1">
@@ -149,9 +149,9 @@
               <% end %>
             </table>
           </div>
-          </div>
+        </div>
 
-          <div class="tab-pane " id="messagetab">
+        <div class="tab-pane " id="messagetab">
           <div class="row personal_center_content right-nav-tab">
             <h4 class=" fnt-size">我的消息</h4>
             <table border="1">
@@ -191,11 +191,11 @@
               <% end %>
             </table>
           </div>
-          </div>
+        </div>
 
-          <div class="tab-pane " id="informationtab">
+        <div class="tab-pane " id="informationtab">
           <div class="row right-nav-tab personal_center_content">
-          <h4 class=" fnt-size">个人信息</h4>
+            <h4 class=" fnt-size">个人信息</h4>
             <form class="information_form">
               <p><span>*</span>注册邮箱: <input type="text" /></p>
               <p><span>*</span>确认邮箱: <input type="text" /></p>
@@ -205,10 +205,10 @@
               <p><span>*</span>身份证号: <input type="text" /></p>
 
               <p id="sex"><span>*</span>性别: 
-              <input type="radio" checked="checked" name="Sex" value="男" />男
-              <input type="radio" checked="checked" name="Sex" value="女" />女
+                <input type="radio" checked="checked" name="Sex" value="男" />男
+                <input type="radio" checked="checked" name="Sex" value="女" />女
               </p>
-               
+
               <p><span>*</span>出生日期: <input type="text" /></p>
               <p><span>*</span>所在省市: <input type="text" /></p>
               <p><span>*</span>所在学校: <input type="text" /></p>
@@ -221,18 +221,18 @@
               <p class="two-wold"><span>*</span>电话: <input type="text" /></p>
               <p class="two-wold"><span>*</span>手机: <input type="text" /></p>
               <p class="two-wold1">QQ: <input type="text" /></p>
-              <p class="two-wold1">简介: <input type="text" /></p>
+              <p class="two-wold2">简介: <textarea  type="textarea" cols="18" row="5" /></textarea></p>
               <p id="text">验证码: <input type="text" />4516</p>
               <input class="btn btn-info" type="submit" value="确认提交" />
               <input class="btn btn-danger" type="submit" value="取消编辑" />
             </form>
           </div>
-          </div>
-
         </div>
+
       </div>
     </div>
   </div>
+</div>
 
 <script> 
   $(function () { 
