@@ -40,39 +40,32 @@
   .personal_center {
     text-align:center;
   }
-  .courses {
-    margin-bottom:20px;
-    padding-right:-40px !important;
-    h4 {
-      padding-left:40px;
-    }
-    table {
-      width:100%;
-      margin-top:30px;
+  table {
+    width:100%;
+    margin-top:30px;
+    border-color:#bfbfbf;
+    text-align:center;
+    td {
       border-color:#bfbfbf;
-      text-align:center;
-      td {
-        border-color:#bfbfbf;
-      }
-      th {
-        color:blue;
-        padding:10px 0 10px 0 !important;
-        border-radius:10px 10px 0 0 !important;
-        border-color:#bfbfbf;
-        text-align:center !important;
-      }
-      .check {
-        color:green;
-      }
-      .glyphicon-list-alt {
-        color:blue;
-      }
-      .glyphicon-eye-open {
-        color:green;
-      }
-      .glyphicon-pencil {
-        color:red;
-      }
+    }
+    th {
+      color:blue;
+      padding:10px 0 10px 0 !important;
+      border-radius:10px 10px 0 0 !important;
+      border-color:#bfbfbf;
+      text-align:center !important;
+    }
+    .check {
+      color:green;
+    }
+    .glyphicon-list-alt {
+      color:blue;
+    }
+    .glyphicon-eye-open {
+      color:green;
+    }
+    .glyphicon-pencil {
+      color:red;
     }
   }
   .right-nav-tab {
