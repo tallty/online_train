@@ -12,6 +12,14 @@ Rails.application.routes.draw do
   
   get 'user/center'
 
+  get 'user/journal'
+
+  get 'user/work'
+
+  get 'user/message'
+  
+  get 'user/course'
+
   devise_for :users
 
   get 'project/about'

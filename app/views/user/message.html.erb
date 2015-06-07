@@ -1,0 +1,44 @@
+<%= render "personal_nav"%>
+          <div class="row personal_center_content right-nav-tab">
+            <h4 class=" fnt-size">我的消息</h4>
+            <table border="1">
+              <tr>
+                <th>计划</th>
+                <th>培训班</th>
+                <th>培训地点</th>
+                <th>开班起止时间</th>
+                <th>班级状态</th>
+                <th>计划</th>
+                <th>剩余</th>
+                <th>报名状态</th>
+                <th>来班</th>
+                <th>评价</th>
+                <th>证书编号</th>
+                <th>操作</th>
+              </tr>
+              <% (1..7) .each do |i|%>
+              <tr>
+                <td>2013</td>
+                <td>（国内 常州）<br> 通信专业LTE技术培训 <br>（国培代码：10131010）</td>
+                <td>浙江 杭州</td>
+                <td>2015-07-06 <br> 2014-07-26</td>
+                <td>正在进行</td>
+                <td>39</td>
+                <td>15</td>
+                <td class="check">审核通过</td>
+                <td>是</td>
+                <td></td>
+                <td></td>
+                <td>
+                  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><br>
+                  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><br>
+                  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                </td>
+              </tr>
+              <% end %>
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
