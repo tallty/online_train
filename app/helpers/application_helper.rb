@@ -26,7 +26,7 @@ module ApplicationHelper
       home: {index: 0},
       project: {about: 1, background: 2},
       train: {notice_index: 3, notice_info: 3, apply_index: 4, apply_info: 4},
-      user: {center: 5},
+      user: {center: 5,course:5,journal:5,work:5,message:5},
       "devise/sessions": {"new": 8},
       "devise/registrations": {"new": 7, create: 7},
     }
