@@ -35,7 +35,7 @@
 	background:url(/assets/right_title_bg.png) no-repeat;
 	height: 35px;
 	line-height: 35px;
-	margin: 5px 0  0;
+	margin-top: 5px;
 	padding-left: 55px;
 	span {
 		color: #fff;
@@ -45,8 +45,8 @@
 .sub-main{
 	border:1px solid #dfdfdf;
 	border-radius: 0 0 10px 10px;
-	margin:0;
-	border-top-width: 0px;
+	border-top: 0px;
+	padding: 20px 5px;
 	.container-fluid{
 		padding: 15px 0 0 30px;
 	}
