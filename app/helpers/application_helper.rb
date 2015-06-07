@@ -26,7 +26,7 @@ module ApplicationHelper
       home: {index: 0},
       project: {about: 1, background: 2},
       train: {notice_index: 3, notice_info: 3, apply_index: 4, apply_info: 4},
-      user: {center: 5},
+      user: {center: 5,course:5,journal:5,work:5,message1:5,message2:5},
       "devise/sessions": {"new": 8},
       "devise/registrations": {"new": 7, create: 7},
     }
@@ -48,7 +48,7 @@ module ApplicationHelper
     con_name = controller.controller_path.to_sym
     action_name = controller.action_name.to_sym
     menu = {
-      user: {course: 0, work: 1, journal: 2, message: 3, center: 4},
+      user: {course: 0, work: 1, journal: 2, message1: 3,message2: 3, center: 4},
     }
     menu[con_name][action_name] if menu.has_key?(con_name) and menu[con_name].has_key?(action_name)
   end
