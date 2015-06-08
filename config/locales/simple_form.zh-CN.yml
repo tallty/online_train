@@ -25,7 +25,7 @@ zh-CN:
         school: "所在学校"
         academy: "所在院系"
         certificate: "职业资格证书"
-        city: "所在省市"
+        country: "职业资格证书国家"
         nation: "民族"
         position_name: "职称"
         position: "职务"
@@ -42,7 +42,8 @@ zh-CN:
         password: '请输入密码'
     prompts:
       user:
-        school: '--请选择学校--'
+        school: '请选择学校'
+        country: '国家'
     options:
       user:
         gender:

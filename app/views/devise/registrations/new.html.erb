@@ -19,7 +19,8 @@
             <%#= f.input :city, required: true, input_html: {class: "city-select"}, wrapper_html: {class: "form-group select required user_city city-group"}, collection: ChinaCity.list ,as: :select, prompt: true %>
             <%= f.input :school, required: true, as: :select, collection: all_school, prompt: true %>
             <%= f.input :academy, required: true, collection: all_academy, prompt: true %>
-            <%= f.input :certificate %>
+            <%= f.input :certificate%>
+            <%= f.input :country,as: :select, collection: [['中国','中国'],['美国','美国']], label_html: {class: 'sr-only'}, prompt: "国家" %>
             <%= f.input :position_name %>
             <%= f.input :position %>
           </div>

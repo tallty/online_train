@@ -20,7 +20,6 @@
 #  school                 :string(255)
 #  academy                :string(255)
 #  certificate            :string(255)
-#  city                   :string(255)
 #  nation                 :string(255)
 #  position_name          :string(255)
 #  position               :string(255)
@@ -32,6 +31,7 @@
 #  summary                :text(65535)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  country                :string(255)
 #
 
 class User < ActiveRecord::Base
