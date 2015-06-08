@@ -34,55 +34,47 @@
   .message_hr {
     margin:0 auto!important;
   }
-  h4 {
-    padding-left:40px;
+  .message_page {
+    text-align:center;
+  }
+  .right_message_tab {
+    font-size:14px;
+    line-height:15px;
+    padding:10px 0 0 30px;
+    span {
+      color:#fff!important;
+    }
   }
   .personal_center {
     text-align:center;
   }
-  .courses {
-    margin-bottom:20px;
-    padding-left:10px!important;
-    #operation {
-      width:38px;
-    }
-    .message_hr {
-      margin:0 auto!important;
-    }
-    h4 {
-      padding-left:40px;
-    }
-    .personal_center {
-      text-align:center;
-    }
-    table {
-      width:100%;
-      margin-top:30px;
+  table {
+    width:100%;
+    margin-top:20px;
+    border-color:#bfbfbf;
+    text-align:center;
+    td {
       border-color:#bfbfbf;
-      text-align:center;
-      td {
-        border-color:#bfbfbf;
-      }
-      th {
-        color:blue;
-        padding:10px 0 10px 0 !important;
-        border-radius:10px 10px 0 0 !important;
-        border-color:#bfbfbf;
-        text-align:center !important;
-      }
-      .check {
-        color:green;
-      }
-      .glyphicon-list-alt {
-        color:blue;
-      }
-      .glyphicon-eye-open {
-        color:green;
-      }
-      .glyphicon-pencil {
-        color:red;
-      }
     }
+    th {
+      color:blue;
+      padding:5px 0 5px 0 !important;
+      border-color:#bfbfbf;
+      text-align:center !important;
+    }
+    .check {
+      color:green;
+    }
+    .glyphicon-list-alt {
+      color:blue;
+    }
+    .glyphicon-eye-open {
+      color:green;
+    }
+    .glyphicon-pencil {
+      color:red;
+    }
+<<<<<<< HEAD
     .right-nav-tab {
       background:url(right_title_bg.png) no-repeat;
       margin: 5px 0  0;
@@ -98,4 +90,21 @@
       padding-top: 15px;
     }
   }
+=======
+  }
+}
+.right-nav-tab {
+  background:url(right_title_bg.png) no-repeat;
+  margin: 5px 0  0;
+  padding:0 3px 40px 3px;
+}
+.personal_center_content {
+  width:100%;
+  border-radius: 0 0 10px 10px;
+  border:1px solid #dfdfdf;
+}
+
+form {
+  padding-top: 15px;
+>>>>>>> change personal
 }
