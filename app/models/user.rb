@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   enum gender: {male: true, female: false}
   UserGender = {male: '男', female: '女'}
 
-  validates_confirmation_of :email, on: :create
+  #validates_confirmation_of :email, on: :create
   validates :name, presence: true
   #validate :valid_captcha?, on: :create
   validates :ID_number, presence: true
