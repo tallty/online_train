@@ -58,6 +58,7 @@ body.devise__sessions__new {
     border: 0px;
     overflow: hidden;
     position: relative;
+    padding: 5px 10px;
     &:before {
       content: image-url("our-cir.png");
       position: absolute;
@@ -109,6 +110,7 @@ body.devise__registrations__new, body.devise__registrations__create {
   }
 
   .user_captcha {
+    display: inline;
     input {
       width: 50%;
       display: inline;
