@@ -107,4 +107,21 @@ body.devise__registrations__new, body.devise__registrations__create {
     color: #fff;
     background: image-url("login-bg.png") no-repeat 0 0;
   }
+
+  .user_captcha {
+    input {
+      width: 50%;
+      display: inline;
+    }
+  }
+  .user_certificate {
+    input.string {
+      width: 60%;
+      display: inline;
+    }
+     select.select {
+      width: 38%;
+      display: inline;
+    }
+  }
 }

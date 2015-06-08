@@ -79,5 +79,15 @@ body.user__center, .user__course,.user__journal,.user__message1,.user__message2,
   }
   form {
     padding-top: 15px;
+    .user_certificate {
+      input.string {
+        width: 60%;
+        display: inline;
+      }
+       select.select {
+        width: 38%;
+        display: inline;
+      }
+    }
   }
 }
