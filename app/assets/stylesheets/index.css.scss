@@ -28,16 +28,16 @@
 			background: image-url("title-bg.png") no-repeat 0 0;
 			&.pxtz {
 				margin-left: -480px;
-		    top: 365px;
+		    top: 385px;
 			}
 			&.pxbm {
 				margin-left: 28px;
-		    top: 365px;
+		    top: 385px;
 			}
 			&.yqlj {
 				left: 50%;
 			  margin-left: -480px;
-			  top: 853px;
+			  top: 873px;
 			}
 		}
 		ul {
@@ -54,9 +54,9 @@
 				content: image-url("li-squ.png");
 				height: 24px;
 				line-height: 24px;
-			        position: absolute;
-			        top: 6px;
-			        left: 0px;
+        position: absolute;
+        top: 6px;
+        left: 0px;
 			}
 			a {
 				color: #333;
