@@ -14,8 +14,12 @@ body.devise__sessions__new {
     }
     p {
       text-indent: 2em;
-      line-height: 1.6;
+      line-height: 1.8;
     }
+  }
+
+  .self-info {
+      min-height: 324px;
   }
   
   div.checkbox {
@@ -58,6 +62,7 @@ body.devise__sessions__new {
     border: 0px;
     overflow: hidden;
     position: relative;
+    padding: 6px 10px;
     &:before {
       content: image-url("our-cir.png");
       position: absolute;
@@ -109,6 +114,7 @@ body.devise__registrations__new, body.devise__registrations__create {
   }
 
   .user_captcha {
+    display: inline;
     input {
       width: 50%;
       display: inline;

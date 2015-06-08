@@ -36,7 +36,7 @@
 
 class User < ActiveRecord::Base
 
-  acts_as_easy_captcha
+  #acts_as_easy_captcha
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   enum gender: {male: true, female: false}
   UserGender = {male: '男', female: '女'}
 
-  validates_confirmation_of :email, on: :create
+  #validates_confirmation_of :email, on: :create
   validates :name, presence: true
   #validate :valid_captcha?, on: :create
   validates :ID_number, presence: true
@@ -62,5 +62,14 @@ class User < ActiveRecord::Base
   validates :zip_code, presence: true
   validates :telephone, presence: true
   validates :phone, presence: true
+
+
+  def self.current
+    Thread.current[:user]
+  end
+
+  def self.current=(user)
+    Thread.current[:user] = user
+  end
 
 end

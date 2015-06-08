@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   get 'train/apply_info'
 
-  captcha_route
 
   resources :user, only: [:update] do
     collection do
@@ -28,5 +27,5 @@ Rails.application.routes.draw do
   get 'project/background'
 
   root "home#index"
-  mount ChinaCity::Engine => '/china_city'
+  #mount ChinaCity::Engine => '/china_city'
 end
