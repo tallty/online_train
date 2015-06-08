@@ -47,8 +47,8 @@ header {
       border-right: none;
       &.active, &:hover {
         background: none;
-        color: #fff;
-        text-decoration: underline;
+        color: red;
+        //text-decoration: underline;
       }
   	}
   }
