@@ -37,6 +37,13 @@
   .message_page {
     text-align:center;
   }
+  .about-info {
+    font-size:13px;
+    margin-left:-5px;
+  }
+  #info1 {
+    width:140px;
+  }
   .right_message_tab {
     font-size:14px;
     line-height:15px;
@@ -86,7 +93,6 @@
   border-radius: 0 0 10px 10px;
   border:1px solid #dfdfdf;
 }
-
 form {
   padding-top: 15px;
 }
