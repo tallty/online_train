@@ -85,7 +85,7 @@
 					color: $color-white;
 				}
 			}
-			a:hover{
+			a,a:hover{
 				text-decoration: none;
 			}
 		}
@@ -98,9 +98,11 @@
 			line-height: 42px;	
 			display: block;
 			color: $color-white;
+			font-size: 16px;
+			text-shadow:2px 2px 1px $color-text-shadow;
 			&:hover{
 				text-decoration: none;
-				font-size: 16px;
+				font-size: 17px;
 			}
 		}
 		dd{
