@@ -57,7 +57,6 @@
               <label class="string optional col-sm-3 control-label" for="user_captcha">验证码</label>
               <div class="col-sm-8">
                 <%#= f.input_field :captcha, class: "string optional form-control" %>
-                <div class="pull-right"><%= captcha_tag %></div>
                 <%# if resource.errors.messages[:captcha].present? %>
                   <span class="help-block">验证码不正确</span>
                 <%# end %>
