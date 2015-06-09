@@ -6,7 +6,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 set :term_mode, nil
 
 set :domain, '112.124.97.145'
-set :deploy_to, '/mnt/www/online_courses/online_train'
+set :deploy_to, '/mnt/www/online_train/online_train'
 set :repository, 'https://github.com/xiaocuixt/online_train'
 set :branch, 'master'
 
@@ -49,7 +49,7 @@ task :deploy => :environment do
     # instance of your project.
     invoke :'git:clone'
     invoke :'bundle:install'
-    invoke :'rails:db_migrate'
+    #invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
     invoke :'deploy:link_shared_paths'
 

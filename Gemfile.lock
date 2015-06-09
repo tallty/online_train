@@ -143,14 +143,6 @@ GEM
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
-<<<<<<< HEAD
-    simplecov (0.10.0)
-      docile (~> 1.1.0)
-      json (~> 1.8)
-      simplecov-html (~> 0.10.0)
-    simplecov-html (0.10.0)
-=======
->>>>>>> 8d85fe97fcbfc586bdcedff67ffb5d552a959926
     spring (1.3.6)
     sprockets (3.2.0)
       rack (~> 1.0)
@@ -204,3 +196,6 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.0
