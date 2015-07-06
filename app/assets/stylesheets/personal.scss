@@ -40,9 +40,9 @@ body.user__center, .user__course,.user__journal,.user__message1,.user__message2,
     }
     table {
       width:100%;
-      margin-top:20px;
       border:1px solid #bfbfbf;
       text-align:center;
+      margin-bottom: 15px;
       td {
         border:1px solid #bfbfbf;
       }
@@ -66,7 +66,32 @@ body.user__center, .user__course,.user__journal,.user__message1,.user__message2,
         color:red;
       }
     }
+
+    .course-panel {
+      .panel-heading {
+        padding: 0px;
+        ul {
+          li.active {
+            a { background-color: #3360c6;}
+          }
+        }
+      }
+
+      .panel-body {
+        padding: 15px 5px;
+      }
+    }
+
+    .my-work-content {
+      margin-top: 25px;
+
+      .panel-heading a {
+        display: block;
+      }
+    }
+    
   }
+
   .right-nav-tab {
     background:url(right_title_bg.png) no-repeat;
     margin: 5px 0  0;

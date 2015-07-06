@@ -27,8 +27,6 @@
                    class: "select optional form-control pull-right") %>
               </div>
             </div>
-            <%#= f.input :certificate%>
-            <%#= f.input :country,as: :select, collection: [['中国','中国'],['美国','美国']], label_html: {class: 'sr-only'}, prompt: "国家" %>
             <%= f.input :position_name %>
             <%= f.input :position %>
           </div>
@@ -52,16 +50,8 @@
             <span class="pull-left title-bg">其他信息</span>
           </div>
           <div class="panel-body">
+            <%= f.input :his_train, required: false %>
             <%= f.input :summary, required: false %>
-            <!-- <div class="form-group string optional user_captcha <%#= 'has-error' if resource.errors.messages[:captcha].present? %>">
-              <label class="string optional col-sm-3 control-label" for="user_captcha">验证码</label>
-              <div class="col-sm-8">
-                <%#= f.input_field :captcha, class: "string optional form-control" %>
-                <%# if resource.errors.messages[:captcha].present? %>
-                  <span class="help-block">验证码不正确</span>
-                <%# end %>
-              </div>
-            </div> -->
             <p class="text-center"><%= f.button :submit, "确认提交", class: "btn btn-primary" %></p>
           </div>
         </div>
