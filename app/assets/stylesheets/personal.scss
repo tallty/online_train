@@ -38,7 +38,7 @@ body.user__center, .user__course,.user__journal,.user__message1,.user__message2,
     .personal_center {
       text-align:center;
     }
-    table {
+    table.border-table {
       width:100%;
       border:1px solid #bfbfbf;
       text-align:center;
@@ -110,8 +110,8 @@ body.user__center, .user__course,.user__journal,.user__message1,.user__message2,
     }
   }
 
-  //日志添加模态框
-  #addJournalModal {
+  //日志添加模态框、课程资源模态框
+  #resoureDownload, #addJournalModal {
     .modal-header {
       background: image-url("right_title_bg.png") no-repeat;
       padding: 0px;
@@ -129,6 +129,12 @@ body.user__center, .user__course,.user__journal,.user__message1,.user__message2,
 
     .modal-body {
       padding: 15px 30px;
+    }
+
+    .resourse-box {
+      border: 1px solid #5076ce;
+      padding: 5px;
+      margin-bottom: 5px;
     }
   }
 
