@@ -36,7 +36,7 @@ class UserController < ApplicationController
       #重新登录更新session以及current_user等相关变量方法的值 
       sign_in(:user, @user)
 
-      flash.now[:notice] = "个人资料更新成功"
+      flash[:notice] = "个人资料更新成功"
       redirect_to center_user_index_path
     else
       #更新失败
