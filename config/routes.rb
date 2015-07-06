@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   root "home#index"
   #mount ChinaCity::Engine => '/china_city'
-  namespace :admin do
+  namespace :admin_panel do
     root "home#index"
   end
 end
