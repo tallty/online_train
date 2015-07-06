@@ -93,10 +93,45 @@ body.user__center, .user__course,.user__journal,.user__message1,.user__message2,
   }
 
   .right-nav-tab {
-    background:url(right_title_bg.png) no-repeat;
+    background: image-url("right_title_bg.png") no-repeat;
     margin: 5px 0  0;
     padding:0 3px 40px 3px;
   }
+
+  //日志添加按钮
+  .add-journal {
+    background: image-url("add_journal.png") no-repeat;
+    height: 37px;
+    width: 100px;
+    a, a:hover {
+      padding-left: 10px;
+      line-height: 35px;
+      color: #62c868;
+    }
+  }
+
+  //日志添加模态框
+  #addJournalModal {
+    .modal-header {
+      background: image-url("right_title_bg.png") no-repeat;
+      padding: 0px;
+      height: 35px;
+      .modal-title {
+        line-height: 35px;
+        color: #fff;
+        padding-left: 15px;
+      }
+      button {
+        line-height: 35px;
+        padding-right: 15px;
+      }
+    }
+
+    .modal-body {
+      padding: 15px 30px;
+    }
+  }
+
   .personal_center_content {
     width:100%;
     border-radius: 0 0 10px 10px;
