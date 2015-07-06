@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
   get 'train/notice_index'
 
   get 'train/notice_info'
@@ -30,5 +31,6 @@ Rails.application.routes.draw do
   #mount ChinaCity::Engine => '/china_city'
   namespace :admin_panel do
     root "home#index"
+    resources :admins, only: [:edit]
   end
 end

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>上海高等职业教育师资公共培训</title>
+  <%= stylesheet_link_tag    'admin_panel', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin_panel', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>">
+  <%= yield %>
+</body>
+</html>

@@ -52,3 +52,51 @@ a:hover, a:active, a:visited, a:link {
 	  }
 	}
 }
+
+//登录页面
+.admin_panel__home__index {
+	.main-content {
+		width: 100%;
+		height: 612px;
+		position: relative;
+		background: image-url("admin-login-bg.png") no-repeat center 2px;
+	  background-size: 100%;
+	  .login-content {
+	  	top: 170px;
+	  	left: 50%;
+	  	margin-left: -60px;
+	  	position: absolute;
+	  	.mt-20 {
+	  		margin-top: 20px;
+	  	}
+	  	.fix-panel {
+	  		height: 60px;
+	  		line-height: 40px;
+	  		font-size: 18px;
+	  		background: #245dbd;
+	  		a {
+	  			color: #fff;
+	  			display: block;
+	  		}
+	  		a:hover, a.active {
+	  			color: #245dbd;
+	  			border-radius: 10px;
+	  			background: #fff;
+	  		}
+	  	}
+	  	ul li {
+	  		width: 20%;
+	  		float: left;
+	  	}
+	  }
+	}
+	footer {
+		height: 100px;
+		background: #e6ebee;
+		padding: 20px 0;
+		display: block;
+		.links {
+
+		}
+	}
+}
