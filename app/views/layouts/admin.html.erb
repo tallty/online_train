@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>上海高等职业教育师资公共培训</title>
+  <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>">
+  <%= render "admin/share/header"%>
+  <%= render "admin/share/left_bar"%>
+
+  <!-- flash notice -->
+  <%= render :partial => "admin/share/flash_message" %>
+  <!-- flash notice -->
+
+  <%= yield %>
+  <%= render "admin/share/footer"%>
+</body>
+</html>

@@ -1,0 +1,54 @@
+//全局
+ul, li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+a:hover, a:active, a:visited, a:link {
+	text-decoration: none;
+}
+
+//导航栏
+.nav-bar {
+	height: 64px;
+	line-height: 64px;
+	color: #fff;
+	background: image-url("navbar-bg.png") repeat-x 0 0;
+	border-bottom: solid 4px #1071c5;
+	.name {
+		font-size: 20px;
+		font-weight: bold;
+	}
+	a, a:hover {
+		color: #fff;
+		display: block;
+	}
+}
+
+//左边栏样式
+#left-bar {
+	width: 170px;
+	position: absolute;
+	top: 64px;
+	bottom: 0px;
+	left: 0px;
+	background: #1f7ed0;
+	ul li {
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		&.system-list {
+			color: #fff;
+			border-bottom: dotted 3px #5d8fc5;
+		}
+	  a {
+	    color: #fff;
+	    display: block;
+	  }
+	  a:hover {
+	  	background: #fff;
+	  	color: #1f7ed0;
+	  }
+	}
+}
