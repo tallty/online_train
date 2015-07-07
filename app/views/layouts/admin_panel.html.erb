@@ -13,13 +13,24 @@
        <%= render "admin_panel/share/left_bar"%>
     </div>
     <div class="col-sm-10">
-       <%= yield %>
+      <div class="user-info">
+        <div class="col-sm-4">您好： xxx（教育部门）</div>
+        <div class="col-sm-4">省份： 上海</div>
+        <div class="col-sm-4">2015年06月05日 am10：34</div>
+      </div>
+      <ol class="breadcrumb">
+        <span class="glyphicon glyphicon-home">&nbsp;</span>
+        <li><a href="#">当前位置</a></li>
+        <li><a href="#">代办项目</a></li>
+        <li class="active">评审项目</li>
+      </ol>
+      <%= yield %>
     </div>
   </div>
 
   <!-- flash notice -->
   <%= render :partial => "admin_panel/share/flash_message" %>
   <!-- flash notice -->
-  <%= render "admin_panel/share/footer"%>
+  <%= render "admin_panel/share/footer" %>
 </body>
 </html>

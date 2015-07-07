@@ -33,5 +33,6 @@ Rails.application.routes.draw do
     root "home#index"
 
     resources :grades
+    resources :projects
   end
 end

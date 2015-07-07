@@ -110,8 +110,26 @@ a:hover, a:active, a:visited, a:link {
 	color: #1f7ed0;
 }
 
+.panel-active {
+	color: #fff!important;
+  background: #1f7ed0!important;
+}
+.panel-default-bg {
+	background: #f8f8f8;
+}
+.tr-default-bg {
+	background: #fff;
+}
+
 .admin_panel__home__index {
 	.main-content {
 		background: #e9e9e9;
+		td a.control {
+			color: #1f7ed0;
+		}
 	}
+}
+
+.admin_panel__projects__index .already {
+	color: #27d010!important;
 }
