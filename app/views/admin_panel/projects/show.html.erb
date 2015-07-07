@@ -45,7 +45,35 @@
 	      <%= link_to "评审项目", "javascript:void(0);", class: "btn btn-primary btn-toggle"%>
 	    </div>
 	  </div>
-	  <div class="panel-body panel-default-bg">
+
+	  <!-- 历史评审 -->
+	  <div class="panel-body panel-default-bg js-toggle-panel">
+	    <table class="table">
+	    	<thead>
+	    		<th class="col-sm-2 text-center">评审单位</th>
+	    		<th class="col-sm-2 text-center">评审时间</th>
+	    		<th class="col-sm-2 text-center">状态</th>
+	    		<th class="text-center">评价</th>
+	    	</thead>
+	    	<tbody>
+	    		<tr class="text-center tr-default-bg">
+	    			<td>研究会</td>
+	    			<td>2015-04-06</td>
+	    			<td class="text-active-status">已通过</td>
+	    			<td>该课程获得了中华人民共和国的国家级课题选拔第一名</td>
+	    		</tr>
+	    		<tr class="text-center tr-default-bg">
+	    			<td>研究会</td>
+	    			<td>2015-04-06</td>
+	    			<td class="text-active-status">已通过</td>
+	    			<td>该课程获得了中华人民共和国的国家级课题选拔第一名</td>
+	    		</tr>
+	    	</tbody>
+	    </table>
+	  </div>
+
+    <!-- 评审项目 -->
+	  <div class="panel-body panel-default-bg js-toggle-panel">
 	    <div class="form-group">
 			  <textarea class="form-control custom-control" rows="6" style="resize:none"></textarea>
 			</div>
@@ -59,3 +87,17 @@
 	  </div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(function(){
+		$(".js-toggle-panel").last().hide();
+		$(".panel-active .btn-toolbar a").each(function(index){
+			var _this = $(this);
+			var _index = index;
+      _this.click(function(){
+        $(".js-toggle-panel").eq(_index).show().siblings(".js-toggle-panel").hide();
+        _this.addClass("btn-active").siblings("").removeClass("btn-active");
+      })
+		});
+	})
+</script>

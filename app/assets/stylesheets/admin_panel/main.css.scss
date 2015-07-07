@@ -138,8 +138,12 @@ a.btn-toggle {
   border-radius: 10px;
 }
 a.btn-active {
-	background: #fff;
-	color: #1f7ed0;
+	background: #fff!important;
+	color: #1f7ed0!important;
+}
+
+.text-active-status {
+	color: #27d010!important;
 }
 
 .admin_panel__home__index {
@@ -151,6 +155,8 @@ a.btn-active {
 	}
 }
 
-.admin_panel__projects__index .already {
-	color: #27d010!important;
+.admin_panel__projects__show .panel-active a {
+	background: #1f7ed0;
+  color: #fff;
+  border: none 0;
 }
