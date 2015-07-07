@@ -24,10 +24,12 @@
     $("#editInfoBtn").click(function(){
       $(".center_content").eq(0).hide();
       $(".center_content").eq(1).show();
+      $('html,body').scrollTop(0);
     });
     $("#cancelInfoBtn").click(function(){
       $(".center_content").eq(1).hide();
       $(".center_content").eq(0).show();
+      $('html,body').scrollTop(0);
     });
   });
 </script>
