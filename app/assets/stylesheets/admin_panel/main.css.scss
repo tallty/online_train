@@ -49,6 +49,19 @@ a:hover, a:active, a:visited, a:link {
 		color: #fff;
 		border-bottom: dotted 4px #5d8fc5;
 	}
+
+	.dropdown-menu.sub-menu {
+		left: 100%;
+		top: -46px;
+
+		li {
+			text-align: center;
+			a {
+				padding: 10px;
+				color: #1f7ed0;
+			}
+		}
+	}
 }
 
 //登录页面

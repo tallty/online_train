@@ -1,5 +1,5 @@
 
-<ul class="nav nav-pills nav-stacked left-bar">
+<ul id="leftMenu" class="nav nav-pills nav-stacked left-bar">
 	<li class="list text-center">
 		 <span class="glyphicon"></span> &nbsp;&nbsp;系统菜单
 	</li>
@@ -12,6 +12,16 @@
 		<%= link_to "" do %>
 		  <span class="glyphicon glyphicon-book"></span> &nbsp;&nbsp;培训班级
 		<% end %>
+		<ul class="dropdown-menu sub-menu text-center" role="menu">
+	    <li><%= link_to("培训班", admin_panel_grades_path) %></li>
+	    <li><%= link_to("培训报名", "#") %></li>
+	    <li><%= link_to("布置作业", "#") %></li>
+	    <li><%= link_to("作业提交", "#") %></li>
+	    <li><%= link_to("日志提交", "#") %></li>
+	    <li><%= link_to("学员反馈", "#") %></li>
+	    <li><%= link_to("学员评师", "#") %></li>
+	    <li><%= link_to("负责人反馈", "#") %></li>
+	  </ul>
 	</li>
 	<li class="text-center">
 		<%= link_to "" do %>
@@ -29,3 +39,16 @@
 		<% end %>
 	</li>
 </ul>
+
+<script type="text/javascript">
+  $(function(){
+    $("#leftMenu li").mouseenter(function(){
+      $(this).addClass("open");
+      $(this).find("a").attr("aria-expanded",true)
+    });
+    $("#leftMenu li").mouseleave(function(){
+      $(this).removeClass("open");
+      $(this).find("a").attr("aria-expanded",false)
+    });
+  });
+</script>
