@@ -27,7 +27,14 @@
 		</div>
 	</div>
 	<div class="panel panel-default">
-	  <div class="panel-heading panel-active">评审项目</div>
+	  <!-- <div class="panel-heading panel-active">评审项目</div> -->
+	  <!-- 培训机构的权限是新建申报项目 -->
+	  <div class="panel-heading panel-active" style="overflow: hidden;">
+	    <span class="pull-left">申报项目</span>
+	    <%= link_to new_admin_panel_project_path, class: "btn btn-xs pull-right btn-active" do %>
+	       <span class="glyphicon glyphicon-plus-sign"></span> 新建项目
+	    <% end %>
+	  </div>
 	  <div class="panel-body panel-default-bg">
 	    <table class="table">
 	    	<thead>
