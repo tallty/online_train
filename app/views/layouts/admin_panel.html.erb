@@ -27,6 +27,8 @@
       <%= yield %>
     </div>
   </div>
+  
+  <%= yield :scripts %>
 
   <!-- flash notice -->
   <%= render :partial => "admin_panel/share/flash_message" %>

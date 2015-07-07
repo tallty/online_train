@@ -35,7 +35,7 @@
 
   <div class="panel panel-primary">
     <div class="panel-heading have-menu">
-      <ul class="nav nav-pills nav-content-menu">
+      <ul id="detailMenu" class="nav nav-pills nav-content-menu">
         <li class="active"><a href="#">培训班级信息</a></li>
         <li><a href="#">培训项目信息</a></li>
         <li><a href="#">机构背景</a></li>
@@ -45,31 +45,52 @@
         <li><a href="#">授课教师</a></li>
       </ul>
     </div>
-    <div class="panel-body">
-      <table class="table">
-        <thead>
-          <tr>
-            <th width="30%">名称</th>
-            <th>培训机构</th>
-            <th>培训项目负责人</th>
-            <th>班级负责人</th>
-            <th>起止时间</th>
-            <th>计划人数</th>
-            <th>剩余名额</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td align="left">（国内）（上海）信息化教学 技术及信息化课程开发师资培训 （国培代码：09151005） </td>
-            <td>上海 - 徐汇<br>上海电子信息技术职业学院</td>
-            <td>由寅君<br>13800231221</td>
-            <td>由寅君<br>13800231221</td>
-            <td>2015-07-06<br>2015-08-05</td>
-            <td>100</td>
-            <td>20</td>
-          </tr>
-        </tbody>
-      </table>
+    <div id="gradeDetailContent" class="panel-body">
+      <!-- ================培训班级信息=============== -->
+      <div class="grade-detail-info">
+        <%= render "/admin_panel/grades/detail//grade_info" %>
+      </div>
+      <!-- ================培训班级信息=============== -->
+
+      <!-- ================培训项目信息=============== -->
+      <div class="grade-detail-info" style="display: none;">
+        <%= render "/admin_panel/grades/detail//project_info" %>
+      </div>
+      <!-- ================培训项目信息=============== -->
+
+      <!-- ================机构背景=============== -->
+      <div class="grade-detail-info" style="display: none;">
+        <%= render "/admin_panel/grades/detail//background" %>
+      </div>
+      <!-- ================机构背景=============== -->
+
+      <!-- ================培训目标=============== -->
+      <div class="grade-detail-info" style="display: none;">
+        <%= render "/admin_panel/grades/detail//target" %>
+      </div>
+      <!-- ================培训目标=============== -->
+
+      <!-- ================培训内容=============== -->
+      <div class="grade-detail-info" style="display: none;">
+        <%= render "/admin_panel/grades/detail//content" %>
+      </div>
+      <!-- ================培训内容=============== -->
+
+      <!-- ================考核方法=============== -->
+      <div class="grade-detail-info" style="display: none;">
+        <%= render "/admin_panel/grades/detail//menus" %>
+      </div>
+      <!-- ================考核方法=============== -->
+
+      <!-- ================授课教师=============== -->
+      <div class="grade-detail-info" style="display: none;">
+        <%= render "/admin_panel/grades/detail//teachers" %>
+      </div>
+      <!-- ================授课教师=============== -->
     </div>
   </div>
 <div>
+
+<%= content_for :scripts do %>
+  <%= javascript_include_tag "admin_panel/grades", 'data-turbolinks-track' => true  %>
+<% end %>
