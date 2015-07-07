@@ -1,0 +1,21 @@
+<div class="main-content">
+  <div class="panel panel-default">
+	  <div class="panel-heading panel-active">新建项目</div>
+	  <div class="panel-body panel-default-bg">
+    	<%= simple_form_for '', html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|%>
+    	  <%= f.input :username, label: '培训班级名称' %>
+    	  <%= f.input :username, label: '培训机构' %>
+    	  <%= f.input :username, label: '培训项目负责人' %>
+    	  <%= f.input :username, label: '班级负责人' %>
+    	  <%= f.input :username, label: '培训时间' %>
+    	  <%= f.input :username, label: '计划人数' %>
+    	  <%= f.input :username, label: '培训地点' %>
+    	  <%= f.input :username, label: '联系方式' %>
+    	  <div class="col-sm-6 col-sm-offset-4">
+    	  	<%= f.submit '确认提交', class: "btn btn-primary pull-left" %>
+    	    <%= link_to "取消修改", "", class: "btn btn-danger pull-right"%>
+    	  </div>
+    	<% end %>
+	  </div>
+	</div>
+</div>
