@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.admin_panel__grades__index {
+.admin_panel__grades__index, .admin_panel__grades__show {
   .grades-main-content {
     .panel {
       border-radius: 0px;
@@ -16,6 +16,31 @@
         margin: 5px;
         border-color: #1f7ed0;
         background-color: #1f7ed0;
+
+        &.have-menu {
+          padding: 5px 10px;
+
+          .nav-content-menu {
+            li {
+              padding-right: 20px;
+              a {
+                border-radius: 20px;
+                padding: 5px 10px;
+                color: #fff;
+              }
+              a:hover {
+                background-color: #fff;
+                color: #4c98d9;
+              }
+              &.active a{
+                background-color: #fff;
+                color: #4c98d9;
+              }
+            }
+
+
+          }
+        }
       }
 
       .panel-body {
@@ -38,6 +63,7 @@
           }
           
         }
+
       }
     }
   }
