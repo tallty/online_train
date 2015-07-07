@@ -31,5 +31,7 @@ Rails.application.routes.draw do
   devise_for :admins, :controllers => { :sessions => "admin_panel/sessions" }
   namespace :admin_panel do
     root "home#index"
+
+    resources :grades
   end
 end

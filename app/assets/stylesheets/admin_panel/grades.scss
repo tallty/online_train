@@ -1,0 +1,44 @@
+// Place all the styles related to the admin_panel/grades controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.admin_panel__grades__index {
+  .main-content {
+    .panel {
+      border-radius: 0px;
+
+      &.panel-primary {
+        border-color: #fff;
+      }
+      .panel-heading {
+        border-radius: 0px;
+        margin: 5px;
+        border-color: #1f7ed0;
+        background-color: #1f7ed0;
+      }
+
+      .panel-body {
+        background-color: #f8f8f8;
+        margin: 5px;
+        .btn.btn-search {
+          border-color: #1f7ed0;
+          background-color: #1f7ed0;
+          color: #fff;
+        }
+
+        .table {
+          thead tr th {
+            text-align: center;
+          }
+
+          tbody tr {
+            text-align: center;
+            background-color: #fff;
+          }
+          
+        }
+      }
+    }
+  }
+}
