@@ -27,29 +27,13 @@ a:hover, a:active, a:visited, a:link {
 }
 
 //左边栏样式
-#left-bar {
-	width: 170px;
-	position: absolute;
-	top: 64px;
-	bottom: 0px;
-	left: 0px;
-	background: #1f7ed0;
-	ul li {
-		height: 40px;
-		line-height: 40px;
-		text-align: center;
-		&.system-list {
-			color: #fff;
-			border-bottom: dotted 3px #5d8fc5;
-		}
-	  a {
-	    color: #fff;
-	    display: block;
-	  }
-	  a:hover {
-	  	background: #fff;
-	  	color: #1f7ed0;
-	  }
+ul li {
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	&.system-list {
+		color: #fff;
+		border-bottom: dotted 3px #5d8fc5;
 	}
 }
 
@@ -99,4 +83,9 @@ a:hover, a:active, a:visited, a:link {
 
 		}
 	}
+}
+
+
+.admin_panel__home__index {
+
 }

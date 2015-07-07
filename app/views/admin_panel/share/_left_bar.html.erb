@@ -1,32 +1,31 @@
-<div id="left-bar">
-	<ul>
-		<li class="system-list">
-			 <span class="glyphicon"></span> &nbsp;&nbsp;系统菜单
-		</li>
-		<li>
-			<%= link_to "" do %>
-			  <span class="glyphicon glyphicon-list-alt"></span> &nbsp;&nbsp;代办项目
-			<% end %>
-		</li>
-		<li>
-			<%= link_to "" do %>
-			  <span class="glyphicon glyphicon-book"></span> &nbsp;&nbsp;培训班级
-			<% end %>
-		</li>
-		<li>
-			<%= link_to "" do %>
-			  <span class="glyphicon glyphicon-user"></span> &nbsp;&nbsp;机构人员
-			<% end %>
-		</li>
-		<li>
-			<%= link_to "" do %>
-			  <span class="glyphicon glyphicon-cog"></span> &nbsp;&nbsp;系统功能
-			<% end %>
-		</li>
-		<li>
-			<%= link_to edit_admin_panel_admin_registration_path do %>
-			  <span class="glyphicon glyphicon-wrench"></span> &nbsp;&nbsp;账户设置
-			<% end %>
-		</li>
-	</ul>
-</div>
+
+<ul>
+	<li class="nav nav-pills nav-stacked">
+		 <span class="glyphicon"></span> &nbsp;&nbsp;系统菜单
+	</li>
+	<li>
+		<%= link_to "", class: "active" do %>
+		  <span class="glyphicon glyphicon-list-alt"></span> &nbsp;&nbsp;代办项目
+		<% end %>
+	</li>
+	<li>
+		<%= link_to "" do %>
+		  <span class="glyphicon glyphicon-book"></span> &nbsp;&nbsp;培训班级
+		<% end %>
+	</li>
+	<li>
+		<%= link_to "" do %>
+		  <span class="glyphicon glyphicon-user"></span> &nbsp;&nbsp;机构人员
+		<% end %>
+	</li>
+	<li>
+		<%= link_to "" do %>
+		  <span class="glyphicon glyphicon-cog"></span> &nbsp;&nbsp;系统功能
+		<% end %>
+	</li>
+	<li>
+		<%= link_to "edit_admin_panel_admin_registration_path" do %>
+		  <span class="glyphicon glyphicon-wrench"></span> &nbsp;&nbsp;账户设置
+		<% end %>
+	</li>
+</ul>
