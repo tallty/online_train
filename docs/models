@@ -17,3 +17,31 @@
   name    名称
   province_manager   省厅
   agency_manager     机构
+
+
+
+附件：attachment
+
+作业：tasks
+  grades：培训班
+  title: 标题
+  content: 内容
+  attachment: 附件
+（创建作业时将当前作业分配给当前培训班的每一个学员）
+
+学员作业：user_tasks
+  user: 学员
+  task: 作业
+  attachment: 学院提交附件
+  status: 状态
+
+
+日志：journals 
+  grades：培训班
+  title: 标题
+  content: 内容
+  add_data: 日期
+
+
+
+学员评师，学员反馈，负责人反馈，comment  gem
