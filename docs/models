@@ -42,17 +42,15 @@
   state 状态[审核通过与否， 来班与否]
 
 管理员： admins
-  account  账号
   name    名称
   province_manager   省厅
   agency_manager     机构
-  role  角色
+  roles  角色
   qq    QQ号
   state  状态
   mobile 手机
   phone 电话
   address 地址
-  email  邮箱
   postcode  邮编
   remark  备注
 
