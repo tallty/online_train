@@ -1,5 +1,5 @@
 module AdminPanel
-	class HomeController < ApplicationController
+	class HomeController < AdminPanel::ApplicationController
 		def index
 		end
 	end

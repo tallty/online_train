@@ -1,5 +1,5 @@
 module AdminPanel
-	class ProjectsController < ApplicationController
+	class ProjectsController < AdminPanel::ApplicationController
 		def index
 		end
 

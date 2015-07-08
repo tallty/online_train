@@ -10,7 +10,10 @@
   training_target   培训目标
   training_content  培训内容
   check_method   考核方法
-  项目负责人   授课老师  三种审核状态
+  state          状态
+  teachers       教师&负责人（多个）
+  project_leader 项目负责人
+  grade_leader    班级负责人
 
 管理员： admins
   account  账号
