@@ -1,25 +1,43 @@
-项目：projects
-  training_course  培训班
-  training_agency  培训机构
+培训班：training_courses
+  name   培训名称
+  code   培训代码
   start_time       起止时间
   end_time         结束时间
-  training_fee     培训费
   plan_number      计划人数
+  grade_leader     班级负责人
+  training_agency  培训机构
+  training_address 培训地址
+  training_fee     培训费
+  state            状态
+  remark           备注
   info             培训项目信息
   training_background   机构背景
   training_target   培训目标
   training_content  培训内容
   check_method   考核方法
-  state          状态
-  teachers       教师&负责人（多个）
   project_leader 项目负责人
-  grade_leader    班级负责人
+
+教师: teachers
+  name     姓名
+  account  账号
+
+
+报名培训： user_training_courses
+  user_id
+  training_course_id
+  state 状态[审核通过与否， 来班与否]
 
 管理员： admins
   account  账号
   name    名称
   province_manager   省厅
   agency_manager     机构
+  role  角色
+  qq    QQ
+
+待办事项: todos
+  admin_id
+  title 待办事项标题
 
 
 ==================================================================
@@ -40,7 +58,7 @@
   status: 状态
 
 
-日志：journals 
+日志：journals
   grades：培训班
   title: 标题
   content: 内容
