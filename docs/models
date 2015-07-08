@@ -1,0 +1,19 @@
+项目：projects
+  training_course  培训班
+  training_agency  培训机构
+  start_time       起止时间
+  end_time         结束时间
+  training_fee     培训费
+  plan_number      计划人数
+  info             培训项目信息
+  training_background   机构背景
+  training_target   培训目标
+  training_content  培训内容
+  check_method   考核方法
+  项目负责人   授课老师  三种审核状态
+
+管理员： admins
+  account  账号
+  name    名称
+  province_manager   省厅
+  agency_manager     机构
