@@ -2,54 +2,43 @@
   <div class="panel panel-primary">
     <div class="panel-heading have-menu">
       <ul id="detailMenu" class="nav nav-pills nav-content-menu">
-        <li class="active">
+        <li>
           <%= link_to("培训作业", admin_panel_tasks_path ) %>
         </li>
         <li>
           <%= link_to("日志提交", admin_panel_journals_path ) %>
         </li>
-        <li><a href="#">学员反馈</a></li>
+        <li  class="active"><a href="#">学员反馈</a></li>
         <li><a href="#">学员评师</a></li>
         <li><a href="#">负责人反馈</a></li>
       </ul>
     </div>
       
     <div class="panel-body">
-      <div class="row">
-        <div id="addJournal" class="add-btn pull-right">
-          <a href="#"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加作业</a>
-        </div>
-      </div>
-     
-      <hr>
       <table class="table">
         <thead>
           <tr>
-            <th>作业标题</th>
-            <th>作业附件</th>
-            <th>负责人</th>
-            <th  width="20%">培训班</th>
-            <th>已提交人数</th>
-            <th>未提交人数</th>
-            <th>创建&amp;修正时间</th>
-            <th>截止时间</th>
+            <th>姓名</th>
+            <th>联系方式</th>
+            <th>日志标题</th>
+            <th>日志内容</th>
+            <th width="25%">培训班</th>
+            <th>创建&amp;修改时间</th>
             <th>操作</th>
           </tr>
         </thead>
         <tbody>
           <% (1..10).each do |i| %>
           <tr>
-            <td align="left">
-              7月21日作业-EPC
+            <td>
+              王健 
             </td>
-            <td>7月21日作业-EPC<br>（作业附件）<a href="#">作业4.docx</a></td>
-            <td>尤寅君</td>
+            <td>13608291823<br>23612323@qq.com</td>
+            <td>7月13号日志</td>
+            <td>IOS的课今天难度比较大</td>
             <td align="left"><%= link_to("（国内）（上海）信息化教学 技术及信息化课程开发师资培训 （国培代码：09151005）", admin_panel_grade_path(1) )%></td>
-            <td>20</td>
-            <td>30</td>
-            <td>2015-06-05 19:30</td>
-            <td>2015-06-16</td>
-            <td><a href="#">编辑</a></td>
+            <td>2013-06-23 14:23</td>
+            <td><a href="#">查看</a></td>
           </tr>
           <% end %>
         </tbody>
