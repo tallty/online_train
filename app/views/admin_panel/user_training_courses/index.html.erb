@@ -1,0 +1,77 @@
+<div class="grades-main-content">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">搜索栏</h3>
+    </div>
+    <div class="panel-body">
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="trainName">姓名</label>
+          <input type="text" class="form-control" id="trainName">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail2">状态</label>
+          <select class="form-control">
+            <option>全部</option>
+            <option>草稿</option>
+            <option>报名</option>
+            <option>开班</option>
+            <option>结课</option>
+            <option>取消</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName2">报名开始时间</label>
+          <input type="text" class="form-control" id="exampleInputName2">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName2">报名结束时间</label>
+          <input type="text" class="form-control" id="exampleInputName2">
+        </div>
+        <button type="submit" class="btn btn-search">搜索</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">培训报名</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>账号</th>
+            <th>性别</th>
+            <th>职称</th>
+            <th>省份</th>
+            <th>联系方式</th>
+            <th>地址</th>
+            <th>状态</th>
+            <th>创建&amp;修改时间</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% (1..10).each do |i| %>
+          <tr>
+            <td>
+              王健 
+            </td>
+            <td>289324232@qq.com</td>
+            <td>女</td>
+            <td>副教授</td>
+            <td>上海</td>
+            <td>13608291823<br>23612323@qq.com</td>
+            <td>[学校]上海电子信息学院<br>[院系]计算机信息系<br>上海市嘉定区岗峰路68号</td>
+            <td>已报名</td>
+            <td>2013-06-23 14:23</td>
+            <td><a href="#">确认通过</a><br><a href="#">不予通过</a></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div>

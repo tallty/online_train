@@ -1,0 +1,2 @@
+module AdminPanel::UserTrainingCoursesHelper
+end
