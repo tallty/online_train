@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  code: MyString
+  start_time: 2015-07-10 09:21:40
+  end_time: 2015-07-10 09:21:40
+  plan_number: 1
+  grade_leader: MyString
+  training_agency: MyString
+  training_address: MyString
+  training_fee: 9.99
+  state: MyString
+  remark: MyText
+  info: MyString
+  training_background: MyString
+  training_target: MyString
+  training_content: MyText
+  check_method: MyText
+  project_leader: MyString
+
+two:
+  name: MyString
+  code: MyString
+  start_time: 2015-07-10 09:21:40
+  end_time: 2015-07-10 09:21:40
+  plan_number: 1
+  grade_leader: MyString
+  training_agency: MyString
+  training_address: MyString
+  training_fee: 9.99
+  state: MyString
+  remark: MyText
+  info: MyString
+  training_background: MyString
+  training_target: MyString
+  training_content: MyText
+  check_method: MyText
+  project_leader: MyString
