@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
     resources :grades
     resources :tasks
+    resources :user_tasks
     resources :user_training_courses
     resources :projects
   end

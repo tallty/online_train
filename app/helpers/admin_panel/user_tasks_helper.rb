@@ -1,0 +1,2 @@
+module AdminPanel::UserTasksHelper
+end
