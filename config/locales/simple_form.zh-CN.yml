@@ -36,6 +36,10 @@ zh-CN:
         qq_no: "QQ"
         summary: "简介"
         his_train: "历史培训"
+      task:
+        title: "标题"
+        body: "内容"
+        training_course: "培训班"
     placeholders:
       user:
         email: '请输入电子邮箱'

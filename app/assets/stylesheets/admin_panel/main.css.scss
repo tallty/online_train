@@ -160,3 +160,16 @@ a.btn-active {
   color: #fff;
   border: none 0;
 }
+
+//添加按钮
+.add-btn {
+  background: image-url("add_journal.png") no-repeat;
+  height: 37px;
+  width: 100px;
+  a, a:hover {
+    padding-left: 10px;
+    line-height: 35px;
+    color: #62c868;
+  }
+}
+

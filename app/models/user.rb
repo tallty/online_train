@@ -32,6 +32,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  country                :string(255)
+#  his_train              :text(65535)
 #
 
 class User < ActiveRecord::Base

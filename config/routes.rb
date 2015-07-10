@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     root "home#index"
 
     resources :grades
+    resources :tasks
     resources :projects
   end
 end

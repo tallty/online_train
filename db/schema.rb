@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710012543) do
+ActiveRecord::Schema.define(version: 20150710013112) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -41,6 +41,31 @@ ActiveRecord::Schema.define(version: 20150710012543) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "avatar_file_name",    limit: 255
+    t.string   "avatar_content_type", limit: 255
+    t.integer  "avatar_file_size",    limit: 4
+    t.datetime "avatar_updated_at"
+    t.integer  "attachmentable_id",   limit: 4
+    t.string   "attachmentable_type", limit: 255
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "attachments", ["attachmentable_id", "attachmentable_type"], name: "index_attachments_on_attachmentable_id_and_attachmentable_type", unique: true, using: :btree
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "title",              limit: 255,   null: false
+    t.text     "body",               limit: 65535, null: false
+    t.integer  "training_course_id", limit: 4,     null: false
+    t.integer  "admin_id",           limit: 4,     null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "tasks", ["admin_id"], name: "index_tasks_on_admin_id", using: :btree
+  add_index "tasks", ["training_course_id"], name: "index_tasks_on_training_course_id", using: :btree
 
   create_table "teachers", force: :cascade do |t|
     t.string   "name",       limit: 255

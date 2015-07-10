@@ -60,6 +60,8 @@ gem 'simple_form', '~> 3.1.0'
 #权限管理
 gem 'cancancan', '~> 1.12.0'
 
+gem "paperclip", "~> 4.3"
+
 #gem 'china_city'
 
 #gem 'easy_captcha', git: "https://github.com/phatworx/easy_captcha.git"
