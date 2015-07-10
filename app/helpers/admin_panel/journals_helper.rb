@@ -1,0 +1,2 @@
+module AdminPanel::JournalsHelper
+end
