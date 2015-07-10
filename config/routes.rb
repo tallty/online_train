@@ -38,6 +38,8 @@ Rails.application.routes.draw do
     resources :journals
     resources :user_training_courses
     resources :user_appraise_trains
+    resources :user_teachers
+
     resources :projects
     resources :users
   end
