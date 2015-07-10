@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   namespace :admin_panel do
     root "home#index"
 
-    resources :grades
+    resources :training_courses
     resources :tasks
     resources :user_tasks
     resources :journals

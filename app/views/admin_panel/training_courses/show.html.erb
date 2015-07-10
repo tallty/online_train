@@ -48,43 +48,43 @@
     <div id="gradeDetailContent" class="panel-body">
       <!-- ================培训班级信息=============== -->
       <div class="grade-detail-info">
-        <%= render "/admin_panel/grades/detail//grade_info" %>
+        <%= render "/admin_panel/training_courses/detail//grade_info" %>
       </div>
       <!-- ================培训班级信息=============== -->
 
       <!-- ================培训项目信息=============== -->
       <div class="grade-detail-info" style="display: none;">
-        <%= render "/admin_panel/grades/detail//project_info" %>
+        <%= render "/admin_panel/training_courses/detail//project_info" %>
       </div>
       <!-- ================培训项目信息=============== -->
 
       <!-- ================机构背景=============== -->
       <div class="grade-detail-info" style="display: none;">
-        <%= render "/admin_panel/grades/detail//background" %>
+        <%= render "/admin_panel/training_courses/detail//background" %>
       </div>
       <!-- ================机构背景=============== -->
 
       <!-- ================培训目标=============== -->
       <div class="grade-detail-info" style="display: none;">
-        <%= render "/admin_panel/grades/detail//target" %>
+        <%= render "/admin_panel/training_courses/detail//target" %>
       </div>
       <!-- ================培训目标=============== -->
 
       <!-- ================培训内容=============== -->
       <div class="grade-detail-info" style="display: none;">
-        <%= render "/admin_panel/grades/detail//content" %>
+        <%= render "/admin_panel/training_courses/detail//content" %>
       </div>
       <!-- ================培训内容=============== -->
 
       <!-- ================考核方法=============== -->
       <div class="grade-detail-info" style="display: none;">
-        <%= render "/admin_panel/grades/detail//menus" %>
+        <%= render "/admin_panel/training_courses/detail//menus" %>
       </div>
       <!-- ================考核方法=============== -->
 
       <!-- ================授课教师=============== -->
       <div class="grade-detail-info" style="display: none;">
-        <%= render "/admin_panel/grades/detail//teachers" %>
+        <%= render "/admin_panel/training_courses/detail//teachers" %>
       </div>
       <!-- ================授课教师=============== -->
     </div>
@@ -92,5 +92,5 @@
 <div>
 
 <%= content_for :scripts do %>
-  <%= javascript_include_tag "admin_panel/grades", 'data-turbolinks-track' => true  %>
+  <%= javascript_include_tag "admin_panel/training_courses", 'data-turbolinks-track' => true  %>
 <% end %>
