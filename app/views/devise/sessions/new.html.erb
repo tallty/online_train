@@ -1,70 +1,66 @@
-<% if params[:controller] == "admin_panel/sessions" %>
-  <%= render "admin_session"%>
-<% else %>
-  <div class="wrapper">
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="panel-list">
-        <div class="panel panel-default half-width pull-left">
-          <div class="panel-heading panel-bg oh">
-            <span class="pull-left title-bg">用户中心</span>
-          </div>
-          <div class="panel-body">
-            <% flash.each do |key, value| %>
-              <% if value.present? %>
-                  <p class="text-danger"><%= value%></p>
-              <% end %>
+<div class="wrapper">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="panel-list">
+      <div class="panel panel-default half-width pull-left">
+        <div class="panel-heading panel-bg oh">
+          <span class="pull-left title-bg">用户中心</span>
+        </div>
+        <div class="panel-body">
+          <% flash.each do |key, value| %>
+            <% if value.present? %>
+                <p class="text-danger"><%= value%></p>
             <% end %>
-            <div class="form-inputs table-responsive">
-              <table class="table">
-                <tr align="center">
-                  <td colspan="2">
-                    <%= f.input :email, wrapper: :login_input, autofocus: true %>
-                  </td>
-                  <td><%= f.button :submit, "登录", class: "btn btn-success" %></td>
-                </tr>
-                <tr align="center">
-                  <td colspan="2"><%= f.input :password, label: false, required: false, wrapper: :password_input %></td>
-                  <td><%= link_to "注册", new_registration_path(resource_name), class: "btn btn-primary" %></td>
-                </tr>
-                <tr>
-                  <td><%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %></td>
-                  <td align="right"><%= link_to "忘记密码?", new_password_path(resource_name) %></td>
-                  <td></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel panel-default half-width pull-right">
-          <div class="panel-heading panel-bg oh">
-            <span class="pull-left title-bg">师资培训计划</span>
-          </div>
-          <div class="panel-body">
-            <p>为贯彻落实全国教育工作会议精神和《国家中长期教育改革和发展规划纲要（2010-2020年）》提出的完成培训一大批“双师型”教师、聘任（聘用）一大批有实践经验和技能的专兼职教师的工作要求，进一步推动和加强职业院校教师队伍建设，促进职业教育科学发展，教育部、财政部决定2011-2015年实施职业院校教师素质提高计划。</p>
-            <p>2011-2015年，将组织45万名职业院校专业骨干教师参加培训，其中中央财政重点支持培训10万名，省级培训35万名，提高教师的教育教学水平特别是实践教学和课程设计开发能力；支持2万名中等职业学校青年教师到企业实践，提高教师的产业文化素养和专业技能水平；支持职业院校设立兼职教师岗位，优化职业院校教师队伍的人员结构；支持国家职业教育师资基地重点建设300个职教师资专业点，开发100个职教师资本科专业的培养标准、培养方案、核心课程和特色教材, 加强基地的实训条件和内涵建设，完善适应教师专业化要求的培养培训体系。</p>
-            <p>实施职业院校教师素质提高计划，是《国家中长期教育改革和发展规划纲要（2010-2020年）》提出的重大项目，是新时期新阶段推动职业教育科学发展的迫切要求，是提高职业院校教师队伍整体素质的重要举措。各级教育、财政部门和有关单位要切实提高重视程度，加强组织领导，周密安排部署，精心组织实施。</p>
-          </div>
-        </div>
-
-        <div class="panel panel-default half-width pull-left self-info">
-          <div class="panel-heading panel-bg oh">
-            <span class="pull-left title-bg yqlj">关于我们</span>
-          </div>
-          <div class="panel-body">
-            <ul class="list-group" type="disc">
-              <li class="list-group-item"><span>单位：上海市高职高专教学研究会秘书处</span></li>
-              <li class="list-group-item"><span>地址：中国·上海市中山南二路620号</span></li>
-              <li class="list-group-item"><span>邮编：200032</span></li>
-              <li class="list-group-item"><span>业务咨询：021-57132803</span></li>
-              <li class="list-group-item"><span>技术支持：021-63230765</span></li>
-              <li class="list-group-item"><span>证书办理：021-57132803</span></li>
-              <li class="list-group-item"><span>QQ群：226595293</span></li>
-              <li class="list-group-item"><span>邮箱咨询：shsgzgzjxyjh@163.com</span></li>
-            </ul>
+          <% end %>
+          <div class="form-inputs table-responsive">
+            <table class="table">
+              <tr align="center">
+                <td colspan="2">
+                  <%= f.input :email, wrapper: :login_input, autofocus: true %>
+                </td>
+                <td><%= f.button :submit, "登录", class: "btn btn-success" %></td>
+              </tr>
+              <tr align="center">
+                <td colspan="2"><%= f.input :password, label: false, required: false, wrapper: :password_input %></td>
+                <td><%= link_to "注册", new_registration_path(resource_name), class: "btn btn-primary" %></td>
+              </tr>
+              <tr>
+                <td><%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %></td>
+                <td align="right"><%= link_to "忘记密码?", new_password_path(resource_name) %></td>
+                <td></td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
-    <% end %>
-  </div>
-<% end %>
+
+      <div class="panel panel-default half-width pull-right">
+        <div class="panel-heading panel-bg oh">
+          <span class="pull-left title-bg">师资培训计划</span>
+        </div>
+        <div class="panel-body">
+          <p>为贯彻落实全国教育工作会议精神和《国家中长期教育改革和发展规划纲要（2010-2020年）》提出的完成培训一大批“双师型”教师、聘任（聘用）一大批有实践经验和技能的专兼职教师的工作要求，进一步推动和加强职业院校教师队伍建设，促进职业教育科学发展，教育部、财政部决定2011-2015年实施职业院校教师素质提高计划。</p>
+          <p>2011-2015年，将组织45万名职业院校专业骨干教师参加培训，其中中央财政重点支持培训10万名，省级培训35万名，提高教师的教育教学水平特别是实践教学和课程设计开发能力；支持2万名中等职业学校青年教师到企业实践，提高教师的产业文化素养和专业技能水平；支持职业院校设立兼职教师岗位，优化职业院校教师队伍的人员结构；支持国家职业教育师资基地重点建设300个职教师资专业点，开发100个职教师资本科专业的培养标准、培养方案、核心课程和特色教材, 加强基地的实训条件和内涵建设，完善适应教师专业化要求的培养培训体系。</p>
+          <p>实施职业院校教师素质提高计划，是《国家中长期教育改革和发展规划纲要（2010-2020年）》提出的重大项目，是新时期新阶段推动职业教育科学发展的迫切要求，是提高职业院校教师队伍整体素质的重要举措。各级教育、财政部门和有关单位要切实提高重视程度，加强组织领导，周密安排部署，精心组织实施。</p>
+        </div>
+      </div>
+
+      <div class="panel panel-default half-width pull-left self-info">
+        <div class="panel-heading panel-bg oh">
+          <span class="pull-left title-bg yqlj">关于我们</span>
+        </div>
+        <div class="panel-body">
+          <ul class="list-group" type="disc">
+            <li class="list-group-item"><span>单位：上海市高职高专教学研究会秘书处</span></li>
+            <li class="list-group-item"><span>地址：中国·上海市中山南二路620号</span></li>
+            <li class="list-group-item"><span>邮编：200032</span></li>
+            <li class="list-group-item"><span>业务咨询：021-57132803</span></li>
+            <li class="list-group-item"><span>技术支持：021-63230765</span></li>
+            <li class="list-group-item"><span>证书办理：021-57132803</span></li>
+            <li class="list-group-item"><span>QQ群：226595293</span></li>
+            <li class="list-group-item"><span>邮箱咨询：shsgzgzjxyjh@163.com</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

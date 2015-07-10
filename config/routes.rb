@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   root "home#index"
   #mount ChinaCity::Engine => '/china_city'
-  devise_for :admins, :controllers => { :sessions => "admin_panel/sessions" }
+  devise_for :admins, controllers: { sessions: "admins/sessions" }
   namespace :admin_panel do
     root "home#index"
 
