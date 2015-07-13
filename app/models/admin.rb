@@ -66,13 +66,13 @@ class Admin < ActiveRecord::Base
           }
 
   def province_uniqueness
-    if Province.where(name: province).limit(1).present?
+    if province.present? && Province.where(name: province).limit(1).present?
       errors.add(:province, :repeat)
     end
   end
 
   def agency_uniqueness
-    if School.where(name: province).limit(1).present?
+    if agency.present? && School.where(name: agency).limit(1).present?
       errors.add(:agency, :repeat)
     end
   end
