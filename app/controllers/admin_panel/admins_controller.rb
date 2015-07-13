@@ -12,6 +12,10 @@ class AdminPanel::AdminsController < AdminPanel::ApplicationController
   def edit_profile
   end
 
+  def edit_password
+  end
+
+
   def destroy
   end
 

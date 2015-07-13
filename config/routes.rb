@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     resources :admins do
       collection do
         get :edit_profile
+        get :edit_password
       end
     end
     resources :projects
