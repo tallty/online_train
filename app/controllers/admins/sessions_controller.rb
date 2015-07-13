@@ -9,7 +9,21 @@ class Admins::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    super
+    self.resource = warden.authenticate({scope: :admin})
+    if self.resource.present?
+      set_flash_message(:notice, :signed_in) if is_flashing_format?
+      sign_in(resource_name, resource)
+      yield resource if block_given?
+      respond_with resource, location: after_sign_in_path_for(resource)
+    else
+      flash[:notice] = "邮箱或密码错误"
+      if params[:role].empty? 
+        redirect_to new_session_path(:admin)
+      else
+        redirect_to new_session_path(:admin, role: params[:role])
+      end
+    end
+    #super
   end
 
   # DELETE /resource/sign_out

@@ -1,0 +1,2 @@
+module AdminPanel::SchoolsHelper
+end

@@ -6,13 +6,14 @@
         <p class="text-danger"><%= value%></p>
     <% end %>
   <% end %>
+  <%= hidden_field_tag :role, params[:role]%>
   <div class="input-group input-group-lg mt-20">
     <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
-    <%= select_tag :provice, options_for_select(Province.all.pluck(:name, :id)), autofocus: true, prompt: "请选择省厅",class: "form-control" %>
+    <%= select_tag :province, options_for_select(Province.all.pluck(:name, :id)), autofocus: true, prompt: "请选择省厅",class: "form-control", id: "provinceSelect" %>
   </div>
   <div class="input-group input-group-lg mt-20">
     <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-cog"></span></span>
-    <%= select_tag "admin[email]", options_for_select([]), autofocus: true, prompt: "请选择机构",class: "form-control" %>
+    <%= select_tag "admin[email]", options_for_select([]), autofocus: true, prompt: "请选择机构",class: "form-control",id: "schoolSelect" %>
   </div>
   <div class="input-group input-group-lg mt-20">
     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
@@ -26,3 +27,22 @@
   </div>
 <% end %>
 </div>
+
+<script type="text/javascript">
+  $(function(){
+    $("#provinceSelect").change(function(){
+      $.ajax({
+        type: "get",
+        url: "<%= schools_by_province_admin_panel_schools_path %>?province_id="  + $(this).val(),
+        dataType: "json",
+        success: function(school){
+          var options = "<option>请选择机构</option>"
+          for(var i=0; i< school.length; i++){
+            options += "<option value='" + school[i][1] + "'>" + school[i][0] + "</option>"
+          }
+          $("#schoolSelect").html(options);
+        }
+      });
+    });
+  });
+</script>

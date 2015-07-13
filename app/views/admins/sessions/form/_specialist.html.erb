@@ -6,6 +6,7 @@
           <p class="text-danger"><%= value%></p>
       <% end %>
     <% end %>
+    <%= hidden_field_tag :role, params[:role]%>
     <div class="input-group input-group-lg mt-20">
       <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
       <%= f.text_field :email, required: false, autofocus: true, placeholder: "请输入账号", "aria-describedby": "basic-addon1", label: false, class: "form-control" %>

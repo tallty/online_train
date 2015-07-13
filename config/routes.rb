@@ -39,6 +39,11 @@ Rails.application.routes.draw do
     resources :user_training_courses
     resources :user_appraise_trains
     resources :user_teachers
+    resources :schools do
+      collection do
+        get :schools_by_province
+      end
+    end
     resources :admins do
       collection do
         get :edit_profile
