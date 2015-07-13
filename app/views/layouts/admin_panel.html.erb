@@ -8,6 +8,10 @@
 </head>
 <body class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>">
   <%= render "admin_panel/share/header"%>
+  <!-- flash notice -->
+  <%= render :partial => "admin_panel/share/flash_message" %>
+  <!-- flash notice -->
+  
   <div class="row">
     <div class="col-sm-2">
        <%= render "admin_panel/share/left_bar"%>
@@ -20,9 +24,6 @@
   
   <%= yield :scripts %>
 
-  <!-- flash notice -->
-  <%= render :partial => "admin_panel/share/flash_message" %>
-  <!-- flash notice -->
   <%= render "admin_panel/share/footer" %>
 </body>
 </html>

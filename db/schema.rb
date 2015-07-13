@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 20150713074042) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name",                   limit: 255
-    t.string   "province_manager",       limit: 255
-    t.string   "agency_manager",         limit: 255
     t.integer  "role",                   limit: 4
     t.string   "qq",                     limit: 255
     t.string   "mobile",                 limit: 255
@@ -37,10 +35,14 @@ ActiveRecord::Schema.define(version: 20150713074042) do
     t.string   "address",                limit: 255
     t.string   "postcode",               limit: 255
     t.text     "remark",                 limit: 65535
+    t.string   "username",               limit: 255
+    t.integer  "adminable_id",           limit: 4
+    t.string   "adminable_type",         limit: 255
+    t.integer  "school_id",              limit: 4
   end
 
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+  add_index "admins", ["username"], name: "index_admins_on_username", unique: true, using: :btree
 
   create_table "attachments", force: :cascade do |t|
     t.string   "avatar_file_name",    limit: 255
@@ -54,6 +56,21 @@ ActiveRecord::Schema.define(version: 20150713074042) do
   end
 
   add_index "attachments", ["attachmentable_id", "attachmentable_type"], name: "index_attachments_on_attachmentable_id_and_attachmentable_type", unique: true, using: :btree
+
+  create_table "provinces", force: :cascade do |t|
+    t.string   "username",   limit: 255
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string   "username",    limit: 255
+    t.string   "name",        limit: 255
+    t.integer  "province_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string   "title",              limit: 255,               null: false

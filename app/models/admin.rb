@@ -16,8 +16,6 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  name                   :string(255)
-#  province_manager       :string(255)
-#  agency_manager         :string(255)
 #  role                   :integer
 #  qq                     :string(255)
 #  mobile                 :string(255)
@@ -26,13 +24,38 @@
 #  address                :string(255)
 #  postcode               :string(255)
 #  remark                 :text(65535)
+#  username               :string(255)
+#  adminable_id           :integer
+#  adminable_type         :string(255)
+#  school_id              :integer
 #
 
 class Admin < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable #, :validatable
+
+  belongs_to :adminable, polymorphic: true
+  belongs_to :school
+
+  attr_accessor :province
+  attr_accessor :agency
+
+  validates_presence_of     :username
+  validates_uniqueness_of   :username
+  validates :password, presence: true, length: { minimum:4, maximum: 32 }, on: [:create]
+  validates_confirmation_of :password, on: [:create]
+  validates_presence_of :province, if: "self.system? || self.trainer?", on: [:create]
+  validate :province_uniqueness, if: "self.system?", on: [:create]  #省厅唯一
+  validates_presence_of :agency, if: "self.trainer?", on: [:create]
+  validate :agency_uniqueness, if: "self.trainer?", on: [:create] #培训机构唯一
+  validates_presence_of :school_id, if: "self.management?", on: [:create] #班级负责人所属培训机构
+  validates_presence_of :name, if: "self.education? || self.specialist? || self.management?"
+  validates_presence_of :email
+  validates_presence_of :mobile
+  validates_presence_of :phone
+
 
   enum role: { system: 0, education: 1, trainer: 2, specialist: 3, management: 4 }
   ROLE = {  system: "管理部门",
@@ -41,4 +64,24 @@ class Admin < ActiveRecord::Base
             specialist: "评审专家",
             management: "班级负责人" 
           }
+
+  def province_uniqueness
+    if Province.where(name: province).limit(1).present?
+      errors.add(:province, :repeat)
+    end
+  end
+
+  def agency_uniqueness
+    if School.where(name: province).limit(1).present?
+      errors.add(:agency, :repeat)
+    end
+  end
+
+  def self.find_for_database_authentication(warden_conditions)
+   conditions = warden_conditions.dup
+
+   login = conditions.delete(:email)
+
+   where(conditions).where(["username = :value", { value: login }]).first
+  end
 end

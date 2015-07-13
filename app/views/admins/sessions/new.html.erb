@@ -63,12 +63,7 @@
           <% end %>
           <div class="input-group input-group-lg mt-20">
             <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
-            <select class="form-control" promote="请选择省厅" aria-describedby="basic-addon1">
-              <option>上海</option>
-              <option>北京</option>
-              <option>广州</option>
-              <option>深圳</option>
-            </select>
+            <%= f.input :email, as: :select, label: false, collection: Province.all.pluck(:name, :username) %>
           </div>
 
           <div class="input-group input-group-lg mt-20">

@@ -1,0 +1,25 @@
+<div id="adminModalForm" class="modal fade admin-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">添加培训机构</h4>
+      </div>
+      <div id="adminForm" class="modal-body">
+        <%= simple_form_for(@admin, url: is_edit_or_update? ? admin_panel_admin_path(@admin) : admin_panel_admins_path(@admin),remote: true, wrapper: :horizontal_form, html: {class: "form-horizontal"}) do |f| %>
+          <%= f.input :username, required: true, autofocus: true, disabled: is_edit_or_update? ? true : false %>
+          <%= f.input :province, required: true,disabled: is_edit_or_update? ? true : false, as: :select, collection: Province.all.pluck(:name, :id) ,selected: @admin.try(:adminable).try(:province).try(:id)%>
+          <%= f.input :agency, required: true,input_html: { value: @admin.try(:adminable).try(:name) } , disabled: is_edit_or_update? ? true : false %>
+          <%= f.input :password, required: true  %>
+          <%= f.input :password_confirmation, required: true %>
+          <%= f.input :email, required: true  %>
+          <%= f.input :phone, required: true  %>
+          <%= f.input :mobile, required: true  %>
+          <%= f.input :address %>
+          <%= f.input :role, as: :hidden, input_html: { value: 'trainer' } %>
+          <p class="text-center"><%= f.button :submit, "确认提交", class: "btn btn-primary" %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -168,3 +168,23 @@ a.btn-active {
   }
 }
 
+
+//后台模态框样式
+.admin-modal {
+	.modal-header {
+		padding: 10px 15px;
+		background-color: #1f7ed0;
+		color: #fff;
+	}
+}
+
+//全局flash提示
+.flash-message {
+  width: 100%;
+  position: absolute;
+  .popover-content {
+    text-align: center;
+    font-size: 20px;
+  }
+}
+
