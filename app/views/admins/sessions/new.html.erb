@@ -11,162 +11,25 @@
       <div class="panel-heading fix-panel">
         <ul class="text-center">
           <li>
-            <%= link_to "教育部门", "javascript:void(0)", class: "active" %>
+            <%= link_to "教育部门", new_session_path(:admin), class: (params[:role].blank? || params[:role] == "education") ? "active" : "" %>
           </li>
           <li>
-            <%= link_to "管理部门", "javascript:void(0)"%>
+            <%= link_to "管理部门", new_session_path(:admin, role: :system), class: params[:role] == "system" ? "active" : "" %>
           </li>
           <li>
-            <%= link_to "培训机构", "javascript:void(0)"%>
+            <%= link_to "培训机构", new_session_path(:admin, role: :trainer), class: params[:role] == "trainer" ? "active" : "" %>
           </li>
           <li>
-            <%= link_to "评审专家", "javascript:void(0)"%>
+            <%= link_to "评审专家", new_session_path(:admin, role: :specialist), class: params[:role] == "specialist" ? "active" : "" %>
           </li>
           <li>
-            <%= link_to "班级负责人", "javascript:void(0)"%>
+            <%= link_to "班级负责人", new_session_path(:admin, role: :management), class: params[:role] == "management" ? "active" : "" %>
           </li>
         </ul>
       </div>
 
-      <!-- 教育部门 -->
-      <div class="panel-body js-panel-toggle">
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <% flash.each do |key, value| %>
-            <% if value.present? %>
-                <p class="text-danger"><%= value %></p>
-            <% end %>
-          <% end %>
-	        <div class="input-group input-group-lg mt-20">
-	          <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
-              <%= f.text_field :email, required: false, autofocus: true, placeholder: "请输入账号", "aria-describedby": "basic-addon1", label: false, class: "form-control" %>
-	        </div>
-	        <div class="input-group input-group-lg mt-20">
-	          <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-	          <%= f.password_field :password, label: false, required: false, autofocus: true, placeholder: "请输入密码", "aria-describedby": "basic-addon1", class: "form-control" %>
-	        </div>
-	        <div class="input-group mt-20">
-	          <%= f.input :remember_me, as: :boolean, label: "记住密码" if devise_mapping.rememberable? %>
-	        </div>
-	        <div class="col-sm-12  mt-20">
-	          <%= f.button :submit, "登 录", class: "btn btn-lg btn-primary btn-block center-block", "aria-describedby": "sizing-addon1" %>
-	        </div>
-	      <% end %>
-      </div>
-
-      <!-- 管理部门 -->
-       <div class="panel-body js-panel-toggle">
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <% flash.each do |key, value| %>
-            <% if value.present? %>
-                <p class="text-danger"><%= value%></p>
-            <% end %>
-          <% end %>
-          <div class="input-group input-group-lg mt-20">
-            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
-            <%= f.input :email, as: :select, label: false, collection: Province.all.pluck(:name, :username) %>
-          </div>
-
-          <div class="input-group input-group-lg mt-20">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-            <%= f.password_field :password, label: false, required: false, autofocus: true, placeholder: "请输入密码", "aria-describedby": "basic-addon1", class: "form-control" %>
-          </div>
-          <div class="input-group mt-20">
-            <%= f.input :remember_me, as: :boolean, label: "记住密码" if devise_mapping.rememberable? %>
-          </div>
-          <div class="col-sm-12  mt-20">
-            <%= f.button :submit, "登 录", class: "btn btn-lg btn-primary btn-block center-block", "aria-describedby": "sizing-addon1" %>
-          </div>
-        <% end %>
-      </div>
-
-      <!-- 培训机构 -->
-       <div class="panel-body js-panel-toggle">
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <% flash.each do |key, value| %>
-            <% if value.present? %>
-                <p class="text-danger"><%= value%></p>
-            <% end %>
-          <% end %>
-          <div class="input-group input-group-lg mt-20">
-            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
-            <select class="form-control" promote="请选择省厅" aria-describedby="basic-addon1">
-              <option>上海</option>
-              <option>北京</option>
-              <option>广州</option>
-              <option>深圳</option>
-            </select>
-          </div>
-          <div class="input-group input-group-lg mt-20">
-            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
-            <select class="form-control" promote="请选择省厅" aria-describedby="basic-addon1">
-              <option>上海</option>
-              <option>北京</option>
-              <option>广州</option>
-              <option>深圳</option>
-            </select>
-          </div>
-          <div class="input-group input-group-lg mt-20">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-            <%= f.password_field :password, label: false, required: false, autofocus: true, placeholder: "请输入密码", "aria-describedby": "basic-addon1", class: "form-control" %>
-          </div>
-          <div class="input-group mt-20">
-            <%= f.input :remember_me, as: :boolean, label: "记住密码" if devise_mapping.rememberable? %>
-          </div>
-          <div class="col-sm-12  mt-20">
-            <%= f.button :submit, "登 录", class: "btn btn-lg btn-primary btn-block center-block", "aria-describedby": "sizing-addon1" %>
-          </div>
-        <% end %>
-      </div>
-
-      <!-- 评审专家 -->
-       <div class="panel-body js-panel-toggle">
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <% flash.each do |key, value| %>
-            <% if value.present? %>
-                <p class="text-danger"><%= value%></p>
-            <% end %>
-          <% end %>
-          <div class="input-group input-group-lg mt-20">
-            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
-            <%= f.text_field :email, required: false, autofocus: true, placeholder: "请输入账号", "aria-describedby": "basic-addon1", label: false, class: "form-control" %>
-          </div>
-          <div class="input-group input-group-lg mt-20">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-            <%= f.password_field :password, label: false, required: false, autofocus: true, placeholder: "请输入密码", "aria-describedby": "basic-addon1", class: "form-control" %>
-          </div>
-          <div class="input-group mt-20">
-            <%= f.input :remember_me, as: :boolean, label: "记住密码" if devise_mapping.rememberable? %>
-          </div>
-          <div class="col-sm-12  mt-20">
-            <%= f.button :submit, "登 录", class: "btn btn-lg btn-primary btn-block center-block", "aria-describedby": "sizing-addon1" %>
-          </div>
-        <% end %>
-      </div>
-
-      <!-- 班级负责人 -->
-       <div class="panel-body js-panel-toggle">
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <% flash.each do |key, value| %>
-            <% if value.present? %>
-                <p class="text-danger"><%= value%></p>
-            <% end %>
-          <% end %>
-          <div class="input-group input-group-lg mt-20">
-            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
-            <%= f.text_field :email, required: false, autofocus: true, placeholder: "请输入账号", "aria-describedby": "basic-addon1", label: false, class: "form-control" %>
-          </div>
-          <div class="input-group input-group-lg mt-20">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-            <%= f.password_field :password, label: false, required: false, autofocus: true, placeholder: "请输入密码", "aria-describedby": "basic-addon1", class: "form-control" %>
-          </div>
-          <div class="input-group mt-20">
-            <%= f.input :remember_me, as: :boolean, label: "记住密码" if devise_mapping.rememberable? %>
-          </div>
-          <div class="col-sm-12  mt-20">
-            <%= f.button :submit, "登 录", class: "btn btn-lg btn-primary btn-block center-block", "aria-describedby": "sizing-addon1" %>
-          </div>
-        <% end %>
-      </div>
+      <%= render "admins/sessions/form/#{params[:role].present? ? params[:role] : 'education'}"%>
+      
     </div>
   </div>
 </div>
@@ -174,7 +37,7 @@
 <!-- 网站底部信息 -->
 <%= render "admins/sessions/footer" %>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $(function(){
     $(".js-panel-toggle").hide();
     $(".js-panel-toggle").first().show();
@@ -187,4 +50,4 @@
       })
     })
   });
-</script>
+</script> -->
