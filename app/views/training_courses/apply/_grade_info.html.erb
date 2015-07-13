@@ -8,11 +8,11 @@
     <tbody>
       <tr>
         <th scope="row">培训班级名称</th>
-        <td colspan="3">(国内)(上海)“跨境电子商务骨干教师”师资培训班通知（培训项目代码：09151004）</td>
+        <td colspan="3"><%= @training_course.name %></td>
       </tr>
       <tr>
         <th scope="row">培训机构</th>
-        <td colspan="3">上海立信会计学院</td>
+        <td colspan="3"><%= @training_course.name %></td>
       </tr>
       <tr>
         <th scope="row">培训项目负责人</th>
@@ -26,23 +26,35 @@
       </tr>
       <tr>
         <th scope="row">起止时间</th>
-        <td>2015-07-13至2015-08-7</td>
+        <td><%= @training_course.start_time %>至<%= @training_course.end_time %></td>
         <th>计划人数</th>
-        <td class="font-red">100</td>
+        <td class="font-red"><%= @training_course.plan_number %></td>
       </tr>
       <tr>
         <th scope="row">培训天数</th>
         <td>24</td>
         <th>剩余名额</th>
-        <td class="font-green">100</td>
+        <td class="font-green"><%= @training_course.name %></td>
       </tr>
       <tr>
         <th scope="row">培训地点</th>
-        <td colspan="3">上海立信会计学院（上海市徐汇区中山西路2230号）</td>
-      </tr>               
-    </tbody>   
+        <td colspan="3"><%= @training_course.training_address %></td>
+      </tr>
+    </tbody>
   </table>
 </div>
 <br>
-<%= link_to "我要报名", "#", class:"apply-btn"%>
+<% if @present_user_training_course.present? %>
+  <%= link_to "已报名", "javascript:void(0)", class: "apply-btn" %>
+<% else %>
+  <% if user_signed_in? %>
+    <%= form_for UserTrainingCourse.new, remote: true do |f| %>
+      <%= f.hidden_field :training_course_id, value: @training_course.id %>
+      <%= f.hidden_field :user_id, value: @current_user.id %>
+      <%= f.submit "我要报名", class: "apply-btn" %>
+    <% end %>
+  <% else %>
+    <%= link_to "请先登录", new_user_session_path, class: "apply-btn" %>
+  <% end %>
+<% end %>
 <br>

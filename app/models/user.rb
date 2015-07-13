@@ -38,6 +38,7 @@
 class User < ActiveRecord::Base
 
   #acts_as_easy_captcha
+  has_many :user_training_courses
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

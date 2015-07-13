@@ -81,7 +81,7 @@
 										<td><%= training_course.start_time %>至<%= training_course.end_time %></td>
 										<td><%= training_course.plan_number %></td>
 										<td><%= training_course.plan_number %></td>
-										<td><%= link_to "报名", train_apply_info_path %></td>
+										<td><%= link_to "报名", training_course_path(training_course.id) %></td>
 									</tr>
 								<% end %>
 							</tbody>

@@ -1,6 +1,6 @@
 class UserController < ApplicationController
   before_action :authenticate_user!
-  
+
   def center
     @user = current_user
   end
@@ -10,19 +10,18 @@ class UserController < ApplicationController
 
   def message1
   end
-  def message2
 
+  def message2
   end
 
   def work
   end
 
   def journal
-    
   end
 
   def update
-    @user = User.where(id: params[:id]).first 
+    @user = User.where(id: params[:id]).first
 
     #未查找到对应数据时处理
     if @user.blank?
@@ -33,7 +32,7 @@ class UserController < ApplicationController
     if @user.update(user_params)
 
       #更新成功
-      #重新登录更新session以及current_user等相关变量方法的值 
+      #重新登录更新session以及current_user等相关变量方法的值
       sign_in(:user, @user)
 
       flash[:notice] = "个人资料更新成功"
