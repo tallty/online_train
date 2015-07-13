@@ -6,6 +6,18 @@ module AdminPanel::ApplicationHelper
   def personnel_menu
   end
 
+  #登录用户名现实
+  #2015-97-13 fw
+  def show_name
+    return "" if current_admin.blank?
+    if current_admin.system? || current_admin.trainer?
+      current_admin.try(:adminable).try(:name) 
+    else
+      current_admin.name
+    end
+  end
+
+
   #页面中判断controller和action
   def controller?(*controller)
     controller.include?(params[:controller])
