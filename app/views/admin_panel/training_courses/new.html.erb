@@ -1,0 +1,66 @@
+<div class="main-content">
+  <div class="panel panel-default">
+	<div class="panel-heading panel-active">新建项目</div>
+	  <div class="panel-body panel-default-bg">
+    	<%= form_for [:admin_panel, @training_course], html: { class: 'form-horizontal' }, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|%>
+          <div class="form-group">
+            <%= f.label :name, '培训班级名称', class: 'col-sm-3 control-label' %>
+            <div class="col-sm-4">
+              <%= f.text_field :name, placeholder: "请输入培训班级名", class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :training_agency, '培训机构', class: 'col-sm-3 control-label' %>
+            <div class="col-sm-4">
+              <%= f.text_field :training_agency, placeholder: "请输入培训机构名", class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :project_leader, '培训项目负责人', class: 'col-sm-3 control-label' %>
+            <div class="col-sm-4">
+              <%= f.text_field :project_leader, placeholder: "请输入培训项目负责人", class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :grade_leader, '班级负责人', class: 'col-sm-3 control-label' %>
+            <div class="col-sm-4">
+              <%= f.text_field :grade_leader, placeholder: "请输入班级负责人", class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :start_time, '开始时间', class: 'col-sm-3 control-label' %>
+            <div class="col-sm-2">
+              <%= f.date_field :start_time, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :end_time, '结束时间', class: 'col-sm-3 control-label' %>
+            <div class="col-sm-2">
+              <%= f.date_field :end_time, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :plan_number, '计划人数', class: 'col-sm-3 control-label' %>
+            <div class="col-sm-2">
+              <%= f.number_field :plan_number, placeholder: "请输入计划人数", class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :training_address, '培训地点', class: 'col-sm-3 control-label' %>
+            <div class="col-sm-4">
+              <%= f.text_field :training_address, placeholder: "请输入培训地点", class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :contact, '联系方式', class: 'col-sm-3 control-label' %>
+            <div class="col-sm-4">
+              <%= f.text_field :contact, placeholder: "请输入联系方式", class: 'form-control' %>
+            </div>
+          </div>
+    	  <div class="col-sm-6 col-sm-offset-4">
+    	  	<%= f.submit '确认提交', class: "btn btn-primary pull-left" %>
+    	  </div>
+    	<% end %>
+	  </div>
+	</div>
+</div>

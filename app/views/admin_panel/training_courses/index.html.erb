@@ -1,81 +1,94 @@
-<div class="grades-main-content">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">搜索栏</h3>
-    </div>
-    <div class="panel-body">
-      <form class="form-inline">
-        <div class="form-group">
-          <label for="trainName">名称</label>
-          <input type="text" class="form-control" id="trainName">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail2">状态</label>
-          <select class="form-control">
-            <option>全部</option>
-            <option>草稿</option>
-            <option>报名</option>
-            <option>开班</option>
-            <option>结课</option>
-            <option>取消</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputName2">培训开始时间</label>
-          <input type="text" class="form-control" id="exampleInputName2">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputName2">培训结束时间</label>
-          <input type="text" class="form-control" id="exampleInputName2">
-        </div>
-        <button type="submit" class="btn btn-search">搜索</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">培训班</h3>
-    </div>
-    <div class="panel-body">
-      <table class="table">
-        <thead>
-          <tr>
-            <th width="20%">培训班</th>
-            <th>培训机构</th>
-            <th>培训起止时间</th>
-            <th>培训费用</th>
-            <th width="18%">教师&amp;负责人</th>
-            <th>计划</th>
-            <th>报名</th>
-            <th>待审</th>
-            <th>通过</th>
-            <th>作业</th>
-            <th>日志</th>
-            <th>反馈</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% (1..10).each do |i| %>
-          <tr>
-            <td align="left">
-              <%= link_to("（国内）（上海）信息化教学 技术及信息化课程开发师资培训 （国培代码：09151005）", admin_panel_training_course_path(1) )%> 
-            </td>
-            <td>上海 - 徐汇<br>上海电子信息技术职业学院</td>
-            <td>2015-07-06<br>2015-08-05</td>
-            <td>9000</td>
-            <td align="left">[教师 7]  胡国胜,董奇,李元元,贾璐,李毅杰<br>[负责人 1]  俞佳莺</td>
-            <td>100</td>
-            <td>100</td>
-            <td>20</td>
-            <td>80</td>
-            <td><a href="#">查看</a></td>
-            <td><a href="#">查看</a></td>
-            <td><a href="#">学员</a><br><a href="#">负责人</a></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-<div>
+<div class="main-content">
+	<div class="panel panel-default">
+	  <div class="panel-heading panel-active">搜索栏</div>
+	  <div class="panel-body panel-default-bg">
+	    <div class="row">
+			  <div class="col-sm-3">
+			    <div class="form-group">
+			      <input type="date" class="form-control">
+				  </div>
+				</div>
+				<div class="col-sm-3">
+			    <div class="form-group">
+			      <input type="select" class="form-control">
+				  </div>
+				</div>
+				<div class="col-sm-3">
+			    <div class="form-group">
+			      <input type="select" class="form-control">
+				  </div>
+				</div>
+				<div class="col-sm-3">
+			    <div class="form-group">
+			      <input type="submit" value="搜  索" class="btn btn-primary">
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+	  <!-- <div class="panel-heading panel-active">评审项目</div> -->
+	  <!-- 培训机构的权限是新建申报项目 -->
+	  <div class="panel-heading panel-active" style="overflow: hidden;">
+	    <span class="pull-left">申报项目</span>
+	    <%= link_to new_admin_panel_training_course_path, class: "btn btn-xs pull-right btn-active" do %>
+	       <span class="glyphicon glyphicon-plus-sign"></span> 新建项目
+	    <% end %>
+	  </div>
+	  <div class="panel-body panel-default-bg">
+	    <table class="table">
+	    	<thead>
+	    	  <tr>
+	    	  	<th class="col-sm-2 text-center">培训班</th>
+		    		<th class="col-sm-2 text-center">培训机构</th>
+		    		<th class="text-center">培训起至时间</th>
+		    		<th class="text-center">培训费用</th>
+		    		<th class="col-sm-2 text-center">教师&负责人</th>
+		    		<th class="text-center">计划</th>
+		    		<th class="text-center">研究会</th>
+		    		<th class="text-center">评审专家</th>
+		    		<th class="text-center">操作</th>
+	    	  </tr>
+	    	</thead>
+	    	<tbody>
+	    	  <% @training_courses.each do |training_course|%>
+		    	  <tr class="tr-default-bg">
+		    	  	<td class="text-center"><%= training_course.name %></td>
+			    		<td class="text-center"><%= training_course.training_agency %></td>
+			    		<td class="text-center"><%= training_course.start_time %> - <%= training_course.end_time %></td>
+			    		<td class="text-center"><%= training_course.training_fee %></td>
+			    		<td class="text-center"><%= training_course.grade_leader %></td>
+			    		<td class="text-center"><%= training_course.plan_number %></td>
+			    		<td class="text-center text-active-status">已通过</td>
+			    		<td class="text-center text-active-status">已通过</td>
+			    		<td class="text-center">
+			    		  <%= link_to admin_panel_training_course_path(training_course.id) do %>
+			    		    <span class="glyphicon glyphicon-log-in"></span>
+			    		  <% end %>
+			    		</td>
+		    	  </tr>
+		    	<% end %>
+	    	</tbody>
+	    </table>
+	  </div>
+	</div>
+	<nav>
+	  <ul class="pagination">
+	    <li>
+	      <a href="#" aria-label="Previous">
+	        <span aria-hidden="true">&laquo;</span>
+	      </a>
+	    </li>
+	    <li><a href="#">1</a></li>
+	    <li><a href="#">2</a></li>
+	    <li><a href="#">3</a></li>
+	    <li><a href="#">4</a></li>
+	    <li><a href="#">5</a></li>
+	    <li>
+	      <a href="#" aria-label="Next">
+	        <span aria-hidden="true">&raquo;</span>
+	      </a>
+	    </li>
+	  </ul>
+	</nav>
+</div>

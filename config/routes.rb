@@ -43,9 +43,11 @@ Rails.application.routes.draw do
       collection do
         get :edit_profile
         get :edit_password
+        post :update_profile, :update_password
+        patch :update_password, :update_password
       end
     end
-    resources :projects
+    resources :training_courses
     resources :users
     resources :system
   end

@@ -1,0 +1,81 @@
+<div class="grades-main-content">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">搜索栏</h3>
+    </div>
+    <div class="panel-body">
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="trainName">名称</label>
+          <input type="text" class="form-control" id="trainName">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail2">状态</label>
+          <select class="form-control">
+            <option>全部</option>
+            <option>草稿</option>
+            <option>报名</option>
+            <option>开班</option>
+            <option>结课</option>
+            <option>取消</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName2">培训开始时间</label>
+          <input type="text" class="form-control" id="exampleInputName2">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName2">培训结束时间</label>
+          <input type="text" class="form-control" id="exampleInputName2">
+        </div>
+        <button type="submit" class="btn btn-search">搜索</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">培训班</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th width="20%">培训班</th>
+            <th>培训机构</th>
+            <th>培训起止时间</th>
+            <th>培训费用</th>
+            <th width="18%">教师&amp;负责人</th>
+            <th>计划</th>
+            <th>报名</th>
+            <th>待审</th>
+            <th>通过</th>
+            <th>作业</th>
+            <th>日志</th>
+            <th>反馈</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% (1..10).each do |i| %>
+          <tr>
+            <td align="left">
+              <%= link_to("（国内）（上海）信息化教学 技术及信息化课程开发师资培训 （国培代码：09151005）", admin_panel_training_course_path(1) )%> 
+            </td>
+            <td>上海 - 徐汇<br>上海电子信息技术职业学院</td>
+            <td>2015-07-06<br>2015-08-05</td>
+            <td>9000</td>
+            <td align="left">[教师 7]  胡国胜,董奇,李元元,贾璐,李毅杰<br>[负责人 1]  俞佳莺</td>
+            <td>100</td>
+            <td>100</td>
+            <td>20</td>
+            <td>80</td>
+            <td><a href="#">查看</a></td>
+            <td><a href="#">查看</a></td>
+            <td><a href="#">学员</a><br><a href="#">负责人</a></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div>
