@@ -3,12 +3,12 @@
 		 <span class="glyphicon"></span> &nbsp;&nbsp;系统菜单
 	</li>
 	<li class="text-center">
-		<%= link_to admin_panel_projects_path do %>
+		<%= link_to admin_panel_projects_path, class: (controller?("admin_panel/projects") ? 'active' : nil) do %>
 		  <span class="glyphicon glyphicon-list-alt"></span> &nbsp;&nbsp;待办项目
 		<% end %>
 	</li>
 	<li class="text-center">
-		<%= link_to "" do %>
+		<%= link_to "", class: (controller?("admin_panel/tasks", "admin_panel/user_tasks", "admin_panel/training_courses", "admin_panel/user_training_courses", "admin_panel/journals", "admin_panel/user_appraise_trains", "admin_panel/user_teachers") ? 'active' : nil) do %>
 		  <span class="glyphicon glyphicon-book"></span> &nbsp;&nbsp;培训班级
 		<% end %>
 		<ul class="dropdown-menu sub-menu text-center" role="menu">
@@ -23,7 +23,7 @@
 	  </ul>
 	</li>
 	<li class="text-center">
-		<%= link_to admin_panel_users_path do %>
+		<%= link_to admin_panel_users_path, class: (controller?("admin_panel/admins") ? 'active' : nil) do %>
 		  <span class="glyphicon glyphicon-user"></span> &nbsp;&nbsp;机构人员
 		<% end %>
     <ul class="dropdown-menu sub-menu text-center" role="menu">
@@ -37,12 +37,12 @@
     </ul>
 	</li>
 	<li class="text-center">
-		<%= link_to "" do %>
+		<%= link_to admin_panel_system_index_path, class: (controller?("admin_panel/system") ? 'active' : nil) do %>
 		  <span class="glyphicon glyphicon-cog"></span> &nbsp;&nbsp;系统功能
 		<% end %>
 	</li>
 	<li class="text-center">
-		<%= link_to "edit_admin_panel_admin_registration_path" do %>
+		<%= link_to edit_profile_admin_panel_admins_path, class: (controller?("admin_panel/admins")&&action?("edit_profile") ? 'active' : nil) do %>
 		  <span class="glyphicon glyphicon-wrench"></span> &nbsp;&nbsp;账户设置
 		<% end %>
 	</li>

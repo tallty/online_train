@@ -1,0 +1,87 @@
+<div class="main-content">
+	<div class="panel panel-default">
+	  <div class="panel-heading panel-active">基本信息</div>
+	  <div class="panel-body panel-default-bg">
+	    <%= simple_form_for '', html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|%>
+
+    	  <div class="form-group">
+    	  	<%= f.label :province_manager, '账号', class: 'col-sm-1 control-label' %>
+    	  	<div class="col-sm-4">
+    	  		<%= f.text_field :province_manager, value: current_admin.province_manager, class: 'form-control', disabled: true %>
+    	  	</div>
+    	  	<%= f.label :role, '角色', class: 'col-sm-1 control-label' %>
+    	  	<div class="col-sm-4">
+    	  		<%= f.text_field :role, value: current_admin.role, class: 'form-control', disabled: true %>
+    	  	</div>
+    	  </div>
+
+    	  <div class="form-group">
+    	  	<%= f.label :name, '姓名', class: 'col-sm-1 control-label' %>
+    	  	<div class="col-sm-4">
+    	  		<%= f.text_field :name, value: current_admin.name, class: 'form-control', disabled: true  %>
+    	  	</div>
+    	  	<%= f.label :state, '状态', class: 'col-sm-1 control-label' %>
+    	  	<div class="col-sm-4">
+    	  		<%= f.text_field :state, value: current_admin.state, class: 'form-control', disabled: true %>
+    	  	</div>
+    	  </div>
+
+    	  <div class="form-group">
+    	  	<%= f.label :name, 'Email', class: 'col-sm-1 control-label' %>
+    	  	<div class="col-sm-4">
+    	  		<%= f.text_field :name, class: 'form-control', placeholder: '请输入管理员名称', required: true %>
+    	  	</div>
+    	  	<%= f.label :name, '电话', class: 'col-sm-1 control-label' %>
+    	  	<div class="col-sm-4">
+    	  		<%= f.text_field :name, class: 'form-control', placeholder: '请输入管理员名称', required: true %>
+    	  	</div>
+    	  </div>
+    	  <div class="form-group">
+    	  	<%= f.label :name, '手机', class: 'col-sm-1 control-label' %>
+    	  	<div class="col-sm-4">
+    	  		<%= f.text_field :name, class: 'form-control', placeholder: '请输入管理员名称', required: true %>
+    	  	</div>
+    	  	<%= f.label :name, 'QQ', class: 'col-sm-1 control-label' %>
+    	  	<div class="col-sm-4">
+    	  		<%= f.text_field :name, class: 'form-control', placeholder: '请输入管理员名称', required: true %>
+    	  	</div>
+    	  </div>
+    	  <div class="form-group">
+    	  	<%= f.label :name, '地址', class: 'col-sm-1 control-label' %>
+    	  	<div class="col-sm-4">
+    	  		<%= f.text_field :name, class: 'form-control', placeholder: '请输入管理员名称', required: true %>
+    	  	</div>
+    	  	<%= f.label :name, '邮编', class: 'col-sm-1 control-label' %>
+    	  	<div class="col-sm-4">
+    	  		<%= f.text_field :name, class: 'form-control', placeholder: '请输入管理员名称', required: true %>
+    	  	</div>
+    	  </div>
+
+    	  <div class="form-group">
+    	  	<%= f.label :name, '备注', class: 'col-sm-1 control-label' %>
+    	  	<div class="col-sm-9">
+    	  		 <textarea class="form-control" rows="3"></textarea>
+    	  	</div>
+    	  </div>
+
+    	  <div class="col-sm-6 col-sm-offset-4">
+    	    <%= f.submit '确认提交', class: "btn btn-primary pull-left" %>
+    	  </div>
+    	<% end %>
+	  </div>
+	</div>
+	<div class="panel panel-default">
+	  <div class="panel-heading panel-active">访问信息</div>
+	  <div class="panel-body panel-default-bg">
+	    <table class="table">
+	    	<tbody>
+	    	  <tr class="tr-default-bg">
+	    	    <td class="text-center">最后登录IP 140.207.88.238</td>
+	    	  	<td class="text-center">最后登录时间 2015-06-06 13:28</td>
+		    		<td class="text-center">登录次数 22</td>
+	    	  </tr>
+	    	</tbody>
+	    </table>
+	  </div>
+	</div>
+</div>

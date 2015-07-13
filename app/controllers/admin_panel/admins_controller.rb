@@ -9,7 +9,7 @@ class AdminPanel::AdminsController < AdminPanel::ApplicationController
   def create
   end
 
-  def edit
+  def edit_profile
   end
 
   def destroy

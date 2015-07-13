@@ -32,16 +32,11 @@ a:hover, a:active, a:visited, a:link {
 	background: #1f7ed0;
 	li a {
 		color: #fff;
-		&:hover {
+		&.active, &:hover {
 			color: #1f7ed0;
 			background: #fff;
 			border-radius: 0;
 		}
-	}
-	li.active a {
-		color: #1f7ed0;
-		background: #fff;
-		border-radius: 0;
 	}
 	li.list {
 		height: 40px;
