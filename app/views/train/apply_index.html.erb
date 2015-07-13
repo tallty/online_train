@@ -72,130 +72,22 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td scope="row">2015</td>
-									<td>(国内)(上海)“跨境电子商务骨干教师”师资培训班通知（培训项目代码：09151004）</td>
-									<td>上海思博职业技术学院</td>
-									<td>上海</td>
-									<td>2015-07-13至2015-08-07</td>
-									<td>100</td>
-									<td>100</td>
-									<td><%= link_to "报名", train_apply_info_path %></td>
-								</tr>
-								<tr>
-									<td scope="row">2015</td>
-									<td>（国内）（上海）“跨境电子商务骨干教师”师资培训班通知（项目编号09151004）</td>
-									<td>上海立信会计学院</td>
-									<td>上海</td>
-									<td>2015-07-17至2015-09-11</td>
-									<td>100</td>
-									<td>100</td>
-									<td><%= link_to "报名", train_apply_info_path %></td>
-								</tr>
-								<tr>
-									<td scope="row">2015</td>
-									<td>(国内)(上海)“全国高职高专嵌入式智能设计”师资培训班通知（培训项目代码：09151006-1）</td>
-									<td>上海电子信息职业技术学院</td>
-									<td>上海</td>
-									<td>2015-07-20至2015-08-19</td>
-									<td>100</td>
-									<td>100</td>
-									<td><%= link_to "报名", train_apply_info_path %></td>
-								</tr>
-								<tr>
-									<td scope="row">2015</td>
-									<td>(国内)(上海)“全国高职高专嵌入式智能设计”师资培训班通知（培训项目代码：09151006-2）</td>
-									<td>上海电子信息职业技术学院</td>
-									<td>上海</td>
-									<td>2015-07-20至2015-08-19</td>
-									<td>100</td>
-									<td>100</td>
-									<td><%= link_to "报名", train_apply_info_path %></td>
-								</tr>
-								<tr>
-									<td scope="row">2015</td>
-									<td>(国内)(上海)“全国高职高专信息化教学技术及信息化课程开发”师资培训班通知（培训项目代码：09151005）</td>
-									<td>上海电子信息职业技术学院</td>
-									<td>上海</td>
-									<td>2015-07-06至2015-08-05</td>
-									<td>100</td>
-									<td>100</td>
-									<td><%= link_to "报名", train_apply_info_path %></td>
-								</tr>
-								<tr>
-									<td scope="row">2015</td>
-									<td>（国内)（上海）“全国高职高专工业机器人技术应用”国培师资培训班通知（项目编号：09151002）</td>
-									<td>上海电子信息职业技术学院</td>
-									<td>上海</td>
-									<td>2015-07-19至2015-08-15</td>
-									<td>100</td>
-									<td>100</td>
-									<td><%= link_to "报名", train_apply_info_path %></td>
-								</tr>
-								<tr>
-									<td scope="row">2015</td>
-									<td>(国内) (上海)大型数据库(大型数据库Oracle数据库维护与开发)师资培训通知（培训项目代码：09151003）</td>
-									<td>上海电子信息职业技术学院</td>
-									<td>上海</td>
-									<td>2015-07-19至2015-08-12</td>
-									<td>100</td>
-									<td>100</td>
-									<td><%= link_to "报名", train_apply_info_path %></td>
-								</tr>
-								<tr>
-									<td scope="row">2015</td>
-									<td>(企业顶岗)(上海)物联网（RFID)应用师资培训通知（培训项目代码：09152005）</td>
-									<td>上海电子信息职业技术学院</td>
-									<td>上海</td>
-									<td>2015-07-09至2015-08-29</td>
-									<td>100</td>
-									<td>100</td>
-									<td><%= link_to "报名", train_apply_info_path %></td>
-								</tr>
-								<tr>
-									<td scope="row">2015</td>
-									<td>(企业顶岗)(上海)物联网（RFID)应用师资培训通知（培训项目代码：09152005）</td>
-									<td>上海电子信息职业技术学院</td>
-									<td>上海</td>
-									<td>2015-07-09至2015-08-29</td>
-									<td>100</td>
-									<td>100</td>
-									<td><%= link_to "报名", train_apply_info_path %></td>
-								</tr>
-								<tr>
-									<td scope="row">2015</td>
-									<td>(企业顶岗)(上海)物联网（RFID)应用师资培训通知（培训项目代码：09152005）</td>
-									<td>上海电子信息职业技术学院</td>
-									<td>上海</td>
-									<td>2015-07-09至2015-08-29</td>
-									<td>100</td>
-									<td>100</td>
-									<td><%= link_to "报名", train_apply_info_path %></td>
-								</tr>
-							</tbody>   
+							  <% @training_courses.each do |training_course|%>
+									<tr>
+										<td scope="row">2015</td>
+										<td><%= training_course.name %></td>
+										<td><%= training_course.training_agency %></td>
+										<td><%= training_course.training_address %></td>
+										<td><%= training_course.start_time %>至<%= training_course.end_time %></td>
+										<td><%= training_course.plan_number %></td>
+										<td><%= training_course.plan_number %></td>
+										<td><%= link_to "报名", train_apply_info_path %></td>
+									</tr>
+								<% end %>
+							</tbody>
 						</table>
 					</div>
-
-					<nav class="text-center">
-						<ul class="pagination">
-							<li>
-								<a href="#" aria-label="Previous">
-									<span aria-hidden="true">&laquo;</span>
-								</a>
-							</li>
-							<li><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li>
-								<a href="#" aria-label="Next">
-									<span aria-hidden="true">&raquo;</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-
+					<%= paginate @training_courses %>
 				</div>
 			</div>
 		</div>

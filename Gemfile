@@ -65,3 +65,6 @@ gem "paperclip", "~> 4.3"
 #gem 'china_city'
 
 #gem 'easy_captcha', git: "https://github.com/phatworx/easy_captcha.git"
+
+#分页
+gem 'kaminari'

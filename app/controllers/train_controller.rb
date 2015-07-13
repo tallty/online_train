@@ -6,6 +6,7 @@ class TrainController < ApplicationController
   end
 
   def apply_index
+  	@training_courses = TrainingCourse.all.page(params[:page]).per(1)
   end
 
   def apply_info
