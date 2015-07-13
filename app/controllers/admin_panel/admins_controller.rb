@@ -1,5 +1,6 @@
 class AdminPanel::AdminsController < AdminPanel::ApplicationController
   before_action :set_admin, only: [:edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     role = params[:role].present? ? params[:role] : "system"

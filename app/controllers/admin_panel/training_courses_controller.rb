@@ -1,5 +1,7 @@
 module AdminPanel
 	class TrainingCoursesController < AdminPanel::ApplicationController
+		load_and_authorize_resource
+		
 		before_action :set_training_course, only: [:show]
 		def index
 			@training_courses = TrainingCourse.all
