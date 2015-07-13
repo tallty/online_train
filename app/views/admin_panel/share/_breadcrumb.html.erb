@@ -1,0 +1,11 @@
+<div class="user-info">
+  <div class="col-sm-4">您好： <%= current_admin.name %>（<%= diff_roles(current_admin.role)%>）</div>
+  <div class="col-sm-4">省份： <%= current_admin.province_manager%></div>
+  <div class="col-sm-4"><%= Time.now.strftime("%Y年%m月%d日 %H:%M")%></div>
+</div>
+<ol class="breadcrumb">
+  <span class="glyphicon glyphicon-home">&nbsp;</span>
+  <li><a href="#">当前位置</a></li>
+  <li><a href="#">代办项目</a></li>
+  <li class="active">评审项目</li>
+</ol>

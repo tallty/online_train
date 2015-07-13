@@ -4,17 +4,17 @@
       <%= link_to "高等职业学校专业骨干教师培训项目", admin_panel_root_path, class: "name" %>
     </div>
     <div class="col-sm-1 pull-left text-center">
-      <%= link_to "" do%>
+      <%= link_to root_path do%>
        <span class="glyphicon glyphicon-home "></span> 门户首页
       <% end %>
     </div>
     <div class="col-sm-1 pull-left text-center">
-      <%= link_to "" do%>
+      <%= link_to "javascript: window.location.href = window.location.href;" do%>
         <span class="glyphicon glyphicon-refresh "></span> 刷新页面
       <% end %>
     </div>
     <div class="col-sm-1 pull-left text-center">
-      <%= link_to "" do%>
+      <%= link_to destroy_admin_session_path do%>
          <span class="glyphicon glyphicon-minus-sign "></span> 注销系统
       <% end %>
     </div>

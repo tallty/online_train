@@ -13,12 +13,11 @@ class Admins::SessionsController < Devise::SessionsController
   end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+     super
+  end
 
   # protected
-
   # You can put the params you want to permit in the empty array.
   def configure_sign_in_params
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :name) }
@@ -26,6 +25,10 @@ class Admins::SessionsController < Devise::SessionsController
 
   #登录后跳转
   def after_sign_in_path_for(resource)
+    admin_panel_root_path
+  end
+
+  def after_sign_out_path_for(resource)
     admin_panel_root_path
   end
 end

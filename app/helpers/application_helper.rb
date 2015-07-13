@@ -17,6 +17,21 @@ module ApplicationHelper
     ]
   end
 
+  def diff_roles(roles)
+    case roles
+    when "admin"
+      "管理部门"
+    when "education"
+      "教育部门"
+    when "expert"
+      "评审专家"
+    when "training"
+      "培训机构"
+    when "grade"
+      "班级负责人"
+    end
+  end
+
 
   #获取选中菜单链接index
   def get_menu_index
