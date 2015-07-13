@@ -1,6 +1,18 @@
-module AdminPanel
-	class AdminsController < ApplicationController
-		def edit
-		end
-	end
+class AdminPanel::AdminsController < AdminPanel::ApplicationController
+
+  def index
+  end
+
+  def new
+  end
+
+  def create
+  end
+
+  def edit
+  end
+
+  def destroy
+  end
+
 end

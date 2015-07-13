@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     resources :user_training_courses
     resources :user_appraise_trains
     resources :user_teachers
-
+    resources :admins
     resources :projects
     resources :users
   end

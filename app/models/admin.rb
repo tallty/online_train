@@ -18,7 +18,7 @@
 #  name                   :string(255)
 #  province_manager       :string(255)
 #  agency_manager         :string(255)
-#  roles                  :string(255)
+#  role                   :integer
 #  qq                     :string(255)
 #  mobile                 :string(255)
 #  state                  :string(255)
@@ -33,4 +33,12 @@ class Admin < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  enum role: { system: 0, education: 1, trainer: 2, specialist: 3, management: 4 }
+  ROLE = {  system: "管理部门",
+            education: "教育部门",
+            trainer: "培训机构",
+            specialist: "评审专家",
+            management: "班级负责人" 
+          }
 end

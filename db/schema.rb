@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710013112) do
+ActiveRecord::Schema.define(version: 20150710143949) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150710013112) do
     t.string   "name",                   limit: 255
     t.string   "province_manager",       limit: 255
     t.string   "agency_manager",         limit: 255
-    t.string   "roles",                  limit: 255
+    t.integer  "role",                   limit: 4
     t.string   "qq",                     limit: 255
     t.string   "mobile",                 limit: 255
     t.string   "state",                  limit: 255
@@ -56,12 +56,13 @@ ActiveRecord::Schema.define(version: 20150710013112) do
   add_index "attachments", ["attachmentable_id", "attachmentable_type"], name: "index_attachments_on_attachmentable_id_and_attachmentable_type", unique: true, using: :btree
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "title",              limit: 255,   null: false
-    t.text     "body",               limit: 65535, null: false
-    t.integer  "training_course_id", limit: 4,     null: false
-    t.integer  "admin_id",           limit: 4,     null: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.string   "title",              limit: 255,               null: false
+    t.text     "body",               limit: 65535,             null: false
+    t.integer  "submit_user_count",  limit: 4,     default: 0
+    t.integer  "training_course_id", limit: 4,                 null: false
+    t.integer  "admin_id",           limit: 4,                 null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
   end
 
   add_index "tasks", ["admin_id"], name: "index_tasks_on_admin_id", using: :btree

@@ -4,7 +4,6 @@
   start_time       起止时间
   end_time         结束时间
   plan_number      计划人数
-  grade_leader     班级负责人
   training_agency  培训机构
   training_address 培训地址
   training_fee     培训费
