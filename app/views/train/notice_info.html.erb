@@ -22,15 +22,10 @@
 							<li class="notice-info">来源: 上海电子学院</li>
 							<li class="notice-info">
 								分享:
-								<a href="#"><%=image_tag "space.png"%></a>
-								<a href="#"><%=image_tag "weibo.png"%></a>
-								<a href="#"><%=image_tag "tencent.png"%></a>
-								<a href="#"><%=image_tag "renren.png"%></a>
-								<a href="#"><%=image_tag "red.png"%></a>	
-								<a href="#"><%=image_tag "orange.png"%></a>
+								<span class="pull-right"><%= render "common/baidu_share" %></span>
 							</li>
 						</ul>
-						<%= render partial:"/train/apply/notice_info"%>
+						<%= render partial:"/training_courses/apply/notice_info"%>
 					</div>
 				</div>
 			</div>
