@@ -20,8 +20,8 @@
             <th>培训机构</th>
             <th>职称</th>
             <th>性别</th>
-            <th>联系方式</th>
             <th>地址</th>
+            <th>联系方式</th>
             <th>带班数</th>
             <th>创建&amp;修改时间</th>
             <th>操作</th>
@@ -37,7 +37,7 @@
             <td><%= teacher.address %></td>
             <td><%= teacher.phone %><br><%= teacher.mobile %><br><%= teacher.qq %></td>
             <td><%= teacher.try(:training_course_teachers).try(:size) %></td>
-            <td><%= teacher.job_title %></td>
+            <td><%= teacher.updated_at.strftime "%Y-%m-%d %H:%M:%S" %></td>
             <td>
               <%= link_to("编辑",edit_admin_panel_teacher_path(teacher),remote: true, format: :js)  %>
               <%= link_to("删除", admin_panel_teacher_path(teacher) , method: :delete, data: {confirm: "确定要删除当前用户？"}) %>

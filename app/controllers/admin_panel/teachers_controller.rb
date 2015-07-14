@@ -1,5 +1,5 @@
 class AdminPanel::TeachersController < AdminPanel::BaseController
-  before_action :set_admin, only: [:edit, :update, :destroy]
+  before_action :set_teacher, only: [:edit, :update, :destroy]
   load_and_authorize_resource
   
   def index
@@ -25,6 +25,31 @@ class AdminPanel::TeachersController < AdminPanel::BaseController
         format.js
       end
     end
+  end
+
+  def edit
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update
+    if @teacher.update teacher_params
+      respond_to do |format|
+        flash[:notice] = "更新授课教师信息成功"
+        format.js {render js: "location.href='#{admin_panel_teachers_path}'"}
+      end
+    else
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+
+  def destroy
+    @teacher.destroy
+    flash[:notice] = "授课教师删除成功"
+    redirect_to admin_panel_teachers_path
   end
 
 

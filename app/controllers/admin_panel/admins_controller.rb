@@ -48,7 +48,6 @@ class AdminPanel::AdminsController < AdminPanel::BaseController
   end
 
   def edit
-    @admin = Admin.where(id: params[:id]).first
     respond_to do |format|
       format.js
     end
