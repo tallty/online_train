@@ -1,4 +1,4 @@
-class AdminPanel::AdminsController < AdminPanel::ApplicationController
+class AdminPanel::AdminsController < AdminPanel::BaseController
   before_action :set_admin, only: [:edit, :update, :destroy]
   load_and_authorize_resource
 

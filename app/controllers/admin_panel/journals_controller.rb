@@ -1,5 +1,5 @@
-class AdminPanel::JournalsController < AdminPanel::ApplicationController
-  load_and_authorize_resource
+class AdminPanel::JournalsController < AdminPanel::BaseController
+  load_and_authorize_resource class: false
 
   def index
   end

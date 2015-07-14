@@ -1,4 +1,4 @@
-class AdminPanel::TasksController < AdminPanel::ApplicationController
+class AdminPanel::TasksController < AdminPanel::BaseController
   load_and_authorize_resource
 
   def index

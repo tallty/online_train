@@ -1,4 +1,4 @@
-module AdminPanel::ApplicationHelper
+module AdminPanel::BaseHelper
 
   #机构人员菜单显示
   #根据不同权限显示不同菜单，选中相应菜单

@@ -1,4 +1,4 @@
-class ProjectController < ApplicationController
+class ProjectController < BaseController
   def about
   end
 

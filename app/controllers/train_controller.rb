@@ -1,4 +1,4 @@
-class TrainController < ApplicationController
+class TrainController < BaseController
   def notice_index
   end
 

@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UserController < BaseController
   before_action :authenticate_user!
 
   def center

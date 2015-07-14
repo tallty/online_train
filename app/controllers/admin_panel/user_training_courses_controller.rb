@@ -1,4 +1,4 @@
-class AdminPanel::UserTrainingCoursesController < AdminPanel::ApplicationController
+class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   load_and_authorize_resource
 
   def index 

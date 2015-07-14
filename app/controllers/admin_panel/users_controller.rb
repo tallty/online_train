@@ -1,5 +1,5 @@
 module AdminPanel
-	class UsersController < ApplicationController
+	class UsersController < BaseController
     load_and_authorize_resource
     
 		def index

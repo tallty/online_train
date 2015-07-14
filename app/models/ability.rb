@@ -3,6 +3,7 @@ class Ability
 
   def initialize(admin)
     admin ||= Admin.new
+    pp admin,"22222222222222222222222222222"
     if admin.system?
       role_system
     elsif admin.education?

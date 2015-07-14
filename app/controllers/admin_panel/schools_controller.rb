@@ -1,4 +1,4 @@
-class AdminPanel::SchoolsController < AdminPanel::ApplicationController
+class AdminPanel::SchoolsController < AdminPanel::BaseController
   load_and_authorize_resource
   
   def schools_by_province

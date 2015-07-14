@@ -1,5 +1,5 @@
 module AdminPanel
-  class ApplicationController < ActionController::Base
+  class BaseController < ActionController::Base
     # reset captcha code after each request for security
     #after_filter :reset_last_captcha_code!
 
@@ -14,5 +14,12 @@ module AdminPanel
       flash[:error] = I18n.t(:no_premission)
       redirect_to admin_panel_root_path
     end
+
+    
+    private
+      # 将会将CanCan调用Ability类修改为调用AccountAbility类，并且通过current_admin获取当前登录用户
+      def current_ability
+        @current_ability ||= Ability.new(current_admin)
+      end
   end
 end

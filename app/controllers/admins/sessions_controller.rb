@@ -9,6 +9,10 @@ class Admins::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
+    # if user_signed_in?
+    #   flash[:notice] = "你已经登录"
+    #   return redirect_to root_path
+    # end
     self.resource = warden.authenticate({scope: :admin})
     if self.resource.present?
       set_flash_message(:notice, :signed_in) if is_flashing_format?
