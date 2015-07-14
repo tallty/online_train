@@ -76,7 +76,7 @@
 									<tr>
 										<td scope="row">2015</td>
 										<td><%= training_course.name %></td>
-										<td><%= training_course.training_agency %></td>
+										<td><%= training_course.try(:school).try(:name) %></td>
 										<td><%= training_course.training_address %></td>
 										<td><%= training_course.start_time %>至<%= training_course.end_time %></td>
 										<td><%= training_course.plan_number %></td>
