@@ -26,4 +26,5 @@
 #
 
 class TrainingCourse < ActiveRecord::Base
+  belongs_to :school
 end
