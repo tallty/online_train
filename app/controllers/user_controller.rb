@@ -1,7 +1,7 @@
 class UserController < BaseController
   before_action :authenticate_user!
 
-  def center
+  def my
     @user = current_user
   end
 
@@ -36,7 +36,7 @@ class UserController < BaseController
       sign_in(:user, @user)
 
       flash[:notice] = "个人资料更新成功"
-      redirect_to center_user_index_path
+      redirect_to my_user_index_path
     else
       #更新失败
       render :center

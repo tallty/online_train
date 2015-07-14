@@ -27,4 +27,29 @@
 
 class TrainingCourse < ActiveRecord::Base
   belongs_to :school
+	include AASM
+
+	aasm :column => 'state' do
+		state :unchecked, :initial => true  #默认未通过审核
+		state :checked_by_expert     #通过专家审核
+		state :checked_by_seminar    #通过研究会审核
+		state :checked_by_educator   #通过教委审核
+
+    #暂定审核流程 专家审核 --》 研究会审核 --》 教委审核
+		event :to_unchecked do
+			transitions :from => [:checked_by_expert, :checked_by_seminar, :checked_by_educator], :to => :unchecked
+		end
+
+		event :to_checked_by_expert do
+			transitions :from => :unchecked, :to => :checked_by_expert
+		end
+
+		event :to_checked_by_seminar do
+			transitions :from => :checked_by_expert, :to => :checked_by_seminar
+		end
+
+		event :to_checked_by_educator do
+			transitions :from => :checked_by_seminar, :to => :checked_by_educator
+		end
+	end
 end

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :user, only: [:update] do
     collection do
-      get :center
+      get :my
       get :journal
       get :work
       get :message1
@@ -31,7 +31,12 @@ Rails.application.routes.draw do
   namespace :admin_panel do
     root "home#index"
 
-    resources :training_courses
+    resources :training_courses do
+      member do
+        patch :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator
+        post :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator
+      end
+    end
     resources :tasks
     resources :user_tasks
     resources :journals

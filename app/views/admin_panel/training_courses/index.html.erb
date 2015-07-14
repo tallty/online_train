@@ -41,13 +41,14 @@
 	    	  <tr>
 	    	  	<th class="col-sm-2 text-center">培训班</th>
 		    		<th class="col-sm-2 text-center">培训机构</th>
-		    		<th class="text-center">培训起至时间</th>
+		    		<th class="text-center">培训起止时间</th>
 		    		<th class="text-center">培训费用</th>
 		    		<th class="col-sm-2 text-center">教师&负责人</th>
 		    		<th class="text-center">计划</th>
-		    		<th class="text-center">研究会</th>
 		    		<th class="text-center">评审专家</th>
-		    		<th class="text-center">操作</th>
+		    		<th class="text-center">研究会</th>
+		    		<th class="text-center">教委</th>
+		    		<th class="text-center" colspan="3">操作</th>
 	    	  </tr>
 	    	</thead>
 	    	<tbody>
@@ -58,9 +59,33 @@
 			    		<td class="text-center"><%= training_course.start_time %> - <%= training_course.end_time %></td>
 			    		<td class="text-center"><%= training_course.training_fee %></td>
 			    		<td class="text-center"><%#= training_course.grade_leader %></td>
+			    		<td class="text-center"><%= training_course.start_time.strftime("%Y-%m-%d")  %> 至 <%= training_course.end_time.strftime("%Y-%m-%d") %></td>
+			    		<td class="text-center"><%= training_course.training_fee %></td>
+			    		<td class="text-center"><%= training_course.try(:grade_leader) %></td>
 			    		<td class="text-center"><%= training_course.plan_number %></td>
-			    		<td class="text-center text-active-status">已通过</td>
-			    		<td class="text-center text-active-status">已通过</td>
+
+			    		<!-- 评审专家 -->
+			    	  <% if training_course.unchecked? %>
+			    		  <td class="text-center text-active-status"><%= link_to "审核", checked_by_expert_admin_panel_training_course_path(training_course.id), data: {confirm: '确认通过审核吗？'}, method: :patch %></td>
+			    		  <td>----</td>
+			    		  <td>----</td>
+              <!-- 研究会 -->
+              <% elsif training_course.checked_by_expert? %>
+			    		   <td class="text-center text-active-status">已审核</td>
+			    		   <td class="text-center text-active-status"><%= link_to "审核", checked_by_seminar_admin_panel_training_course_path(training_course.id), data: {confirm: '确认通过审核吗？'}, method: :patch %></td>
+			    		   <td>----</td>
+
+			    	  <!-- 教委 -->
+			    		<% elsif training_course.checked_by_seminar? %>
+			    		  <td class="text-center text-active-status">已审核</td>
+			    		  <td class="text-center text-active-status">已审核</td>
+			    		  <td class="text-center text-active-status"><%= link_to "审核", checked_by_educator_admin_panel_training_course_path(training_course.id), data: {confirm: '确认通过审核吗？'}, method: :patch %></td>
+			    		<% else %>
+			    		  <td class="text-center text-active-status">已审核</td>
+			    		  <td class="text-center text-active-status">已审核</td>
+			    		  <td class="text-center text-active-status">已审核</td>
+			    		<% end%>
+
 			    		<td class="text-center">
 			    		  <%= link_to admin_panel_training_course_path(training_course.id) do %>
 			    		    <span class="glyphicon glyphicon-log-in"></span>
@@ -72,23 +97,5 @@
 	    </table>
 	  </div>
 	</div>
-	<nav>
-	  <ul class="pagination">
-	    <li>
-	      <a href="#" aria-label="Previous">
-	        <span aria-hidden="true">&laquo;</span>
-	      </a>
-	    </li>
-	    <li><a href="#">1</a></li>
-	    <li><a href="#">2</a></li>
-	    <li><a href="#">3</a></li>
-	    <li><a href="#">4</a></li>
-	    <li><a href="#">5</a></li>
-	    <li>
-	      <a href="#" aria-label="Next">
-	        <span aria-hidden="true">&raquo;</span>
-	      </a>
-	    </li>
-	  </ul>
-	</nav>
+	<%#= paginate @training_courses %>
 </div>

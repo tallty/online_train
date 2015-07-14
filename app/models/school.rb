@@ -11,5 +11,6 @@
 #
 
 class School < ActiveRecord::Base
+	has_many :training_courses
   belongs_to :province
 end

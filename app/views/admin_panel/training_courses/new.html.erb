@@ -10,7 +10,7 @@
             </div>
           </div>
           <div class="form-group">
-            <%= f.label :training_agency, '培训机构', class: 'col-sm-3 control-label' %>
+            <%= f.label :school_id, '培训机构', class: 'col-sm-3 control-label' %>
             <div class="col-sm-4">
               <%= f.select('school_id', School.all.pluck(:name, :id), {}, class: "form-control") %>
             </div>

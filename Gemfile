@@ -68,3 +68,6 @@ gem "paperclip", "~> 4.3"
 
 #分页
 gem 'kaminari'
+
+#状态管理
+gem 'aasm', '~> 4.2.0'
