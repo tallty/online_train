@@ -5,9 +5,9 @@
 	    <%= simple_form_for '', html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|%>
 
     	  <div class="form-group">
-    	  	<%= f.label :province_manager, '账号', class: 'col-sm-1 control-label' %>
+    	  	<%= f.label :username, '账号', class: 'col-sm-1 control-label' %>
     	  	<div class="col-sm-4">
-    	  		<%= f.text_field :province_manager, value: current_admin.province_manager, class: 'form-control', disabled: true %>
+    	  		<%= f.text_field :username, value: current_admin.username, class: 'form-control', disabled: true %>
     	  	</div>
     	  	<%= f.label :role, '角色', class: 'col-sm-1 control-label' %>
     	  	<div class="col-sm-4">
@@ -76,9 +76,9 @@
 	    <table class="table">
 	    	<tbody>
 	    	  <tr class="tr-default-bg">
-	    	    <td class="text-center">最后登录IP 140.207.88.238</td>
-	    	  	<td class="text-center">最后登录时间 2015-06-06 13:28</td>
-		    		<td class="text-center">登录次数 22</td>
+	    	    <td class="text-center">最后登录IP <%= current_admin.last_sign_in_ip %></td>
+	    	  	<td class="text-center">最后登录时间 <%= current_admin.last_sign_in_at %></td>
+		    		<td class="text-center">登录次数 <%= current_admin.sign_in_count %></td>
 	    	  </tr>
 	    	</tbody>
 	    </table>
