@@ -5,7 +5,6 @@
 #  id         :integer          not null, primary key
 #  name       :string(255)
 #  id_card    :string(255)
-#  province   :string(255)
 #  position   :string(255)
 #  sex        :string(255)
 #  remark     :text(65535)
@@ -17,7 +16,11 @@
 #  postcode   :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  school_id  :integer
+#  job_title  :string(255)
 #
 
 class Teacher < ActiveRecord::Base
+  has_many :training_course_teachers, dependent: :destroy
+  belongs_to :school
 end

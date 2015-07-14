@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     resources :tasks
     resources :user_tasks
     resources :journals
+    resources :teachers
     resources :user_training_courses
     resources :user_appraise_trains
     resources :user_teachers

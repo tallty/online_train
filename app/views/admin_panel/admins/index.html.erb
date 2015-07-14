@@ -1,15 +1,7 @@
 <div id="adminContent" class="grades-main-content">
   <div class="panel panel-primary">
     <div class="panel-heading have-menu">
-      <ul id="detailMenu" class="nav nav-pills nav-content-menu">
-        <li class=<%= "active" if params[:role].blank? || params[:role] == "system"%>><%= link_to("管理部门", admin_panel_admins_path(role: :system)) %></li>
-        <li class=<%= "active" if params[:role] == "education"%>><%= link_to("教育部门", admin_panel_admins_path(role: :education)) %></li>
-        <li class=<%= "active" if params[:role] == "trainer"%>><%= link_to("培训机构", admin_panel_admins_path(role: :trainer)) %></li>
-        <li class=<%= "active" if params[:role] == "specialist"%>><%= link_to("评审专家", admin_panel_admins_path(role: :specialist)) %></li>
-        <li class=<%= "active" if params[:role] == "management"%>><%= link_to("班级负责人", admin_panel_admins_path(role: :management)) %></li>
-        <li><%= link_to("授课教师", "#") %></li>
-        <li><%= link_to("学员", "#") %></li>
-      </ul>
+      <%= render "admin_panel/share/personnel_menu" %>
     </div>
       
     <div id="adminList" class="panel-body">

@@ -21,8 +21,9 @@
 教师: teachers
   name     姓名
   id_card 身份证号
-  province 省份
+  school_id 培训机构 
   position 职务
+  job_title 职称
   sex  性别
   remark  备注
   address  地址

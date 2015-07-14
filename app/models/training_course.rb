@@ -22,6 +22,7 @@
 #  project_leader      :string(255)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  contact             :string(255)
 #
 
 class TrainingCourse < ActiveRecord::Base

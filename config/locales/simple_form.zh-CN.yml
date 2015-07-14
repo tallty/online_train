@@ -52,6 +52,20 @@ zh-CN:
         address: "地址"
         agency: "培训机构"
         school_id: "培训机构"
+      teacher:
+        name: "姓名"
+        id_card: "身份证"
+        school_id: "培训机构"
+        job_title: "职称"
+        position: "职务"
+        sex: "性别"
+        address: "地址"
+        phone: "电话"
+        mobile: "手机"
+        email: "邮箱"
+        postcode: "邮编"
+        qq: "QQ"
+        remark: "备注"
     placeholders:
       user:
         email: '请输入电子邮箱'
