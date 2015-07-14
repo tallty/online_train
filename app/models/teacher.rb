@@ -23,4 +23,15 @@
 class Teacher < ActiveRecord::Base
   has_many :training_course_teachers, dependent: :destroy
   belongs_to :school
+
+  enum sex: {male: true, female: false}
+  Sex = {male: '男', female: '女'}
+
+  validates :name, presence: true
+  validates :id_card, presence: true
+  validates :school_id, presence: true
+  validates :sex, presence: true
+  validates :phone, presence: true
+  validates :mobile, presence: true
+  validates :email, presence: true
 end

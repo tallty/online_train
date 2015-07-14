@@ -8,13 +8,13 @@
       <div id="adminForm" class="modal-body">
         <%= simple_form_for(@teacher, url: is_edit_or_update? ? admin_panel_teacher_path(@teacher) : admin_panel_teachers_path(@teacher),remote: true, wrapper: :horizontal_form, html: {class: "form-horizontal"}) do |f| %>
           <%= f.input :name, required: true  %>
+          <%= f.input :sex, required: true, collection: Teacher::Sex.invert, as: :radio_buttons, wrapper: :horizontal_radio_and_checkboxes, item_wrapper_class: "radio-inline" %>
           <%= f.input :id_card, required: true  %>
           <%= f.input :school_id, required: true,input_html: { value: @teacher.try(:school).try(:id) } , as: :select, collection: School.all.pluck(:name, :id) %>
           <%= f.input :job_title  %>
           <%= f.input :position %>
-          <%= f.input :sex, required: true  %>
           <%= f.input :address %>
-          <%= f.input :postcode, required: true  %>
+          <%= f.input :postcode %>
           <%= f.input :phone, required: true  %>
           <%= f.input :mobile, required: true  %>
           <%= f.input :email, required: true  %>

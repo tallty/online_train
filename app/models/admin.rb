@@ -58,7 +58,7 @@ class Admin < ActiveRecord::Base
 
 
   enum role: { system: 0, education: 1, trainer: 2, specialist: 3, management: 4 }
-  ROLE = {  system: "管理部门",
+  Role = {  system: "管理部门",
             education: "教育部门",
             trainer: "培训机构",
             specialist: "评审专家",
