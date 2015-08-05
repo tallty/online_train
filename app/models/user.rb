@@ -38,7 +38,8 @@
 class User < ActiveRecord::Base
 
   #acts_as_easy_captcha
-  has_many :user_training_courses
+  has_many :user_training_courses, dependent: :destroy
+  has_many :user_tasks, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -67,6 +68,10 @@ class User < ActiveRecord::Base
 
   def self.current=(user)
     Thread.current[:user] = user
+  end
+
+  def get_user_task_by_task task
+    UserTask.where(user_id: self.id, task_id: task.id).first
   end
 
 end

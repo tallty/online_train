@@ -1,0 +1,6 @@
+<% if @user_task.errors.blank? %>
+  location.href = "<%= work_user_index_path %>";
+<% else %>
+  $("#addTaskModal").html("<%= escape_javascript(render 'form') %>");
+  $("#taskModal").modal('show');
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714055224) do
+ActiveRecord::Schema.define(version: 20150804084942) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -135,6 +135,19 @@ ActiveRecord::Schema.define(version: 20150714055224) do
     t.integer  "school_id",           limit: 4
     t.string   "aasm_state",          limit: 255
   end
+
+  create_table "user_tasks", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "task_id",    limit: 4
+    t.string   "title",      limit: 255
+    t.string   "content",    limit: 255
+    t.string   "appraise",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "user_tasks", ["task_id"], name: "index_user_tasks_on_task_id", using: :btree
+  add_index "user_tasks", ["user_id"], name: "index_user_tasks_on_user_id", using: :btree
 
   create_table "user_training_courses", force: :cascade do |t|
     t.integer  "user_id",            limit: 4

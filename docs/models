@@ -73,8 +73,9 @@
 学员作业：user_tasks
   user: 学员
   task: 作业
+  title: 作业title
+  content: 作业内容
   attachment: 学员提交附件
-  status: 状态
   appraise: 教师评价
 
 

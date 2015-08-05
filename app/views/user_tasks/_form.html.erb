@@ -1,0 +1,26 @@
+<div id="taskModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">提交作业</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(@user_task, url: is_edit_or_update? ? user_task_path(@user_task) : user_tasks_path(@user_task),remote: true, wrapper: :horizontal_form210, html: {class: "form-horizontal"}, multipart: true) do |f| %>
+          <%= f.input :title %>
+          <%= f.input :content, as: :text, input_html: {rows: 7} %>
+          <%= f.input :attachment, as: :file, wrapper: :horizontal_file_input210 %>
+          <%= f.input :task_id, as: :hidden, input_html: {value: params[:task_id] || params[:user_task][:task_id]} %>
+          <div class="row">
+            <div class="col-sm-6 text-center">
+              <button type="submit" class="btn btn-info">&nbsp;&nbsp;确认&nbsp;&nbsp;</button>
+            </div>
+            <div class="col-sm-6 text-center">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

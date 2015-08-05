@@ -16,4 +16,6 @@ class Task < ActiveRecord::Base
   belongs_to :training_courses
   belongs_to :admins
   has_one :attachment, as: :attachmentable
+  has_many :user_tasks, dependent: :destroy
+  
 end

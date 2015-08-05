@@ -1,4 +1,4 @@
-source 'https://ruby.taobao.org'
+ source 'https://ruby.taobao.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -71,3 +71,5 @@ gem 'kaminari'
 
 #状态管理
 gem 'aasm', '~> 4.2.0'
+
+gem 'remotipart', '~> 1.2'

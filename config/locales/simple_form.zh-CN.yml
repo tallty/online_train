@@ -66,6 +66,10 @@ zh-CN:
         postcode: "邮编"
         qq: "QQ"
         remark: "备注"
+      user_task: 
+        title: "标题"
+        content: "内容"
+        attachment: "附件"
     placeholders:
       user:
         email: '请输入电子邮箱'

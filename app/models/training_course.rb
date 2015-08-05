@@ -26,8 +26,8 @@
 #
 
 class TrainingCourse < ActiveRecord::Base
-  belongs_to :school
 	include AASM
+  belongs_to :school
 
 	aasm :column => 'state' do
 		state :unchecked, :initial => true  #默认未通过审核
