@@ -40,7 +40,7 @@
                               <br>(作业附件)
                               <%= link_to(user_task.try(:attachment).try(:avatar_file_name), download_user_task_path(user_task)) %>
                             <% else %>
-                              <%= link_to("上传", new_user_task_path(task_id: task.id), remote: true, format: :js) %>
+                              <%= link_to("提交", new_user_task_path(task_id: task.id), remote: true, format: :js) %>
                             <% end %>
                           </td>
                         </tr>
