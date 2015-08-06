@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804084942) do
+ActiveRecord::Schema.define(version: 20150806074129) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -56,6 +56,20 @@ ActiveRecord::Schema.define(version: 20150804084942) do
   end
 
   add_index "attachments", ["attachmentable_id", "attachmentable_type"], name: "index_attachments_on_attachmentable_id_and_attachmentable_type", unique: true, using: :btree
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "training_course_id", limit: 4
+    t.string   "title",              limit: 255
+    t.string   "sub_title",          limit: 255
+    t.integer  "view_count",         limit: 4,     default: 0
+    t.string   "author",             limit: 255
+    t.text     "content",            limit: 65535
+    t.string   "category",           limit: 255
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+  end
+
+  add_index "notifications", ["training_course_id"], name: "index_notifications_on_training_course_id", using: :btree
 
   create_table "provinces", force: :cascade do |t|
     t.string   "username",   limit: 255

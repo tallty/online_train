@@ -90,5 +90,17 @@
 
 学员评师，学员反馈，负责人反馈
 
+============2015-08-06============
+通知：notification
+  ref           training_course
+  title         标题
+  sub_title     副标题
+  view_count    浏览量  default: 0
+  author        作者
+  content       内容
+  category      类型  专业负责人培训 || 骨干教师培训
+
+
+
 
 
