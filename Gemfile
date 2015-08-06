@@ -73,3 +73,6 @@ gem 'kaminari'
 gem 'aasm', '~> 4.2.0'
 
 gem 'remotipart', '~> 1.2'
+
+#编辑器
+gem 'rails_kindeditor'

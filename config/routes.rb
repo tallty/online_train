@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     root "home#index"
 
     resources :training_courses do
+      resources :notifications
       member do
         patch :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator
         post :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator

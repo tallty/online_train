@@ -1,0 +1,38 @@
+<div class="main-content">
+  <div class="panel panel-default">
+	  <div class="panel-heading panel-active">项目信息</div>
+	  <div class="panel-body panel-default-bg">
+	    <table class="table">
+	      <tr>
+	      	<th class="col-sm-1">所属课程</th>
+	      	<td><%= @notification.try(:training_course).try(:name) %></td>
+	      </tr>
+	      <tr>
+	      	<th>分类</th>
+	      	<td><%= @notification.category %> </td>
+	      </tr>
+	      <tr>
+	      	<th>标题</th>
+	      	<td><%= @notification.title %></td>
+	      </tr>
+	      <tr>
+	      	<th>副标题</th>
+	      	<td><%= @notification.sub_title %></td>
+	      </tr>
+	      <tr>
+	      	<th>访问量</th>
+	      	<td><%= @notification.view_count %></td>
+	      </tr>
+	      <tr>
+	      	<th>作者/出处</th>
+	      	<td><%= @notification.author %></td>
+	      </tr>
+	      <tr>
+	      	<th>内容</th>
+	      	<td><%= raw @notification.content %></td>
+	      </tr>
+	    </table>
+	    <%= link_to "修改", edit_admin_panel_training_course_notification_path(@training_course, @notification), class: "btn btn-primary"%>
+	  </div>
+	</div>
+</div>
