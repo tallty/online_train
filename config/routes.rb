@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'train/notice_index'
 
   get 'train/notice_info'
+  get 'train/work_info'
 
   resources :training_courses, only: [:index, :show]
   resources :user_training_courses, only: [:create]

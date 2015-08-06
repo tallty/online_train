@@ -26,22 +26,44 @@
 		  left: 50%;
 		  z-index: 2333;
 			background: image-url("title-bg.png") no-repeat 0 0;
+			//培训通知
 			&.pxtz {
 				margin-left: -480px;
 		    top: 385px;
 			}
+			//培训报名
 			&.pxbm {
-				margin-left: 28px;
+				margin-left: 30px;
 		    top: 385px;
 			}
+			//友情链接
 			&.yqlj {
 				left: 50%;
 			  margin-left: -480px;
-			  top: 873px;
+			  top: 1280px;
+			}
+      //专业负责人通知
+			&.zyfzrtz {
+				margin-left: -480px;
+		    top: 982px;
+			}
+			//专业负责人报名
+			&.zyfzrbm {
+				margin-left: 30px;
+		    top: 982px;
+			}
+			//骨干教师通知
+			&.ggjstz {
+				margin-left: -480px;
+		    top: 684px;
+			}
+			//骨干教师报名
+			&.ggjsbm {
+				margin-left: 30px;
+		    top: 684px;
 			}
 		}
 		ul {
-			height: 390px;
       overflow: hidden;
 		}
 		ul li {

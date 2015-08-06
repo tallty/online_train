@@ -4,4 +4,7 @@ class TrainController < BaseController
 
   def notice_info
   end
+
+  def work_info
+  end
 end
