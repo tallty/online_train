@@ -1,98 +1,140 @@
 <div class="main-content wrapper">
   <div class="panel-list">
-  	<div class="panel panel-default half-width pull-left">
-			<div class="panel-heading panel-bg oh">
-		    <span class="pull-left title-bg pxtz">培训通知</span>
-		    <%= link_to "更多", notifications_path, class: "pull-right" %>
-		  </div>
-			<div class="panel-body">
-			  <ul>
-			    <!-- 最多显示5行 -->
-			    <% @training_notifications.each do |training_notification|%>
-				  	<li>
-				  	  <a href="<%= notification_path(training_notification) %>" class="col-sm-10 pull-left">&nbsp;&nbsp;<%= training_notification.title %></a>
-				  	  <span class="pull-right"><%= training_notification.created_at.strftime("%Y-%m-%d") %></span>
-				  	</li>
-				  <% end %>
-			  </ul>
+    <div class="panel panel-default">
+      <div class="panel-heading panel-bg">
+        <span class="pull-left title-bg pxtz">国培项目</span>
+      </div>
+      <div class="panel-body">
+		  	<div class="panel panel-default half-width pull-left">
+					<div class="panel-heading text-center oh">
+				    <span class="active-title">培训通知</span>
+				    <%= link_to "更多", notifications_path, class: "pull-right active-link" %>
+				  </div>
+					<div class="panel-body">
+					  <ul>
+					    <!-- 最多显示5行 -->
+					    <% @training_notifications.each do |training_notification|%>
+						  	<li>
+						  	  <a href="<%= notification_path(training_notification) %>" class="col-sm-10 pull-left">&nbsp;&nbsp;<%= training_notification.title %></a>
+						  	  <span class="pull-right"><%= training_notification.created_at.strftime("%Y-%m-%d") %></span>
+						  	</li>
+						  <% end %>
+					  </ul>
+					</div>
+				</div>
+			  <div class="panel panel-default half-width pull-right">
+				  <div class="panel-heading text-center oh">
+				  	<span class="active-title">培训报名</span>
+				    <%= link_to "更多", "", class: "pull-right active-link" %>
+				  </div>
+				  <div class="panel-body">
+				    <ul>
+					    <!-- 最多显示5行 -->
+					    <% @training_courses.each do |training_course| %>
+						  	<li>
+						  	  <a href="<%= training_course_path(training_course)%>" class="col-sm-12 pull-left"><%= training_course.name %></a>
+						  	</li>
+						  <% end %>
+					  </ul>
+				  </div>
+				</div>
 			</div>
-		</div>
-	  <div class="panel panel-default half-width pull-right">
-		  <div class="panel-heading panel-bg oh">
-		  	<span class="pull-left title-bg pxbm">培训报名</span>
-		    <%= link_to "更多", "", class: "pull-right" %>
-		  </div>
-		  <div class="panel-body">
-		    <ul>
-			    <!-- 最多显示5行 -->
-			    <% @training_courses.each do |training_course| %>
-				  	<li>
-				  	  <a href="<%= training_course_path(training_course)%>" class="col-sm-12 pull-left"><%= training_course.name %></a>
-				  	</li>
-				  <% end %>
-			  </ul>
 		  </div>
 		</div>
   </div>
+</div>
 
+<div class="main-content wrapper">
   <div class="panel-list">
-  	<div class="panel panel-default half-width pull-left">
-			<div class="panel-heading panel-bg oh">
-		    <span class="pull-left title-bg ggjstz">骨干教师培训通知</span>
-		    <%= link_to "更多", notifications_path, class: "pull-right" %>
-		  </div>
-			<div class="panel-body">
-			  <ul>
-			    <!-- 最多显示5行 -->
-			    <% @teacher_notifications.each do |teacher_notification| %>
-				  	<li>
-				  	  <a href="<%= notification_path(teacher_notification) %>" class="col-sm-10 pull-left"><%= teacher_notification.title %></a>
-				  	  <span class="pull-right"><%= teacher_notification.created_at.strftime("%Y-%m-%d") %></span>
-				  	</li>
-				  <% end %>
-			  </ul>
+    <div class="panel panel-default">
+      <div class="panel-heading panel-bg">
+        <span class="pull-left title-bg ggjsbm">骨干教师培训</span>
+      </div>
+      <div class="panel-body">
+		  	<div class="panel panel-default half-width pull-left">
+					<div class="panel-heading text-center oh">
+				    <span class="active-title">骨干教师培训通知</span>
+				    <%= link_to "更多", notifications_path, class: "pull-right active-link" %>
+				  </div>
+					<div class="panel-body">
+					  <ul>
+					    <!-- 最多显示5行 -->
+					    <% @teacher_notifications.each do |teacher_notification| %>
+						  	<li>
+						  	  <a href="<%= notification_path(teacher_notification) %>" class="col-sm-10 pull-left"><%= teacher_notification.title %></a>
+						  	  <span class="pull-right"><%= teacher_notification.created_at.strftime("%Y-%m-%d") %></span>
+						  	</li>
+						  <% end %>
+					  </ul>
+					</div>
+				</div>
+			  <div class="panel panel-default half-width pull-right">
+				  <div class="panel-heading text-center oh">
+				  	<span class="active-title">骨干教师培训报名</span>
+				    <%= link_to "更多", "", class: "pull-right active-link" %>
+				  </div>
+				  <div class="panel-body">
+				    <ul>
+					    <!-- 最多显示5行 -->
+					  	<% @teacher_training_courses.each do |teacher_training_course| %>
+						  	<li>
+						  	  <a href="<%= training_course_path(teacher_training_course)%>" class="col-sm-12 pull-left"><%= teacher_training_course.name %></a>
+						  	</li>
+						  <% end %>
+					  </ul>
+				  </div>
+				</div>
 			</div>
-		</div>
-	  <div class="panel panel-default half-width pull-right">
-		  <div class="panel-heading panel-bg oh">
-		  	<span class="pull-left title-bg ggjsbm">骨干教师培训报名</span>
-		    <%= link_to "更多", "", class: "pull-right" %>
-		  </div>
-		  <div class="panel-body">
-		    <ul>
-			    <!-- 最多显示5行 -->
-			  	<% @teacher_training_courses.each do |teacher_training_course| %>
-				  	<li>
-				  	  <a href="<%= training_course_path(teacher_training_course)%>" class="col-sm-12 pull-left"><%= teacher_training_course.name %></a>
-				  	</li>
-				  <% end %>
-			  </ul>
 		  </div>
 		</div>
-  </div>
-
+	</div>
+</div>
+<div class="main-content wrapper">
   <div class="panel-list">
-  	<div class="panel panel-default half-width pull-left">
-			<div class="panel-heading panel-bg oh">
-		    <span class="pull-left title-bg zyfzrtz">专业负责人通知</span>
-		    <%= link_to "更多", notifications_path, class: "pull-right" %>
-		  </div>
-			<div class="panel-body">
-			  <ul>
-			    <!-- 最多显示5行 -->
-			  	<% @profession_notifications.each do |profession_notification| %>
-				  	<li>
-				  	  <a href="<%= notification_path(profession_notification) %>" class="col-sm-10 pull-left"><%= profession_notification.title %></a>
-				  	  <span class="pull-right"><%= profession_notification.created_at.strftime("%Y-%m-%d") %></span>
-				  	</li>
-				  <% end %>
-			  </ul>
+    <div class="panel panel-default">
+      <div class="panel-heading panel-bg">
+        <span class="pull-left title-bg zyfzrtz">专业负责人培训</span>
+      </div>
+      <div class="panel-body">
+		  	<div class="panel panel-default half-width pull-left">
+					<div class="panel-heading oh text-center">
+				    <span class="active-title">专业负责人通知</span>
+				    <%= link_to "更多", notifications_path, class: "pull-right active-link" %>
+				  </div>
+					<div class="panel-body">
+					  <ul>
+					    <!-- 最多显示5行 -->
+					  	<% @profession_notifications.each do |profession_notification| %>
+						  	<li>
+						  	  <a href="<%= notification_path(profession_notification) %>" class="col-sm-10 pull-left"><%= profession_notification.title %></a>
+						  	  <span class="pull-right"><%= profession_notification.created_at.strftime("%Y-%m-%d") %></span>
+						  	</li>
+						  <% end %>
+					  </ul>
+					</div>
+				</div>
+			  <div class="panel panel-default half-width pull-right">
+				  <div class="panel-heading oh text-center">
+				  	<span class="active-title">专业负责人报名</span>
+				    <%= link_to "更多", "", class: "pull-right active-link" %>
+				  </div>
+				  <div class="panel-body">
+				    <ul>
+					    <!-- 最多显示5行 -->
+					  	<% @profession_training_courses.each do |profession_training_course| %>
+						  	<li>
+						  	  <a href="<%= training_course_path(profession_training_courses)%>" class="col-sm-12 pull-left"><%= profession_training_courses.name %></a>
+						  	</li>
+						  <% end %>
+					  </ul>
+				  </div>
+				</div>
 			</div>
 		</div>
 	  <div class="panel panel-default half-width pull-right">
 		  <div class="panel-heading panel-bg oh">
 		  	<span class="pull-left title-bg zyfzrbm">专业负责人报名</span>
-		    <%= link_to "更多", "", class: "pull-right" %>
+		    <%= link_to "更多", "", class: "pull-right active-link" %>
 		  </div>
 		  <div class="panel-body">
 		    <ul>
@@ -105,8 +147,9 @@
 			  </ul>
 		  </div>
 		</div>
-  </div>
-
+	</div>
+</div>
+<div class="main-content wrapper">
 	<div class="panel panel-default">
 	  <div class="panel-heading panel-bg">
 	    <span class="title-bg yqlj">友情链接</span>

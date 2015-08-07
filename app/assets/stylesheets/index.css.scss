@@ -3,6 +3,13 @@
 		.half-width {
 			width: 49%;
 		}
+		.active-title {
+			color: #345ab3;
+			font-weight: bold;
+		}
+		.active-link {
+			color: #345ab3;
+		}
 		.panel-list, .oh {
 			overflow: hidden;
 		}
@@ -26,41 +33,26 @@
 		  left: 50%;
 		  z-index: 2333;
 			background: image-url("title-bg.png") no-repeat 0 0;
-			//培训通知
+			//培训项目
 			&.pxtz {
-				margin-left: -480px;
+		    margin-left: -470px;
 		    top: 385px;
 			}
-			//培训报名
-			&.pxbm {
-				margin-left: 30px;
-		    top: 385px;
+			//骨干教师项目
+			&.ggjsbm {
+				margin-left: -470px;
+		    top: 775px;
+			}
+			//专业负责人项目
+			&.zyfzrtz {
+				margin-left: -470px;
+		    top: 1165px;
 			}
 			//友情链接
 			&.yqlj {
 				left: 50%;
 			  margin-left: -480px;
-			  top: 1280px;
-			}
-      //专业负责人通知
-			&.zyfzrtz {
-				margin-left: -480px;
-		    top: 982px;
-			}
-			//专业负责人报名
-			&.zyfzrbm {
-				margin-left: 30px;
-		    top: 982px;
-			}
-			//骨干教师通知
-			&.ggjstz {
-				margin-left: -480px;
-		    top: 684px;
-			}
-			//骨干教师报名
-			&.ggjsbm {
-				margin-left: 30px;
-		    top: 684px;
+			  top: 1555px;
 			}
 		}
 		ul {
