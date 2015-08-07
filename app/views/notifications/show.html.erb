@@ -25,7 +25,7 @@
 								<span class="pull-right"><%= render "common/baidu_share" %></span>
 							</li>
 						</ul>
-						<%= @notification.try(:content) %>
+						<%= raw @notification.try(:content) %>
 					</div>
 				</div>
 			</div>

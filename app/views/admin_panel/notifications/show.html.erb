@@ -32,7 +32,7 @@
 	      	<td><%= raw @notification.content %></td>
 	      </tr>
 	    </table>
-	    <%= link_to "修改", edit_admin_panel_training_course_notification_path(@training_course, @notification), class: "btn btn-primary"%>
+	    <%= link_to "修改", edit_admin_panel_training_course_notification_path(@training_course, @notification), 'data-no-turbolink' => true, class: "btn btn-primary"%>
 	  </div>
 	</div>
 </div>
