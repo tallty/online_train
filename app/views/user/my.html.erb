@@ -7,10 +7,10 @@
       <div class="tab-content courses col-md-9">
           <div class="right-nav-tab personal_center_content">
             <strong class="col-md-3 right_message_tab"><span>个人信息</span></strong><br/><br/>
-            <div class="center_content">
+            <div class="center_content" style="<%= @user.try(:errors).present? ? "display: none;" : "display: block;"%>">
               <%= render "user_info"%>
             </div>
-            <div class="center_content" style="display: none;">
+            <div class="center_content" style="<%= @user.try(:errors).present? ? "display: block;" : "display: none;"%>">
               <%= render "user_edit"%>
             </div>
           </div>

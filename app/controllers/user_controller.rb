@@ -39,7 +39,7 @@ class UserController < BaseController
       redirect_to my_user_index_path
     else
       #更新失败
-      render :center
+      render :my
     end
   end
 

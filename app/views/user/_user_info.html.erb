@@ -4,13 +4,13 @@
     * 注册邮箱：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    123456789@qq.com
+    <%= current_user.email %>
   </div>
   <div class="col-sm-2 text-right">
     * 所在学校：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    上海电子信息职业学院
+    <%= current_user.school %>
   </div>
 </div>
 <hr>
@@ -19,13 +19,13 @@
     * 真实姓名：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    李四
+    <%= current_user.name %>
   </div>
   <div class="col-sm-2 text-right">
     * 所在院系：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    计算机信息系
+    <%= current_user.academy %>
   </div>
 </div>
 <hr>
@@ -34,13 +34,13 @@
     * 身份证号：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    323483199208237823
+    <%= current_user.ID_number %>
   </div>
   <div class="col-sm-2 text-right">
     * 职业资格证：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    计算机四级（中国）
+    <%= current_user.certificate %>(<%= current_user.country %>)
   </div>
 </div>
 <hr>
@@ -49,13 +49,13 @@
     * 性别：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    女
+    <%= User::UserGender[current_user.gender.to_sym] %>
   </div>
   <div class="col-sm-2 text-right">
-    * 从事专业：
+    * 民族：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    计算机专业
+    <%= current_user.nation %>
   </div>
 </div>
  <hr>
@@ -64,13 +64,13 @@
     * 出生日期：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    1987-02-23
+    <%= current_user.birth.try(:strftime, "%F") %>
   </div>
   <div class="col-sm-2 text-right">
     * 职称：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    老师
+    <%= current_user.position_name %>
   </div>
 </div>
 <hr>
@@ -79,13 +79,13 @@
     * 通信地址：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    上海市嘉定区345号
+    <%= current_user.address %>
   </div>
   <div class="col-sm-2 text-right">
     * 职务：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    讲师
+    <%= current_user.position %>
   </div>
 </div>
 <hr>
@@ -94,13 +94,13 @@
     * 邮政编码：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    200003
+    <%= current_user.zip_code %>
   </div>
   <div class="col-sm-2 text-right">
     * 电话号码：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    40008888
+    <%= current_user.telephone %>
   </div>
 </div>
 <hr>
@@ -109,13 +109,13 @@
     * 手机号码：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    18001010202
+    <%= current_user.phone %>
   </div>
   <div class="col-sm-2 text-right">
     * QQ：
   </div>
   <div class="col-sm-3 text-left text-primary">
-    123456789
+    <%= current_user.qq_no %>
   </div>
 </div>
 <hr>
@@ -124,9 +124,7 @@
     历史培训情况：
   </div>
   <div class="col-sm-8 text-left text-primary">
-    （国内 常州）通信专业LTE技术培训（国培代码：10131010）<br>
-    （国内 常州）通信专业LTE技术培训（国培代码：10131010）<br>
-    （国内 常州）通信专业LTE技术培训（国培代码：10131010）<br>
+    <%= raw(current_user.his_train.try(:gsub, /\r\n/,"<br>")) %>
   </div>
 </div>
 <hr>
@@ -135,7 +133,7 @@
     简介：
   </div>
   <div class="col-sm-8 text-left text-primary">
-    简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
+    <%= raw(current_user.summary.try(:gsub, /\r\n/,"<br>")) %>
   </div>
 </div>
 <br>

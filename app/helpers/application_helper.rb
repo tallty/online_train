@@ -3,7 +3,7 @@ module ApplicationHelper
 
   def all_school
     [
-      ["上海电子信息职业技术学院","上海电子信息职业技术学院"],
+      ["上海电子信息职业学院","上海电子信息职业学院"],
       ["上海思博职业技术学院","上海思博职业技术学院"]
     ]
   end
@@ -48,7 +48,7 @@ module ApplicationHelper
     con_name = controller.controller_path.to_sym
     action_name = controller.action_name.to_sym
     menu = {
-      user: {course: 0, work: 1, journal: 2, message1: 3,message2: 3, center: 4},
+      user: {course: 0, work: 1, journal: 2, message1: 3,message2: 3, update: 4, my: 4},
     }
     menu[con_name][action_name] if menu.has_key?(con_name) and menu[con_name].has_key?(action_name)
   end
