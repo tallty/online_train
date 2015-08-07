@@ -31,6 +31,12 @@ class TrainingCourse < ActiveRecord::Base
   has_one :notification
   has_many :tasks, dependent: :destroy
 
+  enum training_course_categories: {
+	  '国培通知': '0',
+	  '骨干教师通知': '1',
+	  '专业负责人通知': '2'
+	}
+
 	aasm :column => 'state' do
 		state :unchecked, :initial => true  #默认未通过审核
 		state :checked_by_expert     #通过专家审核

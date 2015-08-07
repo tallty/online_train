@@ -60,7 +60,7 @@ module AdminPanel
 			params.require(:training_course).permit(:name, :code, :start_time, :end_time,
 			                       :plan_number, :training_agency, :training_address, :training_fee,
 			                       :state, :remark, :info, :training_background, :training_target,
-			                       :training_content, :check_method, :project_leader, :grade_leader, :contact)
+			                       :training_content, :check_method, :project_leader, :grade_leader, :contact, :category)
 		end
 	end
 end

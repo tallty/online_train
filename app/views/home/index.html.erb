@@ -25,21 +25,11 @@
 		  <div class="panel-body">
 		    <ul>
 			    <!-- 最多显示5行 -->
-			  	<li>
-			  	  <a href="" class="col-sm-12 pull-left">（国内）（上海）“高职院校《建筑工程技术》”专业骨干教师师资培训班通知（项目编号09151007）</a>
-			  	</li>
-			  	<li>
-			  	  <a href="" class="col-sm-12 pull-left">（国内）（上海）“跨境电子商务骨干教师”师资培训班通知（项目编号09151004）</a>
-			  	</li>
-			  	<li>
-			  	  <a href="" class="col-sm-12 pull-left">（国内）（上海）嵌入式智能设计师资培训通知（二期09151006-1）（项目编号09151006）</a>
-			  	</li>
-			  	<li>
-			  	  <a href="" class="col-sm-12 pull-left">（国内）（上海）嵌入式智能设计师资培训通知（二期09151006-2）（项目编号09151006）</a>
-			  	</li>
-			  	<li>
-			  	  <a href="" class="col-sm-12 pull-left">（国内）（上海）“全国高职高专信息化教学技术及信息化课程开发”师资培训班通知（项目编号09151005）</a>
-			  	</li>
+			    <% @training_courses.each do |training_course| %>
+				  	<li>
+				  	  <a href="<%= training_course_path(training_course)%>" class="col-sm-12 pull-left"><%= training_course.name %></a>
+				  	</li>
+				  <% end %>
 			  </ul>
 		  </div>
 		</div>
@@ -71,21 +61,11 @@
 		  <div class="panel-body">
 		    <ul>
 			    <!-- 最多显示5行 -->
-			  	<li>
-			  	  <a href="" class="col-sm-12 pull-left">（国内）（上海）“高职院校《建筑工程技术》”专业骨干教师师资培训班通知（项目编号09151007）</a>
-			  	</li>
-			  	<li>
-			  	  <a href="" class="col-sm-12 pull-left">（国内）（上海）“跨境电子商务骨干教师”师资培训班通知（项目编号09151004）</a>
-			  	</li>
-			  	<li>
-			  	  <a href="" class="col-sm-12 pull-left">（国内）（上海）嵌入式智能设计师资培训通知（二期09151006-1）（项目编号09151006）</a>
-			  	</li>
-			  	<li>
-			  	  <a href="" class="col-sm-12 pull-left">（国内）（上海）嵌入式智能设计师资培训通知（二期09151006-2）（项目编号09151006）</a>
-			  	</li>
-			  	<li>
-			  	  <a href="" class="col-sm-12 pull-left">（国内）（上海）“全国高职高专信息化教学技术及信息化课程开发”师资培训班通知（项目编号09151005）</a>
-			  	</li>
+			  	<% @teacher_training_courses.each do |teacher_training_course| %>
+				  	<li>
+				  	  <a href="<%= training_course_path(teacher_training_course)%>" class="col-sm-12 pull-left"><%= teacher_training_course.name %></a>
+				  	</li>
+				  <% end %>
 			  </ul>
 		  </div>
 		</div>
@@ -117,21 +97,11 @@
 		  <div class="panel-body">
 		    <ul>
 			    <!-- 最多显示5行 -->
-			  	<li>
-			  	  <a href="" class="col-sm-12 pull-left">（国内）（上海）“高职院校《建筑工程技术》”专业骨干教师师资培训班通知（项目编号09151007）</a>
-			  	</li>
-			  	<li>
-			  	  <a href="" class="col-sm-12 pull-left">（国内）（上海）“跨境电子商务骨干教师”师资培训班通知（项目编号09151004）</a>
-			  	</li>
-			  	<li>
-			  	  <a href="" class="col-sm-12 pull-left">（国内）（上海）嵌入式智能设计师资培训通知（二期09151006-1）（项目编号09151006）</a>
-			  	</li>
-			  	<li>
-			  	  <a href="" class="col-sm-12 pull-left">（国内）（上海）嵌入式智能设计师资培训通知（二期09151006-2）（项目编号09151006）</a>
-			  	</li>
-			  	<li>
-			  	  <a href="" class="col-sm-12 pull-left">（国内）（上海）“全国高职高专信息化教学技术及信息化课程开发”师资培训班通知（项目编号09151005）</a>
-			  	</li>
+			  	<% @profession_training_courses.each do |profession_training_course| %>
+				  	<li>
+				  	  <a href="<%= training_course_path(profession_training_courses)%>" class="col-sm-12 pull-left"><%= profession_training_courses.name %></a>
+				  	</li>
+				  <% end %>
 			  </ul>
 		  </div>
 		</div>
