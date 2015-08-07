@@ -26,9 +26,9 @@ module ApplicationHelper
       home: {index: 0},
       project: {about: 1, background: 2},
       train: {notice_index: 3, notice_info: 3, apply_index: 4, apply_info: 4},
-      user: {center: 5,course:5,journal:5,work:5,message1:5,message2:5},
+      user: {center: 5, course: 5, journal: 5, work: 5, message1: 5, message2: 5,my: 5, update: 5},
       "devise/sessions": {"new": 8},
-      "devise/registrations": {"new": 7, create: 7},
+      "devise/registrations": {"new": 7, create: 7, edit: 5, update: 5},
     }
     menu[con_name][action_name] if menu.has_key?(con_name) and menu[con_name].has_key?(action_name)
   end
