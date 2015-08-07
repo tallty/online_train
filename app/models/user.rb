@@ -50,8 +50,10 @@ class User < ActiveRecord::Base
   enum gender: {male: true, female: false}
   UserGender = {male: '男', female: '女'}
 
+  attr_accessor :is_vaild
+
   validates :name, presence: true
-  validates :password, presence: true, on: :create
+  validates :password, presence: true, if: "is_vaild.blank?"
   validates :password, length: { minimum:4, maximum: 32 }, if: "password.present?"
   validates_confirmation_of :password
   validates :ID_number, presence: true

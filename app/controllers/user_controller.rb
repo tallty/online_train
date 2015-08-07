@@ -23,7 +23,7 @@ class UserController < BaseController
 
   def update
     @user = User.where(id: params[:id]).first
-
+    @user.is_vaild = true
     #未查找到对应数据时处理
     if @user.blank?
       flash[:error] = "当前个人资料不存在"
