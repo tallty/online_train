@@ -41,10 +41,9 @@
 	    	  <tr>
 	    	  	<th class="col-sm-2 text-center">培训班</th>
 		    		<th class="col-sm-2 text-center">培训机构</th>
-		    		<th class="text-center">培训起止时间</th>
 		    		<th class="text-center">培训费用</th>
 		    		<th class="col-sm-2 text-center">教师&负责人</th>
-		    		<th class="text-center">计划</th>
+		    		<th class="text-center">培训起止时间</th>
 		    		<th class="text-center">评审专家</th>
 		    		<th class="text-center">研究会</th>
 		    		<th class="text-center">教委</th>
@@ -56,10 +55,9 @@
 		    	  <tr class="tr-default-bg">
 		    	  	<td class="text-center"><%= training_course.name %></td>
 			    		<td class="text-center"><%= training_course.try(:school).try(:name) %></td>
-			    		<td class="text-center"><%= training_course.start_time %> - <%= training_course.end_time %></td>
 			    		<td class="text-center"><%= training_course.training_fee %></td>
 			    		<td class="text-center"><%#= training_course.grade_leader %></td>
-			    		<td class="text-center"><%= training_course.start_time.strftime("%Y-%m-%d")  %> 至 <%= training_course.end_time.strftime("%Y-%m-%d") %></td>
+			    		<td class="text-center"><%= training_course.start_time.try(:strftime, "%F")  %> 至 <%= training_course.end_time.try(:strftime,"%F") %></td>
 			    		<td class="text-center"><%= training_course.training_fee %></td>
 			    		<td class="text-center"><%= training_course.try(:grade_leader) %></td>
 			    		<td class="text-center"><%= training_course.plan_number %></td>
