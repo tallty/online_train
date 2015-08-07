@@ -1,8 +1,8 @@
 <%= simple_form_for(@user, as: :user, url: user_path(@user.id), wrapper: :horizontal_form, html: {class: "form-horizontal"}) do |f| %>
   <%= f.error_notification %>
   <%= f.input :email, required: true, placeholder: false, readonly: true %>
-  <%#= f.input :password, required: true, placeholder: false, label: "设置密码"  %>
-  <%#= f.input :password_confirmation, required: true %>
+  <%#= f.input :password, required: false, placeholder: "不修改密码时请不要填写"  %>
+  <%#= f.input :password_confirmation, required: false, placeholder: "不修改密码时请不要填写" %>
   <%= f.input :name, required: true %>
   <%= f.input :ID_number, required: true %>
   <%= f.input :nation, required: true %>
@@ -23,13 +23,13 @@
   </div>
   <%= f.input :position_name %>
   <%= f.input :position %>
-  <%= f.input :his_train, required: false %>
+  <%= f.input :his_train, required: false, input_html: {rows: 7} %>
   <%= f.input :address, required: true %>
   <%= f.input :zip_code, required: true %>
   <%= f.input :telephone, required: true %>
   <%= f.input :phone, required: true %>
   <%= f.input :qq_no, required: false %>
-  <%= f.input :summary, required: false %>
+  <%= f.input :summary, required: false, input_html: {rows: 7} %>
   <%#= f.input :captcha, required: false %>
   <p class="text-center">
     <%= f.button :submit, "确认提交", class: "btn btn-primary" %>

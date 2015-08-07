@@ -45,12 +45,15 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable#, :validatable
 
   enum gender: {male: true, female: false}
   UserGender = {male: '男', female: '女'}
 
   validates :name, presence: true
+  validates :password, presence: true, on: :create
+  validates :password, length: { minimum:4, maximum: 32 }, if: "password.present?"
+  validates_confirmation_of :password
   validates :ID_number, presence: true
   validates :nation, presence: true
   validates :gender, presence: true

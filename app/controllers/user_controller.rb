@@ -31,11 +31,9 @@ class UserController < BaseController
     end
 
     if @user.update(user_params)
-
       #更新成功
       #重新登录更新session以及current_user等相关变量方法的值
       sign_in(:user, @user)
-
       flash[:notice] = "个人资料更新成功"
       redirect_to my_user_index_path
     else
