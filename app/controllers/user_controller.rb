@@ -15,6 +15,7 @@ class UserController < BaseController
   end
 
   def work
+    @training_courses = current_user.training_courses
   end
 
   def journal

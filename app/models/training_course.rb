@@ -29,6 +29,7 @@ class TrainingCourse < ActiveRecord::Base
 	include AASM
   belongs_to :school
   has_one :notification
+  has_many :tasks, dependent: :destroy
 
 	aasm :column => 'state' do
 		state :unchecked, :initial => true  #默认未通过审核

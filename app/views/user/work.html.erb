@@ -8,16 +8,16 @@
           <div class="personal_center_content right-nav-tab">
             <strong class="col-md-3 right_message_tab"><span>我的作业</span></strong><br/>
             <div class="panel-group my-work-content" id="accordion" role="tablist" aria-multiselectable="true">
-              <% (1..4) .each do |j|%>
+              <% @training_courses.each_with_index do |training_course,index|%>
                 <div class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="heading<%= j %>">
+                  <div class="panel-heading" role="tab" id="heading<%= index %>">
                     <h4 class="panel-title">
-                      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= j %>" aria-expanded="true" aria-controls="collapseOne">
-                        （国内）（上海）信息化教学技术及信息化课程开发师资培训（国培代码：09151005）
+                      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index %>" aria-expanded="true" aria-controls="collapseOne">
+                        <%= training_course.name %>
                       </a>
                     </h4>
                   </div>
-                  <div id="collapse<%= j %>" class="panel-collapse collapse <%= 'in' if j == 1 %>" role="tabpanel" aria-labelledby="heading<%= j %>">
+                  <div id="collapse<%= index %>" class="panel-collapse collapse <%= 'in' if index == 1 %>" role="tabpanel" aria-labelledby="heading<%= index %>">
                     <div class="panel-body">
                       <table class="border-table">
                         <tr>
@@ -26,7 +26,7 @@
                           <th width="20%">老师评价</th>
                           <th>作业提交</th>
                         </tr>
-                        <%  Task.all.each do |task|%>
+                        <%  training_course.tasks.each do |task|%>
                         <% user_task = current_user.get_user_task_by_task task%>
                         <tr>
                           <td>

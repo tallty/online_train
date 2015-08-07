@@ -39,6 +39,7 @@ class User < ActiveRecord::Base
 
   #acts_as_easy_captcha
   has_many :user_training_courses, dependent: :destroy
+  has_many :training_courses, through: :user_training_courses
   has_many :user_tasks, dependent: :destroy
 
   # Include default devise modules. Others available are:
