@@ -1,0 +1,49 @@
+<div class="wrapper">
+	<div class="row">
+		<div class="col-md-3">
+			<%= render "common/left_bar"%>
+		</div>
+		<div class="col-md-9">
+			<div class="content">
+				<div class="right-head">
+					<div class="col-xs-2 text-center"><strong>培训通知</strong></div>
+				</div>
+				<div class="right-body">
+					<ul class="nav nav-stacked notice-index">
+					  <% @notifications.each do |notification|%>
+							<li role="presentation">
+								<a href="<%= notification_path(notification) %>">
+									<div class="row notice-index">
+										<div class="col-xs-10"><span><%= image_tag "notice_index_icon.png"%></span><%= notification.try(:title)%></div>
+										<div class="col-xs-2 text-right font-red"><%= notification.created_at.strftime("%Y-%m-%d")%></div>
+									</div>
+								</a>
+							</li>
+						<% end %>
+						<hr class="divider">
+					</ul>
+					<br>
+					<nav class="text-center">
+						<ul class="pagination">
+							<li>
+								<a href="#" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+								</a>
+							</li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li>
+								<a href="#" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

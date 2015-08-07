@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :training_courses, only: [:index, :show]
   resources :user_training_courses, only: [:create]
 
-
+  resources :notifications, only: [:show, :index]
   resources :user, only: [:update] do
     collection do
       get :my

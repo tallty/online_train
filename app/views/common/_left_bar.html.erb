@@ -1,0 +1,21 @@
+<div id="leftMenu" class="content text-center">
+	<div class="left-head"><strong>培训计划</strong></div>
+	<div class="left-body">
+		<ul class="nav nav-stacked">
+		  <li role="presentation"><%= link_to "平台简介", project_about_path %></li>
+		  <hr class="divider">
+		  <li role="presentation"><%= link_to "平台背景", project_background_path %></li>
+		  <hr class="divider">
+		  <li role="presentation"><%= link_to "培训通知", train_notice_index_path %></li>
+		  <hr class="divider">
+		  <li role="presentation"><%= link_to "培训报名", training_courses_path %></li>
+		</ul>
+	</div>
+</div>
+
+<script type="text/javascript">
+  $(function(){
+    $("#leftMenu a").removeClass("active");
+    $("#leftMenu a:eq(<%= left_menu_index %>)").addClass("active");
+  });
+</script>

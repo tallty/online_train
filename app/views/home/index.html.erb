@@ -3,31 +3,17 @@
   	<div class="panel panel-default half-width pull-left">
 			<div class="panel-heading panel-bg oh">
 		    <span class="pull-left title-bg pxtz">培训通知</span>
-		    <%= link_to "更多", train_notice_index_path, class: "pull-right" %>
+		    <%= link_to "更多", notifications_path, class: "pull-right" %>
 		  </div>
 			<div class="panel-body">
 			  <ul>
 			    <!-- 最多显示5行 -->
-			  	<li>
-			  	  <a href="<%= train_work_info_path %>" class="col-sm-10 pull-left">&nbsp;&nbsp;关于2015年高职高专院校专业负责人培训班（第一期）学员网上提交作业的通知</a>
-			  	  <span class="pull-right">2015-08-06</span>
-			  	</li>
-			  	<li>
-			  	  <a href="<%= train_notice_info_path %>" class="col-sm-10 pull-left">（国内）（上海）“跨境电子商务骨干教师”师资培训班通知（项目编号09151004）</a>
-			  	  <span class="pull-right">2015-04-22</span>
-			  	</li>
-			  	<li>
-			  	  <a href="<%= train_notice_info_path %>" class="col-sm-10 pull-left">（国内）（上海）嵌入式智能设计师资培训通知（二期09151006-1）（项目编号09151006）</a>
-			  	  <span class="pull-right">2015-04-22</span>
-			  	</li>
-			  	<li>
-			  	  <a href="<%= train_notice_info_path %>" class="col-sm-10 pull-left">（国内）（上海）嵌入式智能设计师资培训通知（二期09151006-2）（项目编号09151006）</a>
-			  	  <span class="pull-right">2015-04-22</span>
-			  	</li>
-			  	<li>
-			  	  <a href="<%= train_notice_info_path %>" class="col-sm-10 pull-left">（国内）（上海）“全国高职高专信息化教学技术及信息化课程开发”师资培训班通知（项目编号09151005）</a>
-			  	  <span class="pull-right">2015-04-22</span>
-			  	</li>
+			    <% @training_notifications.each do |training_notification|%>
+				  	<li>
+				  	  <a href="<%= notification_path(training_notification) %>" class="col-sm-10 pull-left">&nbsp;&nbsp;<%= training_notification.title %></a>
+				  	  <span class="pull-right"><%= training_notification.created_at.strftime("%Y-%m-%d") %></span>
+				  	</li>
+				  <% end %>
 			  </ul>
 			</div>
 		</div>
@@ -63,31 +49,17 @@
   	<div class="panel panel-default half-width pull-left">
 			<div class="panel-heading panel-bg oh">
 		    <span class="pull-left title-bg ggjstz">骨干教师培训通知</span>
-		    <%= link_to "更多", train_notice_index_path, class: "pull-right" %>
+		    <%= link_to "更多", notifications_path, class: "pull-right" %>
 		  </div>
 			<div class="panel-body">
 			  <ul>
 			    <!-- 最多显示5行 -->
-			  	<li>
-			  	  <a href="<%= train_notice_info_path %>" class="col-sm-10 pull-left">（国内）（上海）“高职院校《建筑工程技术》”专业骨干教师师资培训班通知（项目编号09151007）</a>
-			  	  <span class="pull-right">2015-04-22</span>
-			  	</li>
-			  	<li>
-			  	  <a href="<%= train_notice_info_path %>" class="col-sm-10 pull-left">（国内）（上海）“跨境电子商务骨干教师”师资培训班通知（项目编号09151004）</a>
-			  	  <span class="pull-right">2015-04-22</span>
-			  	</li>
-			  	<li>
-			  	  <a href="<%= train_notice_info_path %>" class="col-sm-10 pull-left">（国内）（上海）嵌入式智能设计师资培训通知（二期09151006-1）（项目编号09151006）</a>
-			  	  <span class="pull-right">2015-04-22</span>
-			  	</li>
-			  	<li>
-			  	  <a href="<%= train_notice_info_path %>" class="col-sm-10 pull-left">（国内）（上海）嵌入式智能设计师资培训通知（二期09151006-2）（项目编号09151006）</a>
-			  	  <span class="pull-right">2015-04-22</span>
-			  	</li>
-			  	<li>
-			  	  <a href="<%= train_notice_info_path %>" class="col-sm-10 pull-left">（国内）（上海）“全国高职高专信息化教学技术及信息化课程开发”师资培训班通知（项目编号09151005）</a>
-			  	  <span class="pull-right">2015-04-22</span>
-			  	</li>
+			    <% @teacher_notifications.each do |teacher_notification| %>
+				  	<li>
+				  	  <a href="<%= notification_path(teacher_notification) %>" class="col-sm-10 pull-left"><%= teacher_notification.title %></a>
+				  	  <span class="pull-right"><%= teacher_notification.created_at.strftime("%Y-%m-%d") %></span>
+				  	</li>
+				  <% end %>
 			  </ul>
 			</div>
 		</div>
@@ -123,31 +95,17 @@
   	<div class="panel panel-default half-width pull-left">
 			<div class="panel-heading panel-bg oh">
 		    <span class="pull-left title-bg zyfzrtz">专业负责人通知</span>
-		    <%= link_to "更多", train_notice_index_path, class: "pull-right" %>
+		    <%= link_to "更多", notifications_path, class: "pull-right" %>
 		  </div>
 			<div class="panel-body">
 			  <ul>
 			    <!-- 最多显示5行 -->
-			  	<li>
-			  	  <a href="<%= train_notice_info_path %>" class="col-sm-10 pull-left">（国内）（上海）“高职院校《建筑工程技术》”专业骨干教师师资培训班通知（项目编号09151007）</a>
-			  	  <span class="pull-right">2015-04-22</span>
-			  	</li>
-			  	<li>
-			  	  <a href="<%= train_notice_info_path %>" class="col-sm-10 pull-left">（国内）（上海）“跨境电子商务骨干教师”师资培训班通知（项目编号09151004）</a>
-			  	  <span class="pull-right">2015-04-22</span>
-			  	</li>
-			  	<li>
-			  	  <a href="<%= train_notice_info_path %>" class="col-sm-10 pull-left">（国内）（上海）嵌入式智能设计师资培训通知（二期09151006-1）（项目编号09151006）</a>
-			  	  <span class="pull-right">2015-04-22</span>
-			  	</li>
-			  	<li>
-			  	  <a href="<%= train_notice_info_path %>" class="col-sm-10 pull-left">（国内）（上海）嵌入式智能设计师资培训通知（二期09151006-2）（项目编号09151006）</a>
-			  	  <span class="pull-right">2015-04-22</span>
-			  	</li>
-			  	<li>
-			  	  <a href="<%= train_notice_info_path %>" class="col-sm-10 pull-left">（国内）（上海）“全国高职高专信息化教学技术及信息化课程开发”师资培训班通知（项目编号09151005）</a>
-			  	  <span class="pull-right">2015-04-22</span>
-			  	</li>
+			  	<% @profession_notifications.each do |profession_notification| %>
+				  	<li>
+				  	  <a href="<%= notification_path(profession_notification) %>" class="col-sm-10 pull-left"><%= profession_notification.title %></a>
+				  	  <span class="pull-right"><%= profession_notification.created_at.strftime("%Y-%m-%d") %></span>
+				  	</li>
+				  <% end %>
 			  </ul>
 			</div>
 		</div>

@@ -85,7 +85,13 @@
 			    		  <td class="text-center text-active-status">已审核</td>
 			    		  <td class="text-center text-active-status">已审核</td>
 			    		<% end%>
-              <td class="text-center"><%= link_to "创建通知", new_admin_panel_training_course_notification_path(training_course)%></td>
+              <td class="text-center">
+                <% if training_course.notification.present? %>
+                  <%= link_to "创建通知", admin_panel_training_course_notification_path(training_course, training_course.notification)%>
+                <% else %>
+                  <%= link_to "创建通知", new_admin_panel_training_course_notification_path(training_course)%>
+                <% end %>
+              </td>
 			    		<td class="text-center">
 			    		  <%= link_to admin_panel_training_course_path(training_course.id) do %>
 			    		    <span class="glyphicon glyphicon-log-in"></span>
