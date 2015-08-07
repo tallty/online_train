@@ -63,15 +63,14 @@ class UserTasksController < ApplicationController
     respond_to do |format|
       format.js
     end
-  end 
+  end
 
-  private 
-    def user_task_params
-      params.require(:user_task).permit(:title, :content, :task_id)
-    end
+  private
+  def user_task_params
+    params.require(:user_task).permit(:title, :content, :task_id)
+  end
 
-    def set_user_task
-      @user_task = UserTask.where(id: params[:id]).first
-    end
-
+  def set_user_task
+    @user_task = UserTask.where(id: params[:id]).first
+  end
 end

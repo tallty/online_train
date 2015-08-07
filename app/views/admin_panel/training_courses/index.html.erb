@@ -53,11 +53,14 @@
 	    	<tbody>
 	    	  <% @training_courses.each do |training_course|%>
 		    	  <tr class="tr-default-bg">
-		    	  	<td class="text-center"><%= training_course.name %></td>
+		    	  	<td class="text-center"><%= link_to truncate(training_course.name, length: 15), admin_panel_training_course_path(training_course.id), title: '查看详情' %></td>
 			    		<td class="text-center"><%= training_course.try(:school).try(:name) %></td>
 			    		<td class="text-center"><%= training_course.training_fee %></td>
 			    		<td class="text-center"><%#= training_course.grade_leader %></td>
-			    		<td class="text-center"><%= training_course.start_time.try(:strftime, "%F")  %> 至 <%= training_course.end_time.try(:strftime,"%F") %></td>
+			    		<td class="text-center">
+			    		  <p>起始：<%= training_course.start_time.try(:strftime, "%F")%></p>
+			    		  <p>终止：<%= training_course.end_time.try(:strftime,"%F") %></p>
+			    	  </td>
 			    		<td class="text-center"><%= training_course.training_fee %></td>
 			    		<td class="text-center"><%= training_course.try(:grade_leader) %></td>
 			    		<td class="text-center"><%= training_course.plan_number %></td>
@@ -90,11 +93,6 @@
                   <%= link_to "创建通知", new_admin_panel_training_course_notification_path(training_course), 'data-no-turbolink' => true %>
                 <% end %>
               </td>
-			    		<td class="text-center">
-			    		  <%= link_to admin_panel_training_course_path(training_course.id) do %>
-			    		    <span class="glyphicon glyphicon-log-in"></span>
-			    		  <% end %>
-			    		</td>
 		    	  </tr>
 		    	<% end %>
 	    	</tbody>
