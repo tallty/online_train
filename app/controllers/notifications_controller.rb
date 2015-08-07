@@ -1,7 +1,7 @@
 class NotificationsController < BaseController
 
 	def index
-		@notifications = Notification.all
+		@notifications = Notification.all.page(params[:page]).per(15)
 	end
 
   def show
