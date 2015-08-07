@@ -13,12 +13,16 @@
 					<div class="panel-body">
 					  <ul>
 					    <!-- 最多显示5行 -->
-					    <% @training_notifications.each do |training_notification|%>
-						  	<li>
-						  	  <a href="<%= notification_path(training_notification) %>" class="col-sm-10 pull-left">&nbsp;&nbsp;<%= training_notification.title %></a>
-						  	  <span class="pull-right"><%= training_notification.created_at.strftime("%Y-%m-%d") %></span>
-						  	</li>
-						  <% end %>
+					    <% if @training_notifications.present? %>
+						    <% @training_notifications.each do |training_notification|%>
+							  	<li>
+							  	  <a href="<%= notification_path(training_notification) %>" class="col-sm-10 pull-left">&nbsp;&nbsp;<%= training_notification.title %></a>
+							  	  <span class="pull-right"><%= training_notification.created_at.strftime("%Y-%m-%d") %></span>
+							  	</li>
+							  <% end %>
+							<% else %>
+							  <div class="alert alert-warning" role="alert">该栏目暂时还没有培训通知</div>
+							<% end %>
 					  </ul>
 					</div>
 				</div>
@@ -30,11 +34,15 @@
 				  <div class="panel-body">
 				    <ul>
 					    <!-- 最多显示5行 -->
-					    <% @training_courses.each do |training_course| %>
-						  	<li>
-						  	  <a href="<%= training_course_path(training_course)%>" class="col-sm-12 pull-left"><%= training_course.name %></a>
-						  	</li>
-						  <% end %>
+					    <% if @training_courses.present? %>
+						    <% @training_courses.each do |training_course| %>
+							  	<li>
+							  	  <a href="<%= training_course_path(training_course)%>" class="col-sm-12 pull-left"><%= training_course.name %></a>
+							  	</li>
+							  <% end %>
+							<% else %>
+							  <div class="alert alert-warning" role="alert">该栏目暂时还没有培训报名</div>
+							<% end %>
 					  </ul>
 				  </div>
 				</div>
@@ -59,12 +67,16 @@
 					<div class="panel-body">
 					  <ul>
 					    <!-- 最多显示5行 -->
-					    <% @teacher_notifications.each do |teacher_notification| %>
-						  	<li>
-						  	  <a href="<%= notification_path(teacher_notification) %>" class="col-sm-10 pull-left"><%= teacher_notification.title %></a>
-						  	  <span class="pull-right"><%= teacher_notification.created_at.strftime("%Y-%m-%d") %></span>
-						  	</li>
-						  <% end %>
+					    <% if @teacher_notifications.present? %>
+						    <% @teacher_notifications.each do |teacher_notification| %>
+							  	<li>
+							  	  <a href="<%= notification_path(teacher_notification) %>" class="col-sm-10 pull-left"><%= teacher_notification.title %></a>
+							  	  <span class="pull-right"><%= teacher_notification.created_at.strftime("%Y-%m-%d") %></span>
+							  	</li>
+							  <% end %>
+							<% else %>
+							  <div class="alert alert-warning" role="alert">该栏目暂时还没有培训通知</div>
+							<% end %>
 					  </ul>
 					</div>
 				</div>
@@ -76,11 +88,15 @@
 				  <div class="panel-body">
 				    <ul>
 					    <!-- 最多显示5行 -->
-					  	<% @teacher_training_courses.each do |teacher_training_course| %>
-						  	<li>
-						  	  <a href="<%= training_course_path(teacher_training_course)%>" class="col-sm-12 pull-left"><%= teacher_training_course.name %></a>
-						  	</li>
-						  <% end %>
+					    <% if @teacher_training_courses.present? %>
+						  	<% @teacher_training_courses.each do |teacher_training_course| %>
+							  	<li>
+							  	  <a href="<%= training_course_path(teacher_training_course)%>" class="col-sm-12 pull-left"><%= teacher_training_course.name %></a>
+							  	</li>
+							  <% end %>
+							<% else %>
+							  <div class="alert alert-warning" role="alert">该栏目暂时还没有培训报名</div>
+							<% end %>
 					  </ul>
 				  </div>
 				</div>
@@ -104,12 +120,16 @@
 					<div class="panel-body">
 					  <ul>
 					    <!-- 最多显示5行 -->
-					  	<% @profession_notifications.each do |profession_notification| %>
-						  	<li>
-						  	  <a href="<%= notification_path(profession_notification) %>" class="col-sm-10 pull-left"><%= profession_notification.title %></a>
-						  	  <span class="pull-right"><%= profession_notification.created_at.strftime("%Y-%m-%d") %></span>
-						  	</li>
-						  <% end %>
+					    <% if @profession_notifications.present? %>
+						  	<% @profession_notifications.each do |profession_notification| %>
+							  	<li>
+							  	  <a href="<%= notification_path(profession_notification) %>" class="col-sm-10 pull-left"><%= profession_notification.title %></a>
+							  	  <span class="pull-right"><%= profession_notification.created_at.strftime("%Y-%m-%d") %></span>
+							  	</li>
+							  <% end %>
+							<% else %>
+							  <div class="alert alert-warning" role="alert">该栏目暂时还没有培训通知</div>
+							<% end %>
 					  </ul>
 					</div>
 				</div>
@@ -121,31 +141,19 @@
 				  <div class="panel-body">
 				    <ul>
 					    <!-- 最多显示5行 -->
-					  	<% @profession_training_courses.each do |profession_training_course| %>
-						  	<li>
-						  	  <a href="<%= training_course_path(profession_training_courses)%>" class="col-sm-12 pull-left"><%= profession_training_courses.name %></a>
-						  	</li>
+					    <% if @profession_training_courses.present? %>
+						  	<% @profession_training_courses.each do |profession_training_course| %>
+							  	<li>
+							  	  <a href="<%= training_course_path(profession_training_courses)%>" class="col-sm-12 pull-left"><%= profession_training_courses.name %></a>
+							  	</li>
+							  <% end %>
+						  <% else %>
+						    <div class="alert alert-warning" role="alert">该栏目暂时还没有培训报名</div>
 						  <% end %>
 					  </ul>
 				  </div>
 				</div>
 			</div>
-		</div>
-	  <div class="panel panel-default half-width pull-right">
-		  <div class="panel-heading panel-bg oh">
-		  	<span class="pull-left title-bg zyfzrbm">专业负责人报名</span>
-		    <%= link_to "更多", "", class: "pull-right active-link" %>
-		  </div>
-		  <div class="panel-body">
-		    <ul>
-			    <!-- 最多显示5行 -->
-			  	<% @profession_training_courses.each do |profession_training_course| %>
-				  	<li>
-				  	  <a href="<%= training_course_path(profession_training_course)%>" class="col-sm-12 pull-left"><%= profession_training_course.name %></a>
-				  	</li>
-				  <% end %>
-			  </ul>
-		  </div>
 		</div>
 	</div>
 </div>
