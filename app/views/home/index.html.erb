@@ -144,7 +144,7 @@
 					    <% if @profession_training_courses.present? %>
 						  	<% @profession_training_courses.each do |profession_training_course| %>
 							  	<li>
-							  	  <a href="<%= training_course_path(profession_training_courses)%>" class="col-sm-12 pull-left"><%= profession_training_courses.name %></a>
+							  	  <a href="<%= training_course_path(profession_training_course)%>" class="col-sm-12 pull-left"><%= profession_training_course.name %></a>
 							  	</li>
 							  <% end %>
 						  <% else %>
