@@ -7,7 +7,7 @@ module AdminPanel
     # For APIs, you may want to use :null_session instead.
     protect_from_forgery with: :exception
     layout "admin_panel"
-    before_action :authenticate_admin!
+    before_action :authenticate_admin!, except: :download
 
     # 捕捉权限异常
     rescue_from CanCan::AccessDenied do |e|

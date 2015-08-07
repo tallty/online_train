@@ -58,6 +58,13 @@ class UserTasksController < ApplicationController
     end
   end
 
+  def show
+    @task = Task.where(id: params[:id]).first
+    respond_to do |format|
+      format.js
+    end
+  end 
+
   private 
     def user_task_params
       params.require(:user_task).permit(:title, :content, :task_id)

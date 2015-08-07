@@ -1,0 +1,32 @@
+<div id="taskModal" class="modal fade admin-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">培训作业详细</h4>
+      </div>
+      <div id="adminForm" class="modal-body">
+        <table class="table">
+          <tr>
+            <th width="20%">培训班</th>
+            <td><%= link_to(@task.try(:training_course).try(:name), admin_panel_training_course_path(@task.training_course_id) )%></td>
+          </tr>
+          <tr>
+            <th>标题</th>
+            <td><%= @task.title %></td>
+          </tr>
+          <tr>
+            <th>内容</th>
+            <td><%= raw(@task.body.gsub(/\r\n/, "<br/>")) %></td>
+          </tr>
+          <tr>
+            <th>附件</th>
+            <td><% if @task.try(:attachment).present? %>
+                <%= link_to(@task.try(:attachment).try(:avatar_file_name), download_admin_panel_task_path(@task)) %>
+              <% end %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

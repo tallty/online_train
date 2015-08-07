@@ -17,7 +17,7 @@
                       </a>
                     </h4>
                   </div>
-                  <div id="collapse<%= index %>" class="panel-collapse collapse <%= 'in' if index == 1 %>" role="tabpanel" aria-labelledby="heading<%= index %>">
+                  <div id="collapse<%= index %>" class="panel-collapse collapse <%= 'in' if index == 0 %>" role="tabpanel" aria-labelledby="heading<%= index %>">
                     <div class="panel-body">
                       <table class="border-table">
                         <tr>
@@ -30,7 +30,7 @@
                         <% user_task = current_user.get_user_task_by_task task%>
                         <tr>
                           <td>
-                            <%= link_to(task.title, "#" ) %>
+                            <%= link_to(task.title, user_task_path(task),format: :js, remote: true) %>
                           </td>
                           <td><%= task.created_at.strftime("%F")%></td>
                           <td><%= user_task.try(:appraise) %></td>
