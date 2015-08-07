@@ -32,9 +32,9 @@ class TrainingCourse < ActiveRecord::Base
   has_many :tasks, dependent: :destroy
 
   enum training_course_categories: {
-	  '国培通知': '0',
-	  '骨干教师通知': '1',
-	  '专业负责人通知': '2'
+	  '国培培训': '0',
+	  '骨干教师培训': '1',
+	  '专业负责人培训': '2'
 	}
 
 	aasm :column => 'state' do
