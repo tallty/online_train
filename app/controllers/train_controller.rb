@@ -1,5 +1,6 @@
 class TrainController < BaseController
   def notice_index
+  	@training_courses = TrainingCourse.all
   end
 
   def notice_info

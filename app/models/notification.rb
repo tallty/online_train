@@ -1,5 +1,6 @@
 class Notification < ActiveRecord::Base
 	belongs_to :training_course
+  default_scope { order("created_at DESC") }
 
 	enum notification_categories: {
 	  '国培通知': '0',

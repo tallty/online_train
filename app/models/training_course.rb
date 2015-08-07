@@ -31,6 +31,8 @@ class TrainingCourse < ActiveRecord::Base
   has_one :notification
   has_many :tasks, dependent: :destroy
 
+  default_scope { order("created_at DESC") }
+
   enum training_course_categories: {
 	  '国培培训': '0',
 	  '骨干教师培训': '1',
