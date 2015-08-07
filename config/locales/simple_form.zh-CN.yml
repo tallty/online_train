@@ -39,7 +39,8 @@ zh-CN:
       task:
         title: "标题"
         body: "内容"
-        training_course: "培训班"
+        training_course_id: "培训班"
+        attachment: "附件"
       admin: 
         username: "账号"
         province: "省厅"

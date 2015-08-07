@@ -44,7 +44,11 @@ Rails.application.routes.draw do
         post :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator
       end
     end
-    resources :tasks
+    resources :tasks do
+      member do
+        get :download
+      end
+    end
     resources :user_tasks
     resources :journals
     resources :teachers

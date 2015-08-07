@@ -13,9 +13,11 @@
 #
 
 class Task < ActiveRecord::Base
-  belongs_to :training_courses
-  belongs_to :admins
+  belongs_to :training_course
+  belongs_to :admin
   has_one :attachment, as: :attachmentable
   has_many :user_tasks, dependent: :destroy
   
+  validates :title, presence: true
+  validates :training_course_id, presence: true
 end
