@@ -30,6 +30,7 @@ class TrainingCourse < ActiveRecord::Base
   belongs_to :school
   has_one :notification
   has_many :tasks, dependent: :destroy
+  has_many :user_training_courses, dependent: :destroy
 
   default_scope { order("created_at DESC") }
 
