@@ -4,7 +4,7 @@
 			<div class="content">
 				<div class="right-head">
 					<div class="">
-						<div class="col-xs-2 text-center"><strong>培训通知</strong></div>
+						<div class="col-xs-2 text-center"><strong>培训报名</strong></div>
 						<div class="col-xs-10">
 							<form class="form-inline text-right">
 								<div class="form-group dropdown">
@@ -78,7 +78,13 @@
 										<td><%= training_course.start_time %>至<%= training_course.end_time %></td>
 										<td><%= training_course.plan_number %></td>
 										<td><%= training_course.plan_number %></td>
-										<td><%= link_to "报名", training_course_path(training_course.id) %></td>
+										<td>
+											<% if training_course.category == "国培培训" %>
+												<%= link_to "报名", "http://www.hvett.com.cn/index.php?action=page&pid=7",target: "_blank"  %>
+											<% else %>
+												<%= link_to "报名", training_course_path(training_course.id) %>
+											<% end %>
+										</td>
 									</tr>
 								<% end %>
 							</tbody>
