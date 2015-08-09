@@ -28,13 +28,13 @@
         <th scope="row">起止时间</th>
         <td>2015.07.18至2015.07.24</td>
         <th>计划人数</th>
-        <td class="font-red">80</td>
+        <td class="font-red"><%= @training_course.plan_number%></td>
       </tr>
       <tr>
         <th scope="row">培训天数</th>
         <td>6天</td>
         <th>剩余名额</th>
-        <td class="font-green">26</td>
+        <td class="font-green"><%= @training_course.plan_number.to_i - @training_course.user_training_courses.count%></td>
       </tr>
       <tr>
         <th scope="row">培训地点</th>
