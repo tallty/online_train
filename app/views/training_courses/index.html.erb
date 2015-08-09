@@ -70,14 +70,15 @@
 							</thead>
 							<tbody>
 							  <% @training_courses.each do |training_course|%>
+							  	<% if training_course.name == "2015年高职高专院校专业负责人培训班（第一期）"%>
 									<tr>
 										<td scope="row">2015</td>
 										<td><%= training_course.name %></td>
-										<td><%= training_course.try(:school).try(:name) %></td>
-										<td><%= training_course.training_address %></td>
-										<td><%= training_course.start_time %>至<%= training_course.end_time %></td>
+										<td>上海市高职高专教学研究会</td>
+										<td>上海电子信息职业技术学院</td>
+										<td>2015-07-18至2015-07-24</td>
 										<td><%= training_course.plan_number %></td>
-										<td><%= training_course.plan_number %></td>
+										<td><%= (training_course.plan_number.to_i - training_course.user_training_courses.count) > 0 ? training_course.plan_number.to_i - training_course.user_training_courses.count : 0%></td>
 										<td>
 											<% if training_course.category.try(:include?, "国培") %>
 												<%= link_to "报名", "http://www.hvett.com.cn/index.php?action=page&pid=7",target: "_blank"  %>
@@ -86,6 +87,7 @@
 											<% end %>
 										</td>
 									</tr>
+									<% end %>
 								<% end %>
 							</tbody>
 						</table>
