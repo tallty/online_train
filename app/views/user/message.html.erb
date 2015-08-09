@@ -26,9 +26,15 @@
                 <td><%= message.title %></td>
                 <td><%= message.content %></td>
                 <td><%= message.created_at.strftime("%F") %><br><%= message.created_at.strftime("%H:%M") %></td>
-                <td class="text-info"><%= UserMessage::Status[(message.message_by_user).status.to_sym] %></td>
+                <td class="text-info">
+                  <% if message.message_by_user.status == "unread" %>
+                    <%= link_to(UserMessage::Status[(message.message_by_user).status.to_sym], read_user_message_path(message.message_by_user)) %>
+                  <% else %>
+                    <%= UserMessage::Status[(message.message_by_user).status.to_sym] %>
+                  <% end %>
+                </td>
                 <td>
-                  <a href="#" class="text-danger">删除</a>
+                  <%= link_to("删除", user_message_path(message.message_by_user), method: :delete) %>
                 </td>
               </tr>
               <% end %>

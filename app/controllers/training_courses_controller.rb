@@ -1,4 +1,4 @@
-class TrainingCoursesController < ApplicationController
+class TrainingCoursesController < BaseController
   def index
   	@training_courses = TrainingCourse.all.page(params[:page]).per(15)
   end

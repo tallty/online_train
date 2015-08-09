@@ -1,4 +1,4 @@
-class UserTrainingCoursesController < ApplicationController
+class UserTrainingCoursesController < BaseController
 	before_action :authenticate_user!, only: [:create]
 
   def create

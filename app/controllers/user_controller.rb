@@ -9,7 +9,7 @@ class UserController < BaseController
   end
 
   def message
-    @message = current_user.messages
+    @message = current_user.messages.order("created_at desc")
   end
 
   def work

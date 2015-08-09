@@ -1,4 +1,4 @@
-class UserTasksController < ApplicationController
+class UserTasksController < BaseController
   before_action :authenticate_user!
   before_action :set_user_task, only: [:edit, :update, :download]
 
