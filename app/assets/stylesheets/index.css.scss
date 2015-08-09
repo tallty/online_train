@@ -10,12 +10,30 @@
 		.active-link {
 			color: #345ab3;
 		}
+		.panel-main {
+			margin-bottom: 20px;
+		}
 		.panel-list, .oh {
 			overflow: hidden;
 		}
 		.panel-bg {
-			height: 37px;
-			background: image-url("panel-bg.png") repeat-x 0 0;
+			height: 42px;
+			padding-top: 6px;
+      color: #fff;
+			background: image-url("part-top.png") no-repeat 0 0;
+			&.gap-64{
+        padding-left: 64px;
+			}
+			&.gap-70{
+        padding-left: 70px;
+			}
+			&.gap-80{
+        padding-left: 80px;
+			}
+		}
+		.bordered {
+			border: solid 1px #d4d4d4;
+			border-top: 0 none;
 		}
 		.panel {
       border-top: 0 none;
@@ -58,7 +76,7 @@
 			}
 		}
 		ul {
-			min-height: 200px;
+			min-height: 72px;
       overflow: hidden;
 		}
 		ul li {
