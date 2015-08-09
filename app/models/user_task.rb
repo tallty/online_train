@@ -4,4 +4,14 @@ class UserTask < ActiveRecord::Base
   has_one :attachment, as: :attachmentable
 
   validates :title, presence: true
+
+  after_create do
+    message = Message.create!(title: "上传作业成功", content: "成功上传作业“#{self.task.try(:title)}”")
+    UserMessage.create!(user_id: current_user.id, message_id: message.id)
+  end
+
+  after_update do
+    message = Message.create!(title: "更新作业成功", content: "成功更新作业“#{self.task.try(:title)}”")
+    UserMessage.create!(user_id: current_user.id, message_id: message.id)
+  end
 end
