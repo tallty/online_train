@@ -41,28 +41,25 @@
 	    	  <tr>
 	    	  	<th class="col-sm-2 text-center">培训班</th>
 		    		<th class="col-sm-2 text-center">培训机构</th>
-		    		<th class="text-center">培训费用</th>
-		    		<th class="col-sm-2 text-center">教师&负责人</th>
 		    		<th class="text-center">培训起止时间</th>
+		    		<th class="text-center">培训费用</th>
+		    		<th class="text-center">计划数</th>
 		    		<th class="text-center">评审专家</th>
 		    		<th class="text-center">研究会</th>
 		    		<th class="text-center">教委</th>
-		    		<th class="text-center" colspan="3">操作</th>
+		    		<th class="text-center">报名通知</th>
 	    	  </tr>
 	    	</thead>
 	    	<tbody>
 	    	  <% @training_courses.each do |training_course|%>
 		    	  <tr class="tr-default-bg">
-		    	  	<td class="text-center"><%= link_to truncate(training_course.name, length: 15), admin_panel_training_course_path(training_course.id), title: '查看详情' %></td>
+		    	  	<td class="text-center"><%= link_to truncate(training_course.try(:name), length: 15), admin_panel_training_course_path(training_course.id), 'data-toggle': "tooltip", 'data-placement': "top", title: training_course.try(:name) %></td>
 			    		<td class="text-center"><%= training_course.try(:school).try(:name) %></td>
-			    		<td class="text-center"><%= training_course.training_fee %></td>
-			    		<td class="text-center"><%#= training_course.grade_leader %></td>
 			    		<td class="text-center">
 			    		  <p>起始：<%= training_course.start_time.try(:strftime, "%F")%></p>
 			    		  <p>终止：<%= training_course.end_time.try(:strftime,"%F") %></p>
 			    	  </td>
 			    		<td class="text-center"><%= training_course.training_fee %></td>
-			    		<td class="text-center"><%= training_course.try(:grade_leader) %></td>
 			    		<td class="text-center"><%= training_course.plan_number %></td>
 
 			    		<!-- 评审专家 -->
@@ -87,10 +84,10 @@
 			    		  <td class="text-center text-active-status">已审核</td>
 			    		<% end%>
               <td class="text-center">
-                <% if training_course.notification.present? %>
-                  <%= link_to "创建通知", admin_panel_training_course_notification_path(training_course, training_course.notification), 'data-no-turbolink' => true %>
+                <% if notification_present?(training_course.id) %>
+                  <%= link_to "创建通知>>", admin_panel_training_course_notification_path(training_course, training_course.notification), 'data-no-turbolink' => true %>
                 <% else %>
-                  <%= link_to "创建通知", new_admin_panel_training_course_notification_path(training_course), 'data-no-turbolink' => true %>
+                  <%= link_to "创建通知>>", new_admin_panel_training_course_notification_path(training_course), 'data-no-turbolink' => true %>
                 <% end %>
               </td>
 		    	  </tr>
@@ -101,3 +98,9 @@
 	</div>
 	<%#= paginate @training_courses %>
 </div>
+
+<script type="text/javascript">
+	$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  });
+</script>
