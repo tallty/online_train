@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150807024135) do
+ActiveRecord::Schema.define(version: 20150808232009) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -56,6 +56,13 @@ ActiveRecord::Schema.define(version: 20150807024135) do
   end
 
   add_index "attachments", ["attachmentable_id", "attachmentable_type"], name: "index_attachments_on_attachmentable_id_and_attachmentable_type", unique: true, using: :btree
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "training_course_id", limit: 4
@@ -150,6 +157,17 @@ ActiveRecord::Schema.define(version: 20150807024135) do
     t.string   "aasm_state",          limit: 255
     t.string   "category",            limit: 255
   end
+
+  create_table "user_messages", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "message_id", limit: 4
+    t.boolean  "status",     limit: 1, default: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  add_index "user_messages", ["message_id"], name: "index_user_messages_on_message_id", using: :btree
+  add_index "user_messages", ["user_id"], name: "index_user_messages_on_user_id", using: :btree
 
   create_table "user_tasks", force: :cascade do |t|
     t.integer  "user_id",    limit: 4

@@ -13,4 +13,9 @@
 class UserTrainingCourse < ActiveRecord::Base
   belongs_to :user
   belongs_to :training_course
+
+  after_create do
+    message = Message.create!(title: "报名成功", content: "报名“#{self.training_course.try(:name)}”成功")
+    UserMessage.create!(user_id: current_user.id, message_id: message.id)
+  end
 end

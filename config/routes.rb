@@ -14,8 +14,7 @@ Rails.application.routes.draw do
       get :my
       get :journal
       get :work
-      get :message1
-      get :message2
+      get :message
       get :course
     end
   end

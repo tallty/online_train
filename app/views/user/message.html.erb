@@ -17,23 +17,23 @@
                 <th>状态</th>
                 <th>操作</th>
               </tr>
-              <% (1..10) .each do |i|%>
+              <% @message.each do |message|%>
               <tr>
                 <td>&nbsp;<input type="checkbox" />&nbsp;</td>
                 <td>
                   系统消息
                 </td>
-                <td>标题标题标题标题标题</td>
-                <td>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内</td>
-                <td>2015-04-25 <br> 21:30</td>
-                <td class="text-info">已阅读</td>
+                <td><%= message.title %></td>
+                <td><%= message.content %></td>
+                <td><%= message.created_at.strftime("%F") %><br><%= message.created_at.strftime("%H:%M") %></td>
+                <td class="text-info"><%= UserMessage::Status[(message.message_by_user).status.to_sym] %></td>
                 <td>
                   <a href="#" class="text-danger">删除</a>
                 </td>
               </tr>
               <% end %>
             </table>
-            <nav class="message_page">
+            <!-- <nav class="message_page">
               <ul class="pagination">
                 <li>
                   <a href="#" aria-label="Previous">
@@ -51,7 +51,7 @@
                   </a>
                 </li>
               </ul>
-            </nav>
+            </nav> -->
           </div>
       </div>
     </div>

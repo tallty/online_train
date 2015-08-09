@@ -8,10 +8,8 @@ class UserController < BaseController
   def course
   end
 
-  def message1
-  end
-
-  def message2
+  def message
+    @message = current_user.messages
   end
 
   def work

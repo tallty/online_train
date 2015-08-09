@@ -41,6 +41,8 @@ class User < ActiveRecord::Base
   has_many :user_training_courses, dependent: :destroy
   has_many :training_courses, through: :user_training_courses
   has_many :user_tasks, dependent: :destroy
+  has_many :user_messages, dependent: :destroy
+  has_many :messages, through: :user_messages
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -49,6 +51,12 @@ class User < ActiveRecord::Base
 
   enum gender: {male: true, female: false}
   UserGender = {male: '男', female: '女'}
+
+  #创建消息
+  after_create do
+    message = Message.create!(title: "注册成功", content: "#{self.name},欢迎你注册上海高等职业教育师资公共培训统一管理平台")
+    UserMessage.create!(user_id: self.id, message_id: message.id)
+  end
 
   attr_accessor :is_vaild
 
