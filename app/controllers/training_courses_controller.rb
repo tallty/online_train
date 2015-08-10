@@ -9,4 +9,7 @@ class TrainingCoursesController < BaseController
   	  @present_user_training_course = UserTrainingCourse.where(user_id: current_user.id, training_course_id: @training_course.id).first
   	end
   end
+
+  def list
+  end
 end
