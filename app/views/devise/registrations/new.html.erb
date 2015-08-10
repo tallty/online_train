@@ -52,7 +52,7 @@
           <div class="panel-body">
             <%= f.input :his_train, required: false %>
             <%= f.input :summary, required: false %>
-            <p class="text-center"><%= f.button :submit, "确认提交", class: "btn btn-primary" %></p>
+            <p class="text-center"><%= f.button :submit, "确认提交", data: {disable_with: '提交中...'}, class: "btn btn-primary" %></p>
           </div>
         </div>
 

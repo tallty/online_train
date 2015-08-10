@@ -17,7 +17,7 @@
                 <td colspan="2">
                   <%= f.input :email, wrapper: :login_input, autofocus: true %>
                 </td>
-                <td><%= f.button :submit, "登录", class: "btn btn-success" %></td>
+                <td><%= f.button :submit, "登录", data: {disable_with: '登录中...'}, class: "btn btn-success" %></td>
               </tr>
               <tr align="center">
                 <td colspan="2"><%= f.input :password, label: false, required: false, wrapper: :password_input %></td>
