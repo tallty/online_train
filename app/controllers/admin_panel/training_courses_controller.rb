@@ -41,6 +41,8 @@ module AdminPanel
 		def create
 			@training_course = TrainingCourse.new(training_course_params)
 			@training_course.state = :unchecked
+			@training_course.training_course_teachers << TrainingCourseTeacher.new(teacher_id: params[:training_course][:teacher_ids],
+				                        training_course_id: @training_course.id)
 			if @training_course.save
 				flash[:notice] = "项目创建成功"
 				return redirect_to admin_panel_training_courses_path
@@ -54,6 +56,7 @@ module AdminPanel
 		end
 
 		def update
+			params[:training_course][:teacher_ids] ||= []
 			if @training_course.update(training_course_params)
 				flash[:notice] = "项目更新成功"
 				return redirect_to admin_panel_training_courses_path
@@ -73,7 +76,7 @@ module AdminPanel
 			params.require(:training_course).permit(:school_id, :name, :code, :start_time, :end_time,
 			                       :plan_number, :training_agency, :training_address, :training_fee,
 			                       :state, :remark, :info, :training_background, :training_target,
-			                       :training_content, :check_method, :project_leader, :grade_leader, :contact, :category)
+			                       :training_content, :check_method, :project_leader, :grade_leader, :contact, :category, {teacher_ids: []})
 		end
 	end
 end

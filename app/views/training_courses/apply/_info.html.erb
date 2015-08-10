@@ -22,7 +22,7 @@
       </tr>
       <tr>
         <th scope="row">班级负责人</th>
-        <td colspan="3">赵晨清 021-57132803 18217771365</td>
+        <td colspan="3"><%= @training_course.try(:grade_leader) %></td>
       </tr>
       <tr>
         <th scope="row">起止时间</th>
