@@ -39,6 +39,7 @@
 	    <table class="table">
 	    	<thead>
 	    	  <tr>
+	    	  	<th class="col-sm-2 text-center">分类</th>
 	    	  	<th class="col-sm-2 text-center">培训班</th>
 		    		<th class="col-sm-2 text-center">培训机构</th>
 		    		<th class="text-center">培训起止时间</th>
@@ -48,11 +49,13 @@
 		    		<th class="text-center">研究会</th>
 		    		<th class="text-center">教委</th>
 		    		<th class="text-center">报名通知</th>
+		    		<th class="text-center">操作</th>
 	    	  </tr>
 	    	</thead>
 	    	<tbody>
 	    	  <% @training_courses.each do |training_course|%>
 		    	  <tr class="tr-default-bg">
+			    		<td class="text-center"><%= training_course.try(:category) %></td>
 		    	  	<td class="text-center"><%= link_to truncate(training_course.try(:name), length: 15), admin_panel_training_course_path(training_course.id), 'data-toggle': "tooltip", 'data-placement': "top", title: training_course.try(:name) %></td>
 			    		<td class="text-center"><%= training_course.try(:school).try(:name) %></td>
 			    		<td class="text-center">
@@ -92,6 +95,11 @@
                   <%= link_to new_admin_panel_training_course_notification_path(training_course), 'data-no-turbolink' => true, class: 'btn btn-xs btn-primary' do %>
                     <span class="glyphicon glyphicon-bell"></span> 报名通知
                   <% end %>
+                <% end %>
+              </td>
+              <td class="text-center">
+                <%= link_to edit_admin_panel_training_course_path(training_course), 'data-no-turbolink' => true do %>
+                  <span class="glyphicon glyphicon-edit"></span> 修改
                 <% end %>
               </td>
 		    	  </tr>

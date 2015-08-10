@@ -8,17 +8,17 @@
     <tbody>
       <tr>
         <th scope="row">培训班级名称</th>
-        <td colspan="3"><%= @training_course.name %></td>
+        <td colspan="3"><%= @training_course.try(:name) %></td>
       </tr>
       <tr>
         <th scope="row">培训机构</th>
-        <td colspan="3">上海市高职高专教学研究会</td>
+        <td colspan="3"><%= @training_course.try(:school).try(:name) %></td>
       </tr>
       <tr>
         <th scope="row">培训项目负责人</th>
-        <td>华老师</td>
+        <td><%= @training_course.try(:project_leader) %></td>
         <th>联系方式</th>
-        <td>021-57132803<br>13801804822</td>
+        <td><%= @training_course.try(:contact) %></td>
       </tr>
       <tr>
         <th scope="row">班级负责人</th>
@@ -26,19 +26,19 @@
       </tr>
       <tr>
         <th scope="row">起止时间</th>
-        <td>2015.07.18至2015.07.24</td>
+        <td><%= @training_course.try(:start_time).strftime("%Y-%m-%d") %>至<%= @training_course.try(:end_time).strftime("%Y-%m-%d")%></td>
         <th>计划人数</th>
         <td class="font-red"><%= @training_course.plan_number%></td>
       </tr>
       <tr>
         <th scope="row">培训天数</th>
-        <td>6天</td>
+        <td><%= (@training_course.try(:end_time).to_date - @training_course.try(:start_time).to_date).to_i %>天</td>
         <th>剩余名额</th>
         <td class="font-green"><%= (@training_course.plan_number.to_i - @training_course.user_training_courses.count) > 0 ? @training_course.plan_number.to_i - @training_course.user_training_courses.count : 0%></td>
       </tr>
       <tr>
         <th scope="row">培训地点</th>
-        <td colspan="3">上海电子信息职业技术学院</td>
+        <td colspan="3"><%= @training_course.try(:training_address) %></td>
       </tr>
     </tbody>
   </table>

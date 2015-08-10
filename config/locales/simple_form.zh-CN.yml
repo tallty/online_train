@@ -8,7 +8,7 @@ zh-CN:
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
-      html: '<span title="required" class="text-red">*</span>'
+      html: '<span title="required" class="text-danger">*</span>'
     error_notification:
       default_message: "请重新填写红色框内容:"
     labels:

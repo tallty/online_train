@@ -28,12 +28,6 @@
             <%= f.text_field :project_leader, placeholder: "请输入培训项目负责人", class: 'form-control' %>
           </div>
         </div>
-        <!-- <div class="form-group">
-          <%#= f.label :grade_leader, '班级负责人', class: 'col-sm-3 control-label' %>
-          <div class="col-sm-4">
-            <%#= f.text_field :grade_leader, placeholder: "请输入班级负责人", class: 'form-control' %>
-          </div>
-        </div> -->
         <div class="form-group">
           <%= f.label :start_time, '开始时间', class: 'col-sm-3 control-label' %>
           <div class="col-sm-2">
@@ -64,6 +58,42 @@
             <%= f.text_field :contact, placeholder: "请输入联系方式", class: 'form-control' %>
           </div>
         </div>
+
+        <div class="form-group">
+          <%= f.label :info, '项目信息', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-8">
+            <%= f.kindeditor :info, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :training_background, '机构背景', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-8">
+            <%= f.kindeditor :training_background, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :training_target, '培训目标', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-8">
+            <%= f.kindeditor :training_target, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :training_content, '培训内容', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-8">
+            <%= f.kindeditor :training_content, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :check_method, '考核方法', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-8">
+            <%= f.kindeditor :check_method, class: 'form-control' %>
+          </div>
+        </div>
+
   	  <div class="col-sm-6 col-sm-offset-4">
   	  	<%= f.submit '确认提交', class: "btn btn-primary pull-left" %>
   	  </div>

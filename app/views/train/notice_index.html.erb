@@ -12,11 +12,11 @@
 					<ul class="nav nav-stacked notice-index">
 						<% @training_courses.each do |training_course| %>
 							<li role="presentation">
-								<a href="<%= train_notice_info_path %>">
+								<a href="<%= training_course_path(training_course) %>">
 									<div class="row notice-index">
 										<div class="col-xs-10">
 										  <span><%= image_tag "notice_index_icon.png" %></span>
-										  <%= link_to training_course.try(:name), training_course_path(training_course) %></div>
+										  <%= training_course.try(:name) %></div>
 										<div class="col-xs-2 text-right font-red"><%= training_course.created_at.strftime("%Y-%m-%d") %></div>
 									</div>
 								</a>

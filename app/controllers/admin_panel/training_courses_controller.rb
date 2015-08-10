@@ -2,7 +2,7 @@ module AdminPanel
 	class TrainingCoursesController < AdminPanel::BaseController
 		load_and_authorize_resource
 
-		before_action :set_training_course, only: [:show, :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator]
+		before_action :set_training_course, only: [:edit, :update, :show, :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator]
 		def index
 			@training_courses = TrainingCourse.all
 		end
@@ -50,6 +50,19 @@ module AdminPanel
 			end
 		end
 
+		def edit
+		end
+
+		def update
+			if @training_course.update(training_course_params)
+				flash[:notice] = "项目更新成功"
+				return redirect_to admin_panel_training_courses_path
+			else
+				flash[:notice] = "项目更新失败"
+				return redirect_to admin_panel_training_courses_path
+			end
+		end
+
 		private
 
 		def set_training_course
@@ -57,7 +70,7 @@ module AdminPanel
 		end
 
 		def training_course_params
-			params.require(:training_course).permit(:name, :code, :start_time, :end_time,
+			params.require(:training_course).permit(:school_id, :name, :code, :start_time, :end_time,
 			                       :plan_number, :training_agency, :training_address, :training_fee,
 			                       :state, :remark, :info, :training_background, :training_target,
 			                       :training_content, :check_method, :project_leader, :grade_leader, :contact, :category)

@@ -9,7 +9,7 @@
 	      </tr>
 	      <tr>
 	      	<th>培训机构</th>
-	      	<td><%#= @training_course.training_agency %> </td>
+	      	<td><%= @training_course.try(:school).try(:name) %> </td>
 	      </tr>
 	      <tr>
 	      	<th>培训项目负责人</th>
@@ -34,6 +34,29 @@
 	      <tr>
 	      	<th>联系方式</th>
 	      	<td><%= @training_course.contact %></td>
+	      </tr>
+
+	      <tr>
+	      	<th>项目信息</th>
+	      	<td><%= raw @training_course.info %></td>
+	      </tr>
+
+	      <tr>
+	      	<th>机构背景</th>
+	      	<td><%= raw @training_course.training_background %></td>
+	      </tr>
+
+	      <tr>
+	      	<th>培训目标</th>
+	      	<td><%= raw @training_course.training_target %></td>
+	      </tr>
+	      <tr>
+	      	<th>培训内容</th>
+	      	<td><%= raw @training_course.training_content %></td>
+	      </tr>
+	      <tr>
+	      	<th>考核方法</th>
+	      	<td><%= raw @training_course.check_method %></td>
 	      </tr>
 	    </table>
 	  </div>
