@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810082641) do
+ActiveRecord::Schema.define(version: 20150824085115) do
+
+  create_table "activities", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "content",     limit: 65535
+    t.string   "picture_url", limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -56,6 +64,15 @@ ActiveRecord::Schema.define(version: 20150810082641) do
   end
 
   add_index "attachments", ["attachmentable_id", "attachmentable_type"], name: "index_attachments_on_attachmentable_id_and_attachmentable_type", unique: true, using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "content",     limit: 65535
+    t.integer  "classify",    limit: 4,     default: 1
+    t.string   "picture_url", limit: 255
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.string   "title",      limit: 255

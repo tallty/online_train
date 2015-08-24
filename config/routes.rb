@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   get 'train/notice_info'
   get 'train/work_info'
-
   resources :training_courses, only: [:index, :show]
   resources :user_training_courses, only: [:create]
   resources :user_messages, only: [:destroy] do
@@ -12,7 +11,7 @@ Rails.application.routes.draw do
       get :read
     end
   end
-
+  resources :report
   resources :notifications, only: [:show, :index]
   resources :user, only: [:update] do
     collection do
