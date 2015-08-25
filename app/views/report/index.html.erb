@@ -1,0 +1,65 @@
+<div class="row">
+	<div class="col-xs-12 report-page">
+		<div class="row">
+		<%= render "report_header" %>
+		</div>
+		<!-- 内容部分开始 -->
+		<div class="row">
+			<div class="container">
+				<div class="col-xs-12 content">
+					<div class="col-xs-8">
+					<!-- 轮播图开始 -->
+						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+						  <!-- Wrapper for slides -->
+						  <div class="carousel-inner" role="listbox">
+						    <div class="item active">
+						      <%=image_tag "lunbo.png", alt:"picture_news",width:"100%" %>
+						    </div>
+						    <div class="item">
+						      <%=image_tag "lunbo.png", alt:"picture_news", width:"100%" %>
+						    </div>
+						  </div>
+						</div>
+					<!-- 轮播图结束 -->
+						<div class="events-list col-xs-12">通知公告</div>
+						<% 5.times do |i| %>
+						<div class="col-xs-12 news-list"><%=image_tag "h_news_icon.gif", class:"news_icon" %>关于举办上海市高职院校专业负责人第一期培训班通知&nbsp;<%=image_tag "news_t.png" %><span class="pull-right news-time">2014-08-24&nbsp;</span>
+						<hr class="news-hr">
+						</div>
+						<% end %>
+
+						<div class="events-list col-xs-12">要&nbsp;&nbsp;闻</div>
+						<% 5.times do |i| %>
+						<div class="col-xs-12 news-list"><%=image_tag "h_news_icon.gif", class:"news_icon" %>关于举办上海市高职院校专业负责人第一期培训班通知&nbsp;<%=image_tag "news_t.png" %><span class="pull-right news-time">2014-08-24&nbsp;</span>
+						<hr class="news-hr">
+						</div>
+						<% end %>
+
+						<div class="trends-title col-xs-12">活动简报</div>
+						<div class="col-xs-12 bulletin">
+						<% 4.times do |f| %>
+							<div class="col-xs-6 bulletin-list">
+							<div class="col-xs-4 bulletin-picture">
+							<%=image_tag "picture_min.jpg", width:"100%" %>
+							</div>
+							<div class="col-xs-8 bulletin-text">
+								<h5 class="bull-text-t">上海市高职高专教学研究会简报（第四期）</h5>
+								<p>第四届教学设计比武大赛（复赛）说明于日前举行......</p>
+							</div>
+							</div>
+						<% end %>
+						</div>
+					</div>
+
+					<div class="col-xs-4 right-tab">
+						<%= render "right_tab" %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 内容部分结束 -->
+		<div class="row">
+		<%= render "report_footer" %>
+		</div>
+	</div>
+</div>

@@ -7,13 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>">
-  <%= render "header"%>
+  <%#= render "header"%>
 
   <!-- flash notice -->
   <%= render :partial => "/common/flash_message" %>
   <!-- flash notice -->
 
   <%= yield %>
-  <%= render "footer"%>
+  <%#= render "footer"%>
 </body>
 </html>
