@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-xs-12 report-page">
 		<div class="row">
-		<%= render "report_header" %>
+		<%= render "share/report_header" %>
 		</div>
 		<!-- 内容详情部分开始 -->
 		<div class="row">
@@ -16,12 +16,12 @@
 					</div>
 					<div class="col-xs-12 report-show-content">
 						<div class="col-xs-12 text-center">
-							<h4 class="show-news-title">关于做好上海市2015年度高等职业学校专业骨干教师培训项目申报工作的通知</h4>
-							<span class="datatime">2015-06-11&nbsp;15:39:11</span>
+							<h4 class="show-news-title"><%= @event.title %></h4>
+							<span class="datatime"><%= @event.created_at.strftime("%F %H:%M:%S") %></span>
 							<hr class="show-new-hr">
 						</div>
 						<div class="news-show-text">
-							.......
+							<%= raw @event.content%>
 						</div>
 					</div>
 					
@@ -30,7 +30,7 @@
 		</div>
 		<!-- 内容详情部分结束 -->
 		<div class="row">
-		<%= render "report_footer" %>
+		<%= render "share/report_footer" %>
 		</div>
 	</div>
 </div>

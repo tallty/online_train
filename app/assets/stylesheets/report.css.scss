@@ -25,6 +25,10 @@
 			color: #fff;
 			line-height: 40px;
 			padding: 0 23px;
+			a {
+				text-decoration: none;
+				color: #fff;
+			}
 			&:hover {
 				background-color: #2364A0;
 			}
@@ -142,6 +146,9 @@
 	.news-list {
 		padding: 0;
 		color: #787778;
+		a {
+			text-decoration: none;
+		}
 		&:hover {
 			color: #337ab7;
 		}

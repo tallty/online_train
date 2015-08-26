@@ -11,7 +11,8 @@ Rails.application.routes.draw do
       get :read
     end
   end
-  resources :report, only: [:index, :show]
+  resources :reports, only: [:index]
+  resources :events, only: [:index, :show]
   resources :notifications, only: [:show, :index]
   resources :user, only: [:update] do
     collection do
