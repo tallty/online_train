@@ -1,4 +1,5 @@
 class ReportController < BaseController
+	layout "report"
   def index
   
   end

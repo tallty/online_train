@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>上海高等职业教育师资公共培训</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>上海市高职高专教学研究会</title>
+  <%= stylesheet_link_tag    'report', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'report', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>">
-  <%= render "header"%>
+  <%#= render "header"%>
 
   <!-- flash notice -->
   <%= render :partial => "/common/flash_message" %>
   <!-- flash notice -->
 
   <%= yield %>
-  <%= render "footer"%>
+  <%#= render "footer"%>
 </body>
 </html>

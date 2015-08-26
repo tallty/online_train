@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150824085115) do
+ActiveRecord::Schema.define(version: 20150826055649) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -66,12 +66,16 @@ ActiveRecord::Schema.define(version: 20150824085115) do
   add_index "attachments", ["attachmentable_id", "attachmentable_type"], name: "index_attachments_on_attachmentable_id_and_attachmentable_type", unique: true, using: :btree
 
   create_table "events", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.text     "content",     limit: 65535
-    t.integer  "classify",    limit: 4,     default: 1
-    t.string   "picture_url", limit: 255
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.string   "title",                    limit: 255
+    t.text     "content",                  limit: 65535
+    t.integer  "classify",                 limit: 4,     default: 1
+    t.string   "picture_url",              limit: 255
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+    t.string   "picture_url_file_name",    limit: 255
+    t.string   "picture_url_content_type", limit: 255
+    t.integer  "picture_url_file_size",    limit: 4
+    t.datetime "picture_url_updated_at"
   end
 
   create_table "messages", force: :cascade do |t|

@@ -23,9 +23,11 @@
 					<!-- 轮播图结束 -->
 						<div class="events-list col-xs-12">通知公告</div>
 						<% 5.times do |i| %>
+						<%=link_to "report/show" do %>
 						<div class="col-xs-12 news-list"><%=image_tag "h_news_icon.gif", class:"news_icon" %>关于举办上海市高职院校专业负责人第一期培训班通知&nbsp;<%=image_tag "news_t.png" %><span class="pull-right news-time">2014-08-24&nbsp;</span>
 						<hr class="news-hr">
 						</div>
+						<% end %>
 						<% end %>
 
 						<div class="events-list col-xs-12">要&nbsp;&nbsp;闻</div>

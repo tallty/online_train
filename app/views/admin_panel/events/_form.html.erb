@@ -1,0 +1,35 @@
+<div class="panel-heading panel-active">新建项目</div>
+  <div class="panel-body panel-default-bg">
+  	<%= form_for [:admin_panel, @event], html: { class: 'form-horizontal' }, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|%>
+   
+        <div class="form-group">
+          <%= f.label :classify, '新闻分类', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-4">
+            <%= f.select('classify', Event::EventClassify.invert, class: "form-control") %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :title, '新闻标题', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-4">
+            <%= f.text_field :title, placeholder: "请输入新闻标题", class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :picture_url, '新闻图片', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-4">
+          <%= f.file_field :picture_url %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :title, '新闻详情', class: 'col-sm-3 control-label' %>
+         <div class="col-sm-8">
+            <%= f.kindeditor :content, class: 'form-control' %>
+          </div>
+        </div>
+      
+
+  	  <div class="col-sm-6 col-sm-offset-4">
+  	  	<%= f.submit '确认提交', class: "btn btn-primary pull-left" %>
+  	  </div>
+  	<% end %>
+  </div>
