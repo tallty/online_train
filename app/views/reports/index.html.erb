@@ -1,71 +1,64 @@
+<!-- 内容部分开始 -->
 <div class="row">
-	<div class="col-xs-12 report-page">
-		<div class="row">
-		<%= render "share/report_header" %>
-		</div>
-		<!-- 内容部分开始 -->
-		<div class="row">
-			<div class="container">
-				<div class="col-xs-12 content">
-					<div class="col-xs-8">
-					<!-- 轮播图开始 -->
-						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-						  <!-- Wrapper for slides -->
-						  <div class="carousel-inner" role="listbox">
-						    <div class="item active">
-						      <%=image_tag "lunbo.png", alt:"picture_news",width:"100%" %>
-						    </div>
-						    <div class="item">
-						      <%=image_tag "lunbo.png", alt:"picture_news", width:"100%" %>
-						    </div>
-						  </div>
-						</div>
-					<!-- 轮播图结束 -->
-						<div class="events-list col-xs-12">通知公告</div>
+	<div class="container">
+		<div class="col-xs-12 content">
+			<div class="report-index col-xs-8">
+			<!-- 轮播图开始 -->
+				<div id="carousel-example-generic" class="carousel slide lunbo" data-ride="carousel">
+				  <!-- Wrapper for slides -->
+				  <div class="carousel-inner" role="listbox">
+				    <div class="item active">
+				      <%=image_tag "lunbo.png", alt:"picture_news",width:"100%" %>
+				    </div>
+				    <% @events.each do |event| %>
+				    <div class="item">
+				      <%= image_tag( event.picture_url .present? ? event.picture_url : "lunbo.png", width:"100%")%>
+				    </div>
+				  <% end %>
+				  </div>
+				</div>
+			<!-- 轮播图结束 -->
+				<div class="events-list col-xs-12"><%=link_to "通知公告", events_path %></div>
 
-						<% @bulletin.each do |event| %>
-						<div class="col-xs-12 news-list"><%=image_tag "h_news_icon.gif", class:"news_icon" %><%= link_to "#{event.title}", event_path(event) %>&nbsp;<%=image_tag "news_t.png" %><span class="pull-right news-time"><%= event.created_at.strftime("%F") %>&nbsp;</span>
-						<hr class="news-hr">
-						</div>
-						<% end %>
+				<% @bulletin.each do |event| %>
+				<div class="col-xs-12 news-list"><%=image_tag "h_news_icon.gif", class:"news_icon" %><%= link_to "#{event.title}", event_path(event) %>&nbsp;<%=image_tag "news_t.png" %><span class="pull-right news-time"><%= event.created_at.strftime("%F") %>&nbsp;</span>
+				<hr class="news-hr">
+				</div>
+				<% end %>
 
-		
-						<div class="events-list col-xs-12">要&nbsp;&nbsp;闻</div>
-						<% @headline.each do |event| %>
-						<%=link_to event_path(event) do %>
-						<div class="col-xs-12 news-list"><%=image_tag "h_news_icon.gif", class:"news_icon" %><%= link_to "#{event.title}", "#" %>&nbsp;<%=image_tag "news_t.png" %><span class="pull-right news-time"><%= event.created_at.strftime("%F") %>&nbsp;</span>
-						<hr class="news-hr">
-						</div>
-						<% end %>
-						<% end %>
 
-						<div class="trends-title col-xs-12">活动简报</div>
-						<div class="col-xs-12 bulletin">
-						<% @activities.each do |event| %>
-							<%=link_to event_path(event) do %>
-							<div class="col-xs-6 bulletin-list">
-							<div class="col-xs-4 bulletin-picture">
-							<%= image_tag( event.picture_url .present? ? event.picture_url : "picture_min.jpg", width:"100%")%>
-							</div>
-							<div class="col-xs-8 bulletin-text">
-								<h5 class="bull-text-t"><%= link_to "#{event.title}", "#" %></h5>
-								<p><%= event.content.try(:truncate, 25) %></p>
-							</div>
-							</div>
-							<% end %>
-						<% end %>
-						</div>
+				<div class="events-list col-xs-12">要&nbsp;&nbsp;闻</div>
+				<% @headline.each do |event| %>
+				<%=link_to event_path(event) do %>
+				<div class="col-xs-12 news-list"><%=image_tag "h_news_icon.gif", class:"news_icon" %><%= link_to "#{event.title}", event_path(event) %>&nbsp;<%=image_tag "news_t.png" %><span class="pull-right news-time"><%= event.created_at.strftime("%F") %>&nbsp;</span>
+				<hr class="news-hr">
+				</div>
+				<% end %>
+				<% end %>
+
+				<div class="trends-title col-xs-12">活动简报</div>
+				<div class="bulletin col-xs-12">
+				<% @activities.each do |event| %>
+					<%=link_to event_path(event) do %>
+					<div class="col-xs-6 bulletin-list">
+					<div class="col-xs-4 bulletin-picture">
+					<%= image_tag( event.picture_url .present? ? event.picture_url : "picture_min.jpg", width:"100%")%>
 					</div>
-
-					<div class="col-xs-4 right-tab">
-						<%= render "share/right_tab" %>
+					<div class="col-xs-8 bulletin-text">
+						<h5 class="bull-text-t col-xs-12"><%= link_to "#{event.title}", event_path(event) %></h5>
+						<p><%= raw event.content.try(:truncate, 60) %></p>
 					</div>
+					</div>
+					<% end %>
+				<% end %>
 				</div>
 			</div>
-		</div>
-		<!-- 内容部分结束 -->
-		<div class="row">
-		<%= render "share/report_footer" %>
+
+			<div class="col-xs-4 right-tab">
+				<%= render "share/right_tab" %>
+			</div>
 		</div>
 	</div>
 </div>
+<!-- 内容部分结束 -->
+		

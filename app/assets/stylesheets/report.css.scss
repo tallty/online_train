@@ -1,9 +1,6 @@
 @import "variables";
 @import "bootstrap-sprockets";
 @import "bootstrap";
-.report-page {
-	min-width: 1800px;
-}
 // <!-- report_header 样式-->
 .report_header_bg {
 	background-image: url("header_bg.jpg");
@@ -21,10 +18,8 @@
 		.btn-report {
 			background-color: #337DBC;
 			border: 1px solid #3D8CCE;
-			font-size: 16px;
 			color: #fff;
 			line-height: 40px;
-			padding: 0 23px;
 			a {
 				text-decoration: none;
 				color: #fff;
@@ -42,6 +37,9 @@
 // <!-- report content 样式 -->
 .content {
 	padding: 0 65px!important;
+	.report-index {
+		padding-right: 5px;
+	}
 	// <!-- right tab page（右侧导航栏部分）样式 -->
 	.right-tab {
 		img {
@@ -98,7 +96,7 @@
 		margin-bottom: 10px;
 		.report-form-input {
 			border-radius: 8px;
-			width:76%;
+			width: 60%;
 		}
 	}
 	.special-title {
@@ -119,7 +117,8 @@
 		background-color: #F2F2F2;
 		border: 1px solid #E7E7E7;
 		margin-top: 10px;
-		padding: 5px 51.5px;
+		width: 100%;
+		// padding: 5px 51.5px;
 		color: #666666;
 		font-size: 16px;
 		span {
@@ -131,8 +130,14 @@
 		}
 	}
 	.link-menu {
-		width: 305px;
+		width: 100%;
 		text-align: center;
+	}
+	// <!-- 轮播图样式 －－>
+	.lunbo {
+		img {
+			height: 298px
+		}
 	}
 	// <!--left news page（通知要闻部分）样式-->
 	.events-list {
@@ -142,6 +147,10 @@
 		padding: 5.5px 20px;
 		background: image_url("h_news_t.gif") no-repeat;
 		background-color: #D8D8D8;
+		a {
+			text-decoration: none;
+			color: #fff;
+		}
 	}
 	.news-list {
 		padding: 0;
@@ -188,8 +197,12 @@
 				padding:  0 0 0 10px;
 				color: #787778;
 				.bull-text-t {
-					font-size: 15px;
 					color: #3175BC;
+					padding: 0;
+					margin-top: 0;
+					a {
+						text-decoration: none;
+					}
 				}
 			}
 		}
@@ -232,6 +245,9 @@
 		border-top: 0;
 		min-height: 680px;
 		margin: -10px 0 20px 0;
+		a {
+			text-decoration: none;
+		}
 		.show-news-title {
 			color: #3175BC;
 		}
@@ -245,7 +261,14 @@
 	}
 }
 
-
+// <!-- event index page (events index 页面样式) -->
+.news-hr {
+	border: 1px dashed #D8D8D8;
+	margin: 3px 0;
+}
+.news_icon {
+	margin: 0 5px 4px 0;
+}
 
 
 

@@ -12,8 +12,16 @@
   <!-- flash notice -->
   <%= render :partial => "/common/flash_message" %>
   <!-- flash notice -->
-
-  <%= yield %>
-  <%#= render "footer"%>
+<div class="row">
+  <div class="col-xs-12 report-page">
+    <div class="row">
+    <%= render "share/report_header" %>
+    </div>
+      <%= yield %>
+    <div class="row">
+    <%= render "share/report_footer" %>
+    </div>
+  </div>
+</div>
 </body>
 </html>
