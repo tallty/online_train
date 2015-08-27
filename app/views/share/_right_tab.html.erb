@@ -18,7 +18,7 @@
 	专题互动
 </div>
 <div class="special-content">
-	<%=link_to building_reports_path do %><%=image_tag "h_right_btn3.png", width:"100%" %><% end %>
+	<%=link_to home_index_path do %><%=image_tag "h_right_btn3.png", width:"100%" %><% end %>
 	<%=link_to building_reports_path do %><%=image_tag "h_right_btn4.jpg", width:"100%" %><% end %>
 	
 </div>
@@ -40,10 +40,12 @@
 	    <span class="caret"></span>
 	  </button>
 	  <ul class="dropdown-menu link-menu" aria-labelledby="dropdownMenu1">
-	    <li><a href="#">上海医药高等专科学校</a></li>
-	    <li><a href="#">上海旅游高等专科学校</a></li>
-	    <li><a href="#">上海公安高等专科学校</a></li>
-	    <li><a href="#">更多会员单位......</a></li>
+	    <li><a href="http://www.sihs.cn" target="blank">上海医药高等专科学校</a></li>
+	    <li><a href="http://www.sitsh.edu.cn/website/index.do?dispatch=index&type=1" target="blank">上海旅游高等专科学校</a></li>
+	    <li><a href="http://www.shpc.edu.cn/Portal/" target="blank">上海公安高等专科学校</a></li>
+	    <li><a href="http://www.smic.edu.cn" target="blank">上海医疗器械高等专科学校</a></li>
+	    <li><a href="http://www.stiei.edu.cn" target="blank">上海电子信息职业技术学院</a></li>
+	    <li><%=link_to "更多会员单位......", building_reports_path %></a></li>
 	  </ul>
 	</div>
 	<div class="dropdown">
@@ -52,10 +54,9 @@
 	    <span class="caret"></span>
 	  </button>
 	  <ul class="dropdown-menu link-menu" aria-labelledby="dropdownMenu1">
-	    <li><a href="#">上海仪电控股(集团)公司</a></li>
-	    <li><a href="#">上海仪电电子(集团)公司</a></li>
-	    <li><a href="#">上海仪电电子(集团)公司</a></li>
-	    <li><a href="#">更多合作单位......</a></li>
+	    <li><a href="http://www.inesa.com" target="blank">上海仪电控股(集团)公司</a></li>
+	    <li><a href="http://www.inesa.com" target="blank">上海仪电电子(集团)公司</a></li>
+	    <li><%=link_to "更多合作单位......", building_reports_path %></li>
 	  </ul>
 	</div>
 	<div class="dropdown">
@@ -64,9 +65,9 @@
 	    <span class="caret"></span>
 	  </button>
 	  <ul class="dropdown-menu link-menu" aria-labelledby="dropdownMenu1">
-	    <li><a href="#">中国高职高专网</a></li>
-	    <li><a href="#">上海市职业教育协会</a></li>
-	    <li><a href="#">更多......</a></li>
+	    <li><a href="http://www.tech.net.cn/web/index.aspx" target="blank">中国高职高专网</a></li>
+	    <li><a href="http://shanghai.zjchina.org" target="blank">上海市职业教育协会</a></li>
+	    <li><%=link_to "更多......", building_reports_path %></li>
 	  </ul>
 	</div>
 </div>

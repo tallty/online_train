@@ -14,12 +14,12 @@
 	background-color: #337DBC;
 	margin-bottom: 20px;
 	.report-btn-g {
-		padding: 0 80px;
+		padding: 0 29px;
 		.btn-report {
 			background-color: #337DBC;
 			border: 1px solid #3D8CCE;
 			color: #fff;
-			line-height: 40px;
+			line-height: 30px;
 			a {
 				text-decoration: none;
 				color: #fff;
@@ -36,7 +36,6 @@
 
 // <!-- report content 样式 -->
 .content {
-	padding: 0 65px!important;
 	.report-index {
 		padding-right: 5px;
 	}
@@ -51,7 +50,7 @@
 	} 
 	.intro {
 		border: 5px solid #f6f6f6;
-		height: 177px;
+		height: 170px;
 		margin-bottom: 10px;
 		a {
 			text-decoration: none;
@@ -96,11 +95,13 @@
 		margin-bottom: 10px;
 		.report-form-input {
 			border-radius: 8px;
-			width: 60%;
+			margin-right: 10px;
+			width: 65%;
 		}
 	}
 	.special-title {
-		background: image_url("h_right_dl_dt_bg.gif");
+		background: image_url("h_right_dl_dt_bg.gif") left top no-repeat;
+		background-size: 100% 100%;
 		color: #fff;
 		padding: 5.5px 8px;
 		margin: 10px 0;
@@ -179,8 +180,9 @@
 		margin: 10px 0;
 		font-size: 16px;
 		color: #fff;
-		padding: 5.5px 20px;
-		background: image_url("h_right_t_bg.gif") no-repeat;
+		padding: 7px 20px 11px 20px;
+		background: image_url("h_right_t_bg.gif") left top 100% no-repeat;
+		background-size: 100% 100%;
 	}
 	// <!--left bulletin（活动简报部分）样式-->
 	.bulletin {
@@ -197,6 +199,7 @@
 				padding:  0 0 0 10px;
 				color: #787778;
 				.bull-text-t {
+					font-size: 15px;
 					color: #3175BC;
 					padding: 0;
 					margin-top: 0;
@@ -216,14 +219,14 @@
 	font-size: 16px;
 	color: #666666;
 	.report_footer_p {
-		margin: 0 80px;
+		margin: 0 29px;
 	}
 }
 
 
 // <!--report show page (show页面样式文件)-->
 .news-show-content {
-	padding: 0 80px!important;
+	padding: 0 29px!important;
 	.report-show-title {
 		margin: 10px 0;
 		font-size: 16px;

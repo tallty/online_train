@@ -14,7 +14,8 @@
 				<div class="col-xs-12 news-list"><%=image_tag "h_news_icon.gif", class:"news_icon" %><%= link_to "#{event.title}", event_path(event) %>&nbsp;<%=image_tag "news_t.png" %><span class="pull-right news-time"><%= event.created_at.strftime("%F") %>&nbsp;</span>
 				<hr class="news-hr">
 				</div>
-				<% end %>	
+				<% end %>
+				<div class="col-xs-12 text-center"><%= paginate @events %></div>
 			</div>
 		</div>
 	</div>

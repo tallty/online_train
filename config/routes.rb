@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :reports do
     collection do
       get :building
+      get :home
     end
   end
 
@@ -40,7 +41,9 @@ Rails.application.routes.draw do
 
   get 'project/background'
 
-  root "home#index"
+  get 'home/index'
+
+  root "reports#index"
   #mount ChinaCity::Engine => '/china_city'
   devise_for :admins, controllers: { sessions: "admins/sessions" }
   namespace :admin_panel do

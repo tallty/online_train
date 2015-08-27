@@ -2,7 +2,7 @@ class AdminPanel::EventsController < AdminPanel::BaseController
 	load_and_authorize_resource
 
 	def index
-		@events = Event.all
+		@events = Event.all.page(params[:page]).per(10)
 	end
 
 	def show

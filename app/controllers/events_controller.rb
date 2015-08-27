@@ -1,7 +1,10 @@
 class EventsController < BaseController
 	layout "reports"
   	def index
-  		@events = Event.all
+  		@events = Event.all.page(params[:page]).per(20)
+      @bulletin = Event.where(classify: 1).order(created_at: :DESC).limit(7)
+      @headline = Event.where(classify: 2).order(created_at: :DESC).limit(5)
+      @activities = Event.where(classify: 3).order(created_at: :DESC).limit(4)
   	end
 
   	def show
