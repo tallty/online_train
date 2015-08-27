@@ -4,7 +4,7 @@
       <div class="form-group">
         <%= f.label :classify, '新闻分类', class: 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.select('classify', Event::EventClassify.invert, class: "form-control") %>
+          <%= f.select('classify', Event::EVENTCLASSIFY.invert, class: "form-control") %>
         </div>
       </div>
       <div class="form-group">

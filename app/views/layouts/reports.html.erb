@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'report', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>">
+<body  style="overflow:-Scroll;overflow-x:hidden" class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>">
   <%#= render "header"%>
 
   <!-- flash notice -->

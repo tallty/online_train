@@ -22,7 +22,7 @@
 		    	  <%#= truncate("dsfdsfadsf", length: 5) help方法%>
 		    	  <%#= "dsfadsf".truncate(5) 字符串方法%>
 		    	  	<td class="text-center"><%= event.title.try(:truncate, 15) %></td>
-		    	  	<td class="text-center"><%= event.classify %></td>
+		    	  	<td class="text-center"><%= Event::EVENTCLASSIFY[event.classify.to_sym] %></td>
 			    	<td class="text-center"><%= image_tag event.picture_url.url(:thumb) %></td>	
 					<td class="text-center">
 						<%= link_to edit_admin_panel_event_path(event), 'data-no-turbolink' => true do %>

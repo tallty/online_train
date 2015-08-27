@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'admin_panel', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>">
+<body  style="overflow:-Scroll;overflow-x:hidden" class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>">
   <%= render "admin_panel/share/header"%>
   <!-- flash notice -->
   <%= render :partial => "admin_panel/share/flash_message" %>
