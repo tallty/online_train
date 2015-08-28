@@ -1,36 +1,58 @@
 <div class="col-xs-12 report_header_bg">
-	<%= image_tag ("logo-title.png"), class:"title_logo" %>
+	<%= image_tag ("logo-title.png"), class: "title_logo" %>
 </div>
 <div class="col-xs-12 report_banner">
 	<div class="container">
-		<div class="btn-group btn-group-justified report-btn-g" role="group" aria-label="...">
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-report active"><%=link_to "首页", root_path %></button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-report"><%=link_to "研究会简介", building_reports_path %></button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-report"><%=link_to "教学研究", building_reports_path %></button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-report"><%=link_to "教学质量", building_reports_path %></button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-report"><%=link_to "精品课程", building_reports_path %></button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-report"><%=link_to "活动简报", building_reports_path %></button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-report"><%=link_to "秘书处事务", building_reports_path %></button></button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-report"><%=link_to "资料下载", building_reports_path %></button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-report"><%=link_to "联系我们", building_reports_path %></button>
-			</div>
-		</div>
+	  <div class="col-sm-9">
+	  	<div class="btn-group btn-group-justified report-btn-g" role="group" aria-label="...">
+	  	  <div class="btn-group" role="group">
+	  	    <%=link_to root_path do %>
+					  <button type="button" class="btn btn-report">首页</button>
+					<% end %>
+			  </div>
+			  <div class="btn-group" role="group">
+			    <%=link_to building_reports_path do %>
+					  <button type="button" class="btn btn-report">研究会简介</button>
+					<% end %>
+				</div>
+				<div class="btn-group" role="group">
+				  <%=link_to building_reports_path do %>
+					  <button type="button" class="btn btn-report">教学研究</button>
+					<% end %>
+				</div>
+				<div class="btn-group" role="group">
+				  <%=link_to building_reports_path do %>
+					  <button type="button" class="btn btn-report">活动简报</button>
+					<% end %>
+				</div>
+				<div class="btn-group" role="group">
+				  <%=link_to building_reports_path do %>
+					  <button type="button" class="btn btn-report">秘书处事务</button>
+					<% end %>
+				</div>
+				<div class="btn-group" role="group">
+				  <%=link_to building_reports_path do %>
+					  <button type="button" class="btn btn-report">资料下载</button>
+					<% end %>
+				</div>
+				<div class="btn-group" role="group">
+				  <%=link_to building_reports_path do %>
+					  <button type="button" class="btn btn-report">联系我们</button>
+					<% end %>
+				</div>
+	  	</div>
+	  </div>
+	  <div class="col-sm-3 pull-right">
+	  	<div class="col-sm-12">
+				<%= form_tag list_reports_path, method: :get do %>
+		      <div class="input-group input-group-sm" style="padding: 7px 0;">
+			      <%= text_field_tag :keyword, nil, class: "form-control", placeholder: "输入关键字查找" %>
+			      <span class="input-group-btn">
+			        <button class="btn btn-primary search-btn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+			      </span>
+		      </div>
+		    <% end %>
+		  </div>
+	  </div>
 	</div>
 </div>

@@ -50,7 +50,7 @@
 	} 
 	.intro {
 		border: 5px solid #f6f6f6;
-		height: 170px;
+		height: 300px;
 		margin-bottom: 10px;
 		a {
 			text-decoration: none;
@@ -103,7 +103,7 @@
 		background: image_url("h_right_dl_dt_bg.gif") left top no-repeat;
 		background-size: 100% 100%;
 		color: #fff;
-		padding: 5.5px 8px;
+		padding: 6px 8px;
 		margin: 10px 0;
 	}
 	.special-title-t {
@@ -111,7 +111,7 @@
 	}
 	.special-content {
 		img {
-			margin-bottom: 10px;
+			margin-bottom: 5px;
 		}
 	}
 	.btn-link {
@@ -145,12 +145,17 @@
 		margin: 10px 0;
 		font-size: 16px;
 		color: #fff;
-		padding: 5.5px 20px;
+		padding: 5px 20px;
 		background: image_url("h_news_t.gif") no-repeat;
 		background-color: #D8D8D8;
 		a {
 			text-decoration: none;
 			color: #fff;
+			&.more {
+				color: #337ab7;
+				font-size: 12px;
+				padding: 2px 0;
+			}
 		}
 	}
 	.news-list {
@@ -183,6 +188,11 @@
 		padding: 7px 20px 11px 20px;
 		background: image_url("h_right_t_bg.gif") left top 100% no-repeat;
 		background-size: 100% 100%;
+		a.more {
+			color: #fff;
+			font-size: 12px;
+			padding: 2px 0;
+		}
 	}
 	// <!--left bulletin（活动简报部分）样式-->
 	.bulletin {
@@ -218,6 +228,7 @@
 	line-height: 67px;
 	font-size: 16px;
 	color: #666666;
+	margin-top: 60px;
 	.report_footer_p {
 		margin: 0 29px;
 	}
@@ -273,13 +284,39 @@
 	margin: 0 5px 4px 0;
 }
 
-.search-btn {
+//搜索按钮样式
+.search-btn, .search-btn:hover {
 	background: #4280b9!important;
   border-color: #4280b9!important;
 }
 
+//链接字体颜色
+.special-content.msg-content li {
+  line-height: 24px;
+  margin: 5px 0;
+  a {
+	  color: #666;
+	  span {
+		  color: #9b9999;
+	  }
+	}
+}
+.msg-content {
+	height: 276px;
+	overflow: hidden;
+}
+.msg-title {
+	margin: 0!important;
+}
 
+.special-title a {
+	font-size: 12px;
+}
 
+//导航栏链接字体大小
+.report_banner button {
+	font-size: 16px;
+}
 
 
 

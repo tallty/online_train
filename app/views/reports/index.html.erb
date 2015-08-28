@@ -17,16 +17,9 @@
 				  </div>
 				</div>
 			<!-- 轮播图结束 -->
-				<div class="events-list col-xs-12"><%=link_to "通知公告", events_path %></div>
-
-				<% @bulletin.each do |event| %>
-				<div class="col-xs-12 news-list"><%=image_tag "h_news_icon.gif", class:"news_icon" %><%= link_to "#{event.title}", event_path(event) %>&nbsp;<%=image_tag "news_t.png" %><span class="pull-right news-time"><%= event.created_at.strftime("%F") %>&nbsp;</span>
-				<hr class="news-hr">
+				<div class="events-list col-xs-12">新闻动态
+          <%= link_to "更多>>", "", class: 'more pull-right'%>
 				</div>
-				<% end %>
-
-
-				<div class="events-list col-xs-12">要&nbsp;&nbsp;闻</div>
 				<% @headline.each do |event| %>
 				<%=link_to event_path(event) do %>
 				<div class="col-xs-12 news-list"><%=image_tag "h_news_icon.gif", class:"news_icon" %><%= link_to "#{event.title}", event_path(event) %>&nbsp;<%=image_tag "news_t.png" %><span class="pull-right news-time"><%= event.created_at.strftime("%F") %>&nbsp;</span>
@@ -35,7 +28,9 @@
 				<% end %>
 				<% end %>
 
-				<div class="trends-title col-xs-12">活动简报</div>
+				<div class="trends-title col-xs-12">活动简报
+				  <%= link_to "更多>>", "", class: 'more pull-right'%>
+				</div>
 				<div class="bulletin col-xs-12">
 				<% @activities.each do |event| %>
 					<%=link_to event_path(event) do %>

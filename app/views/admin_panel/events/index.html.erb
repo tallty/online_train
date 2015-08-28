@@ -2,7 +2,7 @@
 	<div class="panel panel-default">
 	  <div class="panel-heading panel-active" style="overflow: hidden;">
 	    <span class="pull-left">新闻动态</span>
-	    <%= link_to new_admin_panel_event_path, class: "btn btn-xs pull-right btn-active" do %>
+	    <%= link_to new_admin_panel_event_path, class: "btn btn-xs pull-right btn-active", 'data-no-turbolink' => true do %>
 	       <span class="glyphicon glyphicon-plus-sign"></span> 新建
 	    <% end %>
 	  </div>
