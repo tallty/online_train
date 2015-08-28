@@ -12,7 +12,7 @@ class ReportsController < BaseController
   end
 
   def list
-  	@events = Event.keyword(params[:keyword])
+  	@events = Event.keyword(params[:keyword]).page(params[:page]).per(25)
   	@bulletin = Event.where(classify: 1).order(created_at: :DESC).limit(5)
   end
 end
