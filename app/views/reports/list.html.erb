@@ -1,9 +1,15 @@
 <!-- 内容部分开始 -->
+<% if params[:keyword]%>
+  <% events = @events %>
+<% elsif %>
+  <% events = @more_events %>
+<% end %>
+
 <div class="container">
 		<div class="col-xs-12 content">
 			<div class="report-index col-xs-8">
-				<div class="events-list col-xs-12 margin-b-20"><%=link_to "搜索结果", events_path %></div>
-				<% @events.each do |event| %>
+				<div class="events-list col-xs-12 margin-0 margin-b-20"><%=link_to "搜索结果", events_path %></div>
+				<% events.each do |event| %>
 					<div class="col-xs-12 news-list"><%=image_tag "h_news_icon.gif", class:"news_icon" %><%= link_to "#{event.title}", event_path(event) %>&nbsp;
 					  <% if event_in_two_weeks(event) %>
 					    <%=image_tag "news_t.png" %>

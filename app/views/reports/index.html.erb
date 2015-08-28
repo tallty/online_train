@@ -30,7 +30,7 @@
 				</div>
 			<!-- 轮播图结束 -->
 				<div class="events-list col-xs-12">新闻动态
-          <%= link_to "更多>>", "", class: 'more pull-right'%>
+          <%= link_to "更多>>", list_reports_path(classify: 2), class: 'more pull-right'%>
 				</div>
 				<% @headline.each do |event| %>
 				<%=link_to event_path(event) do %>
@@ -47,7 +47,7 @@
 				<% end %>
 
         <div class="events-list col-xs-12">活动简报
-          <%= link_to "更多>>", "", class: 'more pull-right'%>
+          <%= link_to "更多>>", list_reports_path(classify: 3), class: 'more pull-right'%>
 				</div>
 				<div class="bulletin col-xs-12">
 				<% @activities.each do |event| %>

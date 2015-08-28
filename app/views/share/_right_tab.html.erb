@@ -16,7 +16,7 @@
 -->
 <div class="special-title notification margin-0">
 	通知公告
-	<%= link_to "更多>>", "", class: 'pull-right'%>
+	<%= link_to "更多>>", list_reports_path(classify: 1), class: 'pull-right'%>
 </div>
 <div class="special-content msg-content">
   <% @bulletin.each do |event| %>
