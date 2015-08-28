@@ -14,7 +14,7 @@
 	</div>
 </div>
 -->
-<div class="special-title msg-title">
+<div class="special-title notification margin-0">
 	通知公告
 	<%= link_to "更多>>", "", class: 'pull-right'%>
 </div>
@@ -24,16 +24,22 @@
   <% end %>
 </div>
 <div class="special-title special-title-t">
-	专题互动
+	专题专栏
 </div>
 <div class="special-content">
   <%=link_to building_reports_path do %>
-	  <%=image_tag "h_people_btn.jpg", width:"100%", class:"h_people" %>
+	  <%=image_tag "h_people_btn.jpg", width:"100%", title: '高职师资公共培训'%>
   <% end %>
-	<%=link_to home_index_path do %><%=image_tag "h_right_btn3.png", width:"100%" %><% end %>
-	<%=link_to building_reports_path do %><%=image_tag "h_right_btn4.jpg", width:"100%" %><% end %>
-	<%=link_to building_reports_path do %><%=image_tag "h_right_btn4.jpg", width:"100%" %><% end %>
-	
+	<%=link_to home_index_path do %>
+	  <%=image_tag "h_right_btn3.png", width:"100%", title: '教学设计比武大赛' %>
+	<% end %>
+	<%=link_to building_reports_path do %>
+	  <%=image_tag "h_right_btn4.jpg", width:"100%", title: '教育教学科学研究' %>
+	<% end %>
+	<%=link_to building_reports_path do %>
+	  <%=image_tag "h_people_btn.jpg", width:"100%", title: '专业人才培养方案' %>
+	<% end %>
+
 </div>
 <div class="special-title">
 	秘书处事务

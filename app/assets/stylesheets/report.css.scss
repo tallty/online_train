@@ -100,11 +100,14 @@
 		}
 	}
 	.special-title {
-		background: image_url("h_right_dl_dt_bg.gif") left top no-repeat;
+		background: image_url("beijing.png") left top no-repeat;
 		background-size: 100% 100%;
 		color: #fff;
 		padding: 6px 8px;
 		margin: 10px 0;
+		&.notification {
+			background: image_url("h_right_dl_dt_bg.gif") left top no-repeat;
+		}
 	}
 	.special-title-t {
 			margin-top: 0;
@@ -305,7 +308,7 @@
 	height: 276px;
 	overflow: hidden;
 }
-.msg-title {
+.margin-0 {
 	margin: 0!important;
 }
 

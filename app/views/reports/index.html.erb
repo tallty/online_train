@@ -7,11 +7,11 @@
 				  <!-- Wrapper for slides -->
 				  <div class="carousel-inner" role="listbox">
 				    <div class="item active">
-				      <%=image_tag "lunbo.png", alt:"picture_news",width:"100%" %>
+				      <%=image_tag "lunbo.png", alt: "picture_news",width:"100%" %>
 				    </div>
 				    <% @events.each do |event| %>
 				    <div class="item">
-				      <%= image_tag( event.picture_url .present? ? event.picture_url : "lunbo.png", width:"100%")%>
+				      <%= image_tag( event.picture_url .present? ? event.picture_url : "lunbo.png", width: "100%")%>
 				    </div>
 				  <% end %>
 				  </div>
@@ -22,21 +22,27 @@
 				</div>
 				<% @headline.each do |event| %>
 				<%=link_to event_path(event) do %>
-				<div class="col-xs-12 news-list"><%=image_tag "h_news_icon.gif", class:"news_icon" %><%= link_to "#{event.title}", event_path(event) %>&nbsp;<%=image_tag "news_t.png" %><span class="pull-right news-time"><%= event.created_at.strftime("%F") %>&nbsp;</span>
+				<div class="col-xs-12 news-list">
+				  <%=image_tag "h_news_icon.gif", class: "news_icon" %>
+				  <%= link_to "#{event.title}", event_path(event) %>&nbsp;
+				  <% if event_in_two_weeks(event) %>
+				    <%=image_tag "news_t.png" %>
+				  <% end %>
+				  <span class="pull-right news-time"><%= event.created_at.strftime("%F") %>&nbsp;</span>
 				<hr class="news-hr">
 				</div>
 				<% end %>
 				<% end %>
 
-				<div class="trends-title col-xs-12">活动简报
-				  <%= link_to "更多>>", "", class: 'more pull-right'%>
+        <div class="events-list col-xs-12">活动简报
+          <%= link_to "更多>>", "", class: 'more pull-right'%>
 				</div>
 				<div class="bulletin col-xs-12">
 				<% @activities.each do |event| %>
 					<%=link_to event_path(event) do %>
 					<div class="col-xs-6 bulletin-list">
 					<div class="col-xs-4 bulletin-picture">
-					<%= image_tag( event.picture_url .present? ? event.picture_url : "picture_min.jpg", width:"100%")%>
+					<%= image_tag( event.picture_url .present? ? event.picture_url : "picture_min.jpg", width: "100%")%>
 					</div>
 					<div class="col-xs-8 bulletin-text">
 						<h5 class="bull-text-t col-xs-12"><%= link_to "#{event.title}", event_path(event) %></h5>
