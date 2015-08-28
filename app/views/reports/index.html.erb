@@ -5,14 +5,26 @@
 			<!-- 轮播图开始 -->
 				<div id="carousel-example-generic" class="carousel slide lunbo" data-ride="carousel">
 				  <!-- Wrapper for slides -->
+				  <ol class="carousel-indicators">
+				    <% @events_with_image.each_with_index do |event, index| %>
+					    <% if event.picture_url && index == 0 %>
+							  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+							<% elsif event.picture_url %>
+							  <li data-target="#carousel-example-generic" data-slide-to="<%= index %>"></li>
+							<% end %>
+						<% end %>
+					</ol>
 				  <div class="carousel-inner" role="listbox">
-				    <div class="item active">
-				      <%=image_tag "lunbo.png", alt: "picture_news",width:"100%" %>
-				    </div>
-				    <% @events.each do |event| %>
-				    <div class="item">
-				      <%= image_tag( event.picture_url .present? ? event.picture_url : "lunbo.png", width: "100%")%>
-				    </div>
+				    <% @events_with_image.each_with_index do |event, index| %>
+				    <% if index == 0 %>
+					    <div class="item active">
+					      <%= image_tag( event.picture_url, width: "100%")%>
+					    </div>
+					  <% else %>
+					    <div class="item">
+					      <%= image_tag( event.picture_url, width: "100%")%>
+					    </div>
+					  <% end %>
 				  <% end %>
 				  </div>
 				</div>
@@ -60,4 +72,8 @@
 		</div>
 </div>
 <!-- 内容部分结束 -->
-		
+<script type="text/javascript">
+	$(function(){
+		$('.carousel').carousel();
+	})
+</script>
