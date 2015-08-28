@@ -1,5 +1,6 @@
 class ReportsController < BaseController
 	layout "reports"
+
   def index
   	@events = Event.all
   	@bulletin = Event.where(classify: 1).order(created_at: :DESC).limit(7)
@@ -9,4 +10,8 @@ class ReportsController < BaseController
 
   def show
   end
-end 
+
+  def list
+  	@events = Event.keyword(params[:keyword])
+  end
+end
