@@ -20,7 +20,7 @@
 </div>
 <div class="special-content msg-content">
   <% @bulletin.each do |event| %>
-    <li><%= link_to event.try(:title) %><span>（<%= event.updated_at.strftime("%Y-%m-%d") %>）</span></li>
+    <li><%= link_to event.try(:title), event_path(event) %><span>（<%= event.updated_at.strftime("%Y-%m-%d") %>）</span></li>
   <% end %>
 </div>
 <div class="special-title special-title-t">
