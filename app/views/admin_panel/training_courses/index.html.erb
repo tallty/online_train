@@ -55,7 +55,7 @@
 	    	<tbody>
 	    	  <% @training_courses.each do |training_course|%>
 		    	  <tr class="tr-default-bg">
-			    		<td class="text-center"><%= training_course.try(:category) %></td>
+			    		<td class="text-center"><%= TrainingCourse::ListCategory[training_course.category.to_sym] %></td>
 		    	  	<td class="text-center"><%= link_to truncate(training_course.try(:name), length: 15), admin_panel_training_course_path(training_course.id), 'data-toggle': "tooltip", 'data-placement': "top", title: training_course.try(:name) %></td>
 			    		<td class="text-center"><%= training_course.try(:school).try(:name) %></td>
 			    		<td class="text-center">

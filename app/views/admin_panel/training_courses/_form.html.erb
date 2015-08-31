@@ -1,16 +1,8 @@
 <div class="panel-heading panel-active">新建项目</div>
   <div class="panel-body panel-default-bg">
-  	<%= form_for [:admin_panel, @training_course], html: { class: 'form-horizontal' }, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|%>
-        <div class="form-group">
-          <%= f.label :category, '分类', class: 'col-sm-3 control-label' %>
-          <div class="col-sm-4">
-            <% TrainingCourse.training_course_categories.keys.each do |training_course_category| %>
-              <%= f.radio_button :category, training_course_category %>
-              <%= f.label training_course_category.to_sym %>
-            <% end %>
-          </div>
-        </div>
+  	<%= simple_form_for [:admin_panel, @training_course], html: { class: 'form-horizontal' }, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {radio_buttons: :horizontal_radio_and_checkboxes } do |f|%>
 
+        <%= f.input :category, label: '分类', collection: TrainingCourse::ListCategory.to_a.reverse_each{|x| x.reverse!}, as: :radio_buttons %>
         <div class="form-group">
           <%= label_tag :teachers, '教师团队', class: 'col-sm-3 control-label' %>
           <div class="col-sm-4">
