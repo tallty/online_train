@@ -45,16 +45,16 @@
 </div>
 <br>
 <% if @present_user_training_course.present? %>
-  <%= link_to "已报名", "javascript:void(0)", class: "apply-btn" %>
+  <%= link_to "已报名", "javascript:void(0)", class: "btn btn-lg btn-primary apply-btn" %>
 <% else %>
   <% if user_signed_in? %>
     <%= form_for UserTrainingCourse.new, remote: true do |f| %>
       <%= f.hidden_field :training_course_id, value: @training_course.id %>
       <%= f.hidden_field :user_id, value: @current_user.id %>
-      <%= f.submit "我要报名", class: "apply-btn" %>
+      <%= f.submit "我要报名", data: {disable_with: '报名中...'}, class: "btn btn-lg btn-primary apply-btn" %>
     <% end %>
   <% else %>
-    <%= link_to "请先登录", new_user_session_path, class: "apply-btn" %>
+    <%= link_to "请先登录", new_user_session_path, class: "btn btn-lg btn-primary apply-btn" %>
   <% end %>
 <% end %>
 <br>

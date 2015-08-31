@@ -1,0 +1,49 @@
+  <tr class="tr-default-bg">
+	<td class="text-center"><%= TrainingCourse::ListCategory[training_course.category.to_sym] %></td>
+	<td class="text-center"><%= link_to truncate(training_course.try(:name), length: 15), admin_panel_training_course_path(training_course.id), 'data-toggle': "tooltip", 'data-placement': "top", title: training_course.try(:name) %></td>
+	<td class="text-center"><%= training_course.try(:school).try(:name) %></td>
+	<td class="text-center">
+	  <%= training_course.start_time.try(:strftime, "%F")%> ~
+	  <%= training_course.end_time.try(:strftime,"%F") %>
+  </td>
+	<td class="text-center"><%= training_course.training_fee %></td>
+	<td class="text-center"><%= training_course.plan_number %></td>
+
+	<!-- 评审专家 -->
+  <% if training_course.unchecked? %>
+	  <td class="text-center text-active-status"><%= link_to "审核", checked_by_expert_admin_panel_training_course_path(training_course.id), data: {confirm: '确认通过审核吗？'}, method: :patch %></td>
+	  <td>----</td>
+	  <td>----</td>
+  <!-- 研究会 -->
+  <% elsif training_course.checked_by_expert? %>
+	   <td class="text-center text-active-status">已审核</td>
+	   <td class="text-center text-active-status"><%= link_to "审核", checked_by_seminar_admin_panel_training_course_path(training_course.id), data: {confirm: '确认通过审核吗？'}, method: :patch %></td>
+	   <td>----</td>
+
+  <!-- 教委 -->
+	<% elsif training_course.checked_by_seminar? %>
+	  <td class="text-center text-active-status">已审核</td>
+	  <td class="text-center text-active-status">已审核</td>
+	  <td class="text-center text-active-status"><%= link_to "审核", checked_by_educator_admin_panel_training_course_path(training_course.id), data: {confirm: '确认通过审核吗？'}, method: :patch %></td>
+	<% else %>
+	  <td class="text-center text-active-status">已审核</td>
+	  <td class="text-center text-active-status">已审核</td>
+	  <td class="text-center text-active-status">已审核</td>
+	<% end%>
+  <td class="text-center">
+    <% if notification_present?(training_course.id) %>
+      <%= link_to admin_panel_training_course_notification_path(training_course, training_course.notification), 'data-no-turbolink' => true, class: 'btn btn-xs btn-success' do %>
+        <span class="glyphicon glyphicon-bell"></span> 报名通知
+      <% end %>
+    <% else %>
+      <%= link_to new_admin_panel_training_course_notification_path(training_course), 'data-no-turbolink' => true, class: 'btn btn-xs btn-danger' do %>
+        <span class="glyphicon glyphicon-bell"></span> 报名通知
+      <% end %>
+    <% end %>
+  </td>
+  <td class="text-center">
+    <%= link_to edit_admin_panel_training_course_path(training_course), 'data-no-turbolink' => true do %>
+      <span class="glyphicon glyphicon-edit"></span> 修改
+    <% end %>
+  </td>
+</tr>

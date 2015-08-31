@@ -9,7 +9,7 @@
 	      </tr>
 	      <tr>
 	      	<th>分类</th>
-	      	<td><%= @notification.category %> </td>
+	      	<td><%= Notification::ListCategory[@notification.category.to_sym] %> </td>
 	      </tr>
 	      <tr>
 	      	<th>标题</th>

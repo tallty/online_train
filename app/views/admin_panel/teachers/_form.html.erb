@@ -10,7 +10,7 @@
           <%= f.input :name, required: true  %>
           <%= f.input :sex, required: true, collection: Teacher::Sex.invert, as: :radio_buttons, wrapper: :horizontal_radio_and_checkboxes, item_wrapper_class: "radio-inline" %>
           <%= f.input :id_card, required: true  %>
-          <%= f.input :school_id, required: true,input_html: { value: @teacher.try(:school).try(:id) } , as: :select, collection: School.all.pluck(:name, :id) %>
+          <%= f.input :school_id, required: true, prompt: '请选择培训机构',input_html: { value: @teacher.try(:school).try(:id) } , as: :select, collection: School.all.pluck(:name, :id) %>
           <%= f.input :job_title  %>
           <%= f.input :position %>
           <%= f.input :address %>

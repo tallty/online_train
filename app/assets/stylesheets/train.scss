@@ -93,20 +93,7 @@
 			}
 		}
 		.apply-btn{
-			background: url(/assets/btn_bg.png) no-repeat;
-			background-size: 100% 100%;
-			margin: 0 auto;
-			width: 141px;
-			height: 42px;
-			line-height: 42px;	
-			display: block;
-			color: $color-white;
-			font-size: 16px;
-			text-shadow:2px 2px 1px $color-text-shadow;
-			&:hover{
-				text-decoration: none;
-				font-size: 17px;
-			}
+			background: #1c47a9!important;
 		}
 		dd{
 			margin: 20px 0;

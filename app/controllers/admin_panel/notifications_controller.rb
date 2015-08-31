@@ -8,7 +8,7 @@ class AdminPanel::NotificationsController < AdminPanel::BaseController
   end
 
   def create
-  	@notification = Notification.new(notification_params.merge(training_course_id: @training_course.id))
+  	@notification = Notification.new(notification_params.merge(training_course_id: @training_course.id, category: @training_course.category))
   	if @notification.save
   		flash[:notice] = "通知创建成功"
   		return redirect_to admin_panel_training_course_notification_path(@training_course, @notification)

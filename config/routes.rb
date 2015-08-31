@@ -67,7 +67,12 @@ Rails.application.routes.draw do
     resources :user_tasks
     resources :journals
     resources :teachers
-    resources :user_training_courses
+    resources :user_training_courses do
+      member do
+        patch :disapplied, :applied
+        post :disapplied, :applied
+      end
+    end
     resources :user_appraise_trains
     resources :user_teachers
     resources :schools do
