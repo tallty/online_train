@@ -44,7 +44,9 @@
   </table>
 </div>
 <br>
-<% if @present_user_training_course.present? %>
+<% if !@training_course.be_applied%>
+  <%= link_to "暂时不能报名", "javascript:void(0)", class: "btn btn-lg btn-danger" %>
+<% elsif @present_user_training_course.present? %>
   <%= link_to "已报名", "javascript:void(0)", class: "btn btn-lg btn-primary apply-btn" %>
 <% else %>
   <% if user_signed_in? %>

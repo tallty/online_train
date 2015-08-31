@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831054039) do
+ActiveRecord::Schema.define(version: 20150831074704) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -171,13 +171,14 @@ ActiveRecord::Schema.define(version: 20150831054039) do
     t.text     "training_content",    limit: 65535
     t.text     "check_method",        limit: 65535
     t.string   "project_leader",      limit: 255
-    t.datetime "created_at",                                                null: false
-    t.datetime "updated_at",                                                null: false
+    t.datetime "created_at",                                                                null: false
+    t.datetime "updated_at",                                                                null: false
     t.string   "contact",             limit: 255
     t.integer  "school_id",           limit: 4
     t.string   "aasm_state",          limit: 255
     t.string   "category",            limit: 255
     t.string   "grade_leader",        limit: 255
+    t.boolean  "be_applied",          limit: 1,                             default: false
   end
 
   create_table "user_messages", force: :cascade do |t|

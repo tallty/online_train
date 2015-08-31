@@ -75,7 +75,7 @@ module AdminPanel
 		def training_course_params
 			params.require(:training_course).permit(:school_id, :name, :code, :start_time, :end_time,
 			                       :plan_number, :training_agency, :training_address, :training_fee,
-			                       :state, :remark, :info, :training_background, :training_target,
+			                       :state, :remark, :info, :training_background, :training_target, :be_applied,
 			                       :training_content, :check_method, :project_leader, :grade_leader, :contact, :category, {teacher_ids: []})
 		end
 	end

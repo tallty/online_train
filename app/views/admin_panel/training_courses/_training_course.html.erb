@@ -8,6 +8,7 @@
   </td>
 	<td class="text-center"><%= training_course.training_fee %></td>
 	<td class="text-center"><%= training_course.plan_number %></td>
+	<td class="text-center"><%= training_course.be_applied ? content_tag(:div, "是", class: "btn btn-xs btn-success") : content_tag(:div, "否", class: "btn btn-xs btn-danger") %></td>
 
 	<!-- 评审专家 -->
   <% if training_course.unchecked? %>

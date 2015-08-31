@@ -1,6 +1,6 @@
 <div class="panel-heading panel-active">新建项目</div>
   <div class="panel-body panel-default-bg">
-  	<%= simple_form_for [:admin_panel, @training_course], html: { class: 'form-horizontal' }, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {radio_buttons: :horizontal_radio_and_checkboxes } do |f|%>
+  	<%= simple_form_for [:admin_panel, @training_course], html: { class: 'form-horizontal' }, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {radio_buttons: :horizontal_radio_and_checkboxes, boolean: :horizontal_boolean } do |f|%>
 
         <%= f.input :category, label: '分类', collection: TrainingCourse::ListCategory.to_a.reverse_each{|x| x.reverse!}, as: :radio_buttons %>
         <div class="form-group">
@@ -67,6 +67,8 @@
             <%= f.text_field :contact, placeholder: "请输入联系方式", class: 'form-control' %>
           </div>
         </div>
+
+        <%= f.input :be_applied, :as => :boolean, label: '是否可报名' %>
 
         <div class="form-group">
           <%= f.label :info, '项目信息', class: 'col-sm-3 control-label' %>
