@@ -1,9 +1,14 @@
 module AdminPanel
 	class TrainingCoursesController < AdminPanel::BaseController
 		load_and_authorize_resource
+		before_action :set_breadcrumb
 
 		before_action :set_training_course, only: [:edit, :update, :show, :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator]
 		def index
+			@training_courses = TrainingCourse.all
+		end
+
+		def list
 			@training_courses = TrainingCourse.all
 		end
 
@@ -12,6 +17,7 @@ module AdminPanel
 
 		def new
 			@training_course = TrainingCourse.new
+			add_breadcrumb "新建"
 		end
 
     #取消审核状态
@@ -53,6 +59,7 @@ module AdminPanel
 		end
 
 		def edit
+			add_breadcrumb "修改"
 		end
 
 		def update
@@ -67,6 +74,11 @@ module AdminPanel
 		end
 
 		private
+
+		def set_breadcrumb
+			add_breadcrumb "后台", admin_panel_root_path
+			add_breadcrumb "培训班级", admin_panel_training_courses_path
+    end
 
 		def set_training_course
 			@training_course = TrainingCourse.find(params[:id])

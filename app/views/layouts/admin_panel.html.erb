@@ -17,7 +17,7 @@
        <%= render "admin_panel/share/left_bar"%>
     </div>
     <div class="col-sm-10">
-      <%= render "admin_panel/share/greeting" %>
+      <%= render "admin_panel/share/greeting" %><%= render_breadcrumbs  :builder => ::BootstrapBreadcrumbsBuilder, :separator => "&raquo;" %>
       <%= yield %>
     </div>
   </div>
