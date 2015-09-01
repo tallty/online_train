@@ -42,7 +42,7 @@ class UserController < BaseController
 
   private
     def user_params
-      params.require(:user).permit(:name,:ID_number, :nation, :gender, :birth, :school, :academy, :certificate,
+      params.require(:user).permit(:name,:ID_number, :nation, :gender, :birth, :school, :academy, :profession, :certificate,
                                   :position_name, :position, :address, :zip_code, :telephone, :phone,
                                   :qq_no, :summary, :country, :his_train)
     end
