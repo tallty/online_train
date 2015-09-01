@@ -18,4 +18,17 @@ class UserTrainingCourse < ActiveRecord::Base
     message = Message.create!(title: "报名成功", content: "报名“#{self.training_course.try(:name)}”成功")
     UserMessage.create!(user_id: current_user.id, message_id: message.id)
   end
+
+  #搜索功能
+	searchable do
+    text :user_name do
+      user.name
+    end
+    text :user_email do
+      user.email
+    end
+    text :user_phone do
+      user.phone
+    end
+  end
 end

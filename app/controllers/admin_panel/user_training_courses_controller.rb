@@ -5,10 +5,19 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
 
   def index
     @user_training_courses = @training_course.user_training_courses
+    @search = @user_training_courses.search do
+      fulltext(params[:q]) do
+        fields(:user_name, :user_email, :user_phone)
+      end
+    end
   end
 
   def list
-    @user_training_courses = UserTrainingCourse.all
+    @search = UserTrainingCourse.search do
+      fulltext(params[:q]) do
+        fields(:user_name, :user_email, :user_phone)
+      end
+    end
   end
 
   def applied

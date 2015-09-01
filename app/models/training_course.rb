@@ -36,6 +36,7 @@ class TrainingCourse < ActiveRecord::Base
 
   default_scope { order("created_at DESC") }
 
+  #分类
   enum category: {
 	  country: '0',
 	  teacher: '1',
@@ -48,6 +49,7 @@ class TrainingCourse < ActiveRecord::Base
 	  manager: '专业负责人培训'
 	}
 
+  #状态机
 	aasm :column => 'state' do
 		state :unchecked, :initial => true  #默认未通过审核
 		state :checked_by_expert     #通过专家审核
@@ -71,4 +73,16 @@ class TrainingCourse < ActiveRecord::Base
 			transitions :from => :checked_by_seminar, :to => :checked_by_educator
 		end
 	end
+
+	#搜索功能
+	searchable do
+    text :name
+    text :code
+    text :category
+    text :grade_leader
+    text :be_applied
+    text :school do
+      school.name
+    end
+  end
 end

@@ -2,14 +2,30 @@ module AdminPanel
 	class TrainingCoursesController < AdminPanel::BaseController
 		load_and_authorize_resource
 		before_action :set_breadcrumb
-
 		before_action :set_training_course, only: [:edit, :update, :show, :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator]
-		def index
-			@training_courses = TrainingCourse.all
+
+	  def index
+			@search = TrainingCourse.search do
+		    fulltext(params[:q]) do
+		      fields(:name, :code, :category, :grade_leader, :be_applied)
+		      fields(:school, :name)
+		    end
+		    all do
+	        fulltext params[:be_applied], :fields => :be_applied
+	      end
+		  end
 		end
 
 		def list
-			@training_courses = TrainingCourse.all
+			@search = TrainingCourse.search do
+		    fulltext(params[:q]) do
+		      fields(:name, :code, :category, :grade_leader, :be_applied)
+		      fields(:school, :name)
+		    end
+		    all do
+	        fulltext params[:be_applied], :fields => :be_applied
+	      end
+		  end
 		end
 
 		def show

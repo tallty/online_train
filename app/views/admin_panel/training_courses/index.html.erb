@@ -3,26 +3,18 @@
 	  <div class="panel-heading panel-active">搜索栏</div>
 	  <div class="panel-body panel-default-bg">
 	    <div class="row">
-			  <div class="col-sm-3">
-			    <div class="form-group">
-			      <input type="date" class="form-control">
-				  </div>
-				</div>
-				<div class="col-sm-3">
-			    <div class="form-group">
-			      <input type="select" class="form-control">
-				  </div>
-				</div>
-				<div class="col-sm-3">
-			    <div class="form-group">
-			      <input type="select" class="form-control">
-				  </div>
-				</div>
-				<div class="col-sm-3">
-			    <div class="form-group">
-			      <input type="submit" value="搜  索" class="btn btn-primary">
-				  </div>
-				</div>
+	      <%= form_tag admin_panel_training_courses_path, method: :get do %>
+					<div class="col-sm-3">
+				    <div class="form-group">
+				     <%= text_field_tag :q, nil, class: "form-control", placeholder: '请输入关键字' %>
+					  </div>
+					</div>
+					<div class="col-sm-3">
+				    <div class="form-group">
+				      <%= submit_tag "搜索", class: "btn primary" %>
+					  </div>
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
@@ -54,7 +46,7 @@
 	    	  </tr>
 	    	</thead>
 	    	<tbody>
-	    	  <%= render @training_courses %>
+	    	  <%= render partial: 'training_course', locals: {search: @search}%>
 		   	</tbody>
 	    </table>
 	  </div>

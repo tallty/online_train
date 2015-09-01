@@ -3,26 +3,18 @@
 	  <div class="panel-heading panel-active">搜索栏</div>
 	  <div class="panel-body panel-default-bg">
 	    <div class="row">
-			  <div class="col-sm-3">
-			    <div class="form-group">
-			      <input type="date" class="form-control">
-				  </div>
-				</div>
-				<div class="col-sm-3">
-			    <div class="form-group">
-			      <input type="select" class="form-control">
-				  </div>
-				</div>
-				<div class="col-sm-3">
-			    <div class="form-group">
-			      <input type="select" class="form-control">
-				  </div>
-				</div>
-				<div class="col-sm-3">
-			    <div class="form-group">
-			      <input type="submit" value="搜  索" class="btn btn-primary">
-				  </div>
-				</div>
+			  <%= form_tag admin_panel_training_courses_path, method: :get do %>
+					<div class="col-sm-3">
+				    <div class="form-group">
+				     <%= text_field_tag :q, nil, class: "form-control", placeholder: '请输入关键字' %>
+					  </div>
+					</div>
+					<div class="col-sm-3">
+				    <div class="form-group">
+				      <%= submit_tag "搜索", class: "btn primary" %>
+					  </div>
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
@@ -47,7 +39,7 @@
 	    	  </tr>
 	    	</thead>
 	    	<tbody>
-	    	  <% @training_courses.each do |training_course|%>
+	    	  <% @search.each_hit_with_result do |hit, training_course|%>
 	    	    <tr class="tr-default-bg">
 							<td class="text-center"><%= TrainingCourse::ListCategory[training_course.category.to_sym] %></td>
 							<td class="text-center"><%= link_to truncate(training_course.try(:name), length: 15), admin_panel_training_course_path(training_course.id), 'data-toggle': "tooltip", 'data-placement': "top", title: training_course.try(:name) %></td>
