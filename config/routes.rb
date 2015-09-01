@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'train/notice_index'
-
-  get 'train/notice_info'
-  get 'train/work_info'
   resources :training_courses, only: [:index, :show]
   resources :user_training_courses, only: [:create]
   resources :user_messages, only: [:destroy] do
@@ -38,9 +33,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  get 'project/about'
-
-  get 'project/background'
+  resources :projects, only: :index
+  resources :training_bases, only: :index
 
   get 'home/index'
 

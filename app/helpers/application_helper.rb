@@ -54,8 +54,10 @@ module ApplicationHelper
     action_name = controller.action_name.to_sym
     menu = {
       home: {index: 0},
-      project: {about: 1, background: 2},
-      train: {notice_index: 3, notice_info: 3, apply_index: 4, apply_info: 4},
+      projects: {index: 1},
+      notifications: {index: 2, show: 2},
+      training_courses: {index: 3, show: 3},
+      training_bases: {index: 4},
       user: {center: 5, course: 5, journal: 5, work: 5, message: 5, my: 5, update: 5},
       "devise/sessions": {"new": 8},
       "devise/registrations": {"new": 7, create: 7, edit: 5, update: 5},
