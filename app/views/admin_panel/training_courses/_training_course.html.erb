@@ -6,7 +6,6 @@
 	  <%= training_course.start_time.try(:strftime, "%F")%> ~
 	  <%= training_course.end_time.try(:strftime,"%F") %>
   </td>
-	<td class="text-center"><%= training_course.training_fee %></td>
 	<td class="text-center"><%= training_course.plan_number %></td>
 	<td class="text-center"><%= training_course.be_applied ? content_tag(:div, "是", class: "btn btn-xs btn-success") : content_tag(:div, "否", class: "btn btn-xs btn-danger") %></td>
 
@@ -43,7 +42,12 @@
     <% end %>
   </td>
   <td class="text-center">
-    <%= link_to edit_admin_panel_training_course_path(training_course), 'data-no-turbolink' => true do %>
+  	<%= link_to admin_panel_training_course_user_training_courses_path(training_course), title: '报名人员列表' do %>
+      <span class="glyphicon glyphicon-user"></span>
+    <% end %>
+  </td>
+  <td class="text-center">
+    <%= link_to edit_admin_panel_training_course_path(training_course), title: '修改项目信息', 'data-no-turbolink' => true do %>
       <span class="glyphicon glyphicon-edit"></span> 修改
     <% end %>
   </td>

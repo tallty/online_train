@@ -11,7 +11,7 @@
     <% @training_course.training_course_teachers.each do |training_course_teacher| %>
       <tr>
         <td><%= training_course_teacher.try(:teacher).try(:name)%></td>
-        <td><%= training_course_teacher.try(:teacher).try(:sex)%></td>
+        <td><%= Teacher::Sex[training_course_teacher.try(:teacher).try(:sex).try(:to_sym)]%></td>
         <td><%= training_course_teacher.try(:teacher).try(:job_title)%></td>
         <td><%= training_course_teacher.try(:teacher).try(:school).try(:name)%></td>
       </tr>

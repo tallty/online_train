@@ -54,6 +54,7 @@ Rails.application.routes.draw do
         get :list
       end
       resources :notifications
+      resources :user_training_courses, only: :index
       member do
         patch :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator
         post :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator
@@ -68,6 +69,9 @@ Rails.application.routes.draw do
     resources :journals
     resources :teachers
     resources :user_training_courses do
+      collection do
+        get :list
+      end
       member do
         patch :disapplied, :applied
         post :disapplied, :applied
