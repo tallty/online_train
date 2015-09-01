@@ -54,43 +54,47 @@
 					</div>
 				</div>
 				<div class="right-body">
-					<div class="table-responsive">
-						<table class="table table-bordered table-hover">
-							<thead>
-								<tr class="active text-center">
-									<th>计划</th>
-									<th width="30%">培训班名称</th>
-									<th>培训机构名称</th>
-									<th><div class="cell-width">地点</div></th>
-									<th width="15%">时间</th>
-									<th><div class="cell-width">可报</div></th>
-									<th><div class="cell-width">剩余</div></th>
-									<th><div class="cell-width">状态</div></th>
-								</tr>
-							</thead>
-							<tbody>
-							  <% @training_courses.each do |training_course|%>
-									<tr>
-										<td scope="row">2015</td>
-										<td><%= link_to training_course.name, training_course_path(training_course.id) %></td>
-										<td><%= training_course.try(:school).try(:name) %></td>
-										<td><%= training_course.try(:training_address) %></td>
-										<td><%= training_course.try(:start_time).strftime("%Y-%m-%d") %>至<%= training_course.try(:end_time).strftime("%Y-%m-%d")%></td>
-										<td><%= training_course.plan_number %></td>
-										<td><%= (training_course.plan_number.to_i - training_course.user_training_courses.count) > 0 ? training_course.plan_number.to_i - training_course.user_training_courses.count : 0%></td>
-										<td>
-											<% if training_course.category.try(:include?, "国培") %>
-												<%= link_to "报名", "http://www.hvett.com.cn/index.php?action=page&pid=7",target: "_blank"  %>
-											<% else %>
-												<%= link_to "报名", training_course_path(training_course.id) %>
-											<% end %>
-										</td>
+				  <% if @training_courses.present? %>
+						<div class="table-responsive">
+							<table class="table table-bordered table-hover">
+								<thead>
+									<tr class="active text-center">
+										<th>计划</th>
+										<th width="30%">培训班名称</th>
+										<th>培训机构名称</th>
+										<th><div class="cell-width">地点</div></th>
+										<th width="15%">时间</th>
+										<th><div class="cell-width">可报</div></th>
+										<th><div class="cell-width">剩余</div></th>
+										<th><div class="cell-width">状态</div></th>
 									</tr>
-								<% end %>
-							</tbody>
-						</table>
-					</div>
-					<%= paginate @training_courses %>
+								</thead>
+								<tbody>
+								  <% @training_courses.each do |training_course|%>
+										<tr>
+											<td scope="row">2015</td>
+											<td><%= link_to training_course.name, training_course_path(training_course.id) %></td>
+											<td><%= training_course.try(:school).try(:name) %></td>
+											<td><%= training_course.try(:training_address) %></td>
+											<td><%= training_course.try(:start_time).strftime("%Y-%m-%d") %>至<%= training_course.try(:end_time).strftime("%Y-%m-%d")%></td>
+											<td><%= training_course.plan_number %></td>
+											<td><%= (training_course.plan_number.to_i - training_course.user_training_courses.count) > 0 ? training_course.plan_number.to_i - training_course.user_training_courses.count : 0%></td>
+											<td>
+												<% if training_course.category.try(:include?, "国培") %>
+													<%= link_to "报名", "http://www.hvett.com.cn/index.php?action=page&pid=7",target: "_blank"  %>
+												<% else %>
+													<%= link_to "报名", training_course_path(training_course.id) %>
+												<% end %>
+											</td>
+										</tr>
+									<% end %>
+								</tbody>
+							</table>
+						</div>
+						<%= paginate @training_courses %>
+					<% else %>
+					  <div class="alert alert-warning" role="alert">抱歉，暂时还没有培训课程！</div>
+					<% end %>
 				</div>
 			</div>
 		</div>
