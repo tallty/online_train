@@ -81,8 +81,8 @@ class TrainingCourse < ActiveRecord::Base
     text :category
     text :grade_leader
     text :be_applied
-    text :school_name do
-      school.name
-    end
+    # text :school_name do
+    #   school.name
+    # end
   end
 end
