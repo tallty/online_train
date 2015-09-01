@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require ./admin_panel/typeahead.min
+//= require ./admin_panel/left_size
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require jquery.remotipart
