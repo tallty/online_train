@@ -8,7 +8,7 @@ module AdminPanel
 			@search = TrainingCourse.search do
 		    fulltext(params[:q]) do
 		      fields(:name, :code, :category, :grade_leader, :be_applied)
-		      fields(:school, :name)
+		      fields(:school_name)
 		    end
 		    all do
 	        fulltext params[:be_applied], :fields => :be_applied
