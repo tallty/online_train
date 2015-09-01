@@ -36,19 +36,42 @@
 	    <table class="table table-condensed">
 	    	<thead>
 	    	  <tr>
+	    	    <th class="col-sm-2 text-center">培训类型</th>
 	    	  	<th class="col-sm-2 text-center">培训班</th>
 		    		<th class="col-sm-2 text-center">培训机构</th>
 		    		<th class="text-center">培训起止时间</th>
-		    		<th class="text-center">培训费用</th>
 		    		<th class="text-center">计划数</th>
-		    		<th class="text-center">评审专家</th>
-		    		<th class="text-center">研究会</th>
-		    		<th class="text-center">教委</th>
+		    		<th class="text-center">是否可报名</th>
 		    		<th class="text-center">报名通知</th>
+		    		<th class="text-center">报名人员</th>
 	    	  </tr>
 	    	</thead>
 	    	<tbody>
-	    	  <%= render @training_courses %>
+	    	  <% @training_courses.each do |training_course|%>
+	    	    <tr class="tr-default-bg">
+							<td class="text-center"><%= TrainingCourse::ListCategory[training_course.category.to_sym] %></td>
+							<td class="text-center"><%= link_to truncate(training_course.try(:name), length: 15), admin_panel_training_course_path(training_course.id), 'data-toggle': "tooltip", 'data-placement': "top", title: training_course.try(:name) %></td>
+							<td class="text-center"><%= training_course.try(:school).try(:name) %></td>
+							<td class="text-center">
+							  <%= training_course.start_time.try(:strftime, "%F")%> ~
+							  <%= training_course.end_time.try(:strftime,"%F") %>
+						  </td>
+							<td class="text-center"><%= training_course.plan_number %></td>
+							<td class="text-center"><%= training_course.be_applied ? content_tag(:div, "是", class: "btn btn-xs btn-success") : content_tag(:div, "否", class: "btn btn-xs btn-danger") %></td>
+						  <td class="text-center">
+						    <% if notification_present?(training_course.id) %>
+						      <div class="btn btn-xs btn-success">已创建</div>
+						    <% else %>
+						      <div class="btn btn-xs btn-danger">未创建</div>
+						    <% end %>
+						  </td>
+						  <td class="text-center">
+						  	<%= link_to admin_panel_training_course_user_training_courses_path(training_course), title: '报名人员列表' do %>
+						      <span class="glyphicon glyphicon-user"></span>
+						    <% end %>
+						  </td>
+						</tr>
+	    	  <% end %>
 	    	</tbody>
 	    </table>
 	  </div>
