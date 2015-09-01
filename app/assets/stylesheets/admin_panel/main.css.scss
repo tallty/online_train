@@ -27,6 +27,12 @@ a:hover, a:active, a:visited, a:link {
 }
 
 //左边栏样式
+#leftMenu {
+	width: 215px;
+	position: fixed;
+  top: 64px;
+  bottom: 0;
+}
 .left-bar {
 	min-height: 660px;
 	background: #1f7ed0;
