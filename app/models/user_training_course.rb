@@ -31,4 +31,17 @@ class UserTrainingCourse < ActiveRecord::Base
       user.phone
     end
   end
+
+  #scope搜索方式
+  scope :keyword_like, -> (keyword) do
+    return all if keyword.blank?
+    joins(:user).where(
+      'users.name LIKE ?
+       OR users.email LIKE ?
+       OR users.address LIKE ?',
+      "%#{keyword}%",
+      "%#{keyword}%",
+      "%#{keyword}%"
+    )
+  end
 end

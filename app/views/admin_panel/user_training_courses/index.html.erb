@@ -4,10 +4,10 @@
       <h3 class="panel-title">搜索栏</h3>
     </div>
     <div class="panel-body">
-      <%= form_tag list_admin_panel_user_training_courses_path, method: :get do %>
+      <%= form_tag admin_panel_training_course_user_training_courses_path(@training_course), method: :get do %>
         <div class="col-sm-3">
           <div class="form-group">
-           <%= text_field_tag :q, nil, class: "form-control", placeholder: '请输入关键字' %>
+           <%= text_field_tag :keyword, nil, class: "form-control", placeholder: '请输入关键字' %>
           </div>
         </div>
         <div class="col-sm-3">

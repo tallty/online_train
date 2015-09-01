@@ -4,12 +4,12 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   load_and_authorize_resource
 
   def index
-    @user_training_courses = @training_course.user_training_courses
-    @search = UserTrainingCourse.where(training_course_id: @training_course.id).search do
-      fulltext(params[:q]) do
-        fields(:user_name, :user_email, :user_phone)
-      end
-    end
+    @user_training_courses = @training_course.user_training_courses.keyword_like(params[:keyword])
+    # @search = UserTrainingCourse.where(training_course_id: @training_course.id).search do
+    #   fulltext(params[:q]) do
+    #     fields(:user_name, :user_email, :user_phone)
+    #   end
+    # end
   end
 
   def list

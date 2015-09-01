@@ -1,4 +1,4 @@
-<% search.each_hit_with_result do |hit, user_training_course| %>
+<% @user_training_courses.each do |user_training_course| %>
   <tr>
     <td><%= user_training_course.try(:user).try(:name)%></td>
     <td><%= user_training_course.try(:user).try(:email)%></td>
