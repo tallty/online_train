@@ -21,6 +21,7 @@
 			color: #fff;
 			line-height: 30px;
 			a {
+				font-family: "Microsoft YaHei",微软雅黑;
 				text-decoration: none;
 				color: #fff;
 			}
@@ -100,6 +101,7 @@
 		}
 	}
 	.special-title {
+		font-family: "Microsoft YaHei",微软雅黑;
 		background: image_url("beijing.png") left top no-repeat;
 		background-size: 100% 100%;
 		color: #fff;
@@ -146,8 +148,8 @@
 	// <!--left news page（通知要闻部分）样式-->
 	.events-list {
 		margin: 10px 0;
-		font-size: 16px;
 		color: #fff;
+		font-family: "Microsoft YaHei",微软雅黑;
 		padding: 5px 20px;
 		background: image_url("h_news_t.gif") no-repeat;
 		background-color: #D8D8D8;

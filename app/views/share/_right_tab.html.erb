@@ -20,14 +20,14 @@
 </div>
 <div class="special-content msg-content">
   <% @bulletin.each do |event| %>
-    <li><%= link_to event.try(:title), event_path(event) %><span>（<%= event.updated_at.strftime("%Y-%m-%d") %>）</span></li>
+    <li><%= link_to truncate(event.try(:title),length: 40), event_path(event) %><span>（<%= event.updated_at.strftime("%Y-%m-%d") %>）</span></li>
   <% end %>
 </div>
 <div class="special-title special-title-t">
 	专题专栏
 </div>
 <div class="special-content">
-  <%=link_to building_reports_path do %>
+  <%=link_to home_index_path do %>
 	  <%=image_tag "gzsz.gif", width:"100%", title: '高职师资公共培训'%>
   <% end %>
 	<%=link_to home_index_path do %>
