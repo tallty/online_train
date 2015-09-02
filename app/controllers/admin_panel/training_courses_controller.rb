@@ -26,9 +26,11 @@ module AdminPanel
 	        fulltext params[:be_applied], :fields => :be_applied
 	      end
 		  end
+		  add_breadcrumb "列表"
 		end
 
 		def show
+			add_breadcrumb "查看"
 		end
 
 		def new

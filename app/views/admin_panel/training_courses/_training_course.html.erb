@@ -49,7 +49,12 @@
 	  </td>
 	  <td class="text-center">
 	    <%= link_to edit_admin_panel_training_course_path(training_course), title: '修改项目信息', 'data-no-turbolink' => true do %>
-	      <span class="glyphicon glyphicon-edit"></span> 修改
+	      <span class="glyphicon glyphicon-edit"></span>
+	    <% end %>
+	  </td>
+	  <td class="text-center">
+	    <%= link_to admin_panel_training_course_path(training_course), title: '查看项目信息', 'data-no-turbolink' => true do %>
+	      <span class="glyphicon glyphicon-eye-open"></span>
 	    <% end %>
 	  </td>
 	</tr>

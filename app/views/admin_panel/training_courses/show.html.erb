@@ -1,0 +1,78 @@
+<div class="main-content">
+  <div class="panel panel-default">
+	  <div class="panel-heading panel-active">项目信息</div>
+	  <div class="panel-body panel-default-bg">
+	    <table class="table">
+	      <tr>
+	      	<th class="col-sm-1">分类</th>
+	      	<td><%= TrainingCourse::ListCategory[@training_course.category.to_sym] %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">培训班</th>
+	      	<td><%= @training_course.name %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">培训机构</th>
+	      	<td><%= @training_course.try(:school).try(:name) %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-2">培训项目负责人</th>
+	      	<td><%= @training_course.project_leader %></td>
+	      </tr>
+
+	      <tr>
+	      	<th class="col-sm-2">培训班级负责人</th>
+	      	<td><%= @training_course.grade_leader %></td>
+	      </tr>
+
+	      <tr>
+	      	<th class="col-sm-1">教师团队</th>
+	      	<td>
+	      	  <% @training_course.teachers.each do |teacher| %>
+	      	    <span><%= teacher.name %></span>
+	      	  <% end %>
+	      	</td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">起止时间</th>
+	      	<td><%= @training_course.start_time.try(:strftime, "%F")%> ~ <%= @training_course.end_time.try(:strftime,"%F") %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">计划数</th>
+	      	<td><%= @training_course.plan_number %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">培训地点</th>
+	      	<td><%= @training_course.training_address %></td>
+	      </tr>
+
+	      <tr>
+	      	<th class="col-sm-1">联系方式</th>
+	      	<td><%= @training_course.contact %></td>
+	      </tr>
+
+	      <tr>
+	      	<th class="col-sm-1">可否报名</th>
+	      	<td><%= @training_course.be_applied ? '是' : '否' %></td>
+	      </tr>
+
+	      <tr>
+	      	<th class="col-sm-1">项目信息</th>
+	      	<td><%= @training_course.info %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">机构背景</th>
+	      	<td><%= @training_course.training_background %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">培训目标</th>
+	      	<td><%= @training_course.training_target %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">考核方法</th>
+	      	<td><%= @training_course.check_method %></td>
+	      </tr>
+	    </table>
+	  </div>
+	</div>
+</div>
