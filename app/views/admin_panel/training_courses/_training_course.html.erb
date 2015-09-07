@@ -32,28 +32,17 @@
 		  <td class="text-center text-active-status">已审核</td>
 		<% end%>
 	  <td class="text-center">
-	    <% if notification_present?(training_course.id) %>
-	      <%= link_to admin_panel_training_course_notification_path(training_course, training_course.notification), 'data-no-turbolink' => true, class: 'btn btn-xs btn-success' do %>
-	        <span class="glyphicon glyphicon-bell"></span> 报名通知
-	      <% end %>
-	    <% else %>
-	      <%= link_to new_admin_panel_training_course_notification_path(training_course), 'data-no-turbolink' => true, class: 'btn btn-xs btn-danger' do %>
-	        <span class="glyphicon glyphicon-bell"></span> 报名通知
-	      <% end %>
-	    <% end %>
-	  </td>
-	  <td class="text-center">
 	  	<%= link_to admin_panel_training_course_user_training_courses_path(training_course), title: '报名人员列表' do %>
 	      <span class="glyphicon glyphicon-user"></span>
 	    <% end %>
 	  </td>
 	  <td class="text-center">
-	    <%= link_to edit_admin_panel_training_course_path(training_course), title: '修改项目信息', 'data-no-turbolink' => true do %>
+	    <%= link_to edit_admin_panel_notification_training_course_path(@notification, training_course), title: '修改项目信息', 'data-no-turbolink' => true do %>
 	      <span class="glyphicon glyphicon-edit"></span>
 	    <% end %>
 	  </td>
 	  <td class="text-center">
-	    <%= link_to admin_panel_training_course_path(training_course), title: '查看项目信息', 'data-no-turbolink' => true do %>
+	    <%= link_to admin_panel_notification_training_course_path(@notification, training_course), title: '查看项目信息', 'data-no-turbolink' => true do %>
 	      <span class="glyphicon glyphicon-eye-open"></span>
 	    <% end %>
 	  </td>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901083216) do
+ActiveRecord::Schema.define(version: 20150907015427) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -86,18 +86,15 @@ ActiveRecord::Schema.define(version: 20150901083216) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer  "training_course_id", limit: 4
-    t.string   "title",              limit: 255
-    t.string   "sub_title",          limit: 255
-    t.integer  "view_count",         limit: 4,     default: 0
-    t.string   "author",             limit: 255
-    t.text     "content",            limit: 65535
-    t.string   "category",           limit: 255
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.string   "title",      limit: 255
+    t.string   "sub_title",  limit: 255
+    t.integer  "view_count", limit: 4,     default: 0
+    t.string   "author",     limit: 255
+    t.text     "content",    limit: 65535
+    t.string   "category",   limit: 255
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
-
-  add_index "notifications", ["training_course_id"], name: "index_notifications_on_training_course_id", using: :btree
 
   create_table "provinces", force: :cascade do |t|
     t.string   "username",   limit: 255
@@ -179,7 +176,10 @@ ActiveRecord::Schema.define(version: 20150901083216) do
     t.string   "category",            limit: 255
     t.string   "grade_leader",        limit: 255
     t.boolean  "be_applied",          limit: 1,                             default: false
+    t.integer  "notification_id",     limit: 4
   end
+
+  add_index "training_courses", ["notification_id"], name: "index_training_courses_on_notification_id", using: :btree
 
   create_table "user_messages", force: :cascade do |t|
     t.integer  "user_id",    limit: 4

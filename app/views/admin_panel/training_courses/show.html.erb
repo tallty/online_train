@@ -73,6 +73,10 @@
 	      	<td><%= @training_course.check_method %></td>
 	      </tr>
 	    </table>
+	    <hr>
+	    <div class="text-center">
+	    	<%= link_to "修改", edit_admin_panel_notification_training_course_path(@notification, @training_course), class: 'btn btn-primary', 'data-no-turbolink' => true %>
+	    </div>
 	  </div>
 	</div>
 </div>

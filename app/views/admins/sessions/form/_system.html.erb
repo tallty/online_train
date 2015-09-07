@@ -7,6 +7,7 @@
     <% end %>
   <% end %>
   <%= hidden_field_tag :role, params[:role]%>
+  <%= f.hidden_field :email, value: "shanghai"%>
   <div class="input-group input-group-lg mt-20">
     <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
     <%= text_field_tag :email, nil, value: "上海", class: "form-control", disabled: true %>

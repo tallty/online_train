@@ -1,0 +1,21 @@
+<% search.each_hit_with_result do |hit, notification| %>
+  <tr class="tr-default-bg">
+		<td class="text-center"><%= Notification::ListCategory[notification.category.to_sym] %></td>
+		<td class="text-center"><%= notification.title%></td>
+		<td class="text-center"><%= notification.sub_title%></td>
+		<td class="text-center"><%= notification.author%></td>
+		<td class="text-center"><%= notification.view_count%></td>
+		<td class="text-center">
+	    <% if training_course_present?(notification.id) %>
+	      <%= link_to admin_panel_notification_training_course_path(notification, notification.training_course), 'data-no-turbolink' => true, class: 'btn btn-xs btn-success' do %>
+	        <span class="glyphicon glyphicon-bell"></span> 查看培训班
+	      <% end %>
+	    <% else %>
+	      <%= link_to new_admin_panel_notification_training_course_path(notification), 'data-no-turbolink' => true, class: 'btn btn-xs btn-danger' do %>
+	        <span class="glyphicon glyphicon-bell"></span> 创建培训班
+	      <% end %>
+	    <% end %>
+	  </td>
+		<td class="text-center"><%= link_to "修改", edit_admin_panel_notification_path(notification), 'data-no-turbolink' => true  %></td>
+	</tr>
+<% end %>

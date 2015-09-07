@@ -1,4 +1,5 @@
 <%= simple_form_for [:admin_panel, @training_course, @notification], html: { class: 'form-horizontal' }, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {radio_buttons: :horizontal_radio_and_checkboxes } do |f|%>
+  <%= f.input :category, label: '分类', collection: Notification::ListCategory.to_a.reverse_each{|x| x.reverse!}, as: :radio_buttons %>
   <div class="form-group">
     <%= f.label :title, '标题', class: 'col-sm-3 control-label' %>
     <div class="col-sm-4">

@@ -43,11 +43,13 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: { sessions: "admins/sessions" }
   namespace :admin_panel do
     root "home#index"
+    resources :notifications do
+      resources :training_courses
+    end
     resources :training_courses do
       collection do
         get :list
       end
-      resources :notifications
       resources :user_training_courses, only: :index
       member do
         patch :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator

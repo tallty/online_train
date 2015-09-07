@@ -4,11 +4,7 @@
 	  <div class="panel-body panel-default-bg">
 	    <table class="table">
 	      <tr>
-	      	<th class="col-sm-1">所属课程</th>
-	      	<td><%= @notification.try(:training_course).try(:name) %></td>
-	      </tr>
-	      <tr>
-	      	<th>分类</th>
+	      	<th class="col-sm-1">分类</th>
 	      	<td><%= Notification::ListCategory[@notification.category.to_sym] %> </td>
 	      </tr>
 	      <tr>
@@ -32,7 +28,7 @@
 	      	<td><%= raw @notification.content %></td>
 	      </tr>
 	    </table>
-	    <%= link_to "修改", edit_admin_panel_training_course_notification_path(@training_course, @notification), 'data-no-turbolink' => true, class: "btn btn-primary"%>
+	    <%= link_to "修改", edit_admin_panel_notification_path(@notification), 'data-no-turbolink' => true, class: "btn btn-primary"%>
 	  </div>
 	</div>
 </div>

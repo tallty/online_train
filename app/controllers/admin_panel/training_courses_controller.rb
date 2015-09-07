@@ -1,19 +1,16 @@
 module AdminPanel
 	class TrainingCoursesController < AdminPanel::BaseController
 		load_and_authorize_resource
+		before_action :set_notification
 		before_action :set_breadcrumb
 		before_action :set_training_course, only: [:edit, :update, :show, :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator]
 
 	  def index
 			@search = TrainingCourse.search do
-		    fulltext(params[:q]) do
-		      fields(:name, :code, :category, :grade_leader, :be_applied)
-		      #fields(:school_name)
-		    end
-		    all do
-	        fulltext params[:be_applied], :fields => :be_applied
-	      end
-		  end
+      fulltext(params[:q]) do
+        fields(:title, :sub_title, :category)
+      end
+    end
 		end
 
 		def list
@@ -63,16 +60,17 @@ module AdminPanel
 		end
 
 		def create
-			@training_course = TrainingCourse.new(training_course_params)
+			@training_course = TrainingCourse.new(training_course_params.merge(notification_id: @notification.id))
 			@training_course.state = :unchecked
+			@training_course.category = @notification.category
 			@training_course.training_course_teachers << TrainingCourseTeacher.new(teacher_id: params[:training_course][:teacher_ids],
 				                        training_course_id: @training_course.id)
 			if @training_course.save
 				flash[:notice] = "项目创建成功"
-				return redirect_to admin_panel_training_courses_path
+				return redirect_to admin_panel_notification_training_course_path(@notification, @training_course)
 			else
 				flash[:notice] = "项目创建失败"
-				return redirect_to admin_panel_training_courses_path
+				return redirect_to admin_panel_notification_training_course_path(@notification, @training_course)
 			end
 		end
 
@@ -84,14 +82,18 @@ module AdminPanel
 			params[:training_course][:teacher_ids] ||= []
 			if @training_course.update(training_course_params)
 				flash[:notice] = "项目更新成功"
-				return redirect_to admin_panel_training_courses_path
+				return redirect_to admin_panel_notification_training_course_path(@notification, @training_course)
 			else
 				flash[:notice] = "项目更新失败"
-				return redirect_to admin_panel_training_courses_path
+				return redirect_to admin_panel_notification_training_course_path(@notification, @training_course)
 			end
 		end
 
 		private
+
+		def set_notification
+			@notification = Notification.find(params[:notification_id])
+		end
 
 		def set_breadcrumb
 			add_breadcrumb "后台", admin_panel_root_path
@@ -99,11 +101,11 @@ module AdminPanel
     end
 
 		def set_training_course
-			@training_course = TrainingCourse.find(params[:id])
+			@training_course = @notification.training_course
 		end
 
 		def training_course_params
-			params.require(:training_course).permit(:school_id, :name, :code, :start_time, :end_time,
+			params.require(:training_course).permit(:notification_id, :school_id, :name, :code, :start_time, :end_time,
 			                       :plan_number, :training_agency, :training_address, :training_fee,
 			                       :state, :remark, :info, :training_background, :training_target, :be_applied,
 			                       :training_content, :check_method, :project_leader, :grade_leader, :contact, :category, {teacher_ids: []})

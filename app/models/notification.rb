@@ -1,5 +1,5 @@
 class Notification < ActiveRecord::Base
-	belongs_to :training_course
+	has_one :training_course
   default_scope { order("created_at DESC") }
 
 	enum category: {
@@ -13,4 +13,11 @@ class Notification < ActiveRecord::Base
 	  teacher: '骨干教师培训',
 	  manager: '专业负责人培训'
 	}
+
+	#搜索功能
+	searchable do
+    text :title
+    text :sub_title
+    text :category
+  end
 end
