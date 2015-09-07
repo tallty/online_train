@@ -14,7 +14,7 @@
             <%= link_to "教育部门", new_session_path(:admin), class: (params[:role].blank? || params[:role] == "education") ? "active" : "" %>
           </li>
           <li>
-            <%= link_to "管理部门", new_session_path(:admin, role: :system), class: params[:role] == "system" ? "active" : "" %>
+            <%= link_to "秘书处", new_session_path(:admin, role: :system), class: params[:role] == "system" ? "active" : "" %>
           </li>
           <li>
             <%= link_to "培训机构", new_session_path(:admin, role: :trainer), class: params[:role] == "trainer" ? "active" : "" %>

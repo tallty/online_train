@@ -9,7 +9,7 @@
   <%= hidden_field_tag :role, params[:role]%>
   <div class="input-group input-group-lg mt-20">
     <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
-    <%= select_tag "admin[email]", options_for_select(Province.all.pluck(:name, :username)), autofocus: true, prompt: "请选择省厅",class: "form-control" %>
+    <%= text_field_tag :email, nil, value: "上海", class: "form-control", disabled: true %>
   </div>
 
   <div class="input-group input-group-lg mt-20">
