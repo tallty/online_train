@@ -86,3 +86,7 @@ gem "breadcrumbs_on_rails"
 #搜索配置
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+
+#数据爬取
+gem 'nokogiri'
+gem 'mechanize'

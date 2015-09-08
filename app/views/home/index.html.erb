@@ -109,41 +109,33 @@
 		  	<div class="panel panel-default half-width pull-left">
 					<div class="panel-heading text-center oh">
 				    <span class="active-title">培训通知</span>
-				    <%= link_to "更多", notifications_path, class: "pull-right active-link" %>
+				    <%= link_to "更多", "http://www.hvett.com.cn/index.php", target: "_blank", class: "pull-right active-link" %>
 				  </div>
 					<div class="panel-body">
 					  <ul>
 					    <!-- 最多显示5行 -->
-					    <% if @training_notifications.present? %>
-						    <% @training_notifications.each do |training_notification|%>
-							  	<li>
-							  	  <a href="<%= notification_path(training_notification) %>" class="col-sm-10 pull-left">&nbsp;&nbsp;<%= training_notification.title %></a>
-							  	  <span class="pull-right"><%= training_notification.created_at.strftime("%Y-%m-%d") %></span>
-							  	</li>
-							  <% end %>
-							<% else %>
-							  <div class="alert alert-warning" role="alert">该栏目暂时还没有培训通知</div>
-							<% end %>
+					    <% Spider::TONGZHI_HASH.each do |text, link|%>
+						  	<li>
+						  	  <a href="<%= link %>" target="_blank" class="col-sm-10 pull-left">&nbsp;&nbsp;<%= text %></a>
+						  	  <!-- <span class="pull-right"><%#= training_notification.created_at.strftime("%Y-%m-%d") %></span> -->
+						  	</li>
+						  <% end %>
 					  </ul>
 					</div>
 				</div>
 			  <div class="panel panel-default half-width pull-right">
 				  <div class="panel-heading text-center oh">
 				  	<span class="active-title">培训报名</span>
-				    <%= link_to "更多", training_courses_path, class: "pull-right active-link" %>
+				    <%= link_to "更多", "http://www.hvett.com.cn/index.php", target: "_blank", class: "pull-right active-link" %>
 				  </div>
 				  <div class="panel-body">
 				    <ul>
 					    <!-- 最多显示5行 -->
-					    <% if @training_courses.present? %>
-						    <% @training_courses.each do |training_course| %>
-							  	<li>
-							  	  <a href="<%= training_course_path(training_course)%>" class="col-sm-12 pull-left"><%= training_course.name %></a>
-							  	</li>
-							  <% end %>
-							<% else %>
-							  <div class="alert alert-warning" role="alert">该栏目暂时还没有培训报名</div>
-							<% end %>
+					    <% Spider::BAOMING_HASH.each do |text, link| %>
+						  	<li>
+						  	  <a href="<%= link %>" target="_blank" class="col-sm-12 pull-left"><%= text %></a>
+						  	</li>
+						  <% end %>
 					  </ul>
 				  </div>
 				</div>
