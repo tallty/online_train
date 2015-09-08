@@ -10,6 +10,9 @@
     <td>已报名</td>
     <td><%= user_training_course.try(:created_at).strftime("%Y-%m-%d %H:%M:%S") %></td>
     <td>
+      <%= link_to "备注", "", class: "btn btn-xs btn-success"%>
+    </td>
+    <td>
       <% if user_training_course.state %>
         <%= link_to "已通过", disapplied_admin_panel_user_training_course_path(user_training_course), method: :patch, data: {confirm: '确认撤销通过该报名吗？'}, class: "btn btn-xs btn-success"%>
       <% else  %>

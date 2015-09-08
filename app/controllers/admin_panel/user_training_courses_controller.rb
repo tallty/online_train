@@ -25,6 +25,12 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   	return redirect_to admin_panel_user_training_courses_url
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   def disapplied
   	@user_training_course.update!(state: false)
   	return redirect_to admin_panel_user_training_courses_url
