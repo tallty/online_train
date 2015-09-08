@@ -10,7 +10,7 @@
     <td>已报名</td>
     <td><%= user_training_course.try(:created_at).strftime("%Y-%m-%d %H:%M:%S") %></td>
     <td>
-      <%= link_to "备注", "", class: "btn btn-xs btn-success"%>
+      <%= link_to "备注信息", edit_admin_panel_training_course_user_training_course_path(@training_course, user_training_course), class: "btn btn-xs btn-success"%>
     </td>
     <td>
       <% if user_training_course.state %>

@@ -1,6 +1,6 @@
 class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
-  before_action :set_training_course, only: :index
-	before_action :set_user_training_course, only: [:applied, :disapplied]
+  before_action :set_training_course
+	before_action :set_user_training_course, only: [:applied, :disapplied, :edit, :update]
   load_and_authorize_resource
 
   def index
@@ -29,6 +29,13 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   end
 
   def update
+    if @user_training_course.update!(remark: params[:user_training_course][:remark])
+      flash[:notice] = "备注信息修改成功"
+      return redirect_to admin_panel_training_course_user_training_courses_path(@training_course)
+    else
+      flash[:notice] = "备注信息修改失败"
+      return render action: :edit
+    end
   end
 
   def disapplied
