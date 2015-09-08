@@ -35,6 +35,7 @@ Rails.application.routes.draw do
 
   resources :projects, only: :index
   resources :training_bases, only: :index
+  resources :china_germany, only: :index
 
   get 'home/index'
 

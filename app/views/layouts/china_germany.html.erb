@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>中德职教师资培训</title>
+  <%= stylesheet_link_tag    'china_germany', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'china_germany', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>">
+  <%#= render "header"%>
+
+  <!-- flash notice -->
+  <%= render :partial => "/common/flash_message" %>
+  <!-- flash notice -->
+<div class="row">
+  <div class="col-xs-12 report-page">
+    <div class="row">
+    <%= render "china_germany_header" %>
+    </div>
+      <%= yield %>
+    <div class="row">
+    <%= render "share/report_footer" %>
+    </div>
+  </div>
+</div>
+</body>
+</html>

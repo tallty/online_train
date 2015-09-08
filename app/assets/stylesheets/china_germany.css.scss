@@ -1,0 +1,43 @@
+@import "variables";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+	background: #f8f8f8;
+}
+.header {
+	height: 100px;
+	line-height: 100px;
+}
+.header-border {
+  height: 4px;
+  background: image-url("zhongde/header-border.png") no-repeat 0 0;
+  width: 100%;
+}
+
+.nav {
+  background: image-url("zhongde/nav-header.jpg") repeat-x 0 0;
+  a:hover {
+   background: #000;
+  }
+}
+
+.mt-26 {
+  margin-top: 26px;
+}
+.height-48 {
+	height: 48px;
+	line-height: 48px;
+}
+
+//report_footer 样式
+.report_footer_bg {
+	background-color: #EEEEEE;
+	line-height: 67px;
+	font-size: 16px;
+	color: #666666;
+	margin-top: 60px;
+	.report_footer_p {
+		margin: 0 29px;
+	}
+}

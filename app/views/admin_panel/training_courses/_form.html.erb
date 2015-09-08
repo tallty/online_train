@@ -21,7 +21,7 @@
         <div class="form-group">
           <%= f.label :school_id, '培训机构', class: 'col-sm-3 control-label' %>
           <div class="col-sm-4">
-            <%= f.select('school_id', School.all.pluck(:name, :id), {}, class: "form-control") %>
+            <%= f.select('school_id', School.all.pluck(:name, :id), {prompt: "请选择培训机构"}, class: "form-control") %>
           </div>
         </div>
         <div class="form-group">
@@ -58,6 +58,12 @@
           <%= f.label :training_address, '培训地点', class: 'col-sm-3 control-label' %>
           <div class="col-sm-4">
             <%= f.text_field :training_address, placeholder: "请输入培训地点", class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :training_fee, '培训费用', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-2">
+            <%= f.text_field :training_fee, placeholder: "请输入培训费用", class: 'form-control'%>
           </div>
         </div>
         <div class="form-group">
