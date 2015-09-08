@@ -1,7 +1,7 @@
 module AdminPanel
 	class TrainingCoursesController < AdminPanel::BaseController
 		load_and_authorize_resource
-		before_action :set_notification
+		before_action :set_notification, except: :list
 		before_action :set_breadcrumb
 		before_action :set_training_course, only: [:edit, :update, :show, :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator]
 

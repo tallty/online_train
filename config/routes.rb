@@ -51,7 +51,12 @@ Rails.application.routes.draw do
       collection do
         get :list
       end
-      resources :user_training_courses, only: [:index, :edit, :update]
+      resources :user_training_courses, only: [:index, :edit, :update] do
+        member do
+          patch :disapplied, :applied
+          post :disapplied, :applied
+        end
+      end
       member do
         patch :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator
         post :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator
@@ -68,10 +73,6 @@ Rails.application.routes.draw do
     resources :user_training_courses do
       collection do
         get :list
-      end
-      member do
-        patch :disapplied, :applied
-        post :disapplied, :applied
       end
     end
     resources :user_appraise_trains

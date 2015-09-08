@@ -34,7 +34,7 @@
         <th scope="row">培训天数</th>
         <td><%= (@training_course.try(:end_time).to_date - @training_course.try(:start_time).to_date).to_i %>天</td>
         <th>剩余名额</th>
-        <td class="font-green"><%= (@training_course.plan_number.to_i - @training_course.user_training_courses.count) > 0 ? @training_course.plan_number.to_i - @training_course.user_training_courses.count : 0%></td>
+        <td class="font-green"><%= (@training_course.plan_number.to_i - @user_training_courses.count) > 0 ? @training_course.plan_number.to_i - @user_training_courses.count : 0 %></td>
       </tr>
       <tr>
         <th scope="row">培训地点</th>
@@ -45,9 +45,11 @@
 </div>
 <br>
 <% if !@training_course.be_applied%>
-  <%= link_to "暂时不能报名", "javascript:void(0)", class: "btn btn-lg btn-danger" %>
+  <%= link_to "暂时不能报名", "javascript:void(0)", class: "btn btn-danger" %>
+<% elsif @training_course.plan_number.to_i - @user_training_courses.count <= 0 %>
+  <%= link_to "报名人数已满", "javascript:void(0)", class: "btn btn-danger" %>
 <% elsif @present_user_training_course.present? %>
-  <%= link_to "已报名", "javascript:void(0)", class: "btn btn-lg btn-primary apply-btn" %>
+  <%= link_to "已报名", "javascript:void(0)", class: "btn btn-primary apply-btn" %>
 <% else %>
   <% if user_signed_in? %>
     <%= form_for UserTrainingCourse.new, remote: true do |f| %>
