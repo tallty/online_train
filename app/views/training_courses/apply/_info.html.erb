@@ -46,8 +46,8 @@
 <br>
 <% if !@training_course.be_applied%>
   <%= link_to "暂时不能报名", "javascript:void(0)", class: "btn btn-danger" %>
-<% elsif Time.now > @training_course.start_apply_time && Time.now < @training_course.end_apply_time %>
-  <%= link_to "进行中", "javascript:void(0)", class: "btn btn-primary apply-btn" %>
+<%# elsif Time.now > @training_course.start_apply_time && Time.now < @training_course.end_apply_time %>
+  <%#= link_to "进行中", "javascript:void(0)", class: "btn btn-primary apply-btn" %>
 <% elsif Time.now < @training_course.start_apply_time %>
   <%= link_to "未开始", "javascript:void(0)", class: "btn btn-primary apply-btn" %>
 <% elsif Time.now > @training_course.end_apply_time %>

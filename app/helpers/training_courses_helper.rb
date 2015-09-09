@@ -1,4 +1,4 @@
-# module TrainingCoursesHelper
+module TrainingCoursesHelper
 # 	def state_training_course training_course
 # 		now = Time.new
 # 		start_time = training_course.start_apply_time
@@ -15,4 +15,4 @@
 # 	  # 	content_tag(:a, "请先登录", class: "btn btn-lg btn-primary apply-btn", href: new_user_session_path)
 # 	  end
 # 	end
-# end
+end
