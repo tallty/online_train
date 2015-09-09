@@ -11,6 +11,10 @@
 	  <div class="panel-body panel-default-bg">
 	    <table class="table">
 	      <tr>
+	      	<th class="col-sm-1">培训班级代码</th>
+	      	<td><%= @training_course.code %></td>
+	      </tr>
+	      <tr>
 	      	<th class="col-sm-1">分类</th>
 	      	<td><%= TrainingCourse::ListCategory[@training_course.category.to_sym] %></td>
 	      </tr>

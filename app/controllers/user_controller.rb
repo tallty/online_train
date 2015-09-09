@@ -6,6 +6,16 @@ class UserController < BaseController
   end
 
   def course
+    now = Time.now
+    #正在进行的课程
+    on_training_course_ids = TrainingCourse.where("start_time <= ? AND end_time >= ?", now, now).pluck(:id)
+    @on_user_training_courses = current_user.user_training_courses.where({training_course_id: on_training_course_ids})
+    #即将开始的课程
+    be_training_course_ids = TrainingCourse.where("start_time > ?", now).pluck(:id)
+    @be_user_training_courses = current_user.user_training_courses.where({training_course_id: be_training_course_ids})
+    #已完成的课程
+    already_training_course_ids = TrainingCourse.where("end_time < ?", now).pluck(:id)
+    @already_user_training_courses = current_user.user_training_courses.where({training_course_id: already_training_course_ids})
   end
 
   def message

@@ -3,6 +3,13 @@
   	<%= simple_form_for [:admin_panel, @notification, @training_course], html: { class: 'form-horizontal' }, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {radio_buttons: :horizontal_radio_and_checkboxes, boolean: :horizontal_boolean } do |f|%>
 
         <div class="form-group">
+          <%= f.label :code, '培训班级代码', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-4">
+            <%= f.text_field :code, placeholder: "请输入培训班级代码", class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
           <%= label_tag :teachers, '教师团队', class: 'col-sm-3 control-label' %>
           <div class="col-sm-4">
             <% Teacher.all.each do |teacher| %>
