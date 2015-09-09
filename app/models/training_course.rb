@@ -54,7 +54,7 @@ class TrainingCourse < ActiveRecord::Base
 		state :unchecked, :initial => true  #默认未通过审核
 		state :checked_by_expert     #通过专家审核
 		state :checked_by_seminar    #通过研究会审核
-		state :checked_by_educator   #通过教委审核
+		#state :checked_by_educator   #通过教委审核
 
     #暂定审核流程 专家审核 --》 研究会审核 --》 教委审核
 		event :to_unchecked do
@@ -69,9 +69,9 @@ class TrainingCourse < ActiveRecord::Base
 			transitions :from => :checked_by_expert, :to => :checked_by_seminar
 		end
 
-		event :to_checked_by_educator do
-			transitions :from => :checked_by_seminar, :to => :checked_by_educator
-		end
+		# event :to_checked_by_educator do
+		# 	transitions :from => :checked_by_seminar, :to => :checked_by_educator
+		# end
 	end
 
 	#搜索功能

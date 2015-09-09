@@ -17,19 +17,19 @@
 		  <td>----</td>
 	  <!-- 研究会 -->
 	  <% elsif training_course.checked_by_expert? %>
-		   <td class="text-center text-active-status">已审核</td>
+		   <td class="text-center text-active-status">审核通过</td>
 		   <td class="text-center text-active-status"><%= link_to "审核", checked_by_seminar_admin_panel_training_course_path(training_course.id), data: {confirm: '确认通过审核吗？'}, method: :patch %></td>
 		   <td>----</td>
 
 	  <!-- 教委 -->
-		<% elsif training_course.checked_by_seminar? %>
-		  <td class="text-center text-active-status">已审核</td>
-		  <td class="text-center text-active-status">已审核</td>
-		  <td class="text-center text-active-status"><%= link_to "审核", checked_by_educator_admin_panel_training_course_path(training_course.id), data: {confirm: '确认通过审核吗？'}, method: :patch %></td>
+		<% #elsif training_course.checked_by_seminar? %>
+		  <!-- <td class="text-center text-active-status">已审核</td> -->
+		  <!-- <td class="text-center text-active-status">已审核</td> -->
+		  <!-- <td class="text-center text-active-status"><%#= link_to "审核", checked_by_educator_admin_panel_training_course_path(training_course.id), data: {confirm: '确认通过审核吗？'}, method: :patch %></td> -->
 		<% else %>
-		  <td class="text-center text-active-status">已审核</td>
-		  <td class="text-center text-active-status">已审核</td>
-		  <td class="text-center text-active-status">已审核</td>
+		  <td class="text-center text-active-status">审核通过</td>
+		  <td class="text-center text-active-status">审核通过</td>
+		  <td class="text-center text-active-status">审核通过</td>
 		<% end%>
 	  <td class="text-center">
 	  	<%= link_to admin_panel_training_course_user_training_courses_path(training_course), title: '报名人员列表' do %>
