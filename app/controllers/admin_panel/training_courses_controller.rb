@@ -105,7 +105,7 @@ module AdminPanel
 		end
 
 		def training_course_params
-			params.require(:training_course).permit(:notification_id, :school_id, :name, :code, :start_time, :end_time,
+			params.require(:training_course).permit(:start_apply_time, :end_apply_time, :notification_id, :school_id, :name, :code, :start_time, :end_time,
 			                       :plan_number, :training_agency, :training_address, :training_fee,
 			                       :state, :remark, :info, :training_background, :training_target, :be_applied,
 			                       :training_content, :check_method, :project_leader, :grade_leader, :contact, :category, {teacher_ids: []})

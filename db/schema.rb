@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908024437) do
+ActiveRecord::Schema.define(version: 20150909013921) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -177,6 +177,8 @@ ActiveRecord::Schema.define(version: 20150908024437) do
     t.string   "grade_leader",        limit: 255
     t.boolean  "be_applied",          limit: 1,                              default: false
     t.integer  "notification_id",     limit: 4
+    t.datetime "start_apply_time"
+    t.datetime "end_apply_time"
   end
 
   add_index "training_courses", ["notification_id"], name: "index_training_courses_on_notification_id", using: :btree

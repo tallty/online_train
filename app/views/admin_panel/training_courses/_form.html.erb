@@ -48,6 +48,20 @@
             <%= f.date_field :end_time, class: 'form-control' %>
           </div>
         </div>
+
+        <div class="form-group">
+          <%= f.label :start_apply_time, '报名开始时间', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-2">
+            <%= f.date_field :start_apply_time, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :end_apply_time, '报名结束时间', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-2">
+            <%= f.date_field :end_apply_time, class: 'form-control' %>
+          </div>
+        </div>
+
         <div class="form-group">
           <%= f.label :plan_number, '计划人数', class: 'col-sm-3 control-label' %>
           <div class="col-sm-2">
