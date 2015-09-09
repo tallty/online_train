@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909013921) do
+ActiveRecord::Schema.define(version: 20150909024222) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -77,6 +77,19 @@ ActiveRecord::Schema.define(version: 20150909013921) do
     t.integer  "picture_url_file_size",    limit: 4
     t.datetime "picture_url_updated_at"
   end
+
+  create_table "journals", force: :cascade do |t|
+    t.integer  "user_id",            limit: 4
+    t.integer  "training_course_id", limit: 4
+    t.string   "title",              limit: 255
+    t.text     "content",            limit: 65535
+    t.datetime "add_date"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "journals", ["training_course_id"], name: "index_journals_on_training_course_id", using: :btree
+  add_index "journals", ["user_id"], name: "index_journals_on_user_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.string   "title",      limit: 255

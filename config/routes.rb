@@ -25,6 +25,9 @@ Rails.application.routes.draw do
       get :course
     end
   end
+
+  resources :journals, only: [:new, :create, :edit, :update]
+
   resources :user_tasks do
     member do
       get :download

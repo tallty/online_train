@@ -7,8 +7,10 @@
       <div class="tab-content courses col-md-9 pull-right">
         <div class="personal_center_content right-nav-tab">
           <strong class="col-md-3 right_message_tab"><span>我的日志</span></strong><br/><br/>
-          <!-- <div id="addJournal" class="add-journal pull-right">
-            <a href="#"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加日志</a>
+          <div id="addJournal" class="add-journal pull-right">
+            <%= link_to new_journal_path, remote: true do %>
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加日志
+            <% end %>
           </div>
           <table class="border-table">
             <tr>
@@ -18,68 +20,34 @@
               <th>创建时间</th>
               <th>操作</th>
             </tr>
-            <% (1..7) .each do |i|%>
-            <tr>
-              <td>2014-07-31</td>
-              <td>
-                （国内 常州）通信专业LTE技术培训（国培代码：10131010）
-              </td>
-              <td>日志内容日志内容日志内容日志内容日志内容日志内容日志内容日志内容日志内容日志内容</td>
-              <td>2015-04-25 <br> 21:30</td>
-              <td>
-                <a href="#" class="text-danger">编辑</a>
-              </td>
-            </tr>
+            <% @journals.each do |journal|%>
+              <tr>
+                <td><%= journal.try(:add_date).strftime("%Y-%m-%d") %></td>
+                <td><%= journal.try(:training_course).try(:name) %></td>
+                <td><%= raw journal.content %></td>
+                <td><%= journal.try(:created_at).strftime("%Y-%m-%d %H:%M") %></td>
+                <td>
+                  <%= link_to "编辑", edit_journal_path(journal), remote: true, class: "text-danger"%>
+                </td>
+              </tr>
             <% end %>
-          </table> -->
+          </table>
+          <div class="text-center"><%= paginate @journals%></div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<script type="text/javascript">
-  $(function(){
-    $("#addJournal").click(function(){
-      $("#addJournalModal").modal();
-    });
-  });
-</script>
-
-
-<div id="addJournalModal" class="modal fade">
+<!-- 编辑日志 -->
+<div id="JournalModal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">编辑日志</h4>
+        <h4 class="modal-title">我的日志</h4>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">培训班：</label>
-            <input type="text" class="form-control" id="exampleInputEmail1">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">培训内容：</label>
-            <textarea class="form-control" rows="7">
-              
-            </textarea>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">日期：</label>
-            <input type="text" class="form-control">
-          </div>
-
-          <div class="row">
-            <div class="col-sm-6 text-center">
-              <button type="button" class="btn btn-info">&nbsp;&nbsp;确认&nbsp;&nbsp;</button>
-            </div>
-            <div class="col-sm-6 text-center">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
-            </div>
-          </div>
-        </form>
       </div>
     </div>
   </div>

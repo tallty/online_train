@@ -17,6 +17,9 @@ class UserController < BaseController
   end
 
   def journal
+    @journals = Journal.where(user_id: current_user.id)
+                       .order("add_date asc")
+                       .page(params[:page]).per(15)
   end
 
   def update
