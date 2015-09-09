@@ -20,22 +20,18 @@
           <tr>
             <th>姓名</th>
             <th>联系方式</th>
-            <th>日志标题</th>
-            <th width="25%">培训班</th>
+            <th>培训班</th>
             <th>创建&amp;修改时间</th>
             <th>操作</th>
           </tr>
         </thead>
         <tbody>
-          <% (1..10).each do |i| %>
+          <% @journals.each do |journal| %>
           <tr>
-            <td>
-              王健 
-            </td>
-            <td>13608291823<br>23612323@qq.com</td>
-            <td>7月13号日志</td>
-            <td><%= link_to("（国内）（上海）信息化教学 技术及信息化课程开发师资培训 （国培代码：09151005）", admin_panel_training_course_path(1) )%></td>
-            <td>2013-06-23 14:23</td>
+            <td><%= journal.try(:user).try(:name)%></td>
+            <td><%= journal.try(:user).try(:phone)%><br><%= journal.try(:user).try(:email)%></td>
+            <td><%= link_to(journal.try(:training_course).try(:name), admin_panel_notification_training_course_path(journal.training_course.notification, journal.training_course))%></td>
+            <td><%= journal.try(:add_date).strftime("%Y-%m-%d %H:%M")%></td>
             <td><a href="#">查看</a></td>
           </tr>
           <% end %>
