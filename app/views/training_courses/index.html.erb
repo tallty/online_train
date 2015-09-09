@@ -1,3 +1,9 @@
+<% if params[:category] %>
+  <% @training_courses = @search_training_courses %>
+<% else %>
+  <% @training_courses = @all_training_courses %>
+<% end %>
+
 <div class="wrapper">
 	<div class="row">
 		<div class="col-md-12 col-sm-12">

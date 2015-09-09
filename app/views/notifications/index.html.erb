@@ -1,3 +1,8 @@
+<% if params[:category] %>
+  <% @notifications = @search_notifications %>
+<% else %>
+  <% @notifications = @all_notifications %>
+<% end %>
 <div class="wrapper">
 	<div class="row">
 		<div class="col-md-12">

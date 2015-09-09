@@ -6,7 +6,7 @@
 		  	<div class="panel panel-default half-width pull-left">
 					<div class="panel-heading oh text-center">
 				    <span class="active-title">专业负责人培训通知</span>
-				    <%= link_to "更多", notifications_path, class: "pull-right active-link" %>
+				    <%= link_to "更多", notifications_path(category: 2), class: "pull-right active-link" %>
 				  </div>
 					<div class="panel-body">
 					  <ul>
@@ -27,7 +27,7 @@
 			  <div class="panel panel-default half-width pull-right">
 				  <div class="panel-heading oh text-center">
 				  	<span class="active-title">专业负责人培训报名</span>
-				    <%= link_to "更多", training_courses_path, class: "pull-right active-link" %>
+				    <%= link_to "更多", training_courses_path(category: 2), class: "pull-right active-link" %>
 				  </div>
 				  <div class="panel-body">
 				    <ul>
@@ -57,7 +57,7 @@
 		  	<div class="panel panel-default half-width pull-left">
 					<div class="panel-heading text-center oh">
 				    <span class="active-title">骨干教师培训通知</span>
-				    <%= link_to "更多", notifications_path, class: "pull-right active-link" %>
+				    <%= link_to "更多", notifications_path(category: 1), class: "pull-right active-link" %>
 				  </div>
 					<div class="panel-body">
 					  <ul>
@@ -78,7 +78,7 @@
 			  <div class="panel panel-default half-width pull-right">
 				  <div class="panel-heading text-center oh">
 				  	<span class="active-title">骨干教师培训报名</span>
-				    <%= link_to "更多", training_courses_path, class: "pull-right active-link" %>
+				    <%= link_to "更多", training_courses_path(category: 1), class: "pull-right active-link" %>
 				  </div>
 				  <div class="panel-body">
 				    <ul>

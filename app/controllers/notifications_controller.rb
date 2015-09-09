@@ -1,7 +1,8 @@
 class NotificationsController < BaseController
 
 	def index
-		@notifications = Notification.all.page(params[:page]).per(15)
+		@all_notifications = Notification.all.page(params[:page]).per(15)
+		@search_notifications = Notification.where(category: params[:category]).page(params[:page]).per(15)
 	end
 
   def show
