@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909024222) do
+ActiveRecord::Schema.define(version: 20150910025521) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -175,9 +175,9 @@ ActiveRecord::Schema.define(version: 20150909024222) do
     t.decimal  "training_fee",                      precision: 10, scale: 2
     t.string   "state",               limit: 255
     t.text     "remark",              limit: 65535
-    t.string   "info",                limit: 255
-    t.string   "training_background", limit: 255
-    t.string   "training_target",     limit: 255
+    t.text     "info",                limit: 65535
+    t.text     "training_background", limit: 65535
+    t.text     "training_target",     limit: 65535
     t.text     "training_content",    limit: 65535
     t.text     "check_method",        limit: 65535
     t.string   "project_leader",      limit: 255
