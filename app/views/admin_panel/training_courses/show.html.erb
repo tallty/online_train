@@ -79,19 +79,19 @@
 
 	      <tr>
 	      	<th class="col-sm-1">项目信息</th>
-	      	<td><%= @training_course.info %></td>
+	      	<td><%= raw @training_course.info %></td>
 	      </tr>
 	      <tr>
 	      	<th class="col-sm-1">机构背景</th>
-	      	<td><%= @training_course.training_background %></td>
+	      	<td><%= raw @training_course.training_background %></td>
 	      </tr>
 	      <tr>
 	      	<th class="col-sm-1">培训目标</th>
-	      	<td><%= @training_course.training_target %></td>
+	      	<td><%= raw @training_course.training_target %></td>
 	      </tr>
 	      <tr>
 	      	<th class="col-sm-1">考核方法</th>
-	      	<td><%= @training_course.check_method %></td>
+	      	<td><%= raw @training_course.check_method %></td>
 	      </tr>
 	    </table>
 	    <hr>
