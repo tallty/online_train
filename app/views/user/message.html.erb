@@ -34,7 +34,7 @@
                   <% end %>
                 </td>
                 <td>
-                  <%= link_to("删除", user_message_path(message.message_by_user), method: :delete) %>
+                  <%= link_to("删除", user_message_path(message.message_by_user), method: :delete, data: {confirm: '确认删除这条消息吗？'}) %>
                 </td>
               </tr>
               <% end %>

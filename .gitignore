@@ -40,3 +40,5 @@ app/assets/images/.DS_Store
 
 /solr
 solr/
+
+public/uploads/
