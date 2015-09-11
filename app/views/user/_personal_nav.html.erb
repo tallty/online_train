@@ -8,7 +8,11 @@
       <hr class="divider">
       <li role="presentation"><%= link_to "我的日志", journal_user_index_path %></li>
       <hr class="divider">
-      <li role="presentation"><%= link_to "我的消息", message_user_index_path %></li>
+      <li role="presentation">
+        <%= link_to message_user_index_path do %>
+          我的消息 <span class="badge user-badge"><%= current_user.user_messages.where(status: "unread").count == 0 ? "" : current_user.user_messages.where(status: "unread").count %></span>
+        <% end %>
+      </li>
       <hr class="divider">
       <li role="presentation"><%= link_to "个人信息", my_user_index_path %></li>
     </ul>
