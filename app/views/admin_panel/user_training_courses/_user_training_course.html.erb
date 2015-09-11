@@ -7,7 +7,7 @@
     <td><%= user_training_course.try(:user).try(:address)%></td>
     <td><%= user_training_course.try(:user).try(:phone)%><br><%= user_training_course.try(:user).try(:email)%></td>
     <td>[学校]<%= user_training_course.try(:user).try(:school)%><br>[院系]<%= user_training_course.try(:user).try(:academy)%></td>
-    <td>已报名</td>
+    <td><%= user_training_course.user_training_course_status %></td>
     <td><%= user_training_course.try(:created_at).strftime("%Y-%m-%d %H:%M:%S") %></td>
     <% unless current_page?(controller: 'admin_panel/user_training_courses', action: 'list')%>
       <td>

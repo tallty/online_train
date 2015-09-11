@@ -1,0 +1,12 @@
+<ul>
+  <!-- 最多显示5行 -->
+  <% if training_courses.present? %>
+  	<% training_courses.each do |training_course| %>
+	  	<li>
+	  	  <a href="<%= training_course_path(training_course)%>" class="col-sm-12 pull-left" title="<%= training_course.name%>"><%= truncate training_course.name, length: 32 %></a>
+	  	</li>
+	  <% end %>
+  <% else %>
+    <div class="alert alert-warning" role="alert">该栏目暂时还没有培训报名</div>
+  <% end %>
+</ul>

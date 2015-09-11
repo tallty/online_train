@@ -19,6 +19,18 @@ class UserTrainingCourse < ActiveRecord::Base
     UserMessage.create!(user_id: current_user.id, message_id: message.id)
   end
 
+  #记录报名课程的3种状态
+  def user_training_course_status
+    case self.state
+    when nil
+      "审核中"
+    when true
+      "已通过"
+    when false
+      "未通过"
+    end
+  end
+
   #搜索功能
 	searchable do
     text :user_name do

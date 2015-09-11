@@ -3,6 +3,7 @@ class UserTrainingCoursesController < BaseController
 
   def create
   	@user_training_course = UserTrainingCourse.new(user_training_course_params)
+    @user_training_course.state = nil
   	if @user_training_course.save
   		return render js: 'alert("报名成功！");window.location(history.go(0));'
   	else

@@ -9,19 +9,7 @@
 				    <%= link_to "更多", notifications_path(category: 2), class: "pull-right active-link" %>
 				  </div>
 					<div class="panel-body">
-					  <ul>
-					    <!-- 最多显示5行 -->
-					    <% if @profession_notifications.present? %>
-						  	<% @profession_notifications.each do |profession_notification| %>
-							  	<li>
-							  	  <a href="<%= notification_path(profession_notification) %>" class="col-sm-10 pull-left"><%= profession_notification.title %></a>
-							  	  <span class="pull-right"><%= profession_notification.created_at.strftime("%Y-%m-%d") %></span>
-							  	</li>
-							  <% end %>
-							<% else %>
-							  <div class="alert alert-warning" role="alert">该栏目暂时还没有培训通知</div>
-							<% end %>
-					  </ul>
+					  <%=  render partial: "notification", locals: {notifications: @profession_notifications}%>
 					</div>
 				</div>
 			  <div class="panel panel-default half-width pull-right">
@@ -30,18 +18,7 @@
 				    <%= link_to "更多", training_courses_path(category: 2), class: "pull-right active-link" %>
 				  </div>
 				  <div class="panel-body">
-				    <ul>
-					    <!-- 最多显示5行 -->
-					    <% if @profession_training_courses.present? %>
-						  	<% @profession_training_courses.each do |profession_training_course| %>
-							  	<li>
-							  	  <a href="<%= training_course_path(profession_training_course)%>" class="col-sm-12 pull-left"><%= profession_training_course.name %></a>
-							  	</li>
-							  <% end %>
-						  <% else %>
-						    <div class="alert alert-warning" role="alert">该栏目暂时还没有培训报名</div>
-						  <% end %>
-					  </ul>
+				    <%=  render partial: "training_course", locals: {training_courses: @profession_training_courses}%>
 				  </div>
 				</div>
 			</div>
@@ -60,19 +37,7 @@
 				    <%= link_to "更多", notifications_path(category: 1), class: "pull-right active-link" %>
 				  </div>
 					<div class="panel-body">
-					  <ul>
-					    <!-- 最多显示5行 -->
-					    <% if @teacher_notifications.present? %>
-						    <% @teacher_notifications.each do |teacher_notification| %>
-							  	<li>
-							  	  <a href="<%= notification_path(teacher_notification) %>" class="col-sm-10 pull-left"><%= teacher_notification.title %></a>
-							  	  <span class="pull-right"><%= teacher_notification.created_at.strftime("%Y-%m-%d") %></span>
-							  	</li>
-							  <% end %>
-							<% else %>
-							  <div class="alert alert-warning" role="alert">该栏目暂时还没有培训通知</div>
-							<% end %>
-					  </ul>
+					  <%=  render partial: "notification", locals: {notifications: @teacher_notifications}%>
 					</div>
 				</div>
 			  <div class="panel panel-default half-width pull-right">
@@ -81,18 +46,7 @@
 				    <%= link_to "更多", training_courses_path(category: 1), class: "pull-right active-link" %>
 				  </div>
 				  <div class="panel-body">
-				    <ul>
-					    <!-- 最多显示5行 -->
-					    <% if @teacher_training_courses.present? %>
-						  	<% @teacher_training_courses.each do |teacher_training_course| %>
-							  	<li>
-							  	  <a href="<%= training_course_path(teacher_training_course)%>" class="col-sm-12 pull-left"><%= teacher_training_course.name %></a>
-							  	</li>
-							  <% end %>
-							<% else %>
-							  <div class="alert alert-warning" role="alert">该栏目暂时还没有培训报名</div>
-							<% end %>
-					  </ul>
+				    <%=  render partial: "training_course", locals: {training_courses: @teacher_training_courses}%>
 				  </div>
 				</div>
 			</div>
