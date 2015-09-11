@@ -20,7 +20,7 @@ class Ability
 
   # 角色（教育部门）
   def role_education
-    can :manage, :all
+    can :read, :all
   end
 
   # 角色（管理部门）

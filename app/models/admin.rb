@@ -87,6 +87,6 @@ class Admin < ActiveRecord::Base
 
   #登录下拉菜单使用该返回值
   def admin_name
-    self.adminable.name
+    self.try(:adminable).try(:name)
   end
 end
