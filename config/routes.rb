@@ -70,7 +70,11 @@ Rails.application.routes.draw do
         get :download
       end
     end
-    resources :user_tasks
+    resources :user_tasks do
+      collection do
+        get :list
+      end
+    end
     resources :journals
     resources :teachers
     resources :user_training_courses do

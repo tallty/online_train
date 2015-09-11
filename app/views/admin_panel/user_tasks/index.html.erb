@@ -2,15 +2,7 @@
   <div class="panel panel-primary">
     <div class="panel-heading have-menu">
       <ul id="detailMenu" class="nav nav-pills nav-content-menu">
-        <li class="active">
-          <%= link_to("培训作业", admin_panel_tasks_path ) %>
-        </li>
-        <li>
-          <%= link_to("日志提交", admin_panel_journals_path ) %>
-        </li>
-        <li><a href="#">学员反馈</a></li>
-        <li><a href="#">学员评师</a></li>
-        <li><a href="#">负责人反馈</a></li>
+        <%= render "nav"%>
       </ul>
     </div>
       

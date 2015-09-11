@@ -3,4 +3,8 @@ class AdminPanel::UserTasksController < AdminPanel::BaseController
 
   def index
   end
+
+  def list
+  	@user_tasks = UserTask.all
+  end
 end

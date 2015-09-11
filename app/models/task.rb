@@ -20,4 +20,14 @@ class Task < ActiveRecord::Base
   
   validates :title, presence: true
   validates :training_course_id, presence: true
+
+  #已提交作业人数
+  def submitted_count
+  	self.training_course.user_training_courses.where(state: true).count - self.user_tasks.count
+  end
+
+  #未提交作业人数
+  def unsubmitted_count
+  	self.user_tasks.count
+  end
 end

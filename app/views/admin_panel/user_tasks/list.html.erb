@@ -1,0 +1,38 @@
+<div class="grades-main-content">
+  <div class="panel panel-primary">
+    <div class="panel-heading have-menu">
+      <ul id="detailMenu" class="nav nav-pills nav-content-menu">
+        <%= render "nav"%>
+      </ul>
+    </div>
+      
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">学员</th>
+            <th class="text-center">联系方式</th>
+            <th class="text-center">作业标题</th>
+            <th class="text-center">作业附件</th>
+            <th class="text-center">创建&amp;修正时间</th>
+            <th class="text-center">状态</th>
+            <th class="text-center">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user_tasks.each do |user_task| %>
+          <tr class="text-center">
+            <td><%= user_task.try(:user).name %></td>
+            <td><%= user_task.try(:user).email %><br><%= user_task.try(:user).phone %></td>
+            <td><%= user_task.title %></td>
+            <td><%= link_to(truncate(user_task.try(:attachment).try(:avatar_file_name), length: 30), download_user_task_path(user_task), title: user_task.try(:attachment).try(:avatar_file_name) ) %></td>
+            <td><%= user_task.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+            <td>已完成</td>
+            <td><a href="#">查看</a> | <a href="#">评阅</a></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div>

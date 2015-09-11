@@ -8,12 +8,12 @@
           <div class="personal_center_content right-nav-tab">
             <strong class="col-md-3 right_message_tab"><span>我的作业</span></strong><br/>
             <div class="panel-group my-work-content" id="accordion" role="tablist" aria-multiselectable="true">
-              <% @training_courses.each_with_index do |training_course,index|%>
+              <% @user_training_courses.each_with_index do |user_training_course, index|%>
                 <div class="panel panel-default">
                   <div class="panel-heading" role="tab" id="heading<%= index %>">
                     <h4 class="panel-title">
                       <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index %>" aria-expanded="true" aria-controls="collapseOne">
-                        <%= training_course.name %>
+                        <%= user_training_course.try(:training_course).name %>
                       </a>
                     </h4>
                   </div>
@@ -23,29 +23,26 @@
                         <tr>
                           <th width="35%">作业</th>
                           <th width="15%">创建时间</th>
-                          <th width="20%">老师评价</th>
-                          <th>作业提交</th>
+                          <th>我的作业</th>
                         </tr>
-                        <%  training_course.tasks.each do |task|%>
-                        <% user_task = current_user.get_user_task_by_task task%>
-                        <tr>
-                          <td>
-                            <%= link_to(task.title, user_task_path(task),format: :js, remote: true) %>
-                          </td>
-                          <td><%= task.created_at.strftime("%F")%></td>
-                          <td><%= user_task.try(:appraise) %></td>
-                          <td>
-                            <% if user_task.present? %>
-                            <%= link_to(user_task.try(:title), edit_user_task_path(user_task,task_id: task.id),format: :js, remote: true) %>
-                              <% if user_task.try(:attachment).present? %>
-                              <br>(作业附件)
-                              <%= link_to(user_task.try(:attachment).try(:avatar_file_name), download_user_task_path(user_task)) %>
+                        <% user_training_course.training_course.tasks.each do |task|%>
+                          <% user_task = current_user.get_user_task_by_task task%>
+                          <tr>
+                            <td>
+                              <%= link_to(task.title, user_task_path(task), format: :js, remote: true) %>
+                            </td>
+                            <td><%= task.created_at.strftime("%F")%></td>
+                            <td class="text-left">
+                              <% if user_task.present? %>
+                                <% if user_task.try(:attachment).present? %>&nbsp;[作业附件]
+                                  <%= link_to(truncate(user_task.try(:attachment).try(:avatar_file_name), length: 18), download_user_task_path(user_task), title: user_task.try(:attachment).try(:avatar_file_name) ) %>
+                                  <%= link_to("[修改/查看]", edit_user_task_path(user_task,task_id: task.id), class: "text-muted", format: :js, remote: true) %>
+                                <% end %>
+                              <% else %>
+                                <%= link_to("提交", new_user_task_path(task_id: task.id), remote: true, format: :js) %>
                               <% end %>
-                            <% else %>
-                              <%= link_to("提交", new_user_task_path(task_id: task.id), remote: true, format: :js) %>
-                            <% end %>
-                          </td>
-                        </tr>
+                            </td>
+                          </tr>
                         <% end %>
                       </table>
                     </div>

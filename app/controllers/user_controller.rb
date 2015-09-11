@@ -23,7 +23,7 @@ class UserController < BaseController
   end
 
   def work
-    @training_courses = current_user.training_courses
+    @user_training_courses = current_user.user_training_courses.where(state: true)
   end
 
   def journal
