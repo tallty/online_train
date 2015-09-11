@@ -17,7 +17,7 @@
                 <th>状态</th>
                 <th>操作</th>
               </tr>
-              <% @message.each do |message|%>
+              <% @messages.each do |message|%>
               <tr>
                 <td>&nbsp;<input type="checkbox" />&nbsp;</td>
                 <td>
@@ -39,6 +39,9 @@
               </tr>
               <% end %>
             </table>
+            <div class="text-center">
+              <%= paginate @messages %>
+            </div>
           </div>
       </div>
     </div>

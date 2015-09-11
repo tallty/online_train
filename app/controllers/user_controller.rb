@@ -19,7 +19,7 @@ class UserController < BaseController
   end
 
   def message
-    @message = current_user.messages.order("created_at desc")
+    @messages = current_user.messages.order("created_at desc").page(params[:page]).per(20)
   end
 
   def work
