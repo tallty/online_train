@@ -84,4 +84,9 @@ class Admin < ActiveRecord::Base
 
    where(conditions).where(["username = :value", { value: login }]).first
   end
+
+  #登录下拉菜单使用该返回值
+  def admin_name
+    self.adminable.name
+  end
 end
