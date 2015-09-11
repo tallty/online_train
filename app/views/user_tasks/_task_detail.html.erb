@@ -16,11 +16,11 @@
             <td><%= @task.title %></td>
           </tr>
           <tr>
-            <th>内容</th>
+            <th>备注</th>
             <td><%= raw(@task.body.gsub(/\r\n/, "<br/>")) %></td>
           </tr>
           <tr>
-            <th>附件</th>
+            <th>附件下载</th>
             <td><% if @task.try(:attachment).present? %>
                 <%= link_to(@task.try(:attachment).try(:avatar_file_name), download_admin_panel_task_path(@task)) %>
               <% end %></td>
