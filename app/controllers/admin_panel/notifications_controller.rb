@@ -1,5 +1,5 @@
 class AdminPanel::NotificationsController < AdminPanel::BaseController
-  #load_and_authorize_resource class: false
+  load_and_authorize_resource
   before_action :set_notification, only: [:show, :edit, :update]
   def index
     @search = Notification.search do

@@ -1,0 +1,7 @@
+<%= form_for [:admin_panel, @todo], remote: true do |f|%>
+  <%= f.text_area :content, class: "form-control"%>
+  <br>
+  <div class="text-center">
+  	<%= f.submit "提交", class: "btn btn-primary"%>
+  </div>
+<% end %>

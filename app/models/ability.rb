@@ -18,12 +18,12 @@ class Ability
     end
   end
 
-  # 角色（教育部门）
+  # 角色（教育部门, 对后台栏目拥有查阅权限）
   def role_education
     can :manage, :all
   end
 
-  # 角色（管理部门）
+  # 角色（管理部门, 即秘书处, 对后台拥有超级管理员权限）
   def role_system
     can :manage, :all
   end

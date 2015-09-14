@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910025521) do
+ActiveRecord::Schema.define(version: 20150914031839) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -154,6 +154,16 @@ ActiveRecord::Schema.define(version: 20150910025521) do
     t.integer  "school_id",  limit: 4
     t.string   "job_title",  limit: 255
   end
+
+  create_table "todos", force: :cascade do |t|
+    t.text     "content",    limit: 65535
+    t.boolean  "state",      limit: 1,     default: false
+    t.integer  "admin_id",   limit: 4
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
+  add_index "todos", ["admin_id"], name: "index_todos_on_admin_id", using: :btree
 
   create_table "training_course_teachers", force: :cascade do |t|
     t.integer  "training_course_id", limit: 4

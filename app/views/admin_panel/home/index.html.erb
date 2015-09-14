@@ -12,21 +12,22 @@
 	        <div class="col-sm-10">
 	          <div class="col-sm-12">
 	          	<div class="col-sm-3 text-center">
-		      	   	<%= link_to "" do %>
+		      	   	<%= link_to new_admin_panel_todo_path, remote: true do %>
 	      	        <span class="glyphicon glyphicon-edit" style="font-size: 28px;"></span>
-	      	        <p>代办事项</p>
+	      	        <p>待办事项</p>
 		      	    <% end %>
-		      	  </div>
-	      	    <div class="col-sm-9">将曾经参加过培训班的学员证书编号补充录入系统。</div>
-	          </div>
-	          <div class="col-sm-12">
-		      	  <div class="col-sm-3 text-center">
-		      	   	<%= link_to "" do %>
+		      	    <%= link_to "" do %>
 	      	        <span class="glyphicon glyphicon-envelope" style="font-size: 28px;"></span>
 	      	        <p>温馨提示</p>
 		      	    <% end %>
 		      	  </div>
-		      	  <div class="col-sm-9">将班级状态由 [草稿] 改为 [报名] 后方可开放学员报名；学员报名截止后请您尽快将班级状态改为[开班]，布置相应的作业，并督促学员提交作业和日志；培训结业的必要条件包括 ①学员作业、②学员日志、③学员反馈表、④班级负责人反馈表，按要求完成后方可 [结课]；可在下方列表中 [查看] 班级学员的完成情况。</div>
+		      	  <div class="col-sm-9" id="todos-content">
+		      	    <ul>
+		      	      <% @todos.each do |todo| %>
+		      	        <li><%= todo.content %></li>
+		      	      <% end %>
+		      	    </ul>
+		      	  </div>
 		      	</div>
 	        </div>
 	      </div>
@@ -38,104 +39,35 @@
 	      <table class="table">
 		    	<thead>
 		    	  <tr>
-		    	  	<th class="text-center">序号</th>
 			    		<th class="text-center">年份</th>
-			    		<th class="text-center">培训代码</th>
 			    		<th class="text-center">名称</th>
-			    		<th class="text-center">省份</th>
 			    		<th class="text-center">培训机构</th>
-			    		<th class="text-center">专业</th>
-			    		<th class="text-center">负责人</th>
-			    		<th class="text-center">状态</th>
 			    		<th class="text-center">计划</th>
 			    		<th class="text-center">报名</th>
-			    		<th class="text-center">待审</th>
-			    		<th class="text-center">通过</th>
 			    		<th class="text-center">操作</th>
 		    	  </tr>
 		    	</thead>
 		    	<tbody>
-		    	  <tr class="tr-default-bg">
-		    	  	<td class="text-center">1</td>
-			    		<td class="text-center">2015</td>
-			    		<td class="text-center">[09151005]</td>
-			    		<td class="text-center">(国内上海)...</td>
-			    		<td class="text-center">上海</td>
-			    		<td class="text-center">上海电子...</td>
-			    		<td class="text-center">电子</td>
-			    		<td class="text-center">于佳颖</td>
-			    		<td class="text-center">报名</td>
-			    		<td class="text-center">100</td>
-			    		<td class="text-center">13</td>
-			    		<td class="text-center">12</td>
-			    		<td class="text-center">1</td>
-			    		<td class="text-center">
-			    			<%= link_to "[查看]"%>
-			    		</td>
-		    	  </tr>
-		    	  <tr class="tr-default-bg">
-		    	  	<td class="text-center">1</td>
-			    		<td class="text-center">2015</td>
-			    		<td class="text-center">[09151005]</td>
-			    		<td class="text-center">(国内上海)...</td>
-			    		<td class="text-center">上海</td>
-			    		<td class="text-center">上海电子...</td>
-			    		<td class="text-center">电子</td>
-			    		<td class="text-center">于佳颖</td>
-			    		<td class="text-center">报名</td>
-			    		<td class="text-center">100</td>
-			    		<td class="text-center">13</td>
-			    		<td class="text-center">12</td>
-			    		<td class="text-center">1</td>
-			    		<td class="text-center">
-			    			<%= link_to "[查看]"%>
-			    		</td>
-		    	  </tr>
+		    	  <%= render partial: "training_course", locals: {training_courses: @training_courses} %>
 		    	</tbody>
 		    </table>
 	    </div>
 	  </div>
 	</div>
 	<div class="col-sm-4">
-	  <div class="panel panel-default">
-	    <div class="panel-heading panel-active">帮助中心</div>
-	    <div class="panel-body panel-default-bg">
-	      推荐使用<span class="text-danger">谷歌、火狐</span>等浏览器登录
-	    </div>
-	  </div>
-	  <div class="panel panel-default">
-	    <div class="panel-heading panel-active">秘书处联系方式</div>
-	    <div class="panel-body panel-default-bg">
-	      <ul>
-	      	<li>上海市高职高专教学研究会秘书处</li>
-          <li>业务咨询：上海市高职高专教学研究会秘书处</li>
-          <li>技术支持：021-60675958-1069</li>
-          <li>证书办理：021-54253051；021-57132803</li>
-          <li>ＱＱ群：---</li>
-          <li>邮箱咨询：shsgzgzjxyjh@163.com</li>
-	      </ul>
-	    </div>
-	  </div>
-	  <div class="panel panel-default">
-	    <div class="panel-heading panel-active">上海市教委高教处联系方式</div>
-	    <div class="panel-body panel-default-bg">
-	      <ul>
-	      	<li>联系人: 周琳 021-23116726</li>
-          <li>Email: 9955160@qq.com</li>
-          <li>地址: 上海市大沽路100号</li>
-	      </ul>
-	    </div>
-	  </div>
-	  <div class="panel panel-default">
-	    <div class="panel-heading panel-active">登录日志</div>
-	    <div class="panel-body panel-default-bg">
-	      <ul>
-	      	<li>6月5日 10：44 于佳颖 登录</li>
-	      	<li>6月5日 10：44 于佳颖 登录</li>
-	      	<li>6月5日 10：44 于佳颖 登录</li>
-	      	<li>6月5日 10：44 于佳颖 登录</li>
-	      </ul>
-	    </div>
-	  </div>
+	  <%= render "admin_panel/home/info"%>
 	</div>
+</div>
+
+<div class="modal fade" id="todoModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">创建待办事项</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
 </div>

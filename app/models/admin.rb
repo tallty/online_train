@@ -38,6 +38,7 @@ class Admin < ActiveRecord::Base
 
   belongs_to :adminable, polymorphic: true
   belongs_to :school
+  has_many :todos
 
   attr_accessor :province
   attr_accessor :agency

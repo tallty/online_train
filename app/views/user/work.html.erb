@@ -22,6 +22,7 @@
                       <table class="border-table">
                         <tr>
                           <th width="35%">作业</th>
+                          <th width="35%">老师评价</th>
                           <th width="15%">创建时间</th>
                           <th>我的作业</th>
                         </tr>
@@ -31,6 +32,7 @@
                             <td>
                               <%= link_to(task.title, user_task_path(task), format: :js, remote: true) %>
                             </td>
+                            <td>暂无</td>
                             <td><%= task.created_at.strftime("%F")%></td>
                             <td class="text-left">
                               <% if user_task.present? %>
@@ -39,7 +41,7 @@
                                   <%= link_to("[修改/查看]", edit_user_task_path(user_task,task_id: task.id), class: "text-muted", format: :js, remote: true) %>
                                 <% end %>
                               <% else %>
-                                <%= link_to("提交", new_user_task_path(task_id: task.id), remote: true, format: :js) %>
+                                <div class="text-center"><%= link_to("提交", new_user_task_path(task_id: task.id), remote: true, format: :js) %></div>
                               <% end %>
                             </td>
                           </tr>

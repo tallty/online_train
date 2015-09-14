@@ -74,6 +74,11 @@ class TrainingCourse < ActiveRecord::Base
 		# end
 	end
 
+  #后台首页统计报名人数
+	def applied_users_count
+		self.user_training_courses.where(state: true).count
+	end
+
 	#搜索功能
 	searchable do
     text :name

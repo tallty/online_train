@@ -15,7 +15,6 @@ module AdminPanel
       redirect_to admin_panel_root_path
     end
 
-    
     private
       # 将会将CanCan通过current_admin获取当前登录用户
       def current_ability

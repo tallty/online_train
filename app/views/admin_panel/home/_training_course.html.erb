@@ -1,0 +1,12 @@
+<% training_courses.each do |training_course|%>
+  <tr class="tr-default-bg">
+		<td class="text-center"><%= training_course.created_at.strftime("%Y") %></td>
+		<td class="text-center"><%= link_to truncate(training_course.name, length: 15), "", title: training_course.name %></td>
+		<td class="text-center"><%= training_course.try(:school).try(:name) %></td>
+		<td class="text-center"><%= training_course.plan_number %></td>
+		<td class="text-center"><%= training_course.applied_users_count %></td>
+		<td class="text-center">
+			<%= link_to "[查看]"%>
+		</td>
+  </tr>
+<% end %>

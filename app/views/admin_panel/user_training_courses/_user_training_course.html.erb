@@ -3,12 +3,11 @@
     <td><%= user_training_course.try(:user).try(:name)%></td>
     <td><%= user_training_course.try(:user).try(:email)%></td>
     <td><%= User::UserGender[user_training_course.try(:user).try(:gender).to_sym]%></td>
-    <td><%= user_training_course.try(:user).try(:position)%></td>
     <td><%= user_training_course.try(:user).try(:address)%></td>
     <td><%= user_training_course.try(:user).try(:phone)%><br><%= user_training_course.try(:user).try(:email)%></td>
     <td>[学校]<%= user_training_course.try(:user).try(:school)%><br>[院系]<%= user_training_course.try(:user).try(:academy)%></td>
-    <td><%= user_training_course.user_training_course_status %></td>
     <td><%= user_training_course.try(:created_at).strftime("%Y-%m-%d %H:%M:%S") %></td>
+    <td><%= link_to "用户日志", admin_panel_user_training_course_journals_path(user_training_course)%></td>
     <% unless current_page?(controller: 'admin_panel/user_training_courses', action: 'list')%>
       <td>
         <%= link_to "备注信息", edit_admin_panel_training_course_user_training_course_path(@training_course, user_training_course), class: "btn btn-xs btn-success"%>
