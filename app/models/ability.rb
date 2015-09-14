@@ -20,7 +20,16 @@ class Ability
 
   # 角色（教育部门, 对后台栏目拥有查阅权限）
   def role_education
-    can :manage, :all
+    can :index, :home
+    can :index, Notification
+    can [:show, :list], TrainingCourse
+    can [:index, :list], UserTrainingCourse
+    can [:index, :list], Journal
+    can :index, Task
+    can :list, UserTask
+    can [:index, :edit_profile, :update_profile, :edit_password, :update_password], Admin
+    can :index, User
+    can :index, Teacher
   end
 
   # 角色（管理部门, 即秘书处, 对后台拥有超级管理员权限）

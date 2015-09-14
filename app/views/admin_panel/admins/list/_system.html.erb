@@ -1,10 +1,12 @@
-<div class="row">
-  <div id="addJournal" class="add-btn pull-right">
-    <%= link_to(new_admin_panel_admin_path(role: "system"),remote: true, format: :js) do %>
-      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 管理部门
-    <% end %>
+<% if can? :new, Admin %>
+  <div class="row">
+    <div id="addJournal" class="add-btn pull-right">
+      <%= link_to(new_admin_panel_admin_path(role: "system"),remote: true, format: :js) do %>
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 管理部门
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
 <hr>
 <table class="table">
   <thead>
@@ -15,7 +17,9 @@
       <th>联系电话</th>
       <th>最后登录时间</th>
       <th>最后登录IP</th>
-      <th>操作</th>
+      <% if can? [:edit, :destroy], Admin%>
+        <th>操作</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
@@ -29,10 +33,12 @@
       <td><%= admin.phone %><br><%= admin.mobile %></td>
       <td><%= admin.last_sign_in_at %></td>
       <td><%= admin.last_sign_in_ip %></td>
-      <td>
-        <%= link_to("编辑",edit_admin_panel_admin_path(admin, role: params[:role]),remote: true, format: :js)  %>
-        <%= link_to("删除", admin_panel_admin_path(admin, role: params[:role]) , method: :delete, data: {confirm: "确定要删除当前用户？"}) %>
-      </td>
+      <% if can? [:edit, :destroy], Admin%>
+        <td>
+          <%= link_to("编辑",edit_admin_panel_admin_path(admin, role: params[:role]),remote: true, format: :js)  %>
+          <%= link_to("删除", admin_panel_admin_path(admin, role: params[:role]) , method: :delete, data: {confirm: "确定要删除当前用户？"}) %>
+        </td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>

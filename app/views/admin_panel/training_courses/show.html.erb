@@ -100,9 +100,11 @@
 	      </tr>
 	    </table>
 	    <hr>
-	    <div class="text-center">
-	    	<%= link_to "修改", edit_admin_panel_notification_training_course_path(@notification, @training_course), class: 'btn btn-primary', 'data-no-turbolink' => true %>
-	    </div>
+	    <% if can? :edit, @training_course %>
+		    <div class="text-center">
+		    	<%= link_to "修改", edit_admin_panel_notification_training_course_path(@notification, @training_course), class: 'btn btn-primary', 'data-no-turbolink' => true %>
+		    </div>
+		  <% end %>
 	  </div>
 	</div>
 </div>
