@@ -34,21 +34,33 @@ class Ability
 
   # 角色（管理部门, 即秘书处, 对后台拥有超级管理员权限）
   def role_system
+    can :index, :home
     can :manage, :all
+    cannot :list_by_admin, TrainingCourse
   end
 
   # 角色（培训机构）
   def role_trainer
-    can :manage, :all
+    can :index, :home
+    can :list_by_admin, TrainingCourse
+    cannot :list, TrainingCourse
+    can [:index, :list], UserTrainingCourse
+    can [:index, :list], Journal
+    can :index, Task
+    can :list, UserTask
+    can [:index, :edit_profile, :update_profile, :edit_password, :update_password], Admin
   end
 
   # 角色（评审专家）
   def role_specialist
+    can :index, :home
     can :manage, :all
+    can [:index, :edit_profile, :update_profile, :edit_password, :update_password], Admin
   end
 
   # 角色（班级负责人）
   def role_management
-    can :manage, :all
+    can :index, :home
+    can [:index, :edit_profile, :update_profile, :edit_password, :update_password], Admin
   end
 end

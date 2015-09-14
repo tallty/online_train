@@ -34,7 +34,6 @@ class AdminPanel::AdminsController < AdminPanel::BaseController
       @admin.adminable = school
     end
 
-    
     if @admin.save
       respond_to do |format|
         flash[:notice] = "添加用户成功"

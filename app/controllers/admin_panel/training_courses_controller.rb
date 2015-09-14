@@ -1,16 +1,21 @@
 module AdminPanel
 	class TrainingCoursesController < AdminPanel::BaseController
 		load_and_authorize_resource
-		before_action :set_notification, except: :list
+		before_action :set_notification, except: [:list, :list_by_admin]
 		before_action :set_breadcrumb
 		before_action :set_training_course, only: [:edit, :update, :show, :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator]
 
 	  def index
 			@search = TrainingCourse.search do
-      fulltext(params[:q]) do
-        fields(:title, :sub_title, :category)
-      end
-    end
+	      fulltext(params[:q]) do
+	        fields(:title, :sub_title, :category)
+	      end
+	    end
+		end
+
+    #根据培训机构获取培训班列表
+		def list_by_admin
+      @training_courses = TrainingCourse.where(school_id: current_admin.adminable_id)
 		end
 
 		def list

@@ -58,6 +58,7 @@ Rails.application.routes.draw do
     resources :training_courses do
       collection do
         get :list
+        get :list_by_admin
       end
       resources :user_training_courses, only: [:index, :edit, :update] do
         member do

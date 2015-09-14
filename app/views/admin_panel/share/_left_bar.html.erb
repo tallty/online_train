@@ -2,17 +2,26 @@
 	<li class="list text-center">
 		 <span class="glyphicon"></span> &nbsp;&nbsp;系统菜单
 	</li>
-	<li class="text-center">
-		<%= link_to list_admin_panel_training_courses_path, class: (controller?("admin_panel/training_courses") && action?("list") ? 'active' : nil) do %>
-		  <span class="glyphicon glyphicon-list-alt"></span> &nbsp;&nbsp;待办项目
-		<% end %>
-	</li>
+	<% if can? :list, TrainingCourse %>
+		<li class="text-center">
+			<%= link_to list_admin_panel_training_courses_path, class: (controller?("admin_panel/training_courses") && action?("list") ? 'active' : nil) do %>
+			  <span class="glyphicon glyphicon-list-alt"></span> &nbsp;&nbsp;待办项目
+			<% end %>
+		</li>
+	<% end %>
+
 	<li class="text-center">
 		<%= link_to "javascript:void(0);", class: (controller?("admin_panel/training_courses") && action?("index") || controller?("admin_panel/tasks", "admin_panel/user_tasks", "admin_panel/user_training_courses", "admin_panel/journals", "admin_panel/user_appraise_trains", "admin_panel/user_teachers") ? 'active' : nil) do %>
 		  <span class="glyphicon glyphicon-book"></span> &nbsp;&nbsp;培训班级
 		<% end %>
 		<ul class="dropdown-menu sub-menu text-center" role="menu">
-	    <li><%= link_to("培训班", admin_panel_notifications_path) %></li>
+		  <!-- 当前培训机构培训班列表入口 -->
+		  <% if can? :list_by_admin, TrainingCourse %>
+		    <li><%= link_to("培训班", list_by_admin_admin_panel_training_courses_path) %></li>
+		  <% else %>
+		    <li><%= link_to("培训班", admin_panel_notifications_path) %></li>
+		  <% end %>
+
 	    <li><%= link_to("报名列表", list_admin_panel_user_training_courses_path ) %></li>
 	    <li><%= link_to("培训作业", admin_panel_tasks_path) %></li>
 	    <li><%= link_to("作业提交", admin_panel_user_tasks_path) %></li>
@@ -22,20 +31,23 @@
 	    <li><%= link_to("负责人反馈", "#") %></li>
 	  </ul>
 	</li>
-	<li class="text-center">
-		<%= link_to admin_panel_admins_path(role: :system), class: ((controller?("admin_panel/admins") && params[:role]) || controller?("admin_panel/teachers") || controller?("admin_panel/users")  ? 'active' : nil) do %>
-		  <span class="glyphicon glyphicon-user"></span> &nbsp;&nbsp;机构人员
-		<% end %>
-    <ul class="dropdown-menu sub-menu text-center" role="menu">
-      <li><%= link_to("管理部门", admin_panel_admins_path(role: :system)) %></li>
-      <li><%= link_to("教育部门", admin_panel_admins_path(role: :education)) %></li>
-      <li><%= link_to("培训机构", admin_panel_admins_path(role: :trainer)) %></li>
-      <li><%= link_to("评审专家", admin_panel_admins_path(role: :specialist)) %></li>
-      <li><%= link_to("班级负责人", admin_panel_admins_path(role: :management)) %></li>
-      <li><%= link_to("授课教师", admin_panel_teachers_path) %></li>
-      <li><%= link_to("学员", admin_panel_users_path) %></li>
-    </ul>
-	</li>
+
+	<% if can? [:index], Admin %>
+		<li class="text-center">
+			<%= link_to admin_panel_admins_path(role: :system), class: ((controller?("admin_panel/admins") && params[:role]) || controller?("admin_panel/teachers") || controller?("admin_panel/users")  ? 'active' : nil) do %>
+			  <span class="glyphicon glyphicon-user"></span> &nbsp;&nbsp;机构人员
+			<% end %>
+	    <ul class="dropdown-menu sub-menu text-center" role="menu">
+	      <li><%= link_to("管理部门", admin_panel_admins_path(role: :system)) %></li>
+	      <li><%= link_to("教育部门", admin_panel_admins_path(role: :education)) %></li>
+	      <li><%= link_to("培训机构", admin_panel_admins_path(role: :trainer)) %></li>
+	      <li><%= link_to("评审专家", admin_panel_admins_path(role: :specialist)) %></li>
+	      <li><%= link_to("班级负责人", admin_panel_admins_path(role: :management)) %></li>
+	      <li><%= link_to("授课教师", admin_panel_teachers_path) %></li>
+	      <li><%= link_to("学员", admin_panel_users_path) %></li>
+	    </ul>
+		</li>
+	<% end %>
 
 	<% if can? :manage, Event %>
 		<li class="text-center">
