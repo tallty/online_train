@@ -189,9 +189,13 @@ a.btn-active {
 .flash-message {
   width: 100%;
   position: absolute;
+  height: 64px;
+  z-index: 1;
+  background: #4cae4c!important;
   .popover-content {
     text-align: center;
     font-size: 20px;
+    color: #fff;
   }
 }
 

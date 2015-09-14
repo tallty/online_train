@@ -11,6 +11,8 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
     #     fields(:user_name, :user_email, :user_phone)
     #   end
     # end
+    add_breadcrumb "#{@training_course.name}", admin_panel_notification_training_course_path(@notification, @training_course)
+    add_breadcrumb "培训报名列表"
   end
 
   def list
@@ -51,6 +53,7 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   private
   def set_training_course
     @training_course = TrainingCourse.find(params[:training_course_id])
+    @notification = @training_course.notification
   end
 
   def set_user_training_course

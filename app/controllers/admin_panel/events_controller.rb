@@ -1,15 +1,19 @@
 class AdminPanel::EventsController < AdminPanel::BaseController
 	load_and_authorize_resource
+	before_action :set_breadcrumb
 
 	def index
 		@events = Event.all.page(params[:page]).per(10)
+		add_breadcrumb "新闻列表"
 	end
 
 	def show
+		add_breadcrumb "查看"
 	end
 
 	def new
 		@event = Event.new
+		add_breadcrumb "新建"
 	end
 
 	def create
@@ -24,6 +28,7 @@ class AdminPanel::EventsController < AdminPanel::BaseController
 	end
 
 	def edit
+		add_breadcrumb "修改"
 	end
 
 	def destroy

@@ -3,68 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.admin_panel__user_training_courses__index {
-  .grades-main-content {
-    .panel {
-      border-radius: 0px;
-
-      &.panel-primary {
-        border-color: #fff;
-      }
-      .panel-heading {
-        border-radius: 0px;
-        margin: 5px;
-        border-color: #1f7ed0;
-        background-color: #1f7ed0;
-
-        &.have-menu {
-          padding: 5px 10px;
-
-          .nav-content-menu {
-            li {
-              padding-right: 20px;
-              a {
-                border-radius: 20px;
-                padding: 5px 10px;
-                color: #fff;
-              }
-              a:hover {
-                background-color: #fff;
-                color: #4c98d9;
-              }
-              &.active a{
-                background-color: #fff;
-                color: #4c98d9;
-              }
-            }
-
-
-          }
-        }
-      }
-
-      .panel-body {
-        background-color: #f8f8f8;
-        margin: 5px;
-        .btn.btn-search {
-          border-color: #1f7ed0;
-          background-color: #1f7ed0;
-          color: #fff;
-        }
-
-        .table {
-          thead tr th {
-            text-align: center;
-          }
-
-          tbody tr {
-            text-align: center;
-            background-color: #fff;
-          }
-          
-        }
-
-      }
-    }
+.admin_panel__training_courses__show, .admin_panel__user_training_courses__index {
+  .nav-content-menu li a {
+    color: #fff;
+  }
+  .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #337ab7;
+    background-color: #fff;
+    border-radius: 20px;
   }
 }

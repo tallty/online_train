@@ -1,14 +1,14 @@
 <div class="grades-main-content">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <ul class="nav nav-pills">
+      <ul class="nav nav-pills nav-content-menu">
         <li role="presentation" class="">
-          <%= link_to admin_panel_notification_training_course_path(@training_course.notification, @training_course), class: "btn btn-default" do %>
+          <%= link_to admin_panel_notification_training_course_path(@training_course.notification, @training_course) do %>
             <span class="">培训班信息</span>
           <% end %>
         </li>
-        <li role="presentation">
-        <%= link_to admin_panel_training_course_user_training_courses_path(@training_course), class: "btn btn-default" do %>
+        <li role="presentation" class="<%= params[:controller]=='admin_panel/user_training_courses' ? 'active' : ''%>">
+        <%= link_to admin_panel_training_course_user_training_courses_path(@training_course) do %>
            <span class="">培训班报名列表</span>
         <% end %></li>
       </ul>

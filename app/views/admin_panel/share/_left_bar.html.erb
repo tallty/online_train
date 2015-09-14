@@ -11,7 +11,7 @@
 	<% end %>
 
 	<li class="text-center">
-		<%= link_to "javascript:void(0);", class: (controller?("admin_panel/training_courses") && action?("index") || controller?("admin_panel/tasks", "admin_panel/user_tasks", "admin_panel/user_training_courses", "admin_panel/journals", "admin_panel/user_appraise_trains", "admin_panel/user_teachers") ? 'active' : nil) do %>
+		<%= link_to "javascript:void(0);", class: (controller?("admin_panel/training_courses") && action?("index", "show") || controller?("admin_panel/tasks", "admin_panel/user_tasks", "admin_panel/user_training_courses", "admin_panel/journals", "admin_panel/user_appraise_trains", "admin_panel/user_teachers") ? 'active' : nil) do %>
 		  <span class="glyphicon glyphicon-book"></span> &nbsp;&nbsp;培训班级
 		<% end %>
 		<ul class="dropdown-menu sub-menu text-center" role="menu">

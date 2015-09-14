@@ -101,8 +101,7 @@ module AdminPanel
 		end
 
 		def set_breadcrumb
-			add_breadcrumb "后台", admin_panel_root_path
-			add_breadcrumb "培训班级", admin_panel_training_courses_path
+			add_breadcrumb "培训班", admin_panel_training_courses_path
     end
 
 		def set_training_course

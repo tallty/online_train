@@ -25,7 +25,12 @@
 		      	  <div class="col-sm-9" id="todos-content">
 		      	    <ul>
 		      	      <% @todos.each do |todo| %>
-		      	        <li><%= todo.content %></li>
+		      	        <%= form_for [:admin_panel, todo], remote: true do |f|%>
+			      	        <li class="todo">
+			      	          <%= f.check_box :state %><%= todo.content %>
+                        <%= f.submit "", style: "display: none;" %>
+			      	        </li>
+			      	      <% end %>
 		      	      <% end %>
 		      	    </ul>
 		      	  </div>
@@ -72,3 +77,9 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+	$("#todos-content .todo input[type='checkbox']").click(function(){
+    $(this).siblings("input[type='submit']").submit();
+	});
+</script>
