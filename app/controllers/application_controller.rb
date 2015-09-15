@@ -22,4 +22,14 @@ class ApplicationController < ActionController::Base
                                                             :qq_no, :summary, :country) }
   end
 
+  private
+  #登陆后跳转页面
+  def after_sign_in_path_for(resource)
+    request.env['omniauth.origin'] || stored_location_for(resource) || home_index_path
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    home_index_path
+  end
+
 end
