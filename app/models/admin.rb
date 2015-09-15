@@ -39,6 +39,7 @@ class Admin < ActiveRecord::Base
   belongs_to :adminable, polymorphic: true
   belongs_to :school
   has_many :todos
+  has_many :training_courses
 
   attr_accessor :province
   attr_accessor :agency
@@ -63,7 +64,7 @@ class Admin < ActiveRecord::Base
             education: "教育部门",
             trainer: "培训机构",
             specialist: "评审专家",
-            management: "班级负责人" 
+            management: "班级负责人"
           }
 
   def province_uniqueness

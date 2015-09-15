@@ -28,6 +28,7 @@
 class TrainingCourse < ActiveRecord::Base
 	include AASM
   belongs_to :school
+  belongs_to :admin
   belongs_to :notification
   has_many :tasks, dependent: :destroy
   has_many :user_training_courses, dependent: :destroy

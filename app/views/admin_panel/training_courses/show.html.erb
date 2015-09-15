@@ -16,6 +16,12 @@
 			</ul>
 	  </div>
 	  <div class="panel-body panel-default-bg">
+	    <% if can? :edit, @training_course %>
+		    <div class="text-left">
+		    	<%= link_to "修改", edit_admin_panel_notification_training_course_path(@notification, @training_course), class: 'btn btn-primary', 'data-no-turbolink' => true %>
+		    </div>
+		  <% end %>
+		  <hr>
 	    <table class="table">
 	      <tr>
 	      	<th class="col-sm-1">培训班级代码</th>
@@ -34,13 +40,13 @@
 	      	<td><%= @training_course.try(:school).try(:name) %></td>
 	      </tr>
 	      <tr>
-	      	<th class="col-sm-2">培训项目负责人</th>
+	      	<th class="col-sm-2">项目负责人</th>
 	      	<td><%= @training_course.project_leader %></td>
 	      </tr>
 
 	      <tr>
-	      	<th class="col-sm-2">培训班级负责人</th>
-	      	<td><%= @training_course.grade_leader %></td>
+	      	<th class="col-sm-2">班级负责人</th>
+	      	<td><%= @training_course.try(:admin).name %></td>
 	      </tr>
 
 	      <tr>
@@ -101,12 +107,6 @@
 	      	<td><%= raw @training_course.check_method %></td>
 	      </tr>
 	    </table>
-	    <hr>
-	    <% if can? :edit, @training_course %>
-		    <div class="text-center">
-		    	<%= link_to "修改", edit_admin_panel_notification_training_course_path(@notification, @training_course), class: 'btn btn-primary', 'data-no-turbolink' => true %>
-		    </div>
-		  <% end %>
 	  </div>
 	</div>
 </div>

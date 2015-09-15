@@ -4,6 +4,7 @@ module AdminPanel
 		before_action :set_notification, except: [:list, :list_by_admin]
 		before_action :set_breadcrumb
 		before_action :set_training_course, only: [:edit, :update, :show, :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator]
+		before_action :set_grade_leader, only: [:new, :edit]
 
 	  def index
 			@search = TrainingCourse.search do
@@ -96,6 +97,11 @@ module AdminPanel
 
 		private
 
+    #返回全部班级负责人
+		def set_grade_leader
+			@grade_leaders = Admin.where(role: 4)
+		end
+
 		def set_notification
 			@notification = Notification.find(params[:notification_id])
 		end
@@ -109,7 +115,7 @@ module AdminPanel
 		end
 
 		def training_course_params
-			params.require(:training_course).permit(:start_apply_time, :end_apply_time, :notification_id, :school_id, :name, :code, :start_time, :end_time,
+			params.require(:training_course).permit(:admin_id, :start_apply_time, :end_apply_time, :notification_id, :school_id, :name, :code, :start_time, :end_time,
 			                       :plan_number, :training_agency, :training_address, :training_fee,
 			                       :state, :remark, :info, :training_background, :training_target, :be_applied,
 			                       :training_content, :check_method, :project_leader, :grade_leader, :contact, :category, {teacher_ids: []})

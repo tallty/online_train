@@ -1,4 +1,4 @@
-<div class="panel-heading panel-active">新建项目</div>
+<div class="panel-heading panel-active"><%= params[:action] == "new" ? "新建项目" : "修改项目"%></div>
   <div class="panel-body panel-default-bg">
   	<%= simple_form_for [:admin_panel, @notification, @training_course], html: { class: 'form-horizontal' }, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {radio_buttons: :horizontal_radio_and_checkboxes, boolean: :horizontal_boolean } do |f|%>
 
@@ -32,15 +32,18 @@
           </div>
         </div>
         <div class="form-group">
-          <%= f.label :project_leader, '培训项目负责人', class: 'col-sm-3 control-label' %>
+          <%= f.label :project_leader, '项目负责人', class: 'col-sm-3 control-label' %>
           <div class="col-sm-4">
             <%= f.text_field :project_leader, placeholder: "请输入培训项目负责人", class: 'form-control' %>
           </div>
         </div>
         <div class="form-group">
-          <%= f.label :grade_leader, '培训班级负责人', class: 'col-sm-3 control-label' %>
+          <%= f.label :admin_id, '班级负责人', class: 'col-sm-3 control-label' %>
           <div class="col-sm-4">
-            <%= f.text_field :grade_leader, placeholder: "请输入培训班级负责人姓名及联系方式", class: 'form-control' %>
+            <% @grade_leaders.each do |p| %>
+              <%= f.radio_button :admin_id, p.id %>
+              <%= f.label :admin_id, p.name %>
+            <% end %>
           </div>
         </div>
         <div class="form-group">
