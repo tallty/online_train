@@ -23,6 +23,9 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
     end
   end
 
+  def show
+  end
+
   def edit
   end
 

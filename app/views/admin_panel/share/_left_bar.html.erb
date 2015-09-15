@@ -16,16 +16,18 @@
 		<% end %>
 		<ul class="dropdown-menu sub-menu text-center" role="menu">
 		  <!-- 当前培训机构培训班列表入口 -->
-		  <% if can? :list_by_admin, TrainingCourse %>
-		    <li><%= link_to("培训班", list_by_admin_admin_panel_training_courses_path) %></li>
+		  <% if can? :list_by_school, TrainingCourse %>
+		    <li><%= link_to("培训班", list_by_school_admin_panel_training_courses_path) %></li>
+		  <% elsif can? :list_by_teacher, TrainingCourse %>
+		    <li><%= link_to("培训班", list_by_teacher_admin_panel_training_courses_path) %></li>
 		  <% else %>
 		    <li><%= link_to("培训班", admin_panel_notifications_path) %></li>
 		  <% end %>
 
 	    <li><%= link_to("报名列表", list_admin_panel_user_training_courses_path ) %></li>
 	    <li><%= link_to("培训作业", admin_panel_tasks_path) %></li>
-	    <li><%= link_to("作业提交", admin_panel_user_tasks_path) %></li>
-	    <li><%= link_to("日志提交", admin_panel_journals_path) %></li>
+	    <li><%= link_to("学员作业", list_admin_panel_user_tasks_path) %></li>
+	    <li><%= link_to("日志列表", list_admin_panel_journals_path) %></li>
 	    <li><%= link_to("学员反馈", admin_panel_user_appraise_trains_path) %></li>
 	    <li><%= link_to("学员评师", admin_panel_user_teachers_path) %></li>
 	    <li><%= link_to("负责人反馈", "#") %></li>

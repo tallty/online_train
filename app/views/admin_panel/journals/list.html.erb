@@ -1,0 +1,33 @@
+<div class="grades-main-content">
+  <div class="panel panel-primary">
+    <div class="panel-heading have-menu">
+      <ul id="detailMenu" class="nav nav-pills nav-content-menu">
+        <%= render "nav"%>
+      </ul>
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>签到时间</th>
+            <th>姓名</th>
+             <th>培训班</th>
+            <th>日志内容</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @journals.each do |journal| %>
+          <tr>
+            <td><%= journal.created_at.strftime("%Y-%m-%d %H:%M")%></td>
+            <td><%= journal.try(:user).try(:name)%></td>
+            <td><%= link_to(journal.try(:training_course).try(:name), admin_panel_notification_training_course_path(journal.training_course.notification, journal.training_course))%></td>
+            <td><%= journal.content%></td>
+            <td><a href="#">查看</a></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div>

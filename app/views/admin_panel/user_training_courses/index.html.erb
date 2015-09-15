@@ -3,8 +3,15 @@
     <div class="panel-heading">
       <ul class="nav nav-pills nav-content-menu">
         <li role="presentation" class="">
-          <%= link_to admin_panel_notification_training_course_path(@training_course.notification, @training_course) do %>
-            <span class="">培训班信息</span>
+          <!-- 区分秘书处和其它角色查看培训班的路径 -->
+          <% if can? :show, TrainingCourse %>
+            <%= link_to admin_panel_notification_training_course_path(@training_course.notification, @training_course) do %>
+              <span>培训班信息</span>
+            <% end %>
+          <% else %>
+            <%= link_to detail_admin_panel_training_course_path(@training_course) do %>
+              <span>培训班信息</span>
+            <% end %>
           <% end %>
         </li>
         <li role="presentation" class="<%= params[:controller]=='admin_panel/user_training_courses' ? 'active' : ''%>">

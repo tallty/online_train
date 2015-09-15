@@ -4,6 +4,7 @@ class AdminPanel::JournalsController < AdminPanel::BaseController
   def index
   	user_training_course = UserTrainingCourse.find(params[:user_training_course_id])
   	@journals = Journal.where(user_id: user_training_course.user_id, training_course_id: user_training_course.training_course_id)
+  	add_breadcrumb "日志列表"
   end
 
   def list

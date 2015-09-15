@@ -3,7 +3,7 @@
 	  <div class="panel-heading panel-active">
 	    <ul class="nav nav-pills nav-content-menu">
 			  <li role="presentation" class="<%= params[:controller]=='admin_panel/training_courses' ? 'active' : ''%>">
-			    <%= link_to admin_panel_notification_training_course_path(@notification, @training_course) do %>
+			    <%= link_to detail_admin_panel_training_course_path(@training_course) do %>
 	          <span>培训班信息</span>
 	        <% end %>
 			  </li>

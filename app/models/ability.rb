@@ -42,7 +42,7 @@ class Ability
   # 角色（培训机构）
   def role_trainer
     can :index, :home
-    can :list_by_admin, TrainingCourse
+    can :list_by_school, TrainingCourse
     cannot :list, TrainingCourse
     can [:index, :list], UserTrainingCourse
     can [:index, :list], Journal
@@ -61,6 +61,12 @@ class Ability
   # 角色（班级负责人）
   def role_management
     can :index, :home
+    can :index, Journal
+    can [:index, :list], UserTrainingCourse
+    can [:index, :list], Journal
+    can :manage, Task
+    can :list, UserTask
+    can [:list_by_teacher, :detail], TrainingCourse
     can [:index, :edit_profile, :update_profile, :edit_password, :update_password], Admin
   end
 end

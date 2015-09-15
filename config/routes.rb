@@ -53,12 +53,19 @@ Rails.application.routes.draw do
 
     resources :todos
     resources :user_training_courses, only: :show do
+      collection do
+        get :list
+      end
       resources :journals, only: :index
     end
     resources :training_courses do
       collection do
         get :list
-        get :list_by_admin
+        get :list_by_school
+        get :list_by_teacher
+      end
+      member do
+        get :detail
       end
       resources :user_training_courses, only: [:index, :edit, :update] do
         member do
@@ -87,11 +94,6 @@ Rails.application.routes.draw do
       end
     end
     resources :teachers
-    resources :user_training_courses do
-      collection do
-        get :list
-      end
-    end
     resources :user_appraise_trains
     resources :user_teachers
     resources :schools do

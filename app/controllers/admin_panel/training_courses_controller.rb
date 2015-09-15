@@ -1,8 +1,8 @@
 module AdminPanel
 	class TrainingCoursesController < AdminPanel::BaseController
 		load_and_authorize_resource
-		before_action :set_notification, except: [:list, :list_by_admin]
-		before_action :set_breadcrumb
+		before_action :set_notification, except: [:list, :list_by_school, :list_by_teacher, :detail]
+		before_action :set_breadcrumb, except: [:list, :list_by_school, :list_by_teacher]
 		before_action :set_training_course, only: [:edit, :update, :show, :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator]
 		before_action :set_grade_leader, only: [:new, :edit]
 
@@ -15,8 +15,15 @@ module AdminPanel
 		end
 
     #根据培训机构获取培训班列表
-		def list_by_admin
+		def list_by_school
       @training_courses = TrainingCourse.where(school_id: current_admin.adminable_id)
+      add_breadcrumb "培训班列表"
+		end
+
+		#根据培训机构获取培训班列表
+		def list_by_teacher
+      @training_courses = TrainingCourse.where(admin_id: current_admin.id)
+      add_breadcrumb "培训班列表"
 		end
 
 		def list
@@ -33,6 +40,11 @@ module AdminPanel
 		end
 
 		def show
+			add_breadcrumb "查看"
+		end
+
+    #非管理员权限 查看
+		def detail
 			add_breadcrumb "查看"
 		end
 

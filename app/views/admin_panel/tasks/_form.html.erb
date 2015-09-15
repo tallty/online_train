@@ -7,7 +7,12 @@
       </div>
       <div id="adminForm" class="modal-body">
         <%= simple_form_for(@task, url: is_edit_or_update? ? admin_panel_task_path(@task) : admin_panel_tasks_path(@task),remote: true, wrapper: :horizontal_form, html: {class: "form-horizontal"}, multipart: true) do |f| %>
-          <%= f.input :training_course_id, as: :select, collection: TrainingCourse.all.pluck(:name, :id), required: true, prompt: "请选择培训班级" %>
+          <!-- 当角色为秘书处时读取全部培训课程，否则读取负责人关联的培训课程 -->
+          <% if current_admin.role == 0 %>
+            <%= f.input :training_course_id, as: :select, collection: TrainingCourse.all.pluck(:name, :id), required: true, prompt: "请选择培训班级" %>
+          <% else %>
+            <%= f.input :training_course_id, as: :select, collection: TrainingCourse.where(admin_id: current_admin.id).pluck(:name, :id), required: true, prompt: "请选择培训班级" %>
+          <% end %>
           <%= f.input :title, required: true  %>
           <%= f.input :body, as: :text, input_html: {rows: "7"} %>
           <%= f.input :attachment, as: :file, wrapper: :horizontal_file_input  %>

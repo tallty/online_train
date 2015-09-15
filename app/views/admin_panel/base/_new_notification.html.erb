@@ -1,0 +1,5 @@
+<% if can? :new, Notification %>
+  <%= link_to new_admin_panel_notification_path, class: "btn btn-xs pull-right btn-active", 'data-no-turbolink' => true do %>
+     <span class="glyphicon glyphicon-plus-sign"></span> 新建项目通知
+  <% end %>
+<% end %>
