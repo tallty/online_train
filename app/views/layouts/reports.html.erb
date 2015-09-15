@@ -4,6 +4,12 @@
   <title>上海市高职高专教学研究会</title>
   <%= stylesheet_link_tag    'report', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'report', 'data-turbolinks-track' => true %>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <%= javascript_include_tag 'html5shiv.min' %>
+    <%= javascript_include_tag 'respond.min' %>
+  <![endif]-->
   <%= csrf_meta_tags %>
 </head>
 <body  style="overflow:-Scroll;overflow-x:hidden" class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>">
