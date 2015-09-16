@@ -10,3 +10,11 @@
 .user-badge {
 	background: red!important;
 }
+
+//轮播样式
+.mr_frbox{height:70px;}
+.mr_frBtnL{float:left;margin:20px 22px 0px 0px;cursor:pointer;display:inline;}
+.mr_frUl{float:left;height:70px;width:856px;}
+.mr_frBtnR{float:right;margin-top:20px;cursor:pointer;}
+.mr_frUl ul li{display:inline;float:left;height:72px;width:205px;margin-right:13px;overflow:hidden;}
+.mr_frUl ul li img{display:block;margin-bottom:7px; border: solid 1px #e6e6e6;}

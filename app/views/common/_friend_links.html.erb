@@ -1,37 +1,30 @@
 <div class="panel-main">
   <div class="panel-bg gap-80">友情链接</div>
   <div class="panel-body bordered">
-    <div class="row">
-		  <div class="col-xs-6 col-md-2 col-sm-2">
-		    <a href="http://www.moe.gov.cn" target="_blank" class="thumbnail fix-height">
-		      <%= image_tag("flink-1.png")%>
-		    </a>
-		  </div>
-		  <div class="col-xs-6 col-md-2 col-sm-2">
-		    <a href="http://www.tech.net.cn/web/index.aspx" target="_blank" class="thumbnail fix-height">
-		      <%= image_tag("flink-2.png")%>
-		    </a>
-		  </div>
-		  <div class="col-xs-6 col-md-2 col-sm-2">
-		    <a href="http://www.icve.com.cn/portal/" target="_blank" class="thumbnail fix-height">
-		      <%= image_tag("flink-3.png")%>
-		    </a>
-		  </div>
-		  <div class="col-xs-6 col-md-2 col-sm-2">
-		    <a href="http://www.enetedu.com" target="_blank" class="thumbnail fix-height">
-		      <%= image_tag("flink-4.png")%>
-		    </a>
-		  </div>
-		  <div class="col-xs-6 col-md-2 col-sm-2">
-		    <a href="http://lm.hvett.com.cn/site/index.page" target="_blank" class="thumbnail fix-height">
-		      <%= image_tag("flink-5.png")%>
-		    </a>
-		  </div>
-		  <div class="col-xs-6 col-md-2 col-sm-2">
-		    <a href="http://www.cchve.com.cn/hep/plugin/gaozhi/index/index.jsp" target="_blank" class="thumbnail fix-height">
-		      <%= image_tag("flink-6.png")%>
-		    </a>
-		  </div>
+    <div class="mr_frbox">
+			<%= image_tag("left-arrow.png", class: "mr_frBtnL prev")%>
+			<div class="mr_frUl">
+				<ul>
+					<li><%= link_to image_tag("footer-1.png"), "http://www.moe.gov.cn/", target: "_blank" %></li>
+					<li><%= link_to image_tag("footer-2.png"), "http://www.hvett.com.cn/", target: "_blank" %></li>
+					<li><%= link_to image_tag("footer-3.png"), "http://www.tech.net.cn/web/index.aspx", target: "_blank" %></li>
+					<li><%= link_to image_tag("footer-4.png"), "http://www.gzgz.edu.sh.cn/SHGZJYW/Web/_Index.aspx?ReturnUrl=%2f", target: "_blank" %></li>
+					<li><%= link_to image_tag("footer-5.png"), "http://www.shmec.gov.cn/", target: "_blank" %></li>
+				</ul>
+			</div>
+			<%= image_tag("right-arrow.png", class: "mr_frBtnR next")%>
 		</div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(function(){
+  	$(".mr_frbox").slide({
+			mainCell:".mr_frUl ul",
+			autoPage:true,
+			effect:"leftLoop",
+			autoPlay:true,
+			vis:4
+		});
+  });
+</script>
