@@ -21,7 +21,7 @@ class Admins::SessionsController < Devise::SessionsController
       respond_with resource, location: after_sign_in_path_for(resource)
     else
       flash[:notice] = "邮箱或密码错误"
-      if params[:role].empty? 
+      if params[:role].empty?
         redirect_to new_session_path(:admin)
       else
         redirect_to new_session_path(:admin, role: params[:role])
