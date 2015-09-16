@@ -21,6 +21,7 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
         fields(:user_name, :user_email, :user_phone)
       end
     end
+    add_breadcrumb "报名列表"
   end
 
   def show

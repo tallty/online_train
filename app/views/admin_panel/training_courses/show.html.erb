@@ -46,7 +46,7 @@
 
 	      <tr>
 	      	<th class="col-sm-2">班级负责人</th>
-	      	<td><%= @training_course.try(:admin).name %></td>
+	      	<td><%= @training_course.try(:admin).try(:name) %></td>
 	      </tr>
 
 	      <tr>

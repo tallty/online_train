@@ -44,8 +44,9 @@ Rails.application.routes.draw do
 
   root "reports#index"
   #mount ChinaCity::Engine => '/china_city'
-  devise_for :admins, controllers: { sessions: "admins/sessions" }
+  devise_for :admins, controllers: { sessions: "admins/sessions", registrations: 'admins/registrations' }
   namespace :admin_panel do
+    devise_for :admins, controllers: { sessions: "admins/sessions", registrations: 'admins/registrations' }
     root "home#index"
     resources :notifications do
       resources :training_courses
@@ -56,7 +57,7 @@ Rails.application.routes.draw do
       collection do
         get :list
       end
-      resources :journals, only: :index
+      resources :journals, only: [:index, :show]
     end
     resources :training_courses do
       collection do

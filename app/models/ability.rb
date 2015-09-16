@@ -36,16 +36,18 @@ class Ability
   def role_system
     can :index, :home
     can :manage, :all
-    cannot :list_by_admin, TrainingCourse
+    can :manage, TrainingCourse
+    can :manage, Journal
+    cannot [:list_by_school, :list_by_teacher], TrainingCourse
   end
 
   # 角色（培训机构）
   def role_trainer
     can :index, :home
-    can :list_by_school, TrainingCourse
+    can [:list_by_school, :detail], TrainingCourse
     cannot :list, TrainingCourse
     can [:index, :list], UserTrainingCourse
-    can [:index, :list], Journal
+    can [:index, :list, :show], Journal
     can :index, Task
     can :list, UserTask
     can [:index, :edit_profile, :update_profile, :edit_password, :update_password], Admin
