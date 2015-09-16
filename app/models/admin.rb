@@ -40,6 +40,7 @@ class Admin < ActiveRecord::Base
   belongs_to :school
   has_many :todos
   has_many :training_courses
+  has_many :admin_user_tasks
 
   attr_accessor :province
   attr_accessor :agency

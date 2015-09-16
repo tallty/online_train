@@ -1,6 +1,7 @@
 class UserTask < ActiveRecord::Base
   belongs_to :user
   belongs_to :task
+  has_many :admin_user_tasks
   has_one :attachment, as: :attachmentable
 
   validates :title, presence: true

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915075838) do
+ActiveRecord::Schema.define(version: 20150916065238) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 20150915075838) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "admin_user_tasks", force: :cascade do |t|
+    t.integer  "admin_id",     limit: 4
+    t.integer  "user_task_id", limit: 4
+    t.decimal  "score",                      precision: 5, scale: 2
+    t.text     "comment",      limit: 65535
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+  end
+
+  add_index "admin_user_tasks", ["admin_id"], name: "index_admin_user_tasks_on_admin_id", using: :btree
+  add_index "admin_user_tasks", ["user_task_id"], name: "index_admin_user_tasks_on_user_task_id", using: :btree
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false

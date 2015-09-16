@@ -51,7 +51,6 @@ Rails.application.routes.draw do
     resources :notifications do
       resources :training_courses
     end
-
     resources :todos
     resources :user_training_courses, only: :show do
       collection do
@@ -68,6 +67,7 @@ Rails.application.routes.draw do
       member do
         get :detail
       end
+      resources :tasks, only: [:index]
       resources :user_training_courses, only: [:index, :edit, :update] do
         member do
           patch :disapplied, :applied
@@ -83,11 +83,16 @@ Rails.application.routes.draw do
       member do
         get :download
       end
+      collection do
+        get :list
+      end
+      resources :user_tasks, only: :index
     end
     resources :user_tasks do
       collection do
         get :list
       end
+      resources :admin_user_tasks
     end
     resources :journals do
       collection do

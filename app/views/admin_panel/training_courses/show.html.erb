@@ -13,6 +13,11 @@
             <span>培训班报名列表</span>
           <% end %>
         </li>
+        <li role="presentation" class="<%= params[:controller]=='admin_panel/tasks' ? 'active' : ''%>">
+          <%= link_to admin_panel_training_course_tasks_path(@training_course) do %>
+           <span class="">布置作业列表</span>
+          <% end %>
+        </li>
 			</ul>
 	  </div>
 	  <div class="panel-body panel-default-bg">

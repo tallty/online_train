@@ -1,29 +1,42 @@
 <div class="grades-main-content">
   <div class="panel panel-primary">
-    <div class="panel-heading have-menu">
-      <ul id="detailMenu" class="nav nav-pills nav-content-menu">
-        <%= render "nav"%>
+    <div class="panel-heading">
+      <ul class="nav nav-pills nav-content-menu">
+        <li role="presentation" class="">
+          <!-- 区分秘书处和其它角色查看培训班的路径 -->
+          <% if can? :show, TrainingCourse %>
+            <%= link_to admin_panel_notification_training_course_path(@training_course.notification, @training_course) do %>
+              <span>培训班信息</span>
+            <% end %>
+          <% else %>
+            <%= link_to detail_admin_panel_training_course_path(@training_course) do %>
+              <span>培训班信息</span>
+            <% end %>
+          <% end %>
+        </li>
+        <li role="presentation" class="<%= params[:controller]=='admin_panel/user_training_courses' ? 'active' : ''%>">
+          <%= link_to admin_panel_training_course_user_training_courses_path(@training_course) do %>
+           <span class="">学员报名列表</span>
+          <% end %>
+        </li>
+        <li role="presentation" class="<%= params[:controller]=='admin_panel/tasks' ? 'active' : ''%>">
+          <%= link_to admin_panel_training_course_tasks_path(@training_course) do %>
+           <span class="">布置作业列表</span>
+          <% end %>
+        </li>
       </ul>
     </div>
     <div class="panel-body">
-      <div class="row">
-        <div id="addJournal" class="add-btn pull-right">
-          <%= link_to(new_admin_panel_task_path, remote: true, format: :js) do %>
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加作业
-          <% end %>
-        </div>
-      </div>
-      <hr>
       <table class="table">
         <thead>
           <tr>
             <th>作业标题</th>
             <th>作业附件</th>
-            <th  width="20%">培训班</th>
+            <th>培训班</th>
             <th>已提交人数</th>
             <th>未提交人数</th>
             <th>创建&amp;修正时间</th>
-            <th>操作</th>
+            <th>提交作业</th>
           </tr>
         </thead>
         <tbody>
@@ -41,9 +54,7 @@
             <td><%= task.unsubmitted_count %></td>
             <td><%= task.submitted_count %></td>
             <td><%= task.updated_at.strftime("%Y-%m-%d %H:%M")%></td>
-            <td>
-              <%= link_to("编辑", edit_admin_panel_task_path(task),format: :js, remote: true) %>
-            </td>
+            <td><%= link_to "提交作业", admin_panel_task_user_tasks_path(task) %></td>
           </tr>
           <% end %>
         </tbody>

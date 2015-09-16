@@ -3,6 +3,11 @@ class AdminPanel::TasksController < AdminPanel::BaseController
   before_action :set_task, only: [:edit, :update, :destroy, :download, :show]
 
   def index
+    @training_course = TrainingCourse.find(params[:training_course_id])
+    @tasks = @training_course.tasks
+  end
+
+  def list
     @tasks = Task.all
   end
 
