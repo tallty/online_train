@@ -7,6 +7,7 @@ class AdminPanel::AdminsController < AdminPanel::BaseController
     @admins = Admin.where(role: Admin.roles[role])
   end
 
+  #机构人员的new
   def new
     @admin = Admin.new
     respond_to do |format|
@@ -14,6 +15,7 @@ class AdminPanel::AdminsController < AdminPanel::BaseController
     end
   end
 
+  #机构人员的create
   def create
     @admin = Admin.new admin_params
 
@@ -46,12 +48,14 @@ class AdminPanel::AdminsController < AdminPanel::BaseController
     end
   end
 
+  #机构人员的edit
   def edit
     respond_to do |format|
       format.js
     end
   end
 
+  #机构人员的update
   def update
     if @admin.update admin_params
       respond_to do |format|
@@ -65,23 +69,36 @@ class AdminPanel::AdminsController < AdminPanel::BaseController
     end
   end
 
+  #账户设置编辑个人信息
+  def edit_profile
+    @admin = current_admin
+    add_breadcrumb "编辑我的信息"
+  end
+
+  def update_profile
+    @admin = current_admin
+    if @admin.update(admin_params)
+      flash[:notice] = "个人信息修改成功"
+      return redirect_to edit_profile_admin_panel_admins_url
+    else
+      flash[:notice] = "个人信息修改失败"
+      return redirect_to edit_profile_admin_panel_admins_url
+    end
+  end
+
+  #账户设置编辑个人密码
   def edit_password
+    add_breadcrumb "编辑我的密码"
   end
 
   def update_password
-    if params[:admin][:password].blank? || params[:admin][:password] != current_admin.password
-      return render js: "$('#error-info').html('*原始密码不正确！');"
-    end
-    if params[:new_password].blank?
-      return render js: "$('#error-info').html('*新密码不能为空！');"
-    end
-    if params[:confirm_new_password].blank? ||params[:confirm_new_password] != params[:new_password]
-      return render js: "$('#error-info').html('*两次输入不一致！');"
-    end
-    if current_admin.update(password: params[:new_password])
-      return render js: 'alert("密码更新成功！");window.location(history.go(0));'
+    @admin = current_admin
+    if @admin.update(admin_params)
+      flash[:notice] = "个人密码修改成功"
+      return redirect_to edit_password_admin_panel_admins_url
     else
-      return render js: 'alert("密码更新失败！");window.location(history.go(0));'
+      flash[:notice] = "个人密码修改失败"
+      return redirect_to edit_password_admin_panel_admins_url
     end
   end
 
@@ -97,7 +114,6 @@ class AdminPanel::AdminsController < AdminPanel::BaseController
       school = School.where(id: @admin.adminable_id).first
       school.destroy if school.present?
     end
-    
     @admin.destroy
     flash[:notice] = "删除成功"
     redirect_to admin_panel_admins_path(role: @admin.role)
@@ -107,7 +123,7 @@ class AdminPanel::AdminsController < AdminPanel::BaseController
 
     def admin_params
        params.require(:admin).permit(:username,:password, :password_confirmation, :role, :province, :name, :email, :mobile,
-        :phone, :address, :agency, :school_id)
+        :phone, :address, :agency, :school_id, :remark, :qq, :state, :postcode)
     end
 
     def set_admin

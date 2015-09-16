@@ -12,7 +12,7 @@
 Admin.destroy_all
 Province.destroy_all
 
-Admin.create!(id: 1, username: "shanghai", password: "123456", password_confirmation: "123456", 
-  role: 0, adminable_id: 1, adminable_type: "Province", province: "上海市", 
+Admin.create!(id: 1, username: "shanghai", password: "123456", password_confirmation: "123456",
+  role: 0, adminable_id: 1, adminable_type: "Province", province: "上海市",
   email: "shanghai@163.com", mobile: "021-88481688", phone: "18866668888")
 Province.create!(id: 1, username: "shanghai", name: "上海市")

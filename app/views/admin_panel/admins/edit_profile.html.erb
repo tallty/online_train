@@ -2,7 +2,7 @@
 	<div class="panel panel-default">
 	  <div class="panel-heading panel-active">基本信息</div>
 	  <div class="panel-body panel-default-bg">
-	    <%= simple_form_for '', html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|%>
+	    <%= form_for @admin, url: update_profile_admin_panel_admins_path, html: { class: 'form-horizontal' }, method: :post do |f|%>
 
     	  <div class="form-group">
     	  	<%= f.label :username, '账号', class: 'col-sm-1 control-label' %>
@@ -11,56 +11,53 @@
     	  	</div>
     	  	<%= f.label :role, '角色', class: 'col-sm-1 control-label' %>
     	  	<div class="col-sm-4">
-    	  		<%= f.text_field :role, value: current_admin.role, class: 'form-control', disabled: true %>
+    	  		<%= f.text_field :role, value: Admin::Role[current_admin.role.to_sym], class: 'form-control', disabled: true %>
     	  	</div>
     	  </div>
 
     	  <div class="form-group">
     	  	<%= f.label :name, '姓名', class: 'col-sm-1 control-label' %>
     	  	<div class="col-sm-4">
-    	  		<%= f.text_field :name, value: current_admin.name, class: 'form-control', disabled: true  %>
+    	  		<%= f.text_field :name, class: 'form-control'  %>
     	  	</div>
-    	  	<%= f.label :state, '状态', class: 'col-sm-1 control-label' %>
+            <%= f.label :address, '地址', class: 'col-sm-1 control-label' %>
+            <div class="col-sm-4">
+                <%= f.text_field :address, class: 'form-control', placeholder: '请输入管理员地址', required: true %>
+            </div>
+    	  </div>
+
+    	  <div class="form-group">
+    	  	<%= f.label :email, 'Email', class: 'col-sm-1 control-label' %>
     	  	<div class="col-sm-4">
-    	  		<%= f.text_field :state, value: current_admin.state, class: 'form-control', disabled: true %>
+    	  		<%= f.text_field :email, class: 'form-control', placeholder: '请输入email', required: true %>
+    	  	</div>
+
+    	  	<%= f.label :phone, '电话', class: 'col-sm-1 control-label' %>
+    	  	<div class="col-sm-4">
+    	  		<%= f.text_field :phone, class: 'form-control', placeholder: '请输入电话号码' %>
+    	  	</div>
+    	  </div>
+    	  <div class="form-group">
+    	  	<%= f.label :mobile, '手机', class: 'col-sm-1 control-label' %>
+    	  	<div class="col-sm-4">
+    	  		<%= f.text_field :mobile, class: 'form-control', placeholder: '请输入手机号码', required: true %>
+    	  	</div>
+    	  	<%= f.label :qq, 'QQ', class: 'col-sm-1 control-label' %>
+    	  	<div class="col-sm-4">
+    	  		<%= f.text_field :qq, class: 'form-control', placeholder: '请输入QQ号' %>
+    	  	</div>
+    	  </div>
+    	  <div class="form-group">
+    	  	<%= f.label :postcode, '邮编', class: 'col-sm-1 control-label' %>
+    	  	<div class="col-sm-4">
+    	  		<%= f.text_field :postcode, class: 'form-control', placeholder: '请输入邮编' %>
     	  	</div>
     	  </div>
 
     	  <div class="form-group">
-    	  	<%= f.label :name, 'Email', class: 'col-sm-1 control-label' %>
-    	  	<div class="col-sm-4">
-    	  		<%= f.text_field :name, class: 'form-control', placeholder: '请输入管理员名称', required: true %>
-    	  	</div>
-    	  	<%= f.label :name, '电话', class: 'col-sm-1 control-label' %>
-    	  	<div class="col-sm-4">
-    	  		<%= f.text_field :name, class: 'form-control', placeholder: '请输入管理员名称', required: true %>
-    	  	</div>
-    	  </div>
-    	  <div class="form-group">
-    	  	<%= f.label :name, '手机', class: 'col-sm-1 control-label' %>
-    	  	<div class="col-sm-4">
-    	  		<%= f.text_field :name, class: 'form-control', placeholder: '请输入管理员名称', required: true %>
-    	  	</div>
-    	  	<%= f.label :name, 'QQ', class: 'col-sm-1 control-label' %>
-    	  	<div class="col-sm-4">
-    	  		<%= f.text_field :name, class: 'form-control', placeholder: '请输入管理员名称', required: true %>
-    	  	</div>
-    	  </div>
-    	  <div class="form-group">
-    	  	<%= f.label :name, '地址', class: 'col-sm-1 control-label' %>
-    	  	<div class="col-sm-4">
-    	  		<%= f.text_field :name, class: 'form-control', placeholder: '请输入管理员名称', required: true %>
-    	  	</div>
-    	  	<%= f.label :name, '邮编', class: 'col-sm-1 control-label' %>
-    	  	<div class="col-sm-4">
-    	  		<%= f.text_field :name, class: 'form-control', placeholder: '请输入管理员名称', required: true %>
-    	  	</div>
-    	  </div>
-
-    	  <div class="form-group">
-    	  	<%= f.label :name, '备注', class: 'col-sm-1 control-label' %>
+    	  	<%= f.label :remark, '备注', class: 'col-sm-1 control-label' %>
     	  	<div class="col-sm-9">
-    	  		 <textarea class="form-control" rows="3"></textarea>
+              <%= f.text_area :remark, class: 'form-control', placeholder: '请输入备注信息', rows: "3" %>
     	  	</div>
     	  </div>
 
