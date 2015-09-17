@@ -56,7 +56,7 @@ class Ability
   # 角色（评审专家）
   def role_specialist
     can :index, :home
-    can :manage, :all
+    can [:list, :edit, :update], AdminUserTask
     can [:index, :edit_profile, :update_profile, :edit_password, :update_password], Admin
   end
 

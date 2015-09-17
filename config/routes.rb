@@ -51,6 +51,11 @@ Rails.application.routes.draw do
     resources :notifications do
       resources :training_courses
     end
+    resources :admin_user_tasks, only: [:edit, :update] do
+      collection do
+        get :list
+      end
+    end
     resources :todos
     resources :user_training_courses, only: :show do
       collection do

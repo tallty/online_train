@@ -10,6 +10,14 @@
 		</li>
 	<% end %>
 
+	<% if can? :list, AdminUserTask %>
+		<li class="text-center">
+			<%= link_to list_admin_panel_admin_user_tasks_path, class: (controller?("admin_panel/admin_user_tasks") && action?("list") ? 'active' : nil) do %>
+			  <span class="glyphicon glyphicon-list-alt"></span> &nbsp;&nbsp;待评作业
+			<% end %>
+		</li>
+	<% end %>
+
 	<li class="text-center">
 		<%= link_to "javascript:void(0);", class: (controller?("admin_panel/training_courses") && action?("index", "show") || controller?("admin_panel/tasks", "admin_panel/user_tasks", "admin_panel/user_training_courses", "admin_panel/journals", "admin_panel/user_appraise_trains", "admin_panel/user_teachers") ? 'active' : nil) do %>
 		  <span class="glyphicon glyphicon-book"></span> &nbsp;&nbsp;培训班级

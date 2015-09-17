@@ -1,0 +1,20 @@
+<div class="panel-body panel-default-bg">
+	<%= form_for [:admin_panel, @admin_user_task], html: { class: 'form-horizontal' }, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|%>
+    <div class="form-group">
+      <%= f.label :score, '评分', class: 'col-sm-3 control-label' %>
+      <div class="col-sm-4">
+        <%= f.number_field :score, placeholder: "请输入评分值", step: 2, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :comment, '评论内容', class: 'col-sm-3 control-label' %>
+      <div class="col-sm-8">
+      <%= f.kindeditor :comment, placeholder: "请输入评论内容", class: 'form-control' %>
+      </div>
+    </div>
+
+	  <div class="col-sm-6 col-sm-offset-4">
+	  	<%= f.submit '确认提交', class: "btn btn-primary pull-left" %>
+	  </div>
+	<% end %>
+</div>
