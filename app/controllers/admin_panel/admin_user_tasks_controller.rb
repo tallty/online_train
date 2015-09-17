@@ -8,10 +8,11 @@ class AdminPanel::AdminUserTasksController < AdminPanel::BaseController
 	end
 
 	def create
+		@user_task.admin_user_tasks.destroy_all
 		params[:admin_user_task][:admin_ids].each do |admin_id|
 			if admin_id.present?
-			  @admin_user_task = AdminUserTask.new admin_user_task_params.merge(admin_id: admin_id, user_task_id: @user_task.id)
-			  @admin_user_task.save
+		  	@admin_user_task = AdminUserTask.new admin_user_task_params.merge(admin_id: admin_id, user_task_id: @user_task.id)
+		    @admin_user_task.save
 			end
 		end
 		flash[:notice] = "评审专家指派成功"
