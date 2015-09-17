@@ -38,6 +38,7 @@ class Ability
     can :manage, :all
     can :manage, TrainingCourse
     can :manage, Journal
+    cannot [:list], AdminUserTask
     cannot [:list_by_school, :list_by_teacher], TrainingCourse
   end
 
