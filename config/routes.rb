@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :training_courses, only: [:index, :show]
+  resources :training_courses, only: [:index, :show] do
+    resources :journals, only: [:index]
+  end
   resources :user_training_courses, only: [:create]
   resources :user_messages, only: [:destroy] do
     member do

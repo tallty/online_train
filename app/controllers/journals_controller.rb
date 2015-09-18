@@ -1,6 +1,11 @@
 class JournalsController < BaseController
 	before_action :set_journal, only: [:edit, :update]
 
+	def index
+		@training_course = TrainingCourse.find(params[:training_course_id])
+		@journals = Journal.where(training_course_id: @training_course.id, user_id: current_user.id).page(params[:page]).per(20)
+	end
+
 	def new
 		@journal = Journal.new
 	end
