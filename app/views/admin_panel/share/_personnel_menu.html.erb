@@ -5,5 +5,4 @@
   <li class=<%= "active" if params[:role] == "specialist"%>><%= link_to("评审专家", admin_panel_admins_path(role: :specialist)) %></li>
   <li class=<%= "active" if params[:role] == "management"%>><%= link_to("班级负责人", admin_panel_admins_path(role: :management)) %></li>
   <li class=<%= "active" if params[:controller] == "admin_panel/teachers" %>><%= link_to("授课教师", admin_panel_teachers_path) %></li>
-  <li class=<%= "active" if params[:controller] == "admin_panel/users" %>><%= link_to("学员", admin_panel_users_path) %></li>
 </ul>
