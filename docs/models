@@ -106,3 +106,12 @@ todoes 待办事项
   内容  content
   状态  state，  默认false， 未完成，   true， 已完成
 
+负责人反馈  manager_feedback
+  training_course  ref
+  admin  ref
+  organizer  承办单位
+  total_hours  总学时
+  total_expenses  总收支
+  total_expenses_info 总收支明细
+  feedback  反馈内容
+  remark   其他情况，备注

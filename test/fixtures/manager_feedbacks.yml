@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  admin_id: 
+  training_course_id: 
+  organizer: MyString
+  total_hours: MyString
+  total_expenses: MyString
+  total_expenses_info: MyText
+  feedback: MyText
+  remark: MyText
+
+two:
+  admin_id: 
+  training_course_id: 
+  organizer: MyString
+  total_hours: MyString
+  total_expenses: MyString
+  total_expenses_info: MyText
+  feedback: MyText
+  remark: MyText

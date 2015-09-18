@@ -34,6 +34,7 @@ class TrainingCourse < ActiveRecord::Base
   has_many :user_training_courses, dependent: :destroy
   has_many :training_course_teachers, dependent: :destroy
   has_many :teachers, through: :training_course_teachers
+  has_one :manager_feedback
 
   default_scope { order("created_at DESC") }
 

@@ -69,6 +69,7 @@ class Ability
     can [:index, :list], Journal
     can :manage, Task
     can :list, UserTask
+    can :manage, ManagerFeedback
     can [:list_by_teacher, :detail], TrainingCourse
     can [:index, :edit_profile, :update_profile, :edit_password, :update_password], Admin
   end

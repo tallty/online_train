@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916065238) do
+ActiveRecord::Schema.define(version: 20150918065446) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -102,6 +102,22 @@ ActiveRecord::Schema.define(version: 20150916065238) do
 
   add_index "journals", ["training_course_id"], name: "index_journals_on_training_course_id", using: :btree
   add_index "journals", ["user_id"], name: "index_journals_on_user_id", using: :btree
+
+  create_table "manager_feedbacks", force: :cascade do |t|
+    t.integer  "admin_id",            limit: 4
+    t.integer  "training_course_id",  limit: 4
+    t.string   "organizer",           limit: 255
+    t.string   "total_hours",         limit: 255
+    t.string   "total_expenses",      limit: 255
+    t.text     "total_expenses_info", limit: 65535
+    t.text     "feedback",            limit: 65535
+    t.text     "remark",              limit: 65535
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "manager_feedbacks", ["admin_id"], name: "index_manager_feedbacks_on_admin_id", using: :btree
+  add_index "manager_feedbacks", ["training_course_id"], name: "index_manager_feedbacks_on_training_course_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -293,6 +309,8 @@ ActiveRecord::Schema.define(version: 20150916065238) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "manager_feedbacks", "admins"
+  add_foreign_key "manager_feedbacks", "training_courses"
   add_foreign_key "training_course_teachers", "teachers"
   add_foreign_key "training_course_teachers", "training_courses"
   add_foreign_key "user_training_courses", "training_courses"

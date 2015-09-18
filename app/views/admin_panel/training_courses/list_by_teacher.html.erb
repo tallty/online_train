@@ -17,7 +17,7 @@
 		    		<th class="text-center">计划数</th>
 		    		<th class="text-center">可否报名</th>
 		    		<th class="text-center">报名人员</th>
-		    		<th class="text-center">操作</th>
+		    		<th class="text-center" colspan="2">操作</th>
 	    	  </tr>
 	    	</thead>
 	    	<tbody>
@@ -38,8 +38,13 @@
 						    <% end %>
 						  </td>
 						  <td class="text-center">
-						  	<%= link_to detail_admin_panel_training_course_path(training_course), title: '查看' do %>
-						      <span class="glyphicon glyphicon-eye-open"></span>
+						  	<%= link_to detail_admin_panel_training_course_path(training_course), class: "btn btn-xs btn-primary", title: '查看' do %>
+						      <span class="glyphicon glyphicon-eye-open"></span> 查看
+						    <% end %>
+						  </td>
+						  <td class="text-center">
+						  	<%= link_to new_admin_panel_training_course_manager_feedback_path(training_course), class: "btn btn-xs btn-primary", title: '查看' do %>
+						      <span class="glyphicon glyphicon-envelope"></span> 反馈
 						    <% end %>
 						  </td>
 						</tr>

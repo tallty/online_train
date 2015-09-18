@@ -74,6 +74,7 @@ Rails.application.routes.draw do
       member do
         get :detail
       end
+      resources :manager_feedbacks
       resources :tasks, only: [:index]
       resources :user_training_courses, only: [:index, :edit, :update] do
         member do

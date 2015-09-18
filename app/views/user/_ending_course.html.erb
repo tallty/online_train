@@ -22,7 +22,11 @@
       <td>是</td>
       <td><%= link_to "查看", training_course_journals_path(user_training_course.training_course)%></td>
       <td>000390324</td>
-      <td><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>评价</td>
+      <td>
+        <%= link_to "" do %>
+          <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>评价
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>

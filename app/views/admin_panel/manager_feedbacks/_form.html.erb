@@ -1,0 +1,57 @@
+<div class="panel-heading panel-active"><%= params[:action] == "new" ? "新建反馈信息" : "修改反馈信息"%></div>
+  <div class="panel-body panel-default-bg">
+  	<%= simple_form_for [:admin_panel, @training_course, @manager_feedback], html: { class: 'form-horizontal' }, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {radio_buttons: :horizontal_radio_and_checkboxes, boolean: :horizontal_boolean } do |f|%>
+
+      <div class="form-group">
+        <%= f.label :organizer, '承办单位', class: 'col-sm-3 control-label' %>
+        <div class="col-sm-4">
+          <%= f.text_field :organizer, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :total_hours, '总学时', class: 'col-sm-3 control-label' %>
+        <div class="col-sm-4">
+          <%= f.text_field :total_hours, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :total_expenses, '总收支', class: 'col-sm-3 control-label' %>
+        <div class="col-sm-4">
+          <%= f.text_field :total_expenses, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :total_expenses_info, '收支明细', class: 'col-sm-3 control-label' %>
+        <div class="col-sm-6">
+          <%= f.text_area :total_expenses_info, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :feedback, '反馈内容', class: 'col-sm-3 control-label' %>
+        <div class="col-sm-6">
+          <%= f.text_area :feedback, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :remark, '其他情况/备注', class: 'col-sm-3 control-label' %>
+        <div class="col-sm-6">
+          <%= f.text_area :remark, class: 'form-control' %>
+        </div>
+      </div>
+
+
+  	  <div class="col-sm-6 col-sm-offset-4">
+  	  	<%= f.submit '确认提交', class: "btn btn-primary pull-left" %>
+  	  </div>
+  	<% end %>
+  </div>
+<!-- 
+
+  training_course  ref
+  admin  ref
+  organizer  承办单位
+  total_hours  总学时
+  total_expenses  总收支
+  total_expenses_info 总收支明细
+  feedback  反馈内容
+  remark   其他情况，备注 -->
