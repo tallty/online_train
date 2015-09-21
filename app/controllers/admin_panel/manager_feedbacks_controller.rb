@@ -1,8 +1,20 @@
 class AdminPanel::ManagerFeedbacksController < AdminPanel::BaseController
-	before_action :set_training_course
+	before_action :set_training_course, only: [:new, :edit, :update]
 	before_action :set_manager_feedback, only: [:new, :edit, :update]
 	def index
 		@manager_feedbacks = ManagerFeedback.where(training_course_id: @training_course.id, admin_id: current_admin.id)
+	end
+
+	def list
+		@manager_feedbacks = ManagerFeedback.all.page(params[:page]).per(15)
+		add_breadcrumb "负责人反馈列表"
+	end
+
+	def show
+		@manager_feedback = ManagerFeedback.find(params[:id])
+
+		add_breadcrumb @manager_feedback.id, admin_panel_manager_feedback_path(@manager_feedback)
+		add_breadcrumb "查看"
 	end
 
 	def new

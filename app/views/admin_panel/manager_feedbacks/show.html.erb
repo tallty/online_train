@@ -1,0 +1,41 @@
+<div class="main-content">
+  <div class="panel panel-default">
+	  <div class="panel-heading panel-active">负责人反馈</div>
+	  <div class="panel-body panel-default-bg">
+	    <table class="table">
+	      <tr>
+	      	<th class="col-sm-2">负责培训班</th>
+	      	<td><%= @manager_feedback.try(:training_course).try(:name) %></td>
+	      </tr>
+	      <tr>
+	      	<th>负责人</th>
+	      	<td><%= @manager_feedback.try(:admin).try(:name) %></td>
+	      </tr>
+	      <tr>
+	      	<th>承办单位</th>
+	      	<td><%= @manager_feedback.organizer %></td>
+	      </tr>
+	      <tr>
+	      	<th>总学时</th>
+	      	<td><%= @manager_feedback.total_hours %></td>
+	      </tr>
+	      <tr>
+	      	<th>总收支</th>
+	      	<td><%= @manager_feedback.total_expenses %></td>
+	      </tr>
+	      <tr>
+	      	<th>总收支明细</th>
+	      	<td><%= @manager_feedback.total_expenses_info %></td>
+	      </tr>
+	      <tr>
+	      	<th>反馈内容</th>
+	      	<td><%= @manager_feedback.feedback %></td>
+	      </tr>
+	      <tr>
+	      	<th>其他情况/备注</th>
+	      	<td><%= @manager_feedback.remark %></td>
+	      </tr>
+	    </table>
+	  </div>
+	</div>
+</div>

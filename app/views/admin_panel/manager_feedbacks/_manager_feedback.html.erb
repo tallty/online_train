@@ -1,0 +1,11 @@
+<tr class="tr-default-bg">
+	<td class="text-center"><%= manager_feedback.try(:training_course).try(:name) %></td>
+	<td class="text-center"><%= manager_feedback.try(:admin).try(:name) %></td>
+	<td class="text-center"><%= manager_feedback.organizer %></td>
+	<td class="text-center"><%= manager_feedback.total_hours %></td>
+	<td class="text-center"><%= manager_feedback.total_expenses %></td>
+	<td class="text-center"><%= manager_feedback.total_expenses_info %></td>
+	<td class="text-center"><%= manager_feedback.feedback %></td>
+	<td class="text-center"><%= manager_feedback.remark %></td>
+	 <td class="text-center"><%= link_to "查看", admin_panel_manager_feedback_path(manager_feedback) %></td>
+</tr>
