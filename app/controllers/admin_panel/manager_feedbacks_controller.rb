@@ -6,7 +6,13 @@ class AdminPanel::ManagerFeedbacksController < AdminPanel::BaseController
 	end
 
 	def list
-		@manager_feedbacks = ManagerFeedback.all.page(params[:page]).per(15)
+		@search = ManagerFeedback.search do
+      fulltext(params[:q]) do
+        fields(:admin_name, :training_course_name)
+      end
+      paginate :page => params[:page], :per_page => 15
+    end
+
 		add_breadcrumb "负责人反馈列表"
 	end
 

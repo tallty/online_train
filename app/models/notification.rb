@@ -19,5 +19,6 @@ class Notification < ActiveRecord::Base
     text :title
     text :sub_title
     text :category
+    text :author
   end
 end

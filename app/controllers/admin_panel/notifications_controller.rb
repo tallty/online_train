@@ -4,7 +4,7 @@ class AdminPanel::NotificationsController < AdminPanel::BaseController
   def index
     @search = Notification.search do
       fulltext(params[:q]) do
-        fields(:title, :sub_title, :category)
+        fields(:title, :sub_title, :category, :author)
       end
     end
     add_breadcrumb "通知列表", admin_panel_notifications_path
