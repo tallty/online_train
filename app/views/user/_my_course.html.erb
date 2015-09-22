@@ -23,7 +23,7 @@
         <%= user_training_course.user_training_course_status %>
       </td>
       <td>是</td>
-      <td><a href="#">上传</a></td>
+      <td><%= link_to "查看", training_course_journals_path(user_training_course.training_course)%>
       <td><a href="#" class="check resourse-download">下载</a></td>
       <td>
         <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>

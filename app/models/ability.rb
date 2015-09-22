@@ -66,7 +66,7 @@ class Ability
     can :index, :home
     can :index, Journal
     can [:index, :list], UserTrainingCourse
-    can [:index, :list], Journal
+    can [:index, :list, :show], Journal
     can :manage, Task
     can [:list, :show], UserTask
     can :manage, ManagerFeedback
