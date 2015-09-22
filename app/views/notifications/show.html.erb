@@ -24,6 +24,9 @@
 						</ul>
 						<%= raw @notification.try(:content) %>
 					</div>
+					<div class="text-center" style="margin-top: 30px">
+						<%= link_to "我要报名", training_course_path(@notification.training_course), class: "btn btn-primary apply-btn"%>
+					</div>
 				</div>
 			</div>
 		</div>
