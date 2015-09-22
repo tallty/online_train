@@ -1,15 +1,15 @@
 <%= form_for @journal do |f|%>
   <div class="form-group">
     <label for="exampleInputEmail1">培训班：</label>
-    <%= f.collection_select :training_course_id, TrainingCourse.where({id:  UserTrainingCourse.where(user_id: current_user.id).pluck(:training_course_id)}), :id, :name, prompt: "请选择已报名培训班", class: "form-control" %>
+    <%= f.collection_select :training_course_id, TrainingCourse.where({id:  UserTrainingCourse.where(user_id: current_user.id).pluck(:training_course_id)}), :id, :name, prompt: "请选择已报名培训班", class: "form-control", required: true %>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">培训内容：</label>
-    <%= f.text_area :content, size: "20x7", class: "form-control" %>
+    <%= f.text_area :content, size: "20x7", class: "form-control", required: true %>
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">日期：</label>
-    <%= f.date_field :add_date, class: "form-control" %>
+    <%= f.date_field :add_date, class: "form-control", required: true %>
   </div>
 
   <div class="row">
