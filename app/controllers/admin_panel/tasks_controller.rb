@@ -1,6 +1,6 @@
 class AdminPanel::TasksController < AdminPanel::BaseController
   load_and_authorize_resource
-  before_action :set_task, only: [:edit, :update, :destroy, :download, :show]
+  before_action :set_task, only: [:edit, :update, :destroy, :download, :show, :destroy]
 
   def index
     @training_course = TrainingCourse.find(params[:training_course_id])
@@ -74,6 +74,11 @@ class AdminPanel::TasksController < AdminPanel::BaseController
     else
       redirect_to admin_panel_tasks_path
     end
+  end
+
+  def destroy
+    @task.destroy
+    redirect_to list_admin_panel_tasks_path
   end
 
   private
