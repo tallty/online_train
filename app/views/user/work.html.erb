@@ -32,7 +32,7 @@
                             <td>
                               <%= link_to(task.title, user_task_path(task), format: :js, remote: true) %>
                             </td>
-                            <td><%= user_task.comment_result%></td>
+                            <td><%= user_task.comment_result %></td>
                             <td><%= task.created_at.strftime("%F")%></td>
                             <td class="text-left">
                               <% if user_task.present? %>

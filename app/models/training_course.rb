@@ -98,7 +98,7 @@ class TrainingCourse < ActiveRecord::Base
   	if self.user_training_courses.where(state: false).count == 0
       (self.plan_number.to_i - self.user_training_courses.count) > 0 ? self.plan_number.to_i - self.user_training_courses.count : 0
     else
-      (self.plan_number.to_i - self.user_training_courses.where(state: true).count) > 0 ? self.plan_number.to_i - self.user_training_courses.where(state: true).count : 0
+      (self.plan_number.to_i - self.user_training_courses.where(state: true).count - self.user_training_courses.where(state: nil).count) > 0 ? self.plan_number.to_i - self.user_training_courses.where(state: true).count - self.user_training_courses.where(state: nil).count : 0
     end
   end
 
