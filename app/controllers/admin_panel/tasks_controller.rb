@@ -9,6 +9,7 @@ class AdminPanel::TasksController < AdminPanel::BaseController
 
   def list
     @tasks = Task.all
+    add_breadcrumb "培训作业列表"
   end
 
 

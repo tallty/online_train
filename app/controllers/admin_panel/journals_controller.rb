@@ -8,6 +8,7 @@ class AdminPanel::JournalsController < AdminPanel::BaseController
   end
 
   def list
+    add_breadcrumb "日志列表"
   end
 
   def show

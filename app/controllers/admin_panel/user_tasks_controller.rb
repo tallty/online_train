@@ -8,6 +8,7 @@ class AdminPanel::UserTasksController < AdminPanel::BaseController
 
   def list
   	@user_tasks = UserTask.all
+    add_breadcrumb "提交作业列表"
   end
 
   def show

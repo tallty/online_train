@@ -1,5 +1,5 @@
 <% if @task.errors.blank? %>
-  location.href = "<%= admin_panel_tasks_path %>";
+  location.href = "<%= list_admin_panel_tasks_path %>";
 <% else %>
   $("#taskNewOrEdit").html("<%= escape_javascript(render 'form') %>");
   $(".modal-backdrop").remove();
