@@ -23,7 +23,7 @@ class Task < ActiveRecord::Base
 
   #已提交作业人数
   def submitted_count
-  	self.training_course.user_training_courses.where(state: true).count - self.user_tasks.count
+  	self.training_course.present? ? self.training_course.user_training_courses.where(state: true).count - self.user_tasks.count : 0
   end
 
   #未提交作业人数
