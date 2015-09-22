@@ -14,9 +14,9 @@
   </tr>
   <% @on_user_training_courses.each do |user_training_course|%>
     <tr>
-      <td><%= user_training_course.try(:training_course).created_at.strftime("%Y")%></td>
-      <td><%= user_training_course.try(:training_course).name%></td>
-      <td><%= user_training_course.try(:training_course).training_address%></td>
+      <td><%= user_training_course.try(:training_course).created_at.strftime("%Y") %></td>
+      <td><%= user_training_course.try(:training_course).name %></td>
+      <td><%= user_training_course.try(:training_course).training_address %></td>
       <td><%= user_training_course.try(:training_course).start_time.strftime("%Y-%m-%d")%><br><%= user_training_course.try(:training_course).end_time.strftime("%Y-%m-%d")%></td>
       <td>正在进行</td>
       <td class="check">
@@ -39,8 +39,6 @@
     <th>培训地点</th>
     <th>开班起止时间</th>
     <th>班级状态</th>
-    <th>计划</th>
-    <th>剩余</th>
     <th>报名状态</th>
     <th>项目负责人</th>
   </tr>
@@ -51,9 +49,7 @@
       <td><%= user_training_course.try(:training_course).training_address%></td>
       <td><%= user_training_course.try(:training_course).start_time.strftime("%Y-%m-%d")%><br><%= user_training_course.try(:training_course).end_time.strftime("%Y-%m-%d")%></td>
       <td>即将开始</td>
-      <td><%= user_training_course.try(:training_course).plan_number %></td>
-      <td>15</td>
-      <td class="check"><%= user_training_course.state ? "审核通过" : "审核失败"%></td>
+      <td class="check"><%= user_training_course.user_training_course_status %></td>
       <td><%= user_training_course.try(:training_course).project_leader%></td>
     </tr>
   <% end %>

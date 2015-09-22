@@ -81,6 +81,27 @@ class TrainingCourse < ActiveRecord::Base
 		self.user_training_courses.where(state: true).count
 	end
 
+	#记录报名课程的3种状态
+  def user_training_course_status
+    case self.state
+    when nil
+      "审核中"
+    when true
+      "已通过"
+    when false
+      "未通过"
+    end
+  end
+
+  #剩余数量
+  def remain_applied_number
+  	if self.user_training_courses.where(state: false).count == 0
+      (self.plan_number.to_i - self.user_training_courses.count) > 0 ? self.plan_number.to_i - self.user_training_courses.count : 0
+    else
+      (self.plan_number.to_i - self.user_training_courses.where(state: true).count) > 0 ? self.plan_number.to_i - self.user_training_courses.where(state: true).count : 0
+    end
+  end
+
 	#搜索功能
 	searchable do
     text :name

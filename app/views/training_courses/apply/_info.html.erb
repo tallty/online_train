@@ -34,7 +34,7 @@
         <th scope="row">培训天数</th>
         <td><%= (@training_course.try(:end_time).to_date - @training_course.try(:start_time).to_date).to_i %>天</td>
         <th>剩余名额</th>
-        <td class="font-green"><%= (@training_course.plan_number.to_i - @user_training_courses.count) > 0 ? @training_course.plan_number.to_i - @user_training_courses.count : 0 %></td>
+        <td class="font-green"><%= @training_course.remain_applied_number %></td>
       </tr>
       <tr>
         <th scope="row">培训地点</th>

@@ -9,7 +9,7 @@
     <div class="form-group">
       <%= f.label :comment, '评论内容', class: 'col-sm-3 control-label' %>
       <div class="col-sm-8">
-      <%= f.kindeditor :comment, placeholder: "请输入评论内容", class: 'form-control', required: true %>
+      <%= f.kindeditor :comment, placeholder: "请输入评论内容", class: 'form-control', :window_onload => true, required: true %>
       </div>
     </div>
 

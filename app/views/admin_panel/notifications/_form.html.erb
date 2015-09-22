@@ -27,7 +27,7 @@
   <div class="form-group">
     <%= f.label :content, '内容', class: 'col-sm-3 control-label' %>
     <div class="col-sm-4">
-      <%= f.kindeditor :content, :width => 800, :height => 300, class: 'form-control' %>
+      <%= f.kindeditor :content, :window_onload => true, :width => 800, :height => 300, class: 'form-control' %>
     </div>
   </div>
   <div class="col-sm-6 col-sm-offset-3">
