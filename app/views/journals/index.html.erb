@@ -8,14 +8,14 @@
         <div class="panel panel-default">
           <div class="panel-heading">[<%= @training_course.name %>]<span class="text-primary"> 日志列表</span></div>
           <div class="panel-body">
-            <table class="table table-border table-stripped">
+            <table class="table table-bordered table-stripped table-hover table-condensed">
               <tr>
-                <th>日期</th>
-                <th>日志内容</th>
-                <th>创建时间</th>
+                <th class="text-center">日期</th>
+                <th class="text-center">日志内容</th>
+                <th class="text-center">创建时间</th>
               </tr>
               <% @journals.each do |journal|%>
-                <tr>
+                <tr class="text-center">
                   <td><%= journal.try(:add_date).strftime("%Y-%m-%d") %></td>
                   <td><%= raw journal.content %></td>
                   <td><%= journal.try(:created_at).strftime("%Y-%m-%d %H:%M") %></td>
