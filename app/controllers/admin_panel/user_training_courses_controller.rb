@@ -43,14 +43,14 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   def applied
   	@user_training_course.update!(state: true)
     message = Message.create!(title: "已通过", content: "您报名的“#{@user_training_course.training_course.try(:name)}”已通过管理员审核")
-    UserMessage.create!(user_id: current_user.id, message_id: message.id)
+    UserMessage.create!(user_id: @user_training_course.user.id, message_id: message.id)
   	return redirect_to admin_panel_training_course_user_training_courses_path(@training_course)
   end
 
   def disapplied
   	@user_training_course.update!(state: false)
     message = Message.create!(title: "未通过", content: "您报名的“#{@user_training_course.training_course.try(:name)}”未通过管理员审核")
-    UserMessage.create!(user_id: current_user.id, message_id: message.id)
+    UserMessage.create!(user_id: @user_training_course.user.id, message_id: message.id)
   	return redirect_to admin_panel_training_course_user_training_courses_path(@training_course)
   end
 
