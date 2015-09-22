@@ -21,7 +21,11 @@
       <td class="check">
         <%= user_training_course.user_training_course_status %>
       </td>
-      <td><%= link_to "查看", training_course_journals_path(user_training_course.training_course)%>
+      <td>
+        <%= link_to training_course_journals_path(user_training_course.training_course) do %>
+          查看[ <span class="text-danger"><%= Journal.journal_amount(user_training_course.user.id, user_training_course.training_course.id) %></span> ]
+        <% end %>
+      </td>
       <td><a href="#" class="check resourse-download">下载</a></td>
       <td>
         <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
