@@ -101,7 +101,7 @@ Rails.application.routes.draw do
       end
       resources :user_tasks, only: :index
     end
-    resources :user_tasks do
+    resources :user_tasks, only: :show do
       collection do
         get :list
       end

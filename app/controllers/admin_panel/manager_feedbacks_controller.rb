@@ -32,6 +32,7 @@ class AdminPanel::ManagerFeedbacksController < AdminPanel::BaseController
 	end
 
 	def edit
+		add_breadcrumb "修改"
 	end
 
 	def update

@@ -1,0 +1,31 @@
+<div class="main-content">
+  <div class="panel panel-default">
+	  <div class="panel-heading panel-active">
+	    查看学员作业
+	  </div>
+	  <div class="panel-body panel-default-bg">
+	    <table class="table">
+	      <tr>
+	      	<th class="col-sm-1">布置作业</th>
+	      	<td><%= @user_task.try(:task).try(:title) %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">学员</th>
+	      	<td><%= @user_task.try(:user).try(:name) %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">标题</th>
+	      	<td><%= @user_task.title %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">内容</th>
+	      	<td><%= @user_task.content %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">附件下载</th>
+	      	<td><%= link_to(truncate(@user_task.try(:attachment).try(:avatar_file_name), length: 30), download_user_task_path(@user_task), title: @user_task.try(:attachment).try(:avatar_file_name) ) %></td>
+	      </tr>
+	    </table>
+	  </div>
+	</div>
+</div>

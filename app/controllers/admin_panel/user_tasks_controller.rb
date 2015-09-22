@@ -9,4 +9,9 @@ class AdminPanel::UserTasksController < AdminPanel::BaseController
   def list
   	@user_tasks = UserTask.all
   end
+
+  def show
+  	@user_task = UserTask.find(params[:id])
+  	add_breadcrumb "查看"
+  end
 end
