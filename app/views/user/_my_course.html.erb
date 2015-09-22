@@ -7,7 +7,6 @@
     <th>开班起止时间</th>
     <th>班级状态</th>
     <th>报名状态</th>
-    <th>来班</th>
     <th>日志</th>
     <th>课程资源</th>
     <th>操作</th>
@@ -22,7 +21,6 @@
       <td class="check">
         <%= user_training_course.user_training_course_status %>
       </td>
-      <td>是</td>
       <td><%= link_to "查看", training_course_journals_path(user_training_course.training_course)%>
       <td><a href="#" class="check resourse-download">下载</a></td>
       <td>
