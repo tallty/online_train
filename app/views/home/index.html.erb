@@ -68,12 +68,34 @@
 					<div class="panel-body">
 					  <ul class="list">
 					    <!-- 最多显示5行 -->
-					    <% Spider::TONGZHI_ARRAY.each do |tongzhi|%>
+					    <!--
+					    <%# Spider::TONGZHI_ARRAY.each do |tongzhi|%>
 						  	<li>
-						  	  <a href="<%= tongzhi['link'] %>" target="_blank" class="col-sm-10 pull-left">&nbsp;&nbsp;<%= tongzhi['text'] %></a>
-						  	  <span class="pull-right"><%= tongzhi['time'] %></span>
+						  	  <a href="<%#= tongzhi['link'] %>" target="_blank" class="col-sm-10 pull-left">&nbsp;&nbsp;<%#= tongzhi['text'] %></a>
+						  	  <span class="pull-right"><%#= tongzhi['time'] %></span>
 						  	</li>
-						  <% end %>
+						  <%# end %>
+						  -->
+						  <li>
+						    <%= link_to "（国内）（上海）大型数据库（Oracle维护与开发）培训班通知", "http://www.hvett.com.cn/index.php?action=page&pid=6&id=2226", title: "（国内）（上海）大型数据库（Oracle维护与开发）培训班通知", target: "_blank", class: "col-sm-10 pull-left" %>
+						    <span class="pull-right">2015-06-01</span>
+						  </li>
+						  <li>
+						    <%= link_to "（企业顶岗）（上海）物联网（RFID)应用培训通知 ", "http://www.hvett.com.cn/index.php?action=page&pid=7&id=2524", title: "（企业顶岗）（上海）物联网（RFID)应用培训通知 ", target: "_blank", class: "col-sm-10 pull-left"%>
+						    <span class="pull-right">2015-05-20</span>
+						  </li>
+						  <li>
+						    <%= link_to "（国内）（上海）工业机器人技术应用培训班通知", "http://www.hvett.com.cn/index.php?action=page&pid=6&id=2152", title: "（国内）（上海）工业机器人技术应用培训班通知", target: "_blank", class: "col-sm-10 pull-left"%>
+						    <span class="pull-right">2015-05-15</span>
+						  </li>
+						  <li>
+						    <%= link_to "（国内）（上海）跨境电子商务培训班通知", "http://www.hvett.com.cn/index.php?action=page&pid=6&id=2151", title: "（国内）（上海）跨境电子商务培训班通知", target: "_blank", class: "col-sm-10 pull-left"%>
+						    <span class="pull-right">2015-05-15</span>
+						  </li>
+						  <li>
+						    <%= link_to "（国内）（上海）建筑工程技术专业培训班通知", "http://www.hvett.com.cn/index.php?action=page&pid=6&id=2150", title: "（国内）（上海）建筑工程技术专业培训班通知", target: "_blank", class: "col-sm-10 pull-left"%>
+						    <span class="pull-right">2015-05-15</span>
+						  </li>
 					  </ul>
 					</div>
 				</div>
@@ -84,12 +106,19 @@
 				  </div>
 				  <div class="panel-body">
 				    <ul class="list">
+				      <li><%= link_to "（国内）（上海）大型数据库（Oracle维护与开发）师资培训方案（国培代码：09151003）", "http://www.hvett.com.cn/index.php?action=page&pid=7&id=2524", title: "（国内）（上海）大型数据库（Oracle维护与开发）师资培训方案（国培代码：09151003）", target: "_blank", class: "col-sm-12 pull-left"%></li>
+				      <li><%= link_to "（企业顶岗）（上海）RFID典型应用系统设计（国培代码：09142001）", "http://www.hvett.com.cn/index.php?action=page&pid=7&id=2091", title: "（企业顶岗）（上海）RFID典型应用系统设计（国培代码：09142001）", target: "_blank", class: "col-sm-12 pull-left"%></li>
+				      <li><%= link_to "（国内）（上海）“全国高职高专工业机器人技术应用”国培师资培训班通知（项目编号09151002）", "http://www.hvett.com.cn/index.php?action=page&pid=7", title: "（国内）（上海）“全国高职高专工业机器人技术应用”国培师资培训班通知（项目编号09151002）", target: "_blank", class: "col-sm-12 pull-left"%></li>
+				      <li><%= link_to "（国内）（上海）“跨境电子商务骨干教师”师资培训班通知（项目编号09151004）", "http://www.hvett.com.cn/index.php?action=page&pid=7", title: "（国内）（上海）“跨境电子商务骨干教师”师资培训班通知（项目编号09151004）", target: "_blank", class: "col-sm-12 pull-left"%></li>
+				      <li><%= link_to "（国内）（上海）“高职院校《建筑工程技术》”专业骨干教师师资培训班通知（项目编号09151007）", "http://www.hvett.com.cn/index.php?action=page&pid=7", title: "（国内）（上海）“高职院校《建筑工程技术》”专业骨干教师师资培训班通知（项目编号09151007）", target: "_blank", class: "col-sm-12 pull-left"%></li>
 					    <!-- 最多显示5行 -->
-					    <% Spider::BAOMING_HASH.each do |text, link| %>
+					    <!--
+					    <%# Spider::BAOMING_HASH.each do |text, link| %>
 						  	<li>
-						  	  <a href="<%= link %>" target="_blank" class="col-sm-12 pull-left"><%= text %></a>
+						  	  <a href="<%#= link %>" target="_blank" class="col-sm-12 pull-left"><%#= text %></a>
 						  	</li>
-						  <% end %>
+						  <%# end %>
+						  -->
 					  </ul>
 				  </div>
 				</div>
