@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="wrapper">
+    <div class="row">
+      <div class="personal_center right_message_tab col-md-3">
+        <%= render "user/personal_nav"%>
+      </div>
+      <div class="col-sm-9 courses">
+        <div class="panel panel-default course-panel">
+          <div class="panel-heading">
+            <%= render 'course_nav'%>
+          </div>
+          <div class="panel-body course-content">
+            <h3 class="text-center">学员评价</h3>
+            <hr>
+            <p>1.我对本期培训的感受（人选其一）</p>
+            <%= simple_form_for([@training_course, @student_feedback], html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {radio_buttons: :horizontal_radio_and_checkboxes }) do |f| %>
+              <%= f.input :teach, label: '（1）课堂教学', collection: StudentFeedback::T_CommentContent.to_a.reverse_each{|x| x.reverse!}, as: :radio_buttons %>
+              <%= f.input :discussion, label: '（2）谈论交流', collection: StudentFeedback::D_CommentContent.to_a.reverse_each{|x| x.reverse!}, as: :radio_buttons %>
+              <%= f.input :visiting, label: '（3）参观考察', collection: StudentFeedback::V_CommentContent.to_a.reverse_each{|x| x.reverse!}, as: :radio_buttons %>
+              <%= f.input :organization, label: '（4）组织管理工作', collection: StudentFeedback::O_Satisfaction.to_a.reverse_each{|x| x.reverse!}, as: :radio_buttons %>
+              <%= f.input :study_life, label: '（5）学习和生活条件', collection: StudentFeedback::S_Satisfaction.to_a.reverse_each{|x| x.reverse!}, as: :radio_buttons %>
+              <p>2.我认为本期培训最有价值的课程和活动是什么？</p>
+	            <%= f.input :most_value, label: '', class: "form-control" %>
+	            <p>3.通过本期培训的学习，我最大的感受与收获是什么？（如前瞻性信息的吸纳、思维方式的启迪以及对实际工作的帮助等）</p>
+	            <%= f.input :most_gain, label: '', class: "form-control" %>
+	            <p>4.结业赠言</p>
+	            <%= f.input :graduate_message, label: '', class: "form-control" %>
+              <div class="text-center">
+              	<%= f.submit "确认提交", class: "btn btn-primary"%>
+              </div>
+	          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

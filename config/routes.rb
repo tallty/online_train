@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :training_courses, only: [:index, :show] do
     resources :journals, only: [:index]
+    resources :student_feedbacks, only: [:new, :edit, :update]
   end
   resources :user_training_courses, only: [:create]
   resources :user_messages, only: [:destroy] do
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
       get :work
       get :message
       get :course
+      get :end_course
     end
   end
 

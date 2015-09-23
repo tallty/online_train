@@ -13,7 +13,11 @@ class UserController < BaseController
     #即将开始的课程
     be_training_course_ids = TrainingCourse.where("start_time > ?", now).pluck(:id)
     @be_user_training_courses = current_user.user_training_courses.where({training_course_id: be_training_course_ids})
+  end
+
+  def end_course
     #已完成的课程
+    now = Time.now
     already_training_course_ids = TrainingCourse.where("end_time < ?", now).pluck(:id)
     @already_user_training_courses = current_user.user_training_courses.where({training_course_id: already_training_course_ids})
   end

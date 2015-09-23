@@ -115,3 +115,15 @@ todoes 待办事项
   total_expenses_info 总收支明细
   feedback  反馈内容
   remark   其他情况，备注
+
+学员反馈 student_feedback
+  user_id
+  training_course_id
+  课堂教学       teach
+  讨论交流       discussion
+  参观考察       visiting
+  组织管理工作    organization
+  学习与生活条件  study_life
+  最大价值      most_value         text
+  最大收获      most_gain          text
+  结业赠言      graduate_message   text

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  training_course_id: 
+  teach: MyString
+  discussion: MyString
+  visiting: MyString
+  organization: MyString
+  study_life: MyString
+  most_value: MyText
+  most_gain: MyText
+  graduate_message: MyText
+
+two:
+  user_id: 
+  training_course_id: 
+  teach: MyString
+  discussion: MyString
+  visiting: MyString
+  organization: MyString
+  study_life: MyString
+  most_value: MyText
+  most_gain: MyText
+  graduate_message: MyText
