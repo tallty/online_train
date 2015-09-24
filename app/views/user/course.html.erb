@@ -10,7 +10,7 @@
             <%= render 'course_nav'%>
           </div>
           <div class="panel-body course-content">
-            <%= render "my_course"%>
+            <%= render partial: "my_course", locals: {training_course: @training_course}%>
           </div>
         </div>
       </div>
@@ -19,80 +19,6 @@
 </div>
 
 <div id="resoureDownload" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">课程资源</h4>
-      </div>
-      <div class="modal-body">
-        <h5>培训班：（国内 常州）通信专业LTE技术培训（国培代码：10131010）</h5>
-        <div class="row resourse-box">
-          <div class="col-sm-10">
-            <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-            课时一：课程内容大纲
-          </div>
-          <div class="col-sm-2 text-right">
-            <a href="#" class="text-success">下载</a>
-          </div>
-        </div>
-        <div class="row resourse-box">
-          <div class="col-sm-10">
-            <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-            课时二：课程内容大纲
-          </div>
-          <div class="col-sm-2 text-right">
-            <a href="#" class="text-success">下载</a>
-          </div>
-        </div>
-        <div class="row resourse-box">
-          <div class="col-sm-10">
-            <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-            课时三：课程内容大纲
-          </div>
-          <div class="col-sm-2 text-right">
-            <a href="#" class="text-success">下载</a>
-          </div>
-        </div>
-        <div class="row resourse-box">
-          <div class="col-sm-10">
-            <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-            课时四：课程内容大纲
-          </div>
-          <div class="col-sm-2 text-right">
-            <a href="#" class="text-success">下载</a>
-          </div>
-        </div>
-        <div class="row resourse-box">
-          <div class="col-sm-10">
-            <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-            课时五：课程内容大纲
-          </div>
-          <div class="col-sm-2 text-right">
-            <a href="#" class="text-success">下载</a>
-          </div>
-        </div>
-        <div class="row resourse-box">
-          <div class="col-sm-10">
-            <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-            课时六：课程内容大纲
-          </div>
-          <div class="col-sm-2 text-right">
-            <a href="#" class="text-success">下载</a>
-          </div>
-        </div>
-        <div class="row resourse-box">
-          <div class="col-sm-10">
-            <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-            课时七：课程内容大纲
-          </div>
-          <div class="col-sm-2 text-right">
-            <a href="#" class="text-success">下载</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <script type="text/javascript">
@@ -101,10 +27,6 @@
       $(this).addClass("active").siblings().removeClass("active");
       $(".course-content").hide();
       $(".course-content").eq($(this).index()).show();
-    });
-
-    $(".resourse-download").click(function(){
-      $("#resoureDownload").modal();
     });
   });
 </script>

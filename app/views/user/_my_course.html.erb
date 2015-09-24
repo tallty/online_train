@@ -26,7 +26,7 @@
           查看[ <span class="text-danger"><%= Journal.journal_amount(user_training_course.user.id, user_training_course.training_course.id) %></span> ]
         <% end %>
       </td>
-      <td><a href="#" class="check resourse-download">下载</a></td>
+      <td><%= link_to "下载", training_course_course_resources_path(user_training_course.training_course), remote: true %></td>
       <td>
         <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
       </td>

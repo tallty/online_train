@@ -1,0 +1,5 @@
+<% if can? :new, CourseResource %>
+  <%= link_to new_admin_panel_training_course_course_resource_path(@training_course), class: "btn btn-xs pull-right btn-active" do %>
+     <span class="glyphicon glyphicon-plus-sign"></span> 新建课程附件
+  <% end %>
+<% end %>

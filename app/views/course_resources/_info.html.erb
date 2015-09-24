@@ -1,0 +1,22 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title">课程资源</h4>
+    </div>
+    <div class="modal-body">
+      <h5><%= training_course.name %></h5>
+      <% course_resources.each do |course_resource|%>
+	      <div class="row resourse-box">
+	        <div class="col-sm-10">
+	          <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+	          <%= course_resource.title %>
+	        </div>
+	        <div class="col-sm-2 text-right">
+	          <a href="<%= download_training_course_course_resource_path(training_course, course_resource) %>" class="text-success">下载</a>
+	        </div>
+	      </div>
+	    <% end %>
+    </div>
+  </div>
+</div>

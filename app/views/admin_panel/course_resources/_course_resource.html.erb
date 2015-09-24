@@ -1,0 +1,8 @@
+<tr class="tr-default-bg">
+		<td class="text-center"><%= course_resource.try(:training_course).name %></td>
+		<td class="text-center"><%= course_resource.title %></td>
+		<td class="text-center"><%= course_resource.try(:attachment).avatar_file_name if course_resource.try(:attachment) %></td>
+	  <% if can? :edit, CourseResource %>
+		  <td class="text-center"><%= link_to "修改", edit_admin_panel_training_course_course_resource_path(@training_course, course_resource) %></td>
+		<% end %>
+	</tr>

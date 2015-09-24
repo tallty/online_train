@@ -1,0 +1,31 @@
+<%= form_for [:admin_panel, @training_course, @course_resource], html: { class: 'form-horizontal' } do |f|%>
+  <div class="form-group">
+    <%= f.label :title, '标题', class: 'col-sm-3 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :title, placeholder: "请输入标题", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :remark, '备注', class: 'col-sm-3 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_area :remark, size: "80x8", placeholder: "备注（可不填）", class: 'form-control' %>
+    </div>
+  </div>
+  <% if @course_resource.present? && @course_resource.attachment.present? %>
+    <div class="form-group">
+      <%= f.label :attachment, '已上传附件', class: 'col-sm-3 control-label' %>
+      <div class="col-sm-4">
+        <%= @course_resource.attachment.avatar_file_name %>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :attachment, '附件', class: 'col-sm-3 control-label' %>
+    <div class="col-sm-4">
+      <%= f.file_field :attachment, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="col-sm-6 col-sm-offset-3">
+  	<%= f.submit '确认提交', data: {disable_with: "提交中..."}, class: "btn btn-primary pull-left" %>
+  </div>
+<% end %>

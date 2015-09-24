@@ -1,4 +1,5 @@
 class AdminPanel::TodosController < AdminPanel::BaseController
+	load_and_authorize_resource
 
 	def new
 		@todo = current_admin.todos.new
