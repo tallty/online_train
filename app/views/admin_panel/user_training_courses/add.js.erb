@@ -1,0 +1,2 @@
+$("#AddModal").html("<%= escape_javascript(render partial: 'add', locals: {training_course: @training_course, user_training_course: @user_training_course}) %>");
+$("#AddModal").modal('show');

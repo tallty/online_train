@@ -65,7 +65,7 @@ class Ability
   def role_management
     can :index, :home
     can :index, Journal
-    can [:index, :list], UserTrainingCourse
+    can [:index, :list, :add, :added], UserTrainingCourse
     can [:index, :list, :show], Journal
     can :manage, Task
     can [:list, :show, :index], UserTask

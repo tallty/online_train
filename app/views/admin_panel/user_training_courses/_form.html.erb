@@ -1,14 +1,12 @@
 <div class="panel-heading panel-active">报名备注信息</div>
   <div class="panel-body panel-default-bg">
-  	<%= simple_form_for [:admin_panel, @training_course, @user_training_course], html: { class: 'form-horizontal' }, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {radio_buttons: :horizontal_radio_and_checkboxes, boolean: :horizontal_boolean } do |f|%>
-        <div class="form-group">
-          <%= f.label :remark, '报名备注信息', class: 'col-sm-3 control-label' %>
-          <div class="col-sm-4">
-            <%= f.text_area :remark, placeholder: "请输入报名备注信息", class: 'form-control' %>
-          </div>
+  	<%= simple_form_for [:admin_panel, @training_course, @user_training_course], html: { class: 'form-horizontal' } do |f|%>
+      <div class="form-group">
+        <%= f.label :remark, '报名备注信息', class: 'col-sm-3 control-label' %>
+        <div class="col-sm-4">
+          <%= f.text_area :remark, placeholder: "请输入报名备注信息", class: 'form-control' %>
         </div>
-
-
+      </div>
   	  <div class="col-sm-6 col-sm-offset-4">
   	  	<%= f.submit '确认提交', class: "btn btn-primary pull-left" %>
   	  </div>

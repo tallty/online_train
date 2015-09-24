@@ -97,6 +97,9 @@ Rails.application.routes.draw do
         member do
           patch :disapplied, :applied
           post :disapplied, :applied
+          get :add
+          patch :added
+          post :added
         end
       end
       member do

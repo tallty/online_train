@@ -13,6 +13,6 @@ class UserTrainingCoursesController < BaseController
 
   private
   def user_training_course_params
-  	params.require(:user_training_course).permit(:user_id, :training_course_id)
+  	params.require(:user_training_course).permit(:user_id, :training_course_id, :certificate_no)
   end
 end

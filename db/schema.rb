@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924012751) do
+ActiveRecord::Schema.define(version: 20150924033822) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -295,6 +295,7 @@ ActiveRecord::Schema.define(version: 20150924012751) do
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
     t.string   "remark",             limit: 255
+    t.string   "certificate_no",     limit: 255
   end
 
   add_index "user_training_courses", ["training_course_id"], name: "index_user_training_courses_on_training_course_id", using: :btree

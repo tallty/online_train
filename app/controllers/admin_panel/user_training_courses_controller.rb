@@ -1,6 +1,6 @@
 class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
-  before_action :set_training_course, only: [:index, :edit, :update, :applied, :disapplied]
-	before_action :set_user_training_course, only: [:applied, :disapplied, :edit, :update]
+  before_action :set_training_course, only: [:index, :edit, :update, :applied, :disapplied, :add, :added]
+	before_action :set_user_training_course, only: [:applied, :disapplied, :edit, :update, :add, :added]
   load_and_authorize_resource
 
   def index
@@ -37,6 +37,21 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
     else
       flash[:notice] = "备注信息修改失败"
       return render action: :edit
+    end
+  end
+
+  #添加证书编号
+  def add
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def added
+    @user_training_course.update(certificate_no: params[:user_training_course][:certificate_no])
+    return render js: "window.location.href = '#{admin_panel_training_course_user_training_courses_path(@training_course)}';"
+    respond_to do |format|
+      format.js
     end
   end
 

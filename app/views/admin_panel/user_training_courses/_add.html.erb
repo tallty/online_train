@@ -1,0 +1,21 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">添加证书编号</h4>
+    </div>
+    <div class="modal-body">
+      <%= form_for [:admin, training_course, user_training_course], url: added_admin_panel_training_course_user_training_course_path(training_course, user_training_course), html: { class: 'form-horizontal' }, method: :patch, remote: true do |f| %>
+        <div class="form-group">
+          <%= f.label :certificate_no, '证书编号', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-4">
+            <%= f.text_field :certificate_no, placeholder: "请输入证书编号", class: 'form-control' %>
+          </div>
+          <div class="col-sm-4">
+            <%= f.submit '确认提交', class: "btn btn-primary pull-left" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
