@@ -6,6 +6,7 @@
     </div>
     <div class="modal-body">
       <%= form_for [:admin_panel, user_task, admin_user_task] do |f|%>
+        <p class="text-danger error"></p>
 			  <% admins = Admin.where(role: 3)%>
 			  <% admins.each do |admin|%>
 			    <%= check_box_tag "admin_user_task[admin_ids][]", admin.id, admin.id.in?(@user_task.admin_user_tasks.collect(&:admin_id)) %>
@@ -13,9 +14,21 @@
 			  <% end %>
 			  <hr>
 			  <div class="text-center">
-			  	<%= f.submit "提交", class: "btn btn-primary" %>
+			  	<%= f.submit "提交", class: "btn btn-primary js-submit" %>
 			  </div>
 			<% end %>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+	$(function(){
+		$(".js-submit").click(function(){
+	    var checked = $("input:checked").length > 0;
+	    if (!checked){
+        $(".error").text("请勾选至少一位老师！")
+        return false;
+	    }
+	  });
+	})
+</script>

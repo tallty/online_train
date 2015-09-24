@@ -18,7 +18,7 @@ class AdminPanel::AdminUserTasksController < AdminPanel::BaseController
 		  	AdminUserTask.create admin_user_task_params.merge(admin_id: admin_id, user_task_id: @user_task.id)
 			end
 		end
-		flash[:notice] = "评审专家指派成功"
+		flash[:notice] = "评审老师指派成功"
 		redirect_to admin_panel_task_user_tasks_path(@user_task.task)
 	end
 
