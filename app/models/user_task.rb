@@ -29,4 +29,14 @@ class UserTask < ActiveRecord::Base
       "暂无"
     end
   end
+
+  #列出评阅老师名称
+  def list_admin
+    array = []
+    admins = Admin.where({id: self.admin_user_tasks.pluck(:admin_id)})
+    admins.each do |admin|
+      array << admin.name
+    end
+    array.to_sentence
+  end
 end

@@ -1,0 +1,2 @@
+$("#AdminModal").html("<%= escape_javascript(render partial: 'new', locals: {user_task: @user_task, admin_user_task: @admin_user_task}) %>");
+$("#AdminModal").modal('show');

@@ -1,8 +1,0 @@
-<%= form_for [:admin_panel, @user_task, @admin_user_task] do |f|%>
-  <% admins = Admin.where(role: 3)%>
-  <% admins.each do |admin|%>
-    <%= check_box_tag "admin_user_task[admin_ids][]", admin.id, admin.id.in?(@user_task.admin_user_tasks.collect(&:admin_id)) %>
-    <%= label_tag :admin_id, admin.name %>
-  <% end %>
-  <%= f.submit "提交" %>
-<% end %>
