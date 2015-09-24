@@ -17,7 +17,14 @@ class AdminPanel::NotificationsController < AdminPanel::BaseController
 
   def create
   	@notification = Notification.new(notification_params)
+
+    if params[:notification][:attachment]
+      @notification.attachment = Attachment.new if @notification.attachment.blank?
+      @notification.attachment.avatar = params[:notification][:attachment]
+    end
+
   	if @notification.save
+      @notification.attachment.save(:validate => false)  if params[:notification][:attachment]
   		flash[:notice] = "通知创建成功"
   		return redirect_to admin_panel_notifications_path
   	else
@@ -35,7 +42,13 @@ class AdminPanel::NotificationsController < AdminPanel::BaseController
   end
 
   def update
+    if params[:notification][:attachment]
+      @notification.attachment = Attachment.new if @notification.attachment.blank?
+      @notification.attachment.avatar = params[:notification][:attachment]
+    end
+
   	if @notification.update(notification_params)
+      @notification.attachment.save(:validate => false)  if params[:notification][:attachment]
   		flash[:notice] = "通知修改成功"
   		return redirect_to admin_panel_notifications_path
   	else

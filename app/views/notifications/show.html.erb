@@ -24,6 +24,7 @@
 						</ul>
 						<%= raw @notification.try(:content) %>
 					</div>
+					<div class="text-left" style="margin-top: 20px; text-indent: 14px;">附件下载：<%= link_to @notification.try(:attachment).try(:avatar_file_name),download_notification_path(@notification)%></div>
 					<div class="text-center" style="margin-top: 30px">
 						<%= link_to "我要报名", training_course_path(@notification.training_course), class: "btn btn-primary apply-btn"%>
 					</div>

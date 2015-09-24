@@ -1,5 +1,6 @@
 class Notification < ActiveRecord::Base
 	has_one :training_course
+	has_one :attachment, as: :attachmentable
   default_scope { order("created_at DESC") }
 
 	enum category: {

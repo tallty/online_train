@@ -23,7 +23,11 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:index, :show]
-  resources :notifications, only: [:show, :index]
+  resources :notifications, only: [:show, :index] do
+    member do
+      get :download
+    end
+  end
   resources :user, only: [:update] do
     collection do
       get :my

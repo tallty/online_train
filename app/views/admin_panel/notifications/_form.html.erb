@@ -19,17 +19,28 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :view_count, '浏览量', class: 'col-sm-3 control-label' %>
-    <div class="col-sm-4">
-      <%= f.text_field :view_count, class: 'form-control', disabled: true %>
-    </div>
-  </div>
-  <div class="form-group">
     <%= f.label :content, '内容', class: 'col-sm-3 control-label' %>
     <div class="col-sm-4">
       <%= f.kindeditor :content, :window_onload => true, :width => 800, :height => 300, class: 'form-control' %>
     </div>
   </div>
+
+  <% if @notification.present? && @notification.attachment.present? %>
+    <div class="form-group">
+      <%= f.label :attachment, '已上传附件', class: 'col-sm-3 control-label' %>
+      <div class="col-sm-4">
+        <%= @notification.attachment.avatar_file_name %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :attachment, '上传附件', class: 'col-sm-3 control-label' %>
+    <div class="col-sm-4">
+      <%= f.file_field :attachment, class: 'form-control' %>
+    </div>
+  </div>
+
   <div class="col-sm-6 col-sm-offset-3">
   	<%= f.submit '确认提交', data: {disable_with: "提交中..."}, class: "btn btn-primary pull-left" %>
   </div>
