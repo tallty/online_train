@@ -17,8 +17,8 @@
               <div class="form-group">
                 <%= f.label :teach, '（1）课堂教学', class: 'col-sm-3 control-label' %>
                 <div class="col-sm-4">
-                  <% StudentFeedback::CommentContent.each_with_index do |(key, val), index|%>
-                    <%= radio_button_tag("student_feedback[teach]", index)%>
+                  <% StudentFeedback::CommentContent.each do |key, val|%>
+                    <%= radio_button_tag("student_feedback[teach]", key, @student_feedback.teach == key )%>
                     <%= label_tag :teach, val %>
                   <% end %>
                 </div>
@@ -26,8 +26,8 @@
               <div class="form-group">
                 <%= f.label :discussion, '（2）谈论交流', class: 'col-sm-3 control-label' %>
                 <div class="col-sm-4">
-                  <% StudentFeedback::CommentContent.each_with_index do |(key, val), index|%>
-                    <%= radio_button_tag("student_feedback[discussion]", index)%>
+                  <% StudentFeedback::CommentContent.each do |key, val|%>
+                    <%= radio_button_tag("student_feedback[discussion]", key, @student_feedback.discussion == key)%>
                     <%= label_tag :discussion, val %>
                   <% end %>
                 </div>
@@ -35,8 +35,8 @@
               <div class="form-group">
                 <%= f.label :visiting, '（3）参观考察', class: 'col-sm-3 control-label' %>
                 <div class="col-sm-4">
-                  <% StudentFeedback::CommentContent.each_with_index do |(key, val), index|%>
-                    <%= radio_button_tag("student_feedback[visiting]", index)%>
+                  <% StudentFeedback::CommentContent.each do |key, val|%>
+                    <%= radio_button_tag("student_feedback[visiting]", key, @student_feedback.visiting == key)%>
                     <%= label_tag :visiting, val %>
                   <% end %>
                 </div>
@@ -44,8 +44,8 @@
               <div class="form-group">
                 <%= f.label :organization, '（4）组织管理工作', class: 'col-sm-3 control-label' %>
                 <div class="col-sm-4">
-                  <% StudentFeedback::Satisfaction.each_with_index do |(key, val), index|%>
-                    <%= radio_button_tag("student_feedback[organization]", index)%>
+                  <% StudentFeedback::Satisfaction.each do |key, val|%>
+                    <%= radio_button_tag("student_feedback[organization]", key, @student_feedback.organization == key)%>
                     <%= label_tag :organization, val %>
                   <% end %>
                 </div>
@@ -53,8 +53,8 @@
               <div class="form-group">
                 <%= f.label :study_life, '（5）学习和生活条件', class: 'col-sm-3 control-label' %>
                 <div class="col-sm-4">
-                  <% StudentFeedback::Satisfaction.each_with_index do |(key, val), index|%>
-                    <%= radio_button_tag("student_feedback[study_life]", index)%>
+                  <% StudentFeedback::Satisfaction.each do |key, val|%>
+                    <%= radio_button_tag("student_feedback[study_life]", key, @student_feedback.study_life == key)%>
                     <%= label_tag :study_life, val %>
                   <% end %>
                 </div>

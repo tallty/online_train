@@ -11,6 +11,9 @@ class StudentFeedbacksController < BaseController
 		return redirect_to edit_training_course_student_feedback_path(@training_course, @training_course.student_feedback)
 	end
 
+	def create
+	end
+
 	def edit
 	end
 

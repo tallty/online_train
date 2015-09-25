@@ -4,10 +4,9 @@
 .admin_panel__tasks__index, .admin_panel__user_tasks__list, .admin_panel__journals__list,
 .admin_panel__tasks__list, .admin_panel__student_feedbacks__list, .admin_panel__manager_feedbacks__list, 
 .admin_panel__appraises__list {
-.grades-main-content {
+  .grades-main-content {
     .panel {
       border-radius: 0px;
-
       &.panel-primary {
         border-color: #fff;
       }
@@ -16,10 +15,8 @@
         margin: 5px;
         border-color: #1f7ed0;
         background-color: #1f7ed0;
-
         &.have-menu {
           padding: 5px 10px;
-
           .nav-content-menu {
             li {
               padding-right: 20px;
@@ -40,7 +37,6 @@
           }
         }
       }
-
       .panel-body {
         background-color: #f8f8f8;
         margin: 5px;
@@ -49,19 +45,15 @@
           background-color: #1f7ed0;
           color: #fff;
         }
-
         .table {
           thead tr th {
             text-align: center;
           }
-
           tbody tr {
             text-align: center;
             background-color: #fff;
           }
-          
         }
-
       }
     }
   }
