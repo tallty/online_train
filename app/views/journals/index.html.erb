@@ -6,8 +6,9 @@
       </div>
       <div class="tab-content courses col-md-9 pull-right">
         <div class="panel panel-default">
-          <div class="panel-heading">[<%= @training_course.name %>]<span class="text-primary"> 日志列表</span></div>
+          <div class="panel-heading"><%= render 'course_nav'%></div>
           <div class="panel-body">
+            <div>[<%= @training_course.name %>]</div>
             <table class="table table-bordered table-stripped table-hover table-condensed">
               <tr>
                 <th class="text-center">日期</th>

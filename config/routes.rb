@@ -70,6 +70,16 @@ Rails.application.routes.draw do
         get :list
       end
     end
+    resources :appraises, only: [] do
+      collection do
+        get :list
+      end
+    end
+    resources :student_feedbacks, only: [] do
+      collection do
+        get :list
+      end
+    end
     resources :admin_user_tasks, only: [:edit, :update] do
       collection do
         get :list

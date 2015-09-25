@@ -1,0 +1,33 @@
+<div class="grades-main-content">
+  <div class="panel panel-primary">
+    <div class="panel-heading have-menu">
+      <ul id="detailMenu" class="nav nav-pills nav-content-menu">
+        <%= render "nav"%>
+      </ul>
+    </div>
+    <div class="panel-body">
+      <table class="table table-condensed table-bordered">
+        <thead>
+          <tr>
+            <th class="text-center">姓名</th>
+            <th class="text-center">联系方式</th>
+            <th class="text-center">培训班</th>
+            <th class="text-center">创建&amp;修改时间</th>
+            <th class="text-center">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @student_feedbacks.each do |student_feedback| %>
+            <tr>
+              <td class="text-center" valign="middle"><%= student_feedback.try(:user).try(:name) %></td>
+              <td class="text-center"><%= student_feedback.try(:user).try(:phone) %><br><%= student_feedback.try(:user).try(:email) %></td>
+              <td align="left"><%= student_feedback.try(:training_course).try(:name) %></td>
+              <td class="text-center"><%= student_feedback.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+              <td class="text-center"><a href="#">查看</a></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div>

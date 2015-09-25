@@ -1,0 +1,20 @@
+.user__end_course, .user__course, .student_feedbacks__edit, .appraises__new,
+.journals__index {
+	.panel-heading {
+		padding: 0;
+	}
+	#courseMenu {
+	a {
+		display: block;
+		color: #333;
+		background: inherit;
+		cursor: pointer;
+		border-radius: 0;
+		border: 0 none;
+		&:hover, &.active {
+			background: #1c47a9;
+			color: #fff;
+		}
+	}
+}
+}

@@ -1,4 +1,4 @@
 <ul id="courseMenu" class="nav nav-tabs">
-  <li class="active"><%= link_to "我的课程", course_user_index_path, class: current_page?(controller: 'user', action: 'course') ? 'active' : ''%></li>
-  <li class="active"><%= link_to "已完成课程", end_course_user_index_path, class: current_page?(controller: 'user', action: 'end_course') ? 'active' : '' %></li>
+  <li><%= link_to "我的课程", course_user_index_path, class: current_page?(controller: 'user', action: 'course') ? 'active' : ''%></li>
+  <li><%= link_to "已完成课程", end_course_user_index_path, class: current_page?(controller: 'user', action: 'end_course') ? 'active' : '' %></li>
 </ul>

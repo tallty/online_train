@@ -18,15 +18,6 @@
   </div>
 </div>
 
+<!-- 下载课程资源模态框 -->
 <div id="resoureDownload" class="modal fade">
 </div>
-
-<script type="text/javascript">
-  $(function(){
-    $("#courseMenu li").click(function(){
-      $(this).addClass("active").siblings().removeClass("active");
-      $(".course-content").hide();
-      $(".course-content").eq($(this).index()).show();
-    });
-  });
-</script>

@@ -10,17 +10,17 @@
             <%= render 'course_nav'%>
           </div>
           <div class="panel-body course-content">
-            <table class="table table-bordered">
+            <table class="table border-table">
               <tr>
                 <th>计划</th>
                 <th width="20%">培训班</th>
-                <th>培训地点</th>
-                <th>开班起止时间</th>
+                <th width="20%">培训地点</th>
+                <th width="15%">开班起止时间</th>
                 <th>班级状态</th>
                 <th>报名状态</th>
                 <th>日志</th>
                 <th>证书编号</th>
-                <th colspan="2">操作</th>
+                <th>操作</th>
               </tr>
               <% @already_user_training_courses.each do |user_training_course|%>
                 <tr>
@@ -36,8 +36,7 @@
                     <%= link_to new_training_course_student_feedback_path(user_training_course.try(:training_course)) do %>
                       <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>学员反馈
                     <% end %>
-                  </td>
-                  <td>
+                    <br>
                     <%= link_to new_training_course_appraise_path(user_training_course.try(:training_course)) do %>
                       <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>学员评师
                     <% end %>

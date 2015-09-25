@@ -2,8 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .admin_panel__tasks__index, .admin_panel__user_tasks__list, .admin_panel__journals__list,
-.admin_panel__tasks__list {
-  .grades-main-content {
+.admin_panel__tasks__list, .admin_panel__student_feedbacks__list, .admin_panel__manager_feedbacks__list, 
+.admin_panel__appraises__list {
+.grades-main-content {
     .panel {
       border-radius: 0px;
 
