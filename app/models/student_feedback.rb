@@ -19,11 +19,18 @@ class StudentFeedback < ActiveRecord::Base
 	}
 
   #客观评价
-	T_CommentContent = {
-		t_much: '太多',
-	  t_less: '太少',
-	  t_suitable: '适当'
+	CommentContent = {
+		1 => '太多',
+	  2 => '太少',
+	  3 => '适当'
 	}
+
+  Satisfaction = {
+		1 => '满意',
+	  2 => '尚可',
+	  3 => '需改进'
+	}
+
 	D_CommentContent = {
 	  d_much: '太多',
 	  d_less: '太少',

@@ -13,19 +13,59 @@
             <h3 class="text-center">学员评价</h3>
             <hr>
             <p>1.我对本期培训的感受（人选其一）</p>
-            <%= simple_form_for([@training_course, @student_feedback], html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {radio_buttons: :horizontal_radio_and_checkboxes }) do |f| %>
-              <%= f.input :teach, label: '（1）课堂教学', collection: StudentFeedback::T_CommentContent.to_a.reverse_each{|x| x.reverse!}, as: :radio_buttons %>
-              <%= f.input :discussion, label: '（2）谈论交流', collection: StudentFeedback::D_CommentContent.to_a.reverse_each{|x| x.reverse!}, as: :radio_buttons %>
-              <%= f.input :visiting, label: '（3）参观考察', collection: StudentFeedback::V_CommentContent.to_a.reverse_each{|x| x.reverse!}, as: :radio_buttons %>
-              <%= f.input :organization, label: '（4）组织管理工作', collection: StudentFeedback::O_Satisfaction.to_a.reverse_each{|x| x.reverse!}, as: :radio_buttons %>
-              <%= f.input :study_life, label: '（5）学习和生活条件', collection: StudentFeedback::S_Satisfaction.to_a.reverse_each{|x| x.reverse!}, as: :radio_buttons %>
+            <%= form_for([@training_course, @student_feedback], html: { class: 'form-horizontal' }) do |f| %>
+              <div class="form-group">
+                <%= f.label :teach, '（1）课堂教学', class: 'col-sm-3 control-label' %>
+                <div class="col-sm-4">
+                  <% StudentFeedback::CommentContent.each_with_index do |(key, val), index|%>
+                    <%= radio_button_tag("student_feedback[teach]", index)%>
+                    <%= label_tag :teach, val %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :discussion, '（2）谈论交流', class: 'col-sm-3 control-label' %>
+                <div class="col-sm-4">
+                  <% StudentFeedback::CommentContent.each_with_index do |(key, val), index|%>
+                    <%= radio_button_tag("student_feedback[discussion]", index)%>
+                    <%= label_tag :discussion, val %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :visiting, '（3）参观考察', class: 'col-sm-3 control-label' %>
+                <div class="col-sm-4">
+                  <% StudentFeedback::CommentContent.each_with_index do |(key, val), index|%>
+                    <%= radio_button_tag("student_feedback[visiting]", index)%>
+                    <%= label_tag :visiting, val %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :organization, '（4）组织管理工作', class: 'col-sm-3 control-label' %>
+                <div class="col-sm-4">
+                  <% StudentFeedback::Satisfaction.each_with_index do |(key, val), index|%>
+                    <%= radio_button_tag("student_feedback[organization]", index)%>
+                    <%= label_tag :organization, val %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :study_life, '（5）学习和生活条件', class: 'col-sm-3 control-label' %>
+                <div class="col-sm-4">
+                  <% StudentFeedback::Satisfaction.each_with_index do |(key, val), index|%>
+                    <%= radio_button_tag("student_feedback[study_life]", index)%>
+                    <%= label_tag :study_life, val %>
+                  <% end %>
+                </div>
+              </div>
               <p>2.我认为本期培训最有价值的课程和活动是什么？</p>
-	            <%= f.input :most_value, label: '', class: "form-control" %>
-	            <p>3.通过本期培训的学习，我最大的感受与收获是什么？（如前瞻性信息的吸纳、思维方式的启迪以及对实际工作的帮助等）</p>
-	            <%= f.input :most_gain, label: '', class: "form-control" %>
-	            <p>4.结业赠言</p>
-	            <%= f.input :graduate_message, label: '', class: "form-control" %>
-              <div class="text-center">
+              <%= f.text_area :most_value, size: "100x4", class: "form-control" %>
+              <p>3.通过本期培训的学习，我最大的感受与收获是什么？（如前瞻性信息的吸纳、思维方式的启迪以及对实际工作的帮助等）</p>
+              <%= f.text_area :most_gain, size: "100x4", class: "form-control" %>
+              <p>4.结业赠言</p>
+              <%= f.text_area :graduate_message, size: "100x4", class: "form-control" %>
+              <div class="text-center" style="margin-top: 30px">
               	<%= f.submit "确认提交", class: "btn btn-primary"%>
               </div>
 	          <% end %>

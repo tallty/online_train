@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924033822) do
+ActiveRecord::Schema.define(version: 20150924083018) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -63,6 +63,20 @@ ActiveRecord::Schema.define(version: 20150924033822) do
 
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   add_index "admins", ["username"], name: "index_admins_on_username", unique: true, using: :btree
+
+  create_table "appraises", force: :cascade do |t|
+    t.integer  "user_id",            limit: 4
+    t.integer  "teacher_id",         limit: 4
+    t.text     "remark",             limit: 65535
+    t.string   "degree",             limit: 255
+    t.integer  "training_course_id", limit: 4
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "appraises", ["teacher_id"], name: "index_appraises_on_teacher_id", using: :btree
+  add_index "appraises", ["training_course_id"], name: "index_appraises_on_training_course_id", using: :btree
+  add_index "appraises", ["user_id"], name: "index_appraises_on_user_id", using: :btree
 
   create_table "attachments", force: :cascade do |t|
     t.string   "avatar_file_name",    limit: 255

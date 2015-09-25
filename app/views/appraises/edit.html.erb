@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="wrapper">
+    <div class="row">
+      <div class="personal_center right_message_tab col-md-3">
+        <%= render "user/personal_nav"%>
+      </div>
+      <div class="col-sm-9 courses">
+        <div class="panel panel-default course-panel">
+          <div class="panel-heading">
+            <%= render 'course_nav'%>
+          </div>
+          <div class="panel-body course-content">
+            <h3 class="text-center">学员评师</h3>
+            <hr>
+            <div>学员评价老师</div>
+            <p>培训班：<%= @training_course.name %></p>
+            <p>学员：<%= current_user.name %></p>
+            <div>培训教师列表</div>
+            <%= form_tag [@training_course, @appraise] do %>
+              <% @teachers.each_with_index do |teacher, index|%>
+                <% teacher_index = index %>
+                <div>
+                  <%= teacher.name %>
+                  <% Appraise::Degree.each_with_index do |(key, val), index|%>
+                    <%= radio_button_tag("appraise_#{teacher_index}[degree]", index)%>
+                    <%= label_tag :degree, val %>
+                  <% end %>
+                  <%= text_field_tag "appraise_#{teacher_index}[remark]" %>
+                </div>
+              <% end %>
+              <%= submit_tag %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

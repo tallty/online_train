@@ -127,3 +127,12 @@ todoes 待办事项
   最大价值      most_value         text
   最大收获      most_gain          text
   结业赠言      graduate_message   text
+学员评师   appraise
+  user_id
+  admin_id
+  training_course_id
+  remark   评价内容
+  degree   满意程度
+
+
+

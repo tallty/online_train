@@ -20,7 +20,7 @@
                 <th>报名状态</th>
                 <th>日志</th>
                 <th>证书编号</th>
-                <th>操作</th>
+                <th colspan="2">操作</th>
               </tr>
               <% @already_user_training_courses.each do |user_training_course|%>
                 <tr>
@@ -35,6 +35,11 @@
                   <td>
                     <%= link_to new_training_course_student_feedback_path(user_training_course.try(:training_course)) do %>
                       <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>学员反馈
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to new_training_course_appraise_path(user_training_course.try(:training_course)) do %>
+                      <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>学员评师
                     <% end %>
                   </td>
                 </tr>
