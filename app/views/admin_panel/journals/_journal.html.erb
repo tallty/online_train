@@ -1,0 +1,7 @@
+<tr>
+	<td><%= journal.created_at.strftime("%Y-%m-%d %H:%M")%></td>
+	<td><%= journal.try(:user).try(:name)%></td>
+	<td><%= link_to(journal.try(:training_course).try(:name), admin_panel_notification_training_course_path(journal.training_course.notification, journal.training_course))%></td>
+	<td><%= journal.content%></td>
+	<td><%= link_to "查看", admin_panel_journal_path(journal)%></td>
+</tr>

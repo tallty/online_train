@@ -32,25 +32,14 @@ class UserTrainingCourse < ActiveRecord::Base
   end
 
   #搜索功能
-	searchable do
-    text :user_name do
-      user.name
-    end
-    text :user_email do
-      user.email
-    end
-    text :user_phone do
-      user.phone
-    end
-  end
-
-  #搜索功能
   scope :keyword, -> (keyword) do
     return all if keyword.blank?
-    joins(:user).where(
+    joins(:user).joins(:training_course).where(
       'users.name LIKE ?
        OR users.email LIKE ?
-       OR users.address LIKE ?',
+       OR users.address LIKE ?
+       OR training_courses.name LIKE ?',
+      "%#{keyword}%",
       "%#{keyword}%",
       "%#{keyword}%",
       "%#{keyword}%"

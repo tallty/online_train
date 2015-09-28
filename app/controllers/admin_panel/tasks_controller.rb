@@ -5,6 +5,7 @@ class AdminPanel::TasksController < AdminPanel::BaseController
   def index
     @training_course = TrainingCourse.find(params[:training_course_id])
     @tasks = @training_course.tasks
+    add_breadcrumb "作业列表"
   end
 
   def list
@@ -82,6 +83,12 @@ class AdminPanel::TasksController < AdminPanel::BaseController
   end
 
   private
+
+    def training_course_name
+      training_course = TrainingCourse.find(params[:training_course_id])
+      training_course.name
+    end
+
     def task_params
        params.require(:task).permit(:title, :body, :training_course_id)
     end

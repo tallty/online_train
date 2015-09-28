@@ -8,6 +8,8 @@ class AdminPanel::JournalsController < AdminPanel::BaseController
   end
 
   def list
+    @journals = Journal.all.keyword(params[:keyword])
+                           .page(params[:page]).per(15)
     add_breadcrumb "日志列表"
   end
 

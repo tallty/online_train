@@ -1,5 +1,24 @@
 <div class="grades-main-content">
   <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">搜索栏</h3>
+    </div>
+    <div class="panel-body">
+      <%= form_tag list_admin_panel_journals_path, method: :get do %>
+        <div class="col-sm-3">
+          <div class="form-group">
+           <%= text_field_tag :keyword, nil, class: "form-control", placeholder: '请输入关键字' %>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <%= submit_tag "搜索", class: "btn primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="panel panel-primary">
     <div class="panel-heading have-menu">
       <ul id="detailMenu" class="nav nav-pills nav-content-menu">
         <%= render "nav"%>
@@ -17,15 +36,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @journals.each do |journal| %>
-          <tr>
-            <td><%= journal.created_at.strftime("%Y-%m-%d %H:%M")%></td>
-            <td><%= journal.try(:user).try(:name)%></td>
-            <td><%= link_to(journal.try(:training_course).try(:name), admin_panel_notification_training_course_path(journal.training_course.notification, journal.training_course))%></td>
-            <td><%= journal.content%></td>
-            <td><%= link_to "查看", admin_panel_journal_path(journal)%></td>
-          </tr>
-          <% end %>
+          <%= render @journals %>
         </tbody>
       </table>
     </div>

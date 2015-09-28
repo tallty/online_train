@@ -12,16 +12,16 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
     #     fields(:user_name, :user_email, :user_phone)
     #   end
     # end
-    add_breadcrumb "#{@training_course.name}", admin_panel_notification_training_course_path(@notification, @training_course)
     add_breadcrumb "培训报名列表"
   end
 
   def list
-    @search = UserTrainingCourse.search do
-      fulltext(params[:q]) do
-        fields(:user_name, :user_email, :user_phone)
-      end
-    end
+    @user_training_courses = UserTrainingCourse.all.page(params[:page]).per(15).keyword(params[:keyword])
+    # @search = UserTrainingCourse.search do
+    #   fulltext(params[:q]) do
+    #     fields(:user_name, :user_email, :user_phone)
+    #   end
+    # end
     add_breadcrumb "报名列表"
   end
 

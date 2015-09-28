@@ -40,6 +40,7 @@ class Ability
     can :manage, Journal
     cannot [:list], AdminUserTask
     cannot [:list_by_school, :list_by_teacher], TrainingCourse
+    can [:add, :added], UserTrainingCourse
   end
 
   # 角色（培训机构）

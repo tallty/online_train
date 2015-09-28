@@ -112,15 +112,4 @@ class TrainingCourse < ActiveRecord::Base
     end
   end
 
-	#搜索功能
-	searchable do
-    text :name
-    text :code
-    text :category
-    text :grade_leader
-    text :be_applied
-    # text :school_name do
-    #   school.name
-    # end
-  end
 end

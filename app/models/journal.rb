@@ -6,4 +6,17 @@ class Journal < ActiveRecord::Base
   def self.journal_amount(user_id, training_course_id)
     self.where(user_id: user_id, training_course_id: training_course_id).length
   end
+
+  #搜索功能
+  scope :keyword, -> (keyword) do
+    return all if keyword.blank?
+    joins(:user).joins(:training_course).where(
+      'users.name LIKE ?
+      OR training_courses.name LIKE ?
+      OR journals.content LIKE ?',
+      "%#{keyword}%",
+      "%#{keyword}%",
+      "%#{keyword}%"
+    )
+  end
 end
