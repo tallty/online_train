@@ -44,8 +44,8 @@ class UserTrainingCourse < ActiveRecord::Base
     end
   end
 
-  #scope搜索方式
-  scope :keyword_like, -> (keyword) do
+  #搜索功能
+  scope :keyword, -> (keyword) do
     return all if keyword.blank?
     joins(:user).where(
       'users.name LIKE ?

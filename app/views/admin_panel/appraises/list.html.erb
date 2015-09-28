@@ -1,5 +1,25 @@
 <div class="grades-main-content">
   <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">搜索栏</h3>
+    </div>
+    <div class="panel-body">
+      <%= form_tag list_admin_panel_appraises_path, method: :get do %>
+        <div class="col-sm-3">
+          <div class="form-group">
+           <%= text_field_tag :keyword, nil, class: "form-control", placeholder: '请输入关键字' %>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <%= submit_tag "搜索", class: "btn primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="panel panel-primary">
     <div class="panel-heading have-menu">
       <ul id="detailMenu" class="nav nav-pills nav-content-menu">
         <%= render "nav"%>
@@ -19,21 +39,12 @@
           </tr>
         </thead>
         <tbody>
-          <% @appraises.each do |appraise| %>
-            <tr>
-              <td class="text-center" valign="middle"><%= appraise.try(:user).try(:name) %></td>
-              <td class="text-center"><%= appraise.try(:teacher).try(:name) %></td>
-              <td align="left"><%= link_to truncate(appraise.try(:training_course).try(:name), length: 20), detail_admin_panel_training_course_path(appraise.training_course), title: appraise.try(:training_course).try(:name), target: "_blank" %></td>
-              <td align="left"><%= truncate(appraise.remark, length: 30) %></td>
-              <td align="text-center"><%= Appraise::Degree[appraise.degree] %></td>
-              <td class="text-center"><%= appraise.created_at.strftime("%Y-%m-%d %H:%M") %></td>
-              <td class="text-center">
-                <%= link_to "查看", admin_panel_appraise_path(appraise)%>
-              </td>
-            </tr>
-          <% end %>
+          <%= render @appraises %>
         </tbody>
       </table>
+      <div class="text-center">
+        <%= paginate @appraises %>
+      </div>
     </div>
   </div>
 <div>

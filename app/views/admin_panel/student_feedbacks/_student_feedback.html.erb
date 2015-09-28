@@ -1,0 +1,7 @@
+<tr>
+  <td class="text-center" valign="middle"><%= student_feedback.try(:user).try(:name) %></td>
+  <td class="text-center"><%= student_feedback.try(:user).try(:phone) %><br><%= student_feedback.try(:user).try(:email) %></td>
+  <td align="left"><%= student_feedback.try(:training_course).try(:name) %></td>
+  <td class="text-center"><%= student_feedback.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+  <td class="text-center"><%= link_to "查看", admin_panel_student_feedback_path(student_feedback)%></td>
+</tr>

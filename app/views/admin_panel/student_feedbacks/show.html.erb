@@ -1,0 +1,49 @@
+<div class="main-content">
+  <div class="panel panel-default">
+	  <div class="panel-heading panel-active">学员反馈</div>
+	  <div class="panel-body panel-default-bg">
+	    <table class="table">
+	      <tr>
+	      	<th class="col-sm-2">学员</th>
+	      	<td><%= @student_feedback.try(:user).try(:name) %></td>
+	      </tr>
+	      <tr>
+	      	<th>培训班</th>
+	      	<td><%= @student_feedback.try(:training_course).try(:name) %></td>
+	      </tr>
+	      <tr>
+	      	<th>课堂教学</th>
+	      	<td><%= StudentFeedback::CommentContent[@student_feedback.teach] %></td>
+	      </tr>
+	      <tr>
+	      	<th>讨论交流</th>
+	      	<td><%= StudentFeedback::CommentContent[@student_feedback.discussion] %></td>
+	      </tr>
+	      <tr>
+	      	<th>参观考察</th>
+	      	<td><%= StudentFeedback::CommentContent[@student_feedback.visiting] %></td>
+	      </tr>
+	      <tr>
+	      	<th>组织管理工作</th>
+	      	<td><%= StudentFeedback::Satisfaction[@student_feedback.organization] %></td>
+	      </tr>
+	      <tr>
+	      	<th>学习与生活条件</th>
+	      	<td><%= StudentFeedback::Satisfaction[@student_feedback.study_life] %></td>
+	      </tr>
+	      <tr>
+	      	<th>我认为本期培训最有价值的课程和活动是什么？</th>
+	      	<td><%= @student_feedback.most_value %></td>
+	      </tr>
+	      <tr>
+	      	<th>通过本期培训的学习，我最大的感受与收获是什么？（如前瞻性信息的吸纳、思维方式的启迪以及对实际工作的帮助等）</th>
+	      	<td><%= @student_feedback.most_gain %></td>
+	      </tr>
+	      <tr>
+	      	<th>结业赠言</th>
+	      	<td><%= @student_feedback.graduate_message %></td>
+	      </tr>
+	    </table>
+	  </div>
+	</div>
+</div>

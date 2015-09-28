@@ -6,7 +6,7 @@
 	      <%= form_tag admin_panel_notifications_path, method: :get do %>
 					<div class="col-sm-3">
 				    <div class="form-group">
-				     <%= text_field_tag :q, nil, class: "form-control", placeholder: '请输入关键字' %>
+				     <%= text_field_tag :keyword, nil, class: "form-control", placeholder: '请输入关键字' %>
 					  </div>
 					</div>
 					<div class="col-sm-3">
@@ -41,10 +41,12 @@
 	    	  </tr>
 	    	</thead>
 	    	<tbody>
-	    	  <%= render partial: 'notification', locals: {search: @search}%>
+	    	  <%= render @notifications %>
 		   	</tbody>
 	    </table>
+	    <div class="text-center">
+	    	<%= paginate @notifications %>
+	    </div>
 	  </div>
 	</div>
-	<%#= paginate @training_courses %>
 </div>

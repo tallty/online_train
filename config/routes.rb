@@ -79,7 +79,7 @@ Rails.application.routes.draw do
         get :list
       end
     end
-    resources :student_feedbacks, only: [] do
+    resources :student_feedbacks, only: [:show] do
       collection do
         get :list
       end

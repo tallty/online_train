@@ -15,11 +15,9 @@ class Notification < ActiveRecord::Base
 	  manager: '专业负责人培训'
 	}
 
-	#搜索功能
-	searchable do
-    text :title
-    text :sub_title
-    text :category
-    text :author
+	scope :keyword, -> (keyword) do
+    return all if keyword.blank?
+    where("notifications.title like ?
+    	OR notifications.author like ?", "%#{keyword}%", "%#{keyword}%")
   end
 end

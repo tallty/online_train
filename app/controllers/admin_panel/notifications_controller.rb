@@ -2,11 +2,8 @@ class AdminPanel::NotificationsController < AdminPanel::BaseController
   load_and_authorize_resource
   before_action :set_notification, only: [:show, :edit, :update]
   def index
-    @search = Notification.search do
-      fulltext(params[:q]) do
-        fields(:title, :sub_title, :category, :author)
-      end
-    end
+    @notifications = Notification.keyword(params[:keyword])
+                                 .page(params[:page]).per(15)
     add_breadcrumb "通知列表", admin_panel_notifications_path
   end
 
