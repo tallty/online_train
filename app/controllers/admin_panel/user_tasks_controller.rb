@@ -5,6 +5,7 @@ class AdminPanel::UserTasksController < AdminPanel::BaseController
   def index
   	@task = Task.find(params[:task_id])
   	@user_tasks = @task.user_tasks
+    add_breadcrumb "提交作业列表"
   end
 
   def list
