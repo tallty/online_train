@@ -20,22 +20,25 @@
   </div>
 <% end %>
 
-<script type="text/javascript">
-  $(function(){
-    $(".js-submit").click(function(){
-      var oSelect = $("#journal_training_course_id option:gt(0):selected").length;  //option中去除prompt影响
-      var oContent = $("#journal_content").val();
-      var oDate = $("#journal_add_date").val();
-      if(oSelect === 0){
-        $(".error-alert").text("请选择培训班！");
-        return false;
-      }else if(!oContent){
-        $(".error-alert").text("请输入培训内容！");
-        return false;
-      }else if(!oDate){
-        $(".error-alert").text("请输入添加日期！");
-        return false;
-      }
+<!-- 仅适用于新增页面 -->
+<% if params[:controller]=="journals" && params[:action] == "new"%>
+  <script type="text/javascript">
+    $(function(){
+      $(".js-submit").click(function(){
+        var oSelect = $("#journal_training_course_id option:gt(0):selected").length;  //option中去除prompt影响
+        var oContent = $("#journal_content").val();
+        var oDate = $("#journal_add_date").val();
+        if(oSelect === 0){
+          $(".error-alert").text("请选择培训班！");
+          return false;
+        }else if(!oContent){
+          $(".error-alert").text("请输入培训内容！");
+          return false;
+        }else if(!oDate){
+          $(".error-alert").text("请输入添加日期！");
+          return false;
+        }
+      });
     });
-  });
-</script>
+  </script>
+<% end %>
