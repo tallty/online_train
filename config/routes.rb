@@ -135,6 +135,9 @@ Rails.application.routes.draw do
       collection do
         get :list
       end
+      member do
+        get :download
+      end
       resources :admin_user_tasks
     end
     resources :journals do
