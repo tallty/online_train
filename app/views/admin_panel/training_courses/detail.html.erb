@@ -21,12 +21,6 @@
 			</ul>
 	  </div>
 	  <div class="panel-body panel-default-bg">
-	    <% if can? :edit, @training_course %>
-		    <div class="text-left">
-		    	<%= link_to "修改", edit_admin_panel_notification_training_course_path(@notification, @training_course), class: 'btn btn-primary', 'data-no-turbolink' => true %>
-		    </div>
-		  <% end %>
-		  <hr>
 	    <table class="table">
 	      <tr>
 	      	<th class="col-sm-1">培训班级代码</th>

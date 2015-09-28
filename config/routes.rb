@@ -74,7 +74,7 @@ Rails.application.routes.draw do
         get :list
       end
     end
-    resources :appraises, only: [] do
+    resources :appraises, only: [:show] do
       collection do
         get :list
       end
