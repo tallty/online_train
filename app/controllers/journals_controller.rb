@@ -14,7 +14,6 @@ class JournalsController < BaseController
 		@journal = Journal.new(journal_params)
 		@journal.user_id = current_user.id
 		@user_training_course_ids = UserTrainingCourse.where(user_id: current_user.id).pluck(:training_course_id)
-		p @user_training_course_ids
 		if @journal.save
 			return redirect_to journal_user_index_path
 		else

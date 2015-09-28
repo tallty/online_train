@@ -8,48 +8,52 @@
           <div class="personal_center_content right-nav-tab">
             <strong class="col-md-3 right_message_tab"><span>我的作业</span></strong><br/>
             <div class="panel-group my-work-content" id="accordion" role="tablist" aria-multiselectable="true">
-              <% @user_training_courses.each_with_index do |user_training_course, index|%>
-                <div class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="heading<%= index %>">
-                    <h4 class="panel-title">
-                      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index %>" aria-expanded="true" aria-controls="collapseOne">
-                        <%= user_training_course.try(:training_course).name %>
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapse<%= index %>" class="panel-collapse collapse <%= 'in' if index == 0 %>" role="tabpanel" aria-labelledby="heading<%= index %>">
-                    <div class="panel-body">
-                      <table class="border-table">
-                        <tr>
-                          <th width="35%">作业</th>
-                          <th width="35%">老师评价</th>
-                          <th width="15%">创建时间</th>
-                          <th>我的作业</th>
-                        </tr>
-                        <% user_training_course.training_course.tasks.each do |task|%>
-                          <% user_task = current_user.get_user_task_by_task task%>
+              <% if @user_training_courses.present? %>
+                <% @user_training_courses.each_with_index do |user_training_course, index|%>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="heading<%= index %>">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index %>" aria-expanded="true" aria-controls="collapseOne">
+                          <%= user_training_course.try(:training_course).name %>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapse<%= index %>" class="panel-collapse collapse <%= 'in' if index == 0 %>" role="tabpanel" aria-labelledby="heading<%= index %>">
+                      <div class="panel-body">
+                        <table class="border-table">
                           <tr>
-                            <td>
-                              <%= link_to(task.title, user_task_path(task), format: :js, remote: true) %>
-                            </td>
-                            <td><%= user_task.present? ? user_task.comment_result : "暂无" %></td>
-                            <td><%= task.created_at.strftime("%F")%></td>
-                            <td class="text-left">
-                              <% if user_task.present? %>
-                                <% if user_task.try(:attachment).present? %>&nbsp;[作业附件]
-                                  <%= link_to(truncate(user_task.try(:attachment).try(:avatar_file_name), length: 18), download_user_task_path(user_task), title: user_task.try(:attachment).try(:avatar_file_name) ) %>
-                                  <%= link_to("[修改/查看]", edit_user_task_path(user_task,task_id: task.id), class: "text-muted", format: :js, remote: true) %>
-                                <% end %>
-                              <% else %>
-                                <div class="text-center"><%= link_to("提交", new_user_task_path(task_id: task.id), remote: true, format: :js) %></div>
-                              <% end %>
-                            </td>
+                            <th width="35%">作业</th>
+                            <th width="35%">老师评价</th>
+                            <th width="15%">创建时间</th>
+                            <th>我的作业</th>
                           </tr>
-                        <% end %>
-                      </table>
+                          <% user_training_course.training_course.tasks.each do |task|%>
+                            <% user_task = current_user.get_user_task_by_task task%>
+                            <tr>
+                              <td>
+                                <%= link_to(task.title, user_task_path(task), format: :js, remote: true) %>
+                              </td>
+                              <td><%= user_task.present? ? user_task.comment_result : "暂无" %></td>
+                              <td><%= task.created_at.strftime("%F")%></td>
+                              <td class="text-left">
+                                <% if user_task.present? %>
+                                  <% if user_task.try(:attachment).present? %>&nbsp;[作业附件]
+                                    <%= link_to(truncate(user_task.try(:attachment).try(:avatar_file_name), length: 18), download_user_task_path(user_task), title: user_task.try(:attachment).try(:avatar_file_name) ) %>
+                                    <%= link_to("[修改/查看]", edit_user_task_path(user_task,task_id: task.id), class: "text-muted", format: :js, remote: true) %>
+                                  <% end %>
+                                <% else %>
+                                  <div class="text-center"><%= link_to("提交", new_user_task_path(task_id: task.id), remote: true, format: :js) %></div>
+                                <% end %>
+                              </td>
+                            </tr>
+                          <% end %>
+                        </table>
+                      </div>
                     </div>
                   </div>
-                </div>
+                <% end %>
+              <% else %>
+                <div class="alert alert-warning" role="alert">您还没有需要提交的作业！</div>
               <% end %>
             </div>
           </div>

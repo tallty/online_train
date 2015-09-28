@@ -34,17 +34,17 @@
                   <td>---</td>
                   <td>
                     <%= link_to new_training_course_student_feedback_path(user_training_course.try(:training_course)) do %>
-                      <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>学员反馈
+                      学员反馈
                     <% end %>
                     <br>
                     <% appraise = Appraise.where(user_id: user_training_course.user.id, training_course_id: user_training_course.training_course.id).first %>
                     <% if appraise.present? %>
                       <%= link_to list_training_course_appraises_path(user_training_course.try(:training_course)) do %>
-                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>学员评师
+                        学员评师
                       <% end %>
                     <% else %>
                       <%= link_to new_training_course_appraise_path(user_training_course.try(:training_course)) do %>
-                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>学员评师
+                        学员评师
                       <% end %>
                     <% end %>
                   </td>

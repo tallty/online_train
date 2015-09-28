@@ -27,7 +27,10 @@ class UserController < BaseController
   end
 
   def work
-    @user_training_courses = current_user.user_training_courses.where(state: true)
+    now = Time.now
+    #正在进行的课程才能提交作业
+    on_training_course_ids = TrainingCourse.where("start_time <= ? AND end_time >= ?", now, now).pluck(:id)
+    @user_training_courses = current_user.user_training_courses.where({training_course_id: on_training_course_ids}).where(state: true)
   end
 
   def journal
