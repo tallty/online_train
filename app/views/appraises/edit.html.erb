@@ -21,8 +21,8 @@
                 <% teacher_index = index %>
                 <div>
                   <%= teacher.name %>
-                  <% Appraise::Degree.each_with_index do |(key, val), index|%>
-                    <%= radio_button_tag("appraise_#{teacher_index}[degree]", index)%>
+                  <% Appraise::Degree.each_with_index do |key, val|%>
+                    <%= radio_button_tag("appraise_#{teacher_index}[degree]", key, @appraise.degree == key)%>
                     <%= label_tag :degree, val %>
                   <% end %>
                   <%= text_field_tag "appraise_#{teacher_index}[remark]" %>

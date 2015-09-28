@@ -17,7 +17,7 @@
             <p>学员：<%= current_user.name %></p>
             <hr>
             <h4>培训教师列表</h4>
-            <%= form_tag [@training_course, @appraise], html: { class: 'form-horizontal' } do %>
+            <%= form_for [@training_course, @appraise], html: { class: 'form-horizontal' } do |f| %>
               <% @teachers.each_with_index do |teacher, index|%>
                 <% teacher_index = index %>
                 <div class="col-sm-12" style="margin-top: 30px">
@@ -25,8 +25,8 @@
                     <%= teacher.name %>
                   </div>
                   <div class="col-sm-10 text-right">
-                    <% Appraise::Degree.each_with_index do |(key, val), index|%>
-                      <%= radio_button_tag("appraise_#{teacher_index}[degree]", index, @appraise.degree == index)%>
+                    <% Appraise::Degree.each do |key, val|%>
+                      <%= radio_button_tag("appraise_#{teacher_index}[degree]", key, @appraise.degree == key)%>
                       <%= label_tag :degree, val %>
                     <% end %>
                   </div>

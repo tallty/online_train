@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="wrapper">
+    <div class="row">
+      <div class="personal_center right_message_tab col-md-3">
+        <%= render "user/personal_nav"%>
+      </div>
+      <div class="col-sm-9 courses">
+        <div class="panel panel-default course-panel">
+          <div class="panel-heading">
+            <%= render 'course_nav'%>
+          </div>
+          <div class="panel-body course-content">
+            <h3 class="text-center">评价结果</h3>
+            <hr>
+            <h4>学员评价教师</h4>
+            <p>培训班：<%= @training_course.name %></p>
+            <p>学员：<%= current_user.name %></p>
+            <hr>
+            <h4>培训教师列表</h4>
+            <% @teachers.each_with_index do |teacher, index|%>
+              <% teacher_index = index %>
+              <div class="col-sm-12" style="margin-top: 30px">
+                <div class="col-sm-2">
+                  <%= teacher.name %>
+                </div>
+                <div class="col-sm-2 text-right">
+                  <%= Appraise::Degree[teacher.appraise.degree]%>
+                </div>
+                <div class="col-sm-6 pull-right">
+                  <%= teacher.appraise.remark %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

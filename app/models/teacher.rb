@@ -23,6 +23,7 @@
 class Teacher < ActiveRecord::Base
   has_many :training_course_teachers, dependent: :destroy
   belongs_to :school
+  has_one :appraise
 
   enum sex: {male: true, female: false}
   Sex = {male: '男', female: '女'}

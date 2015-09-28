@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   resources :training_courses, only: [:index, :show] do
     resources :journals, only: [:index]
     resources :student_feedbacks, only: [:new, :edit, :update]
-    resources :appraises, only: [:index, :new, :create, :edit, :update]
+    resources :appraises, only: [:index, :new, :create, :edit, :update] do
+      collection do
+        get :list
+      end
+    end
     resources :course_resources, only: :index do
       member do
         get :download
