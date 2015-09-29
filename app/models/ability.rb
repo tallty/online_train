@@ -71,6 +71,8 @@ class Ability
     can :manage, Task
     can [:list, :show, :index], UserTask
     can :manage, ManagerFeedback
+    can :manage, StudentFeedback
+    can :manage, Appraise
     can :manage, CourseResource
     can [:list_by_teacher, :detail], TrainingCourse
     can [:index, :edit_profile, :update_profile, :edit_password, :update_password], Admin

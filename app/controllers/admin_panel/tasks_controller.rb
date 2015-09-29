@@ -5,11 +5,14 @@ class AdminPanel::TasksController < AdminPanel::BaseController
   def index
     @training_course = TrainingCourse.find(params[:training_course_id])
     @tasks = @training_course.tasks
+                             .keyword(params[:keyword])
+                             .page(params[:page]).per(15)
     add_breadcrumb "作业列表"
   end
 
   def list
-    @tasks = Task.all
+    @tasks = Task.all.keyword(params[:keyword])
+                     .page(params[:page]).per(15)
     add_breadcrumb "培训作业列表"
   end
 

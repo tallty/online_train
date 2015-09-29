@@ -1,7 +1,7 @@
 class TrainingCoursesController < BaseController
   def index
-    @all_training_courses = TrainingCourse.all.page(params[:page]).per(15)
-  	@search_training_courses = TrainingCourse.where(category: params[:category]).page(params[:page]).per(15)
+    @all_training_courses = TrainingCourse.all.page(params[:page]).per(15).keyword(params[:keyword])
+  	@search_training_courses = TrainingCourse.where(category: params[:category]).page(params[:page]).per(15).keyword(params[:keyword])
   end
 
   def show

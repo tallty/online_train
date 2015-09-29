@@ -17,7 +17,7 @@ class Task < ActiveRecord::Base
   belongs_to :admin
   has_one :attachment, as: :attachmentable
   has_many :user_tasks, dependent: :destroy
-  
+
   validates :title, presence: true
   validates :training_course_id, presence: true
 
@@ -29,5 +29,18 @@ class Task < ActiveRecord::Base
   #未提交作业人数
   def unsubmitted_count
   	self.user_tasks.count
+  end
+
+  #搜索功能
+  scope :keyword, -> (keyword) do
+    return all if keyword.blank?
+    joins(:admin).joins(:training_course).where(
+      'admins.name LIKE ?
+      OR training_courses.name LIKE ?
+      OR tasks.title LIKE ?',
+      "%#{keyword}%",
+      "%#{keyword}%",
+      "%#{keyword}%"
+    )
   end
 end

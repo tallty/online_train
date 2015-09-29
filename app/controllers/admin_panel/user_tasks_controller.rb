@@ -4,12 +4,12 @@ class AdminPanel::UserTasksController < AdminPanel::BaseController
 
   def index
   	@task = Task.find(params[:task_id])
-  	@user_tasks = @task.user_tasks
+  	@user_tasks = @task.user_tasks.keyword(params[:keyword]).page(params[:page]).per(15)
     add_breadcrumb "提交作业列表"
   end
 
   def list
-  	@user_tasks = UserTask.all
+  	@user_tasks = UserTask.all.keyword(params[:keyword]).page(params[:page]).per(15)
     add_breadcrumb "提交作业列表"
   end
 

@@ -12,8 +12,8 @@
 					<div class="">
 						<div class="col-xs-2 text-center"><strong>培训报名</strong></div>
 						<div class="col-xs-10">
-							<form class="form-inline text-right">
-								<div class="form-group dropdown">
+							<%= form_tag training_courses_path, class: "form-inline text-right", method: :get do %>
+								<!-- <div class="form-group dropdown">
 									<button class="btn btn-default head-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 										培训计划 <span class="caret"></span>
 									</button>
@@ -49,13 +49,13 @@
 									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 										<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
 									</ul>
-								</div>
+								</div> -->
 								<div class="form-group">
 									<label class="sr-only" for="exampleInputEmail3">search</label>
-									<input type="email" class="form-control apply-input" id="exampleInputEmail3" placeholder="">
+									<%= text_field_tag :keyword, nil, class: "form-control apply-input", placeholder: "请输入关键字" %>
 								</div>
-								<button type="submit" class="btn btn-default head-btn" style="margin-bottom:2px;">搜索</button>
-							</form>
+								<%= submit_tag "搜索", class: "btn btn-default head-btn", style: "margin-bottom:2px;"%>
+							<% end %>
 						</div>
 					</div>
 				</div>
@@ -68,11 +68,11 @@
 										<th>计划</th>
 										<th width="30%">培训班名称</th>
 										<th>培训机构名称</th>
-										<th><div class="cell-width">地点</div></th>
+										<th><div class="text-center">地点</div></th>
 										<th width="15%">时间</th>
-										<th><div class="cell-width">计划数</div></th>
-										<th><div class="cell-width">剩余</div></th>
-										<th><div class="cell-width">状态</div></th>
+										<th><div class="text-center">计划数</div></th>
+										<th><div class="text-center">剩余</div></th>
+										<th><div class="text-center">状态</div></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -82,7 +82,7 @@
 											<td><%= link_to training_course.name, training_course_path(training_course.id) %></td>
 											<td><%= training_course.try(:school).try(:name) %></td>
 											<td><%= training_course.try(:training_address) %></td>
-											<td><%= training_course.try(:start_time).strftime("%Y-%m-%d") %>至<%= training_course.try(:end_time).strftime("%Y-%m-%d")%></td>
+											<td><%= training_course.try(:start_time).strftime("%Y-%m-%d") %><br><%= training_course.try(:end_time).strftime("%Y-%m-%d")%></td>
 											<td><%= training_course.plan_number %></td>
 											<td><%= training_course.remain_applied_number %></td>
 											<td>
@@ -96,8 +96,10 @@
 									<% end %>
 								</tbody>
 							</table>
+							<div class="text-center">
+								<%= paginate @training_courses %>
+							</div>
 						</div>
-						<%= paginate @training_courses %>
 					<% else %>
 					  <div class="alert alert-warning" role="alert">抱歉，暂时还没有培训课程！</div>
 					<% end %>

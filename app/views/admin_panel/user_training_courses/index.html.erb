@@ -1,6 +1,25 @@
 <div class="grades-main-content">
   <div class="panel panel-primary">
     <div class="panel-heading">
+      <h3 class="panel-title">搜索栏</h3>
+    </div>
+    <div class="panel-body">
+      <%= form_tag admin_panel_training_course_user_training_courses_path(@training_course), method: :get do %>
+        <div class="col-sm-3">
+          <div class="form-group">
+           <%= text_field_tag :keyword, nil, class: "form-control", placeholder: '请输入关键字' %>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <%= submit_tag "搜索", class: "btn primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
       <ul class="nav nav-pills nav-content-menu">
         <li role="presentation" class="">
           <!-- 区分秘书处和其它角色查看培训班的路径 -->
@@ -25,20 +44,6 @@
           <% end %>
         </li>
       </ul>
-    </div>
-    <div class="panel-body">
-      <%= form_tag admin_panel_training_course_user_training_courses_path(@training_course), method: :get do %>
-        <div class="col-sm-3">
-          <div class="form-group">
-           <%= text_field_tag :keyword, nil, class: "form-control", placeholder: '请输入关键字' %>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="form-group">
-            <%= submit_tag "搜索", class: "btn primary" %>
-          </div>
-        </div>
-      <% end %>
     </div>
     <div class="panel-body">
       <table class="table table-condensed">

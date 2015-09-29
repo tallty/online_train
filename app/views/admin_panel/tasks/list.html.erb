@@ -38,7 +38,7 @@
                   <%= link_to(truncate(task.try(:attachment).try(:avatar_file_name), length: 20), download_admin_panel_task_path(task), title: task.try(:attachment).try(:avatar_file_name)) %>
                 <% end %>
               </td>
-              <td><%= link_to(truncate(task.try(:training_course).try(:name), length: 15), admin_panel_training_course_path(task.training_course_id), title: task.try(:training_course).try(:name) )%></td>
+              <td><%= link_to(truncate(task.try(:training_course).try(:name), length: 15), detail_admin_panel_training_course_path(task.training_course_id), title: task.try(:training_course).try(:name), target: "_blank" )%></td>
               <td><%= task.unsubmitted_count %></td>
               <td><%= task.submitted_count %></td>
               <td><%= task.updated_at.strftime("%Y-%m-%d %H:%M")%></td>
@@ -55,6 +55,9 @@
       <% else %>
         <div class="alert alert-warning" role="alert">暂时还没有作业！</div>
       <% end %>
+      <div class="text-center">
+        <%= paginate @tasks %>
+      </div>
     </div>
   </div>
 <div>

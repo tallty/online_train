@@ -112,4 +112,17 @@ class TrainingCourse < ActiveRecord::Base
     end
   end
 
+  #搜索功能
+  scope :keyword, -> (keyword) do
+    return all if keyword.blank?
+    joins(:school).where(
+      'training_courses.name LIKE ?
+       OR schools.name LIKE ?
+       OR training_courses.code LIKE ?',
+      "%#{keyword}%",
+      "%#{keyword}%",
+      "%#{keyword}%"
+    )
+  end
+
 end

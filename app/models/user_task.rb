@@ -39,4 +39,19 @@ class UserTask < ActiveRecord::Base
     end
     array.to_sentence
   end
+
+  #搜索功能
+  scope :keyword, -> (keyword) do
+    return all if keyword.blank?
+    joins(:user).where(
+      'users.name LIKE ?
+       OR user_tasks.title LIKE ?
+       OR users.phone LIKE ?
+       OR users.email LIKE ?',
+      "%#{keyword}%",
+      "%#{keyword}%",
+      "%#{keyword}%",
+      "%#{keyword}%"
+    )
+  end
 end
