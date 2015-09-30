@@ -23,7 +23,7 @@ module AdminPanel
 		end
 
 		def list
-			@search = TrainingCourse.all.keyword(params[:keyword]).page(params[:page]).per(15)
+			@search = TrainingCourse.all.keyword(params[:keyword]).page(params[:page]).per(10)
 		  add_breadcrumb "班级列表"
 		end
 
