@@ -7,35 +7,23 @@ module AdminPanel
 		before_action :set_grade_leader, only: [:new, :edit]
 
 	  def index
-			@search = TrainingCourse.search do
-	      fulltext(params[:q]) do
-	        fields(:title, :sub_title, :category)
-	      end
-	    end
+			@search = TrainingCourse.all.keyword(params[:keyword]).page(params[:page]).per(15)
 		end
 
     #根据培训机构获取培训班列表
 		def list_by_school
-      @training_courses = TrainingCourse.where(school_id: current_admin.adminable_id)
+      @training_courses = TrainingCourse.where(school_id: current_admin.adminable_id).page(params[:page]).per(15)
       add_breadcrumb "培训班列表"
 		end
 
 		#根据培训机构获取培训班列表
 		def list_by_teacher
-      @training_courses = TrainingCourse.where(admin_id: current_admin.id)
+      @training_courses = TrainingCourse.where(admin_id: current_admin.id).page(params[:page]).per(15)
       add_breadcrumb "培训班列表"
 		end
 
 		def list
-			@search = TrainingCourse.search do
-		    fulltext(params[:q]) do
-		      fields(:name, :code, :category, :grade_leader, :be_applied)
-		      fields(:school, :name)
-		    end
-		    all do
-	        fulltext params[:be_applied], :fields => :be_applied
-	      end
-		  end
+			@search = TrainingCourse.all.keyword(params[:keyword]).page(params[:page]).per(15)
 		  add_breadcrumb "班级列表"
 		end
 
