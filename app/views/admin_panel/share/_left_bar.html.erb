@@ -19,7 +19,7 @@
 	<% end %>
 
 	<li class="text-center">
-		<%= link_to "javascript:void(0);", class: (controller?("admin_panel/training_courses") && action?("index", "show") || controller?("admin_panel/tasks", "admin_panel/user_tasks", "admin_panel/user_training_courses", "admin_panel/journals", "admin_panel/user_appraise_trains", "admin_panel/user_teachers", "admin_panel/student_feedbacks", "admin_panel/appraises", "admin_panel/manager_feedbacks") ? 'active' : nil) do %>
+		<%= link_to "javascript:void(0);", class: (controller?("admin_panel/training_courses") && action?("index", "show") || controller?("admin_panel/tasks", "admin_panel/user_tasks", "admin_panel/user_training_courses", "admin_panel/journals", "admin_panel/user_teachers", "admin_panel/student_feedbacks", "admin_panel/appraises", "admin_panel/manager_feedbacks") ? 'active' : nil) do %>
 		  <span class="glyphicon glyphicon-book"></span> &nbsp;&nbsp;培训班级
 		<% end %>
 		<ul class="dropdown-menu sub-menu text-center" role="menu">
@@ -37,7 +37,7 @@
 	    <li><%= link_to("学员作业", list_admin_panel_user_tasks_path) %></li>
 	    <li><%= link_to("日志列表", list_admin_panel_journals_path) %></li>
 	    <li><%= link_to("学员反馈", list_admin_panel_student_feedbacks_path) %></li>
-	    <li><%= link_to("学员评师", admin_panel_user_teachers_path) %></li>
+	    <li><%= link_to("学员评师", list_admin_panel_appraises_path) %></li>
 	    <li><%= link_to("负责人反馈", list_admin_panel_manager_feedbacks_path) %></li>
 	  </ul>
 	</li>
