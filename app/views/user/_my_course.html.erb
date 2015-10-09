@@ -26,7 +26,13 @@
           查看[ <span class="text-danger"><%= Journal.journal_amount(user_training_course.user.id, user_training_course.training_course.id) %></span> ]
         <% end %>
       </td>
-      <td><%= link_to "下载", training_course_course_resources_path(user_training_course.training_course), remote: true %></td>
+      <td>
+        <% if user_training_course.state == true %>
+          <%= link_to "下载", training_course_course_resources_path(user_training_course.training_course), remote: true %>
+        <% else %>
+          <%= link_to "下载", "javascript:void(0);", onclick: "alert('您的报名状态尚未通过管理员审核！')" %>
+        <% end %>
+      </td>
       <td>
         <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
       </td>

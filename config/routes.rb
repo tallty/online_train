@@ -129,7 +129,7 @@ Rails.application.routes.draw do
       collection do
         get :list
       end
-      resources :user_tasks, only: :index do
+      resources :user_tasks, only: [:index, :show] do
         member do
           get :download
         end

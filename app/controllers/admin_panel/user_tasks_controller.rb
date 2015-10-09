@@ -1,9 +1,8 @@
 class AdminPanel::UserTasksController < AdminPanel::BaseController
   load_and_authorize_resource
-  before_action :set_task, only: [:index, :show, :download]
+  before_action :set_task, only: [:index, :download]
 
   def index
-  	@task = Task.find(params[:task_id])
   	@user_tasks = @task.user_tasks.keyword(params[:keyword]).page(params[:page]).per(15)
     add_breadcrumb "提交作业列表"
   end
@@ -26,6 +25,7 @@ class AdminPanel::UserTasksController < AdminPanel::BaseController
       redirect_to admin_panel_task_user_tasks_path(@task)
     end
   end
+
   private
   def set_task
     @task = Task.find(params[:task_id])
