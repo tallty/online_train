@@ -105,7 +105,11 @@ Rails.application.routes.draw do
       member do
         get :detail
       end
-      resources :course_resources
+      resources :course_resources do
+        member do
+          get :download
+        end
+      end
       resources :manager_feedbacks
       resources :tasks, only: [:index]
       resources :user_training_courses, only: [:index, :edit, :update] do
@@ -147,8 +151,6 @@ Rails.application.routes.draw do
       end
     end
     resources :teachers
-    resources :user_appraise_trains
-    resources :user_teachers
     resources :schools do
       collection do
         get :schools_by_province

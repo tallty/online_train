@@ -1,8 +1,9 @@
 <tr class="tr-default-bg">
 		<td class="text-center"><%= course_resource.try(:training_course).name %></td>
 		<td class="text-center"><%= course_resource.title %></td>
-		<td class="text-center"><%= course_resource.try(:attachment).avatar_file_name if course_resource.try(:attachment) %></td>
-	  <% if can? :edit, CourseResource %>
+		<td class="text-center"><%= link_to truncate(course_resource.try(:attachment).avatar_file_name, length: 20), download_training_course_course_resource_path(@training_course, course_resource), title: course_resource.try(:attachment).avatar_file_name if course_resource.try(:attachment) %></td>
+	  <% if can? :manage, CourseResource %>
 		  <td class="text-center"><%= link_to "修改", edit_admin_panel_training_course_course_resource_path(@training_course, course_resource) %></td>
+		  <td class="text-center"><%= link_to "删除", admin_panel_training_course_course_resource_path(@training_course, course_resource), data: {confirm: '确认删除吗？'}, method: :delete %></td>
 		<% end %>
 	</tr>

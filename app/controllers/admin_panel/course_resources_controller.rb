@@ -1,7 +1,7 @@
 class AdminPanel::CourseResourcesController < AdminPanel::BaseController
   load_and_authorize_resource
   before_action :set_training_course
-  before_action :set_course_resource, only: [:edit, :update]
+  before_action :set_course_resource, only: [:edit, :update, :destroy, :download]
 
   def index
   	@course_resources = @training_course.course_resources.page(params[:page]).per(15)
@@ -48,6 +48,21 @@ class AdminPanel::CourseResourcesController < AdminPanel::BaseController
     else
       flash[:notice] = "课程附件更新失败"
       return redirect_to admin_panel_training_course_course_resources_path(@training_course)
+    end
+  end
+
+  def destroy
+    @course_resource.destroy && @course_resource.attachment.destroy
+    return redirect_to admin_panel_training_course_course_resources_path(@training_course)
+  end
+
+  def download
+    if @course_resource.present?
+      send_file @course_resource.attachment.avatar.path,
+        type: @course_resource.attachment.avatar.content_type,
+        x_sendfile: true
+    else
+      redirect_to admin_panel_training_course_course_resources_path(@training_course)
     end
   end
 

@@ -1,6 +1,6 @@
 class AdminPanel::TasksController < AdminPanel::BaseController
   load_and_authorize_resource
-  before_action :set_task, only: [:edit, :update, :destroy, :download, :show, :destroy]
+  before_action :set_task, only: [:edit, :update, :destroy, :download, :show]
 
   def index
     @training_course = TrainingCourse.find(params[:training_course_id])

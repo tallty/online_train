@@ -15,7 +15,7 @@
     <div class="form-group">
       <%= f.label :attachment, '已上传附件', class: 'col-sm-3 control-label' %>
       <div class="col-sm-4">
-        <%= @course_resource.attachment.avatar_file_name %>
+        <%= link_to @course_resource.attachment.avatar_file_name, download_training_course_course_resource_path(@training_course, @course_resource) %>
       </div>
     </div>
   <% end %>
