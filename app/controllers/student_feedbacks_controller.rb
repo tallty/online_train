@@ -19,11 +19,12 @@ class StudentFeedbacksController < BaseController
 
 	def update
 		if @student_feedback.update(student_feedback_params.merge(user_id: current_user.id))
-			flash[:notice] = "反馈信息创建成功"
-			return redirect_to edit_training_course_student_feedback_path(@training_course, @student_feedback)
+			return render js: 'alert("反馈信息创建成功!");window.location(history.go(0));'
 		else
-			flash[:notice] = "反馈信息创建失败"
-			return redirect_to edit_training_course_student_feedback_path(@training_course, @student_feedback)
+			return render js: 'alert("反馈信息创建失败!");window.location(history.go(0));'
+		end
+		respond_to do |format|
+			format.js
 		end
 	end
 

@@ -13,7 +13,7 @@
             <h3 class="text-center">学员评价</h3>
             <hr>
             <p>1.我对本期培训的感受（人选其一）</p>
-            <%= form_for([@training_course, @student_feedback], html: { class: 'form-horizontal' }) do |f| %>
+            <%= form_for([@training_course, @student_feedback], html: { class: 'form-horizontal' }, remote: true) do |f| %>
               <div class="form-group">
                 <%= f.label :teach, '（1）课堂教学', class: 'col-sm-3 control-label' %>
                 <div class="col-sm-4">

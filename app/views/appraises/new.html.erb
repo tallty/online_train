@@ -17,7 +17,7 @@
             <p>学员：<%= current_user.name %></p>
             <hr>
             <h4>培训教师列表</h4>
-            <%= form_for [@training_course, @appraise], html: { class: 'form-horizontal' } do |f| %>
+            <%= form_for [@training_course, @appraise], html: { class: 'form-horizontal' }, remote: true do |f| %>
               <% @teachers.each_with_index do |teacher, index|%>
                 <% teacher_index = index %>
                 <div class="col-sm-12 js-teacher-list" style="margin-top: 30px">

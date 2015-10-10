@@ -24,7 +24,10 @@ class AppraisesController < BaseController
 			@appraise.remark = params[p.to_sym][:remark]
 			@appraise.save
 		end
-		return redirect_to list_training_course_appraises_path(@training_course)
+		return render js: "alert('学员评价创建成功!'); window.location.href = '#{list_training_course_appraises_path(@training_course)}';"
+		respond_to do |format|
+			format.js
+		end
 	end
 
 	def list
