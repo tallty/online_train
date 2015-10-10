@@ -1,6 +1,6 @@
 class ManagerFeedback < ActiveRecord::Base
-  belongs_to :admin, dependent: :destroy
-  belongs_to :training_course, dependent: :destroy
+  belongs_to :admin
+  belongs_to :training_course
 
   #搜索功能
   scope :keyword, -> (keyword) do
