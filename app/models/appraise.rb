@@ -5,7 +5,7 @@ class Appraise < ActiveRecord::Base
   belongs_to :teacher
 
   #客观评价
-	Degree = { '0' => '非常不满意', '1' => '不满意', '2' => '一般', '3' => '满意', '4' => '非常满意' }
+	Degree = { '0' => '非常满意', '1' => '满意', '2' => '一般', '3' => '不满意', '4' => '非常不满意' }
 
 	#搜索功能
   scope :keyword, -> (keyword) do
