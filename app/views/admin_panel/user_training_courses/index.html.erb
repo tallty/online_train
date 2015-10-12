@@ -56,10 +56,12 @@
             <th>联系方式</th>
             <th>地址</th>
             <th>报名时间</th>
-            <th>证书编号</th>
+            <% if can? [:add, :added], UserTrainingCourse %>
+              <th>证书编号</th>
+            <% end %>
             <th>日志</th>
             <% if can? [:edit, :applied, :disapplied], UserTrainingCourse %>
-              <th rowspan="2">操作</th>
+              <th colspan="2">操作</th>
             <% end %>
           </tr>
         </thead>
