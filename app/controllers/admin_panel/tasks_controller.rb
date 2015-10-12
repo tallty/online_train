@@ -12,7 +12,7 @@ class AdminPanel::TasksController < AdminPanel::BaseController
 
   def list
     @tasks = Task.all.keyword(params[:keyword])
-                     .page(params[:page]).per(15)
+                     .page(params[:page]).per(2)
     add_breadcrumb "培训作业列表"
   end
 
@@ -44,6 +44,7 @@ class AdminPanel::TasksController < AdminPanel::BaseController
   end
 
   def edit
+    session[:return_to] ||= request.referer
     respond_to do |format|
       format.js
     end

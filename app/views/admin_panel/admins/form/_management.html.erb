@@ -17,7 +17,7 @@
           <%= f.input :mobile, required: true  %>
           <%= f.input :address %>
           <%= f.input :role, as: :hidden, input_html: { value: 'management' } %>
-          <p class="text-center"><%= f.button :submit, "确认提交", class: "btn btn-primary" %></p>
+          <p class="text-center"><%= f.button :submit, "确认提交", class: "btn btn-primary", data: {disable_with: "提交中..."} %></p>
         <% end %>
       </div>
     </div>

@@ -35,6 +35,7 @@ class AdminPanel::NotificationsController < AdminPanel::BaseController
   end
 
   def edit
+    session[:return_to] ||= request.referer
     add_breadcrumb "修改"
   end
 
@@ -47,7 +48,7 @@ class AdminPanel::NotificationsController < AdminPanel::BaseController
   	if @notification.update(notification_params)
       @notification.attachment.save(:validate => false)  if params[:notification][:attachment]
   		flash[:notice] = "通知修改成功"
-  		return redirect_to admin_panel_notifications_path
+  		return redirect_to session.delete(:return_to)
   	else
   		flash[:error] = "通知修改失败"
   		return render action: :edit
