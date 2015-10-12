@@ -33,7 +33,7 @@
   <%= f.input :summary, required: false, input_html: {rows: 7} %>
   <%#= f.input :captcha, required: false %>
   <p class="text-center">
-    <%= f.button :submit, "确认提交", class: "btn btn-primary" %>
+    <%= f.button :submit, "确认提交", class: "btn btn-primary", data: { disable_with: "信息修改中..." } %>
     <button id="cancelInfoBtn" class="btn btn-danger" type="button">取消编辑</button>
   </p>
 <% end %>

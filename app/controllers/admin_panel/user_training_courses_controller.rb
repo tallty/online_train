@@ -1,27 +1,18 @@
 class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   before_action :set_training_course, only: [:index, :edit, :update, :applied, :disapplied, :add, :added]
 	before_action :set_user_training_course, only: [:applied, :disapplied, :edit, :update, :add, :added]
+  before_action :set_session, only: [:applied, :disapplied]
   load_and_authorize_resource
 
   def index
     @user_training_courses = @training_course.user_training_courses.keyword(params[:keyword])
                                                                     .page(params[:page]).per(15)
     @applied_user_training_courses = @training_course.user_training_courses.where(state: true)
-    # @search = UserTrainingCourse.where(training_course_id: @training_course.id).search do
-    #   fulltext(params[:q]) do
-    #     fields(:user_name, :user_email, :user_phone)
-    #   end
-    # end
     add_breadcrumb "培训报名列表"
   end
 
   def list
     @user_training_courses = UserTrainingCourse.all.page(params[:page]).per(15).keyword(params[:keyword])
-    # @search = UserTrainingCourse.search do
-    #   fulltext(params[:q]) do
-    #     fields(:user_name, :user_email, :user_phone)
-    #   end
-    # end
     add_breadcrumb "报名列表"
   end
 
@@ -60,14 +51,14 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   	@user_training_course.update!(state: true)
     message = Message.create!(title: "已通过", content: "您报名的“#{@user_training_course.training_course.try(:name)}”已通过管理员审核")
     UserMessage.create!(user_id: @user_training_course.user.id, message_id: message.id)
-  	return redirect_to admin_panel_training_course_user_training_courses_path(@training_course)
+  	return redirect_to session.delete(:return_to)
   end
 
   def disapplied
   	@user_training_course.update!(state: false)
     message = Message.create!(title: "未通过", content: "您报名的“#{@user_training_course.training_course.try(:name)}”未通过管理员审核")
     UserMessage.create!(user_id: @user_training_course.user.id, message_id: message.id)
-  	return redirect_to admin_panel_training_course_user_training_courses_path(@training_course)
+  	return redirect_to session.delete(:return_to)
   end
 
   private
@@ -78,5 +69,10 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
 
   def set_user_training_course
   	@user_training_course = UserTrainingCourse.find(params[:id])
+  end
+
+  #审核前保存请求地址
+  def set_session
+    session[:return_to] ||= request.referer
   end
 end
