@@ -22,7 +22,7 @@
             </tr>
             <% @journals.each do |journal|%>
               <tr>
-                <td><%= journal.try(:add_date).strftime("%Y-%m-%d") %></td>
+                <td><%= journal.try(:add_date).strftime("%Y-%m-%d") if journal.try(:add_date) %></td>
                 <td><%= journal.try(:training_course).try(:name) %></td>
                 <td><%= raw journal.content %></td>
                 <td><%= journal.try(:created_at).strftime("%Y-%m-%d %H:%M") %></td>
