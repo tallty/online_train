@@ -38,7 +38,7 @@ class AdminPanel::AdminUserTasksController < AdminPanel::BaseController
 
 	def list
 		@admin_user_tasks = AdminUserTask.where(admin_id: current_admin.id)
-		                                 .page(params[:page]).per(10)
+		                                 .page(params[:page]).per(15)
 		                                 .keyword(params[:keyword])
 		add_breadcrumb "待评作业列表"
 	end

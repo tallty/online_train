@@ -4,7 +4,7 @@ class AdminPanel::AdminsController < AdminPanel::BaseController
 
   def index
     role = params[:role].present? ? params[:role] : "system"
-    @admins = Admin.where(role: Admin.roles[role])
+    @admins = Admin.where(role: Admin.roles[role]).page(params[:page]).per(15)
     case params[:role]
     when "system"
       add_breadcrumb "秘书处人员列表"
