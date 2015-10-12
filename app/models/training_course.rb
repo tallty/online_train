@@ -38,6 +38,7 @@ class TrainingCourse < ActiveRecord::Base
   has_one :student_feedback, dependent: :destroy
   has_many :course_resources, dependent: :destroy
   has_many :appraises, dependent: :destroy
+  has_many :journals, dependent: :destroy
 
   default_scope { order("created_at DESC") }
 
