@@ -60,7 +60,7 @@
               <th>证书编号</th>
             <% end %>
             <th>日志</th>
-            <% if can? [:edit, :applied, :disapplied], UserTrainingCourse %>
+            <% if can? [:applied, :disapplied, :add, :added], UserTrainingCourse %>
               <th colspan="2">操作</th>
             <% end %>
           </tr>

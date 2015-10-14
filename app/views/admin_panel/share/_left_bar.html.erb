@@ -17,30 +17,32 @@
 			<% end %>
 		</li>
 	<% end %>
+	<!-- 评审专家不显示该栏目 -->
+  <% unless current_admin.specialist? %>
+		<li class="text-center">
+			<%= link_to "javascript:void(0);", class: (controller?("admin_panel/training_courses") && action?("index", "show") || controller?("admin_panel/tasks", "admin_panel/user_tasks", "admin_panel/user_training_courses", "admin_panel/journals", "admin_panel/user_teachers", "admin_panel/student_feedbacks", "admin_panel/appraises", "admin_panel/manager_feedbacks") ? 'active' : nil) do %>
+			  <span class="glyphicon glyphicon-book"></span> &nbsp;&nbsp;培训班级
+			<% end %>
+			<ul class="dropdown-menu sub-menu text-center" role="menu">
+			  <!-- 当前培训机构培训班列表入口 -->
+			  <% if can? :list_by_school, TrainingCourse %>
+			    <li><%= link_to("培训班", list_by_school_admin_panel_training_courses_path) %></li>
+			  <% elsif can? :list_by_teacher, TrainingCourse %>
+			    <li><%= link_to("培训班", list_by_teacher_admin_panel_training_courses_path) %></li>
+			  <% else %>
+			    <li><%= link_to("培训班", admin_panel_notifications_path) %></li>
+			  <% end %>
 
-	<li class="text-center">
-		<%= link_to "javascript:void(0);", class: (controller?("admin_panel/training_courses") && action?("index", "show") || controller?("admin_panel/tasks", "admin_panel/user_tasks", "admin_panel/user_training_courses", "admin_panel/journals", "admin_panel/user_teachers", "admin_panel/student_feedbacks", "admin_panel/appraises", "admin_panel/manager_feedbacks") ? 'active' : nil) do %>
-		  <span class="glyphicon glyphicon-book"></span> &nbsp;&nbsp;培训班级
-		<% end %>
-		<ul class="dropdown-menu sub-menu text-center" role="menu">
-		  <!-- 当前培训机构培训班列表入口 -->
-		  <% if can? :list_by_school, TrainingCourse %>
-		    <li><%= link_to("培训班", list_by_school_admin_panel_training_courses_path) %></li>
-		  <% elsif can? :list_by_teacher, TrainingCourse %>
-		    <li><%= link_to("培训班", list_by_teacher_admin_panel_training_courses_path) %></li>
-		  <% else %>
-		    <li><%= link_to("培训班", admin_panel_notifications_path) %></li>
-		  <% end %>
-
-	    <li><%= link_to("报名列表", list_admin_panel_user_training_courses_path ) %></li>
-	    <li><%= link_to("培训作业", list_admin_panel_tasks_path) %></li>
-	    <li><%= link_to("学员作业", list_admin_panel_user_tasks_path) %></li>
-	    <li><%= link_to("日志列表", list_admin_panel_journals_path) %></li>
-	    <li><%= link_to("学员反馈", list_admin_panel_student_feedbacks_path) %></li>
-	    <li><%= link_to("学员评师", list_admin_panel_appraises_path) %></li>
-	    <li><%= link_to("负责人反馈", list_admin_panel_manager_feedbacks_path) %></li>
-	  </ul>
-	</li>
+		    <li><%= link_to("报名列表", list_admin_panel_user_training_courses_path ) %></li>
+		    <li><%= link_to("培训作业", list_admin_panel_tasks_path) %></li>
+		    <li><%= link_to("学员作业", list_admin_panel_user_tasks_path) %></li>
+		    <li><%= link_to("日志列表", list_admin_panel_journals_path) %></li>
+		    <li><%= link_to("学员反馈", list_admin_panel_student_feedbacks_path) %></li>
+		    <li><%= link_to("学员评师", list_admin_panel_appraises_path) %></li>
+		    <li><%= link_to("负责人反馈", list_admin_panel_manager_feedbacks_path) %></li>
+		  </ul>
+		</li>
+	<% end %>
 
 	<% if can? [:index], Admin %>
 		<li class="text-center">

@@ -11,21 +11,23 @@
   <% end %>
   <td><%= link_to "用户日志", admin_panel_user_training_course_journals_path(user_training_course)%>
   </td>
-  <% if can? [:edit, :applied, :disapplied], UserTrainingCourse %>
-    <td>
-      <%= link_to "备注信息", edit_admin_panel_training_course_user_training_course_path(@training_course, user_training_course), class: "btn btn-xs btn-success"%>
-    </td>
-    <td>
-      <% if user_training_course.state == nil %>
-        <%= link_to "待审核", applied_admin_panel_training_course_user_training_course_path(@training_course, user_training_course), method: :patch, data: {confirm: '确认通过该报名吗？'}, class: "btn btn-xs btn-danger"%>
-      <% elsif user_training_course.state == false %>
-        <%= link_to "未通过", applied_admin_panel_training_course_user_training_course_path(@training_course, user_training_course), method: :patch, data: {confirm: '确认通过该报名吗？'}, class: "btn btn-xs btn-danger"%>
-      <% elsif user_training_course.state == true %>
-        <%= link_to "已通过", disapplied_admin_panel_training_course_user_training_course_path(@training_course, user_training_course), method: :patch, data: {confirm: '确认撤销通过该报名吗？'}, class: "btn btn-xs btn-success"%>
-      <% else @training_course.plan_number.to_i - @applied_user_training_courses.count <= 0 %>
-        <%= link_to "未通过", "javascript:void(0)", method: :patch, data: {confirm: '警告：通过人数将不能大于计划人数' }, class: "btn btn-xs btn-danger" %>
-      <% end %>
-    </td>
+  <% unless current_page?(controller: "user_training_courses", action: "list")%>
+    <% if can? [:applied, :disapplied, :add, :added], UserTrainingCourse %>
+      <td>
+        <%= link_to "备注信息", edit_admin_panel_training_course_user_training_course_path(@training_course, user_training_course), class: "btn btn-xs btn-success"%>
+      </td>
+      <td>
+        <% if user_training_course.state == nil %>
+          <%= link_to "待审核", applied_admin_panel_training_course_user_training_course_path(@training_course, user_training_course), method: :patch, data: {confirm: '确认通过该报名吗？'}, class: "btn btn-xs btn-danger"%>
+        <% elsif user_training_course.state == false %>
+          <%= link_to "未通过", applied_admin_panel_training_course_user_training_course_path(@training_course, user_training_course), method: :patch, data: {confirm: '确认通过该报名吗？'}, class: "btn btn-xs btn-danger"%>
+        <% elsif user_training_course.state == true %>
+          <%= link_to "已通过", disapplied_admin_panel_training_course_user_training_course_path(@training_course, user_training_course), method: :patch, data: {confirm: '确认撤销通过该报名吗？'}, class: "btn btn-xs btn-success"%>
+        <% else @training_course.plan_number.to_i - @applied_user_training_courses.count <= 0 %>
+          <%= link_to "未通过", "javascript:void(0)", method: :patch, data: {confirm: '警告：通过人数将不能大于计划人数' }, class: "btn btn-xs btn-danger" %>
+        <% end %>
+      </td>
+    <% end %>
   <% end %>
 </tr>
 

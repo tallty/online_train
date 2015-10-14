@@ -49,6 +49,7 @@ class Ability
     can [:list_by_school, :detail], TrainingCourse
     cannot :list, TrainingCourse
     can [:index, :list], UserTrainingCourse
+    cannot [:applied, :disapplied, :add, :added], UserTrainingCourse
     can [:index, :list, :show], Journal
     can :index, Task
     can :list, UserTask
@@ -66,7 +67,7 @@ class Ability
   def role_management
     can :index, :home
     can :index, Journal
-    can [:index, :list, :add, :added ,:edit, :applied, :disapplied], UserTrainingCourse
+    can [:manage], UserTrainingCourse
     can [:index, :list, :show], Journal
     can :manage, Task
     can [:list, :show, :index, :download], UserTask
