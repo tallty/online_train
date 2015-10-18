@@ -101,7 +101,6 @@ class TrainingCourse < ActiveRecord::Base
   def self.create_journal_list
     user_training_course_ids = UserTrainingCourse.where(user_id: current_user.id).pluck(:training_course_id)
     self.where({id: user_training_course_ids})
-        .where("start_time <= ? AND end_time >= ?", Time.now, Time.now)
   end
 
   #剩余数量
