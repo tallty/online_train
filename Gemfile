@@ -87,3 +87,5 @@ gem "breadcrumbs_on_rails"
 #数据爬取
 gem 'nokogiri'
 gem 'mechanize'
+
+gem 'whenever', :require => false
