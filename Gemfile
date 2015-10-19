@@ -89,3 +89,6 @@ gem 'nokogiri'
 gem 'mechanize'
 
 gem 'whenever', :require => false
+
+#性能监控
+gem 'newrelic_rpm'

@@ -28,7 +28,7 @@ class JournalsController < BaseController
 		if @journal.update(journal_params)
 			return redirect_to journal_user_index_path
 		else
-			return render action: :new
+			return render action: :edit
 		end
 	end
 
