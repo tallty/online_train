@@ -15,4 +15,9 @@ class TrainingCoursesController < BaseController
 
   def list
   end
+
+  def print
+    @training_course = TrainingCourse.find(params[:id])
+    render layout: 'print'
+  end
 end

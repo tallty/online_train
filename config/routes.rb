@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :training_courses, only: [:index, :show] do
+    member do
+      get :print
+    end
     resources :journals, only: [:index]
     resources :student_feedbacks, only: [:new, :edit, :update]
     resources :appraises, only: [:index, :new, :create, :edit, :update] do

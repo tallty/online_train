@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924083018) do
+ActiveRecord::Schema.define(version: 20151119142749) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -273,6 +273,11 @@ ActiveRecord::Schema.define(version: 20150924083018) do
     t.datetime "start_apply_time"
     t.datetime "end_apply_time"
     t.integer  "admin_id",            limit: 4
+    t.string   "linkman",             limit: 255
+    t.string   "phone",               limit: 255
+    t.string   "fax",                 limit: 255
+    t.string   "mobile",              limit: 255
+    t.string   "email",               limit: 255
   end
 
   add_index "training_courses", ["admin_id"], name: "index_training_courses_on_admin_id", using: :btree

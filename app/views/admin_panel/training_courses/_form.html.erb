@@ -133,7 +133,44 @@
             <%= f.kindeditor :check_method, :window_onload => true, class: 'form-control' %>
           </div>
         </div>
-
+      <hr>
+      <div class="well">以下为学员可打印培训班联系信息【<span class="text-danger">选填</span>】</div>
+      <div class="form-group">
+        <%= f.label :linkman, '联系人', class: 'col-sm-3 control-label' %>
+        <div class="col-sm-4">
+          <%= f.text_field :linkman, placeholder: "多个联系人姓名请用空格隔开", class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :phone, '联系电话', class: 'col-sm-3 control-label' %>
+        <div class="col-sm-4">
+          <%= f.text_field :phone, placeholder: "多个联系电话请用空格隔开", class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :fax, '传真', class: 'col-sm-3 control-label' %>
+        <div class="col-sm-4">
+          <%= f.text_field :fax, placeholder: "多个传真号请用空格隔开", class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :mobile, '手机号', class: 'col-sm-3 control-label' %>
+        <div class="col-sm-4">
+          <%= f.text_field :mobile, placeholder: "多个手机号请用空格隔开", class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, '邮箱', class: 'col-sm-3 control-label' %>
+        <div class="col-sm-4">
+          <%= f.text_field :email, placeholder: "多个邮箱请用空格隔开", class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :remark, '备注', class: 'col-sm-3 control-label' %>
+        <div class="col-sm-4">
+          <%= f.text_area :remark, placeholder: "请输入备注信息", class: 'form-control' %>
+        </div>
+      </div>
   	  <div class="col-sm-6 col-sm-offset-4">
   	  	<%= f.submit '确认提交', class: "btn btn-primary pull-left" %>
   	  </div>

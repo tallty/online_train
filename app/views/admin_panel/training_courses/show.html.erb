@@ -21,11 +21,12 @@
 			</ul>
 	  </div>
 	  <div class="panel-body panel-default-bg">
-	    <% if can? :edit, @training_course %>
-		    <div class="text-left">
+		  <div class="text-left">
+		    <% if can? :edit, @training_course %>
 		    	<%= link_to "修改", edit_admin_panel_notification_training_course_path(@notification, @training_course), class: 'btn btn-primary', 'data-no-turbolink' => true %>
-		    </div>
-		  <% end %>
+		    <% end %>
+		    <%= link_to "联系信息", admin_panel_notification_training_course_path(@notification, @training_course, anchor: "well"), class: 'btn btn-primary'%>
+		  </div>
 		  <hr>
 	    <table class="table">
 	      <tr>
@@ -110,6 +111,34 @@
 	      <tr>
 	      	<th class="col-sm-1">考核方法</th>
 	      	<td><%= raw @training_course.check_method %></td>
+	      </tr>
+	    </table>
+	    <hr>
+	    <div class="well" id="well">以下为学员可打印培训班联系信息</div>
+	    <table class="table">
+	    	<tr>
+	      	<th class="col-sm-1">联系人</th>
+	      	<td><%= @training_course.linkman %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">联系电话</th>
+	      	<td><%= @training_course.phone %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">传真</th>
+	      	<td><%= @training_course.fax %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">手机</th>
+	      	<td><%= @training_course.mobile %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">邮箱</th>
+	      	<td><%= @training_course.email %></td>
+	      </tr>
+	      <tr>
+	      	<th class="col-sm-1">备注</th>
+	      	<td><%= raw @training_course.remark %></td>
 	      </tr>
 	    </table>
 	  </div>

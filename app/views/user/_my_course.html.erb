@@ -34,7 +34,11 @@
         <% end %>
       </td>
       <td>
-        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+        <%= link_to print_training_course_path(user_training_course.training_course), title: "打印" do%>
+          <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+        <% end %>
+        <br>
+        <small><%= link_to "打印须知", "javascript:void(0);", onclick: "alert('温馨提示：点击链接上面打印图标进入打印页面，使用浏览器自带打印功能快捷键为ctrl+p');", class: "text-muted"%></small>
       </td>
     </tr>
   <% end %>
