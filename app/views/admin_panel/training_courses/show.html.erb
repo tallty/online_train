@@ -118,27 +118,27 @@
 	    <table class="table">
 	    	<tr>
 	      	<th class="col-sm-1">联系人</th>
-	      	<td><%= @training_course.linkman %></td>
+	      	<td><%= @training_course.try(:linkman) %></td>
 	      </tr>
 	      <tr>
 	      	<th class="col-sm-1">联系电话</th>
-	      	<td><%= @training_course.phone %></td>
+	      	<td><%= @training_course.try(:phone) %></td>
 	      </tr>
 	      <tr>
 	      	<th class="col-sm-1">传真</th>
-	      	<td><%= @training_course.fax %></td>
+	      	<td><%= @training_course.try(:fax) %></td>
 	      </tr>
 	      <tr>
 	      	<th class="col-sm-1">手机</th>
-	      	<td><%= @training_course.mobile %></td>
+	      	<td><%= @training_course.try(:mobile) %></td>
 	      </tr>
 	      <tr>
 	      	<th class="col-sm-1">邮箱</th>
-	      	<td><%= @training_course.email %></td>
+	      	<td><%= @training_course.try(:email) %></td>
 	      </tr>
 	      <tr>
 	      	<th class="col-sm-1">备注</th>
-	      	<td><%= raw @training_course.remark %></td>
+	      	<td><%= raw @training_course.try(:remark) %></td>
 	      </tr>
 	    </table>
 	  </div>

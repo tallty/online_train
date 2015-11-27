@@ -39,27 +39,27 @@
   <table class="infoList">
     <tr>
       <th>注意：</th>
-      <td><%= @training_course.remark %></td>
+      <td><%= @training_course.try(:remark) %></td>
     </tr>
     <tr>
       <th>联系人：</th>
-      <td><%= @training_course.linkman %></td>
+      <td><%= @training_course.try(:linkman) %></td>
     </tr>
     <tr>
       <th>电话：</th>
-      <td><%= @training_course.phone %></td>
+      <td><%= @training_course.try(:phone) %></td>
     </tr>
     <tr>
       <th>传真：</th>
-      <td><%= @training_course.fax %></td>
+      <td><%= @training_course.try(:fax) %></td>
     </tr>
     <tr>
       <th>手机：</th>
-      <td><%= @training_course.mobile %></td>
+      <td><%= @training_course.try(:mobile) %></td>
     </tr>
     <tr>
       <th>邮箱：</th>
-      <td><%= @training_course.email %></td>
+      <td><%= @training_course.try(:email) %></td>
     </tr>
   </table>
 </div>
