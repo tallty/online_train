@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: journals
+#
+#  id                 :integer          not null, primary key
+#  user_id            :integer
+#  training_course_id :integer
+#  title              :string(255)
+#  content            :text(65535)
+#  add_date           :datetime
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
 class Journal < ActiveRecord::Base
   belongs_to :user
   belongs_to :training_course

@@ -121,6 +121,15 @@
 <hr>
 <div class="row">
   <div class="col-sm-3 text-right">
+    职位分类：
+  </div>
+  <div class="col-sm-8 text-left text-primary">
+    <%= raw(User::ROLE[current_user.role.to_sym].try(:gsub, /\r\n/,"<br>")) %>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-sm-3 text-right">
     历史培训情况：
   </div>
   <div class="col-sm-8 text-left text-primary">

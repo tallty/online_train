@@ -92,3 +92,6 @@ gem 'whenever', :require => false
 
 #性能监控
 gem 'newrelic_rpm'
+
+# 导出为xls或csv
+gem "spreadsheet_on_rails"

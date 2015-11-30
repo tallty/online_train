@@ -52,9 +52,9 @@
             <th>姓名</th>
             <th>账号</th>
             <th>性别</th>
-            <th>省份</th>
-            <th>联系方式</th>
             <th>地址</th>
+            <th>联系方式</th>
+            <th>学校信息</th>
             <th>报名时间</th>
             <% if can? [:add, :added], UserTrainingCourse %>
               <th>证书编号</th>
@@ -66,6 +66,7 @@
           </tr>
         </thead>
         <tbody>
+          <%= link_to("导出到Excel", admin_panel_training_course_user_training_courses_path(@training_course, format: 'xls'), class: "btn btn-success") %>
           <%= render @user_training_courses %>
         </tbody>
       </table>

@@ -5,9 +5,11 @@
 #  id                 :integer          not null, primary key
 #  user_id            :integer
 #  training_course_id :integer
-#  state              :string(255)
+#  state              :boolean          default(FALSE)
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  remark             :string(255)
+#  certificate_no     :string(255)
 #
 
 class UserTrainingCourse < ActiveRecord::Base
@@ -29,6 +31,12 @@ class UserTrainingCourse < ActiveRecord::Base
     when false
       "未通过"
     end
+  end
+
+  # 统计报名学员的不同职位人数
+  def self.role_count
+    cache = User.includes(:user_training_courses).group(:role).count
+    cache.map { |k, v| [User::ROLE[User.find_by_role(k).role.to_sym], v] }.to_h
   end
 
   #搜索功能

@@ -1,5 +1,13 @@
 <tr>
-  <td><%= user_training_course.try(:user).try(:name)%></td>
+  <td>
+    <% role = user_training_course.try(:user).try(:role) %>
+    <%= user_training_course.try(:user).try(:name)%>
+    <% if role == "full_time" %>
+      (<span class="text-primary"><%= User::ROLE[role.to_sym] %></span>)
+    <% else %>
+      (<span class="text-danger"><%= User::ROLE[role.to_sym] %></span>)
+    <% end %>
+  </td>
   <td><%= user_training_course.try(:user).try(:email)%></td>
   <td><%= User::UserGender[user_training_course.try(:user).try(:gender).to_sym]%></td>
   <td><%= user_training_course.try(:user).try(:address)%></td>

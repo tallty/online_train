@@ -33,6 +33,8 @@
 #  updated_at             :datetime
 #  country                :string(255)
 #  his_train              :text(65535)
+#  profession             :string(255)
+#  role                   :integer
 #
 
 class User < ActiveRecord::Base
@@ -53,6 +55,9 @@ class User < ActiveRecord::Base
 
   enum gender: {male: true, female: false}
   UserGender = {male: '男', female: '女'}
+
+  enum role: { full_time: 1, part_time: 0 }
+  ROLE = { full_time: "专职教师", part_time: "兼职教师" }
 
   #创建消息
   after_create do
@@ -76,6 +81,7 @@ class User < ActiveRecord::Base
   validates :zip_code, presence: true
   validates :telephone, presence: true
   validates :phone, presence: true
+  validates :role, presence: true
 
 
   def self.current

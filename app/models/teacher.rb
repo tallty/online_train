@@ -6,7 +6,7 @@
 #  name       :string(255)
 #  id_card    :string(255)
 #  position   :string(255)
-#  sex        :string(255)
+#  sex        :boolean          default(TRUE)
 #  remark     :text(65535)
 #  address    :string(255)
 #  mobile     :string(255)

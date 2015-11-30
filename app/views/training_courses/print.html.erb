@@ -13,27 +13,27 @@
   <table class="table table-bordered">
     <tr>
       <th class="text-center col-sm-1">姓名</th>
-      <td></td>
+      <td><%= current_user.name %></td>
       <th class="text-center col-sm-1">性别</th>
-      <td></td>
+      <td><%= current_user.gender %></td>
       <th class="text-center col-sm-1">出生年月</th>
-      <td></td>
+      <td><%= current_user.birth %></td>
     </tr>
     <tr>
       <th class="text-center col-sm-1">职务</th>
-      <td></td>
+      <td><%= current_user.position %></td>
       <th class="text-center col-sm-1">职称</th>
-      <td></td>
+      <td><%= current_user.position_name %></td>
       <th class="text-center col-sm-1">专业</th>
-      <td></td>
+      <td><%= current_user.profession %></td>
     </tr>
     <tr>
       <th class="text-center col-sm-1">电话</th>
-      <td></td>
+      <td><%= current_user.telephone %></td>
       <th class="text-center col-sm-1">手机</th>
-      <td></td>
+      <td><%= current_user.phone %></td>
       <th class="text-center col-sm-1">电子邮件</th>
-      <td></td>
+      <td><%= current_user.email %></td>
     </tr>
   </table>
   <table class="infoList">
@@ -72,6 +72,10 @@
     margin: 20px 0;
   }
   .table-bordered tr, .table-bordered > tbody > tr > th  {
+    height: 60px;
+    line-height: 60px!important;
+  }
+  .table-bordered tr, .table-bordered > tbody > tr > td  {
     height: 60px;
     line-height: 60px!important;
   }

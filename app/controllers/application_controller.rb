@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :email_confirmation, :password, :password_confirmation, :name,
                                                             :ID_number, :nation, :gender, :birth, :school, :academy, :profession, :certificate,
                                                             :position_name, :position, :address, :zip_code, :telephone, :phone,
-                                                            :qq_no, :summary, :country) }
+                                                            :qq_no, :summary, :country, :role, :his_train) }
   end
 
   private
