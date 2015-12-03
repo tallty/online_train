@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130032358) do
+ActiveRecord::Schema.define(version: 20151203132336) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20151130032358) do
     t.string   "picture_url_content_type", limit: 255
     t.integer  "picture_url_file_size",    limit: 4
     t.datetime "picture_url_updated_at"
+    t.boolean  "is_competition",           limit: 1
   end
 
   create_table "journals", force: :cascade do |t|
