@@ -2,7 +2,7 @@
   <div class="col-sm-2 listLeft">
     <ul class="list-group">
       <% @material_dates.each do |material| %>
-        <li class="list-group-item text-center"><%= link_to material.mdate + "年", list_materials_path(date: material.mdate), class: "center-block" %></li>
+        <li class="list-group-item text-center" style="padding: 5px 15px;"><%= link_to material.mdate + "年", list_materials_path(date: material.mdate), class: "center-block" %></li>
       <% end %>
     </ul>
   </div>

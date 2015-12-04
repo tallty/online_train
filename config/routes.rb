@@ -81,6 +81,8 @@ Rails.application.routes.draw do
       get :contact
       get :business
       get :info
+      get :activity
+      get :teaching
     end
   end
   #mount ChinaCity::Engine => '/china_city'

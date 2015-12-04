@@ -21,8 +21,8 @@ class Event < ActiveRecord::Base
 
 	validates_attachment_content_type :picture_url, content_type: /\Aimage\/.*\Z/
 
-	enum classify: { bulletin: 1, headline: 2, activity: 3, work: 4, intro: 5, contact: 6 }
-	EVENTCLASSIFY = { bulletin: '通知公告', headline: '新闻动态', activity: '活动简报', work: '秘书处事务', intro: '研究会简介', contact: '联系我们' }
+	enum classify: { bulletin: 1, headline: 2, activity: 3, work: 4, intro: 5, contact: 6, teaching: 7 }
+	EVENTCLASSIFY = { bulletin: '通知公告', headline: '新闻动态', activity: '活动简报', work: '秘书处事务', intro: '研究会简介', contact: '联系我们', teaching: "教学研究" }
   validates :title, presence: {message: '标题不能空' }
   validates :content, presence: {message: '内容不能空' }
 
@@ -31,6 +31,9 @@ class Event < ActiveRecord::Base
   scope :is_contact, -> {where(classify: 6)}
   scope :is_business, -> {where(classify: 4)}
   scope :is_info, -> {where(classify: 5)}
+  scope :is_teaching, -> {where(classify: 7)}
+  scope :is_activity, -> {where(classify: 3)}
+  scope :is_headline, -> {where(classify: 2)}
 
   scope :keyword, -> (keyword) do
     return all if keyword.blank?

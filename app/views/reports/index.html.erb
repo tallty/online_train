@@ -51,18 +51,18 @@
 				</div>
 				<div class="bulletin col-xs-12">
 				  <% @activities.each do |event| %>
-					<%=link_to event_path(event) do %>
-						<div class="col-xs-6 bulletin-list">
-						<div class="col-xs-4 bulletin-picture">
-						<%= image_tag( event.picture_url .present? ? event.picture_url : "picture_min.jpg", width: "100%")%>
-						</div>
-						<div class="col-xs-8 bulletin-text">
-							<h5 class="bull-text-t col-xs-12"><%= link_to "#{event.title}", event_path(event) %></h5>
-							<p>&nbsp;&nbsp;&nbsp;&nbsp;<%= raw event.content.try(:truncate, 30) %></p>
-						</div>
-					</div>
-					<% end %>
-				<% end %>
+					  <%=link_to event_path(event) do %>
+							<div class="col-xs-6 bulletin-list">
+								<div class="col-xs-4 bulletin-picture">
+								<%= image_tag( event.picture_url .present? ? event.picture_url : "picture_min.jpg", width: "100%")%>
+								</div>
+							  <div class="col-xs-8 bulletin-text">
+									<h5 class="bull-text-t col-xs-12"><%= link_to "#{event.title}", event_path(event) %></h5>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;<%= raw event.content.try(:truncate, 30) %></p>
+							  </div>
+						  </div>
+					  <% end %>
+				  <% end %>
 				</div>
 			</div>
 

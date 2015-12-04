@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="col-xs-12 content">
+      <div class="report-index col-xs-12">
+        <div class="events-list col-xs-12 margin-0 margin-b-20"><%=link_to "教学研究", events_path %></div>
+        <% unless @events.present? %>
+          <p class="text-center">暂无教学研究内容！</p>
+        <% else %>
+          <% @events.each do |event| %>
+            <div class="col-xs-12 news-list"><%=image_tag "h_news_icon.gif", class:"news_icon" %><%= link_to truncate(event.title, length: 40), event_path(event) %>&nbsp;
+              <% if event_in_two_weeks(event) %>
+                <%=image_tag "news_t.png" %>
+              <% end %>
+              <span class="pull-right news-time"><%= event.created_at.strftime("%F") %>&nbsp;</span>
+            <hr class="news-hr">
+            </div>
+          <% end %>
+          <div class="text-center">
+            <%= paginate @events %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</div>
+<!-- 内容部分结束 -->
