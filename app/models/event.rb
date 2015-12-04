@@ -27,6 +27,11 @@ class Event < ActiveRecord::Base
   validates :content, presence: {message: '内容不能空' }
 
   scope :is_competition, -> { where(is_competition: true) }
+
+  scope :is_contact, -> {where(classify: 6)}
+  scope :is_business, -> {where(classify: 4)}
+  scope :is_info, -> {where(classify: 5)}
+
   scope :keyword, -> (keyword) do
     return all if keyword.blank?
     where("events.title like ?", "%#{keyword}%")

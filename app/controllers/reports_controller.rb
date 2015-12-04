@@ -17,4 +17,16 @@ class ReportsController < BaseController
     @more_events = Event.where(classify: params[:classify]).page(params[:page]).per(25)
   	@bulletin = Event.where(classify: 1).order(created_at: :DESC).limit(5)
   end
+
+  def info
+    @event = Event.is_info.first
+  end
+
+  def business
+    @event = Event.is_business.first
+  end
+
+  def contact
+    @event = Event.is_contact.first
+  end
 end

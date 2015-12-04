@@ -1,0 +1,25 @@
+<!-- 内容详情部分开始 -->
+<div class="row">
+  <div class="container">
+    <div class="col-xs-12 news-show-content">
+      <div class="col-xs-12 report-show-title">
+        <div class="col-xs-2" style="padding-top: 4px;">联系我们</div>
+      </div>
+      <div class="col-xs-12 report-show-content">
+        <% unless @event.present? %>
+          <p class="text-center">管理员未上传相关信息！</p>
+        <% else %>
+          <div class="col-xs-12 text-center">
+            <h4 class="show-news-title"><%= @event.title %></h4>
+            <span class="datatime"><%= @event.created_at.strftime("%F %H:%M:%S") %></span>
+            <hr class="show-new-hr">
+          </div>
+          <div class="news-show-text">
+            <%= raw @event.content%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 内容详情部分结束 -->

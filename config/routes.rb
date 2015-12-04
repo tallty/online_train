@@ -76,6 +76,13 @@ Rails.application.routes.draw do
   get 'home/index'
 
   root "reports#index"
+  resources :reports, path: "/", only: [] do
+    collection do
+      get :contact
+      get :business
+      get :info
+    end
+  end
   #mount ChinaCity::Engine => '/china_city'
   devise_for :admins, controllers: { sessions: "admins/sessions", registrations: 'admins/registrations' }
   namespace :admin_panel do
