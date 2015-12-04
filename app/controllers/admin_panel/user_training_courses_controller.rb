@@ -5,8 +5,9 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   load_and_authorize_resource
 
   def index
-    @user_training_courses = @training_course.user_training_courses.keyword(params[:keyword])
-                                                                    .page(params[:page]).per(15)
+    @user_training_courses = UserTrainingCourse.where(training_course_id: @training_course)
+                                             .keyword(params[:keyword])
+                                             .page(params[:page]).per(15)
     @applied_user_training_courses = @training_course.user_training_courses.where(state: true)
 
     add_breadcrumb "培训报名列表"
