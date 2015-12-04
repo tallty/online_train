@@ -95,3 +95,6 @@ gem 'newrelic_rpm'
 
 # 导出为xls或csv
 gem "spreadsheet_on_rails"
+
+#pdf文件阅读
+gem 'pdfjs_viewer-rails'

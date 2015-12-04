@@ -1,0 +1,41 @@
+<div class="main-content">
+  <div class="panel panel-default">
+    <div class="panel-heading panel-active" style="overflow: hidden;">
+      <span class="pull-left">培训资料</span>
+      <%= link_to new_admin_panel_material_path, class: "btn btn-xs pull-right btn-active", 'data-no-turbolink' => true do %>
+         <span class="glyphicon glyphicon-plus-sign"></span> 新建
+      <% end %>
+    </div>
+    <div class="panel-body panel-default-bg">
+      <table class="table">
+        <thead>
+          <tr>
+          <th class="col-sm-2 text-center">标题</th>
+          <th class="text-center">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @materials.each do |material|%>
+            <tr class="tr-default-bg">
+              <td class="text-center"><%= material.title.try(:truncate, 15) %></td>
+              <td>
+                <% if material.try(:attachment).present? %>
+                  <%= link_to(material.try(:attachment).try(:avatar_file_name), download_admin_panel_material_path(material)) %>
+                <% end %>
+              </td>
+              <td class="text-center">
+                <%= link_to edit_admin_panel_material_path(material), 'data-no-turbolink' => true do %>
+                  <span class="glyphicon glyphicon-edit"></span> 修改
+                <% end %>
+                <%= link_to '删除', admin_panel_material_path(material), method: :delete, data: { confirm: 'Are you sure?' } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <%= paginate @materials %>
+     </div>
+    </div>
+  </div>
+</div>

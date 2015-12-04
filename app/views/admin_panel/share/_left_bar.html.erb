@@ -68,6 +68,14 @@
 		</li>
 	<% end %>
 
+	<% if can? :manage, Material %>
+		<li class="text-center">
+			<%= link_to admin_panel_materials_path, class: (controller?("admin_panel/materials") ? 'active' : nil) do %>
+			  <span class="glyphicon glyphicon-book"></span> &nbsp;&nbsp;培训资料
+			<% end %>
+		</li>
+	<% end %>
+
 	<!-- <li class="text-center">
 		<%#= link_to admin_panel_system_index_path, class: (controller?("admin_panel/system") ? 'active' : nil) do %>
 		  <span class="glyphicon glyphicon-cog"></span> &nbsp;&nbsp;系统功能

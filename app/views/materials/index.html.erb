@@ -1,0 +1,33 @@
+<!-- 内容详情部分开始 -->
+<div class="row">
+  <div class="container">
+    <div class="col-xs-12 news-show-content">
+      <div class="col-xs-12 report-show-title">
+        <div class="col-xs-2" style="padding-top: 4px;">资料列表</div>
+      </div>
+      <div class="col-xs-12 report-show-content">
+        <% unless @materials.present? %>
+          <p class="text-center">暂时没有下载资料！</p>
+        <% else %>
+          <% @materials.each do |material| %>
+            <div class="col-xs-12 news-list">
+               <%=image_tag "h_news_icon.gif", class: "news_icon" %>
+               <%= link_to "#{material.title}", download_material_path(material) %>&nbsp;
+               <%=image_tag "news_t.png" %><span class="pull-right news-time">
+               <%= link_to download_material_path(material), style: "margin-right: 10px;" do %>
+                 <span class="glyphicon glyphicon-download"></span> 下载
+               <% end -%>
+               <%= link_to pdfjs.full_path(file: material.attachment.avatar.url), style: "margin-right: 30px;" do %>
+                 <span class="glyphicon glyphicon-eye-open"></span> 预览
+               <% end -%>
+               <%= material.created_at.strftime("%Y-%m-%d %H:%M:%S") %>&nbsp;</span>
+               <hr class="news-hr">
+            </div>
+          <% end %>
+          <div class="col-xs-12 text-center"><%= paginate @materials %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 内容详情部分结束 -->

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
   resources :training_courses, only: [:index, :show] do
     member do
       get :print
@@ -31,6 +32,11 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:index, :show]
+  resources :materials, only: [:index] do
+    member do
+      get :download
+    end
+  end
   resources :notifications, only: [:show, :index] do
     member do
       get :download
@@ -169,6 +175,11 @@ Rails.application.routes.draw do
     end
     resources :training_courses
     resources :events
+    resources :materials do
+      member do
+        get :download
+      end
+    end
     resources :activities
     resources :users
     resources :system
