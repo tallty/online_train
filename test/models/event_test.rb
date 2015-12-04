@@ -13,6 +13,7 @@
 #  picture_url_content_type :string(255)
 #  picture_url_file_size    :integer
 #  picture_url_updated_at   :datetime
+#  is_competition           :boolean
 #
 
 require 'test_helper'

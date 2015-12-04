@@ -67,6 +67,9 @@ Rails.application.routes.draw do
   resources :training_bases, only: :index
   resources :china_germany, only: :index
 
+  # 教学设计比武大赛
+  resources :competitions
+
   get 'home/index'
 
   root "reports#index"

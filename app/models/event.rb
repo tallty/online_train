@@ -13,6 +13,7 @@
 #  picture_url_content_type :string(255)
 #  picture_url_file_size    :integer
 #  picture_url_updated_at   :datetime
+#  is_competition           :boolean
 #
 
 class Event < ActiveRecord::Base
@@ -20,12 +21,12 @@ class Event < ActiveRecord::Base
 
 	validates_attachment_content_type :picture_url, content_type: /\Aimage\/.*\Z/
 
-	enum classify: { bulletin: 1, headline: 2, activity: 3 }
-	EVENTCLASSIFY = { bulletin: '通知公告', headline: '新闻动态', activity: '活动简报' }
-
+	enum classify: { bulletin: 1, headline: 2, activity: 3, work: 4, intro: 5, contact: 6 }
+	EVENTCLASSIFY = { bulletin: '通知公告', headline: '新闻动态', activity: '活动简报', work: '秘书处事务', intro: '研究会简介', contact: '联系我们' }
   validates :title, presence: {message: '标题不能空' }
   validates :content, presence: {message: '内容不能空' }
 
+  scope :is_competition, -> { where(is_competition: true) }
   scope :keyword, -> (keyword) do
     return all if keyword.blank?
     where("events.title like ?", "%#{keyword}%")

@@ -48,7 +48,7 @@ class AdminPanel::EventsController < AdminPanel::BaseController
 
 	private
 	def event_params
-			params.require(:event).permit(:title, :classify, :content, :picture_url)
+			params.require(:event).permit(:title, :classify, :content, :picture_url, :is_competition)
 	end
 
 	def set_event

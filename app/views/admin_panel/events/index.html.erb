@@ -12,6 +12,7 @@
 	    	  <tr>
 		    	<th class="col-sm-2 text-center">标题</th>
 		    	<th class="text-center">新闻类别</th>
+		    	<th class="text-center">教学设计比武大赛</th>
 		    	<th class="text-center">新闻主图</th>
 		    	<th class="text-center">操作</th>
 	    	  </tr>
@@ -19,18 +20,19 @@
 	    	<tbody>
 	    	  <% @events.each do |event|%>
 		    	  <tr class="tr-default-bg">
-		    	  <%#= truncate("dsfdsfadsf", length: 5) help方法%>
-		    	  <%#= "dsfadsf".truncate(5) 字符串方法%>
+		    	  	<%#= truncate("dsfdsfadsf", length: 5) help方法%>
+		    	  	<%#= "dsfadsf".truncate(5) 字符串方法%>
 		    	  	<td class="text-center"><%= event.title.try(:truncate, 15) %></td>
 		    	  	<td class="text-center"><%= Event::EVENTCLASSIFY[event.classify.to_sym] %></td>
-			    	<td class="text-center"><%= image_tag event.picture_url.url(:thumb) %></td>	
-					<td class="text-center">
-						<%= link_to edit_admin_panel_event_path(event), 'data-no-turbolink' => true do %>
-						  <span class="glyphicon glyphicon-edit"></span> 修改
-						<% end %>
-						<%= link_to '删除', admin_panel_event_path(event),
-                    method: :delete, data: { confirm: 'Are you sure?' } %>
-					</td>
+		    	  	<td class="text-center"><%= event.is_competition ? "是" : "否" %></td>
+		    	  	<td class="text-center"><%= image_tag event.picture_url.url(:thumb) %></td>	
+		    	  	<td class="text-center">
+		    	  		<%= link_to edit_admin_panel_event_path(event), 'data-no-turbolink' => true do %>
+		    	  		<span class="glyphicon glyphicon-edit"></span> 修改
+		    	  		<% end %>
+		    	  		<%= link_to '删除', admin_panel_event_path(event),
+		    	  		method: :delete, data: { confirm: 'Are you sure?' } %>
+		    	  	</td>
 		    	  </tr>
 		    	<% end %>
 	    	</tbody>

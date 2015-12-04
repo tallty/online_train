@@ -7,6 +7,14 @@
           <%= f.select('classify', Event::EVENTCLASSIFY.invert, class: "form-control") %>
         </div>
       </div>
+
+      <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-3">
+          <%= f.check_box(:is_competition) %>
+          <%= f.label :is_competition, "教学设计比武大赛" %>
+        </div>
+      </div>     
+
       <div class="form-group">
         <%= f.label :title, '新闻标题', class: 'col-sm-3 control-label' %>
         <div class="col-sm-4">
