@@ -33,6 +33,9 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index, :show]
   resources :materials, only: [:index] do
+    collection do
+      get :list
+    end
     member do
       get :download
     end

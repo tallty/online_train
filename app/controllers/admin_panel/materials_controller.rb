@@ -72,7 +72,7 @@ class AdminPanel::MaterialsController < AdminPanel::BaseController
 
   private
   def material_params
-    params.require(:material).permit(:title)
+    params.require(:material).permit(:title, :catalog, :mdate)
   end
 
   def set_material

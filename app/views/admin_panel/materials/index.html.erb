@@ -11,6 +11,8 @@
         <thead>
           <tr>
           <th class="col-sm-2 text-center">标题</th>
+          <th class="col-sm-2 text-center">分类</th>
+          <th class="col-sm-2 text-center">年份</th>
           <th class="text-center">操作</th>
           </tr>
         </thead>
@@ -18,6 +20,8 @@
           <% @materials.each do |material|%>
             <tr class="tr-default-bg">
               <td class="text-center"><%= material.title.try(:truncate, 15) %></td>
+              <td class="text-center"><%= Material::ListCatalog[material.catalog.to_sym] %></td>
+              <td class="text-center"><%= material.mdate %></td>
               <td>
                 <% if material.try(:attachment).present? %>
                   <%= link_to(material.try(:attachment).try(:avatar_file_name), download_admin_panel_material_path(material)) %>
