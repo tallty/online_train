@@ -5,10 +5,10 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
 set :term_mode, nil
 
-set :domain, '112.124.97.145'
-set :deploy_to, '/mnt/www/online_train/online_train'
+set :domain, '172.16.150.48'
+set :deploy_to, '/opt/shsgzgzjxyjh/project/online_train'
 set :repository, 'https://github.com/xiaocuixt/online_train'
-set :branch, 'master'
+set :branch, 'develop'
 
 # For system-wide RVM install.
 set :rvm_path, '/home/deploy/.rvm/scripts/rvm'
