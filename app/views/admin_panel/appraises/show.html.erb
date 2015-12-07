@@ -13,7 +13,7 @@
 	      </tr>
 	      <tr>
 	      	<th>培训班</th>
-	      	<td><%= link_to @appraise.try(:training_course).try(:name), detail_admin_panel_training_course_path(@appraise.training_course), title: @appraise.try(:training_course).try(:name), target: "_blank" %></td>
+	      	<td><%= link_to @appraise.try(:training_course).try(:name), detail_admin_panel_training_course_path(@appraise.training_course.id), title: @appraise.try(:training_course).try(:name), target: "_blank" %></td>
 	      </tr>
 	      <tr>
 	      	<th>评价内容</th>

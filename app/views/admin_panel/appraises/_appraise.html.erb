@@ -1,7 +1,7 @@
 <tr>
   <td class="text-center" valign="middle"><%= appraise.try(:user).try(:name) %></td>
   <td class="text-center"><%= appraise.try(:teacher).try(:name) %></td>
-  <td align="left"><%= link_to truncate(appraise.try(:training_course).try(:name), length: 20), detail_admin_panel_training_course_path(appraise.training_course), title: appraise.try(:training_course).try(:name), target: "_blank" %></td>
+  <td align="left"><%= truncate(appraise.try(:training_course).try(:name), length: 20) %></td>
   <td align="left"><%= truncate(appraise.remark, length: 30) %></td>
   <td align="text-center"><%= Appraise::Degree[appraise.degree] %></td>
   <td class="text-center"><%= appraise.created_at.strftime("%Y-%m-%d %H:%M") %></td>
