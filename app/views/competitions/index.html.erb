@@ -10,7 +10,7 @@
 					<%=link_to event_path(event) do %>
 						<div class="col-xs-12 news-list">
 						  <%=image_tag "h_news_icon.gif", class: "news_icon" %>
-						  <%= link_to truncate(event.title, length: 40), event_path(event) %>&nbsp;
+						  <%= link_to truncate(event.title, length: 26), event_path(event) %>&nbsp;
 						  <% if event_in_two_weeks(event) %>
 						    <%=image_tag "news_t.png" %>
 						  <% end %>
@@ -24,21 +24,19 @@
 				<div class="events-list col-xs-12">通知公告
 		      <%= link_to "更多>>", list_reports_path(classify: 1), class: 'more pull-right'%>
 				</div>
-				<div class="bulletin col-xs-12">
-					<% @bulletins.each do |event| %>
-						<%=link_to event_path(event) do %>
-							<div class="col-xs-6 bulletin-list">
-							<div class="col-xs-4 bulletin-picture">
-							<%= image_tag( event.picture_url .present? ? event.picture_url : "picture_min.jpg", width: "100%")%>
-							</div>
-							<div class="col-xs-8 bulletin-text">
-								<h5 class="bull-text-t col-xs-12"><%= link_to "#{event.title}", event_path(event) %></h5>
-								<p>&nbsp;&nbsp;&nbsp;&nbsp;<%= raw event.content.try(:truncate, 30) %></p>
-							</div>
-							</div>
-						<% end %>
+				<% @bulletins.each do |event| %>
+					<%=link_to event_path(event) do %>
+						<div class="col-xs-12 news-list">
+						  <%=image_tag "h_news_icon.gif", class: "news_icon" %>
+						  <%= link_to truncate(event.title, length: 26), event_path(event) %>&nbsp;
+						  <% if event_in_two_weeks(event) %>
+						    <%=image_tag "news_t.png" %>
+						  <% end %>
+						  <span class="pull-right news-time"><%= event.created_at.strftime("%F") %>&nbsp;</span>
+						<hr class="news-hr">
+						</div>
 					<% end %>
-				</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
