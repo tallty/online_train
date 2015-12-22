@@ -1,22 +1,30 @@
 <div class="panel-body panel-default-bg">
-	<%= simple_form_for [:admin_panel, @material], html: { class: 'form-horizontal' }, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {radio_buttons: :horizontal_radio_and_checkboxes } do |f|%>
-    <%= f.input :catalog, label: '分类', collection: Material::ListCatalog.to_a.reverse_each{|x| x.reverse!}, as: :radio_buttons %>
+	<%= form_for [:admin_panel, @material], html: { class: 'form-horizontal' }, html: { class: 'form-horizontal' } do |f|%>
+    <div class="form-group">
+      <%= f.label :catalog, '分类', class: 'col-sm-3 control-label' %>
+      <div class="col-sm-4">
+        <% Material::ListCatalog.to_a.each do |material| %>
+          <%= f.radio_button :catalog, material[0], required: true  %>
+          <%= f.label :catalog, material[1] %>
+        <% end %>
+      </div>
+    </div>
     <div class="form-group">
       <%= f.label :title, '资源标题', class: 'col-sm-3 control-label' %>
       <div class="col-sm-4">
-        <%= f.text_field :title, placeholder: "请输入文件标题", class: 'form-control' %>
+        <%= f.text_field :title, placeholder: "请输入文件标题", class: 'form-control', required: true %>
       </div>
     </div>
     <div class="form-group">
       <%= f.label :mdate, '上传年份', class: 'col-sm-3 control-label' %>
       <div class="col-sm-4">
-        <%= f.text_field :mdate, placeholder: "请输入上传年份，如 2015", class: 'form-control' %>
+        <%= f.text_field :mdate, placeholder: "请输入上传年份，如 2015", class: 'form-control', required: true %>
       </div>
     </div>
     <div class="form-group">
       <%= f.label :attachment, '资源附件', class: 'col-sm-3 control-label' %>
       <div class="col-sm-4">
-        <%= f.file_field :attachment, class: 'form-control' %>
+        <%= f.file_field :attachment, class: 'form-control', required: true %>
       </div>
     </div>
 	  <div class="col-sm-6 col-sm-offset-4">

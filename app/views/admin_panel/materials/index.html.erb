@@ -20,7 +20,7 @@
           <% @materials.each do |material|%>
             <tr class="tr-default-bg">
               <td class="text-center"><%= material.title.try(:truncate, 15) %></td>
-              <td class="text-center"><%= Material::ListCatalog[material.catalog.to_sym] %></td>
+              <td class="text-center"><%= Material::ListCatalog[material.catalog.to_sym] if material.catalog  %></td>
               <td class="text-center"><%= material.mdate %></td>
               <td>
                 <% if material.try(:attachment).present? %>

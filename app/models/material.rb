@@ -1,6 +1,8 @@
 class Material < ActiveRecord::Base
   has_one :attachment, as: :attachmentable
 
+  scope :order_desc, -> {order("updated_at DESC")}
+
   enum catalog: {
     material: 1,
     professional: 2

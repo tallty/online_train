@@ -4,7 +4,7 @@ class AdminPanel::MaterialsController < AdminPanel::BaseController
   before_action :set_breadcrumb
 
   def index
-    @materials = Material.all.page(params[:page]).per(10)
+    @materials = Material.order_desc.page(params[:page]).per(10)
     add_breadcrumb "培训资源列表"
   end
 
