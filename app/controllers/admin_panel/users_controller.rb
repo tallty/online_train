@@ -2,11 +2,13 @@ class AdminPanel::UsersController < AdminPanel::BaseController
   before_action :set_user, only: [:edit, :update]
 
   def index
-    @users = User.page(params[:page]).per(20)
+    @users = User.page(params[:page]).per(20).keyword(params[:keyword])
+    add_breadcrumb "用户列表"
   end
 
   def edit
     session[:return_to] ||= request.referer
+    add_breadcrumb "修改密码"
   end
 
   def update

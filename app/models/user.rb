@@ -96,4 +96,17 @@ class User < ActiveRecord::Base
     UserTask.where(user_id: self.id, task_id: task.id).first
   end
 
+  #搜索功能
+  scope :keyword, -> (keyword) do
+    return all if keyword.blank?
+    where(
+      'users.name LIKE ?
+      OR users.email LIKE ?
+      OR users.telephone LIKE ?',
+      "%#{keyword}%",
+      "%#{keyword}%",
+      "%#{keyword}%"
+    )
+  end
+
 end
