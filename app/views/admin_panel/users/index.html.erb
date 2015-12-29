@@ -1,0 +1,35 @@
+<div class="grades-main-content">
+  <div class="panel panel-primary">
+    <div class="panel-heading have-menu">
+      用户列表
+    </div>
+
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>电话</th>
+            <th>邮箱</th>
+            <th>学校</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.telephone %></td>
+              <td><%= user.email %></td>
+              <td><%= user.try(:school).try(:name) %></td>
+              <td><%= link_to "修改密码", edit_admin_panel_user_path(user) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <%= paginate @users %>
+      </div>
+    </div>
+  </div>
+<div>

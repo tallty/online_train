@@ -46,7 +46,7 @@
 
 	<% if can? [:index], Admin %>
 		<li class="text-center">
-			<%= link_to admin_panel_admins_path(role: :system), class: ((controller?("admin_panel/admins") && params[:role]) || controller?("admin_panel/teachers") || controller?("admin_panel/users")  ? 'active' : nil) do %>
+			<%= link_to admin_panel_admins_path(role: :system), class: ((controller?("admin_panel/admins") && params[:role]) || controller?("admin_panel/teachers") ? 'active' : nil) do %>
 			  <span class="glyphicon glyphicon-user"></span> &nbsp;&nbsp;机构人员
 			<% end %>
 	    <ul class="dropdown-menu sub-menu text-center" role="menu">
@@ -81,6 +81,13 @@
 		  <span class="glyphicon glyphicon-cog"></span> &nbsp;&nbsp;系统功能
 		<% #end %>
 	</li> -->
+	<% if can? :manage, User %>
+		<li class="text-center">
+			<%= link_to admin_panel_users_path, class: (controller?("admin_panel/users") ? 'active' : nil) do %>
+			  <span class="glyphicon glyphicon-cog"></span> &nbsp;&nbsp;注册用户
+			<% end %>
+		</li>
+	<% end %>
 	<li class="text-center">
 		<%= link_to edit_profile_admin_panel_admins_path, class: (controller?("admin_panel/admins") && action?("edit_profile", "edit_password") ? 'active' : nil) do %>
 		  <span class="glyphicon glyphicon-wrench"></span> &nbsp;&nbsp;账户设置

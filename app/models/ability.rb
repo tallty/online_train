@@ -42,6 +42,7 @@ class Ability
     cannot [:list_by_school, :list_by_teacher], TrainingCourse
     can [:add, :added], UserTrainingCourse
     can :manage, Material
+    can :manage, User
   end
 
   # 角色（培训机构）
