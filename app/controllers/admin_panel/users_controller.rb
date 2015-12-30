@@ -1,9 +1,12 @@
 class AdminPanel::UsersController < AdminPanel::BaseController
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
 
   def index
     @users = User.page(params[:page]).per(20).keyword(params[:keyword])
     add_breadcrumb "用户列表"
+  end
+
+  def show
   end
 
   def edit

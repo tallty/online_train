@@ -90,7 +90,7 @@ Rails.application.routes.draw do
   namespace :admin_panel do
     devise_for :admins, controllers: { sessions: "admins/sessions", registrations: 'admins/registrations' }
     root "home#index"
-    resources :users, only: [:index, :edit, :update]
+    resources :users, only: [:index, :edit, :update, :show]
     resources :notifications do
       resources :training_courses
     end

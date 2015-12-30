@@ -1,0 +1,87 @@
+<div class="main-content">
+  <div class="panel panel-default">
+    <div class="panel-heading panel-active">
+      用户信息
+    </div>
+    <div class="panel-body panel-default-bg">
+      <table class="table">
+        <tr>
+          <th class="col-sm-2">姓名</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">邮箱</th>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">性别</th>
+          <td><%= User::UserGender[@user.gender.to_sym] if @user.gender %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">QQ</th>
+          <td><%= @user.qq_no %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">生日</th>
+          <td><%= @user.birth %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-1">身份证号</th>
+          <td><%= @user.ID_number %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">院校</th>
+          <td><%= @user.school %><%= @user.academy %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">专业</th>
+          <td><%= @user.profession %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">邮编</th>
+          <td><%= @user.zip_code %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">地址</th>
+          <td><%= @user.address %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">电话</th>
+          <td><%= @user.telephone %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">手机</th>
+          <td><%= @user.phone %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">职务</th>
+          <td><%= @user.position %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">职称</th>
+          <td><%= @user.position_name %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">资格证书</th>
+          <td><%= @user.certificate %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">国家</th>
+          <td><%= @user.country %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">职业分类</th>
+          <td><%= User::ROLE[@user.role.to_sym] if @user.role %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">历史培训</th>
+          <td><%= @user.his_train %></td>
+        </tr>
+        <tr>
+          <th class="col-sm-2">简介</th>
+          <td><%= @user.summary %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
