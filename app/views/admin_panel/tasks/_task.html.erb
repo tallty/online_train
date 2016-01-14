@@ -7,7 +7,7 @@
       <%= link_to(task.try(:attachment).try(:avatar_file_name), download_admin_panel_task_path(task)) %>
     <% end %>
   </td>
-  <td align="left"><%= link_to(task.try(:training_course).try(:name), admin_panel_training_course_path(task.training_course_id) )%></td>
+  <td align="left"><%= link_to task.try(:training_course).try(:name), "javascript:void(0);" %></td>
   <td><%= task.unsubmitted_count %></td>
   <td><%= task.submitted_count %></td>
   <td><%= task.updated_at.strftime("%Y-%m-%d %H:%M")%></td>
