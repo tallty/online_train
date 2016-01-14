@@ -5,16 +5,16 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   load_and_authorize_resource
 
   def index
-    @user_training_courses = UserTrainingCourse.where(training_course_id: @training_course)
-                                             .keyword(params[:keyword])
-                                             .page(params[:page]).per(15)
+    cache = UserTrainingCourse.where(training_course_id: @training_course)
+                                             
+    @user_training_courses = cache.keyword(params[:keyword]).page(params[:page]).per(15)
     @applied_user_training_courses = @training_course.user_training_courses.where(state: true)
 
     add_breadcrumb "培训报名列表"
     respond_to do |format|
       format.html
       format.xls{
-        send_data( xls_content_for(@user_training_courses, @applied_user_training_courses, @training_course),
+        send_data( xls_content_for(cache, @applied_user_training_courses, @training_course),
           :type => "text/excel;charset=utf-8; header=present",
           :filename => "学员报名表(#{Time.now.strftime("%F %H%M%S")}).xls" )
       }
