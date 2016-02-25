@@ -17,17 +17,16 @@
             <p>学员：<%= current_user.name %></p>
             <hr>
             <h4>培训教师列表</h4>
-            <% @teachers.each_with_index do |teacher, index|%>
-              <% teacher_index = index %>
+            <% @appraises.each_with_index do |appraise, index|%>
               <div class="col-sm-12" style="margin-top: 30px">
                 <div class="col-sm-2">
-                  <%= teacher.name %>
+                  <%= appraise.try(:teacher).name %>
                 </div>
                 <div class="col-sm-2 text-right">
-                  <%= Appraise::Degree[teacher.appraise.degree]%>
+                  <%= Appraise::Degree[appraise.degree]%>
                 </div>
                 <div class="col-sm-6 pull-right">
-                  <%= teacher.appraise.remark %>
+                  <%= appraise.remark %>
                 </div>
               </div>
             <% end %>

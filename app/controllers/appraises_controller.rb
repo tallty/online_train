@@ -1,4 +1,5 @@
 class AppraisesController < BaseController
+	before_action :authenticate_user!
 	before_action :set_training_course
 	before_action :set_teachers
 
@@ -10,11 +11,7 @@ class AppraisesController < BaseController
 	end
 
 	def create
-		if @training_course && @training_course.appraises.present?
-			@training_course.appraises.destroy_all
-		end
-
-		@teachers.each_with_index do |teacher, index|
+		@teacher_ids.each_with_index do |teacher, index|
 			p = 'appraise_' + index.to_s
 			@appraise = Appraise.new
 			@appraise.user_id = current_user.id
@@ -47,6 +44,6 @@ class AppraisesController < BaseController
 	end
 
 	def set_teachers
-		@teachers = Teacher.where({id: @training_course.training_course_teachers.pluck(:teacher_id)})
+		@teacher_ids = Teacher.where({id: @training_course.training_course_teachers.pluck(:teacher_id)})
 	end
 end
