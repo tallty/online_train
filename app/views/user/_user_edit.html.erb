@@ -23,8 +23,8 @@
          class: "select optional form-control pull-right") %>
     </div>
   </div>
-  <%= f.input :position_name %>
-  <%= f.input :position %>
+  <%= f.input :position_name, required: true %>
+  <%= f.input :position, required: true %>
   <%= f.input :his_train, required: false, input_html: {rows: 7} %>
   <%= f.input :address, required: true %>
   <%= f.input :zip_code, required: true %>

@@ -82,6 +82,8 @@ class User < ActiveRecord::Base
   validates :telephone, presence: true
   validates :phone, presence: true
   validates :role, presence: true
+  validates :position, presence: true
+  validates :position_name, presence: true
 
 
   def self.current
