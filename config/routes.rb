@@ -145,6 +145,9 @@ Rails.application.routes.draw do
           patch :added
           post :added
         end
+        collection do
+          get :list_by_journals  #达标
+        end
       end
       member do
         patch :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator

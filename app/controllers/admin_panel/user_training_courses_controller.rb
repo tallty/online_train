@@ -1,12 +1,11 @@
 class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
-  before_action :set_training_course, only: [:index, :edit, :update, :applied, :disapplied, :add, :added]
+  before_action :set_training_course, only: [:index, :edit, :update, :applied, :disapplied, :add, :added, :list_by_journals]
 	before_action :set_user_training_course, only: [:applied, :disapplied, :edit, :update, :add, :added]
   before_action :set_session, only: [:applied, :disapplied]
   load_and_authorize_resource
 
   def index
     cache = UserTrainingCourse.where(training_course_id: @training_course)
-                                             
     @user_training_courses = cache.keyword(params[:keyword]).page(params[:page]).per(15)
     @applied_user_training_courses = @training_course.user_training_courses.where(state: true)
 
@@ -25,6 +24,15 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
     @user_training_courses = UserTrainingCourse.all.page(params[:page]).per(15).keyword(params[:keyword])
     @role_count = UserTrainingCourse.role_count
     add_breadcrumb "报名列表"
+  end
+
+  #根据日志数量是否合格判断
+  def list_by_journals
+    if params[:status] == "reached"
+      @user_training_courses = UserTrainingCourse.where(training_course_id: params[:training_course_id]).select{|x| x.user.journals.length.to_i >= @training_course.journal_number.to_i}
+    elsif params[:status] == "unreached"
+      @user_training_courses = UserTrainingCourse.where(training_course_id: params[:training_course_id]).select{|x| x.user.journals.length.to_i < @training_course.journal_number.to_i}
+    end
   end
 
   def show

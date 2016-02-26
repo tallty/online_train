@@ -76,6 +76,10 @@
 	      	<td><%= @training_course.task_end_time.try(:strftime, "%F")%></td>
 	      </tr>
 	      <tr>
+	      	<th class="col-sm-1">达标日志的数量</th>
+	      	<td><%= @training_course.journal_number %></td>
+	      </tr>
+	      <tr>
 	      	<th class="col-sm-1">计划数</th>
 	      	<td><%= @training_course.plan_number %></td>
 	      </tr>
