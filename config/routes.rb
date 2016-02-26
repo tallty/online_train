@@ -154,6 +154,7 @@ Rails.application.routes.draw do
         post :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator
       end
     end
+
     resources :tasks do
       member do
         get :download
@@ -165,8 +166,12 @@ Rails.application.routes.draw do
         member do
           get :download
         end
+        collection do
+          get :unsubmit_users
+        end
       end
     end
+
     resources :user_tasks, only: :show do
       collection do
         get :list

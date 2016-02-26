@@ -16,6 +16,14 @@ class AdminPanel::UserTasksController < AdminPanel::BaseController
   	add_breadcrumb "查看"
   end
 
+  #未提交作业的用户
+  def unsubmit_users
+    training_course = TrainingCourse.find(params[:training_course_id])
+    user_training_course_ids = training_course.user_training_courses.select{|x| x.user.user_tasks.length == 0}.map {|x| x.id}
+    @user_training_courses = UserTrainingCourse.where({id: user_training_course_ids}).page(params[:page]).per(15)
+    add_breadcrumb "未提交作业人员列表"
+  end
+
   def download
     if @user_task.present?
       send_file @user_task.attachment.avatar.path,

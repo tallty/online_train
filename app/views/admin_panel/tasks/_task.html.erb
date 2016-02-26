@@ -8,8 +8,7 @@
     <% end %>
   </td>
   <td align="left"><%= link_to task.try(:training_course).try(:name), "javascript:void(0);" %></td>
-  <td><%= task.unsubmitted_count %></td>
-  <td><%= task.submitted_count %></td>
+  <td><%= link_to task.submitted_count, admin_panel_task_user_tasks_path(task) %></td>
+  <td><%= link_to task.unsubmitted_count, unsubmit_users_admin_panel_task_user_tasks_path(task, training_course_id: params[:training_course_id]) %></td>
   <td><%= task.updated_at.strftime("%Y-%m-%d %H:%M")%></td>
-  <td><%= link_to "提交作业", admin_panel_task_user_tasks_path(task) %></td>
 </tr>
