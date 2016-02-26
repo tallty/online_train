@@ -42,7 +42,13 @@
                                     <%= link_to("[修改/查看]", edit_user_task_path(user_task,task_id: task.id), class: "text-muted", format: :js, remote: true) %>
                                   <% end %>
                                 <% else %>
-                                  <div class="text-center"><%= link_to("提交", new_user_task_path(task_id: task.id), remote: true, format: :js) %></div>
+                                  <div class="text-center">
+                                    <% if user_training_course.try(:training_course).try(:task_end_time) && Time.now > user_training_course.try(:training_course).try(:task_end_time) %>
+                                      <%= link_to "提交", "javascript:void(0);", onclick: "alert('已超过提交作业截止时间!')" %>
+                                    <% else %>
+                                      <%= link_to "提交", new_user_task_path(task_id: task.id), remote: true, format: :js %>
+                                    <% end %>
+                                  </div>
                                 <% end %>
                               </td>
                             </tr>

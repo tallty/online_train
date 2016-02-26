@@ -12,7 +12,7 @@ class AdminPanel::TasksController < AdminPanel::BaseController
 
   def list
     @tasks = Task.all.keyword(params[:keyword])
-                     .page(params[:page]).per(2)
+                     .page(params[:page]).per(10)
     add_breadcrumb "培训作业列表"
   end
 

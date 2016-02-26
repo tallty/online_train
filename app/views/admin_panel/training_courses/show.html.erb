@@ -72,6 +72,10 @@
 	      	<td><%= @training_course.start_apply_time.try(:strftime, "%F")%> ~ <%= @training_course.end_apply_time.try(:strftime,"%F") %></td>
 	      </tr>
 	      <tr>
+	      	<th class="col-sm-1">作业截止时间</th>
+	      	<td><%= @training_course.task_end_time.try(:strftime, "%F")%></td>
+	      </tr>
+	      <tr>
 	      	<th class="col-sm-1">计划数</th>
 	      	<td><%= @training_course.plan_number %></td>
 	      </tr>

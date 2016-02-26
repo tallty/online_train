@@ -96,23 +96,24 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
     blue = Spreadsheet::Format.new :color => :blue, :weight => :bold, :size => 10
     sheet1.row(0).default_format = blue
 
-    sheet1.row(0).concat %w{序号 姓名 账号(邮箱) 性别 出生年月 地址 手机 职位分类 学校 院系 专业 职称 职务 报名时间 状态}
+    sheet1.row(0).concat %w{序号 培训班 姓名 账号(邮箱) 性别 出生年月 地址 手机 职位分类 学校 院系 专业 职称 职务 报名时间 状态}
     count_row = 1
       objs.each do |obj|
       sheet1[count_row, 0] = count_row
-      sheet1[count_row, 1] = obj.try(:user).try(:name)
-      sheet1[count_row, 2] = obj.try(:user).try(:email)
-      sheet1[count_row, 3] = User::UserGender[obj.try(:user).try(:gender).to_sym]
-      sheet1[count_row, 4] = obj.try(:user).try(:birth).try{|b| b.strftime("%F")}
-      sheet1[count_row, 5] = obj.try(:user).try(:address)
-      sheet1[count_row, 6] = obj.try(:user).try(:phone)
-      sheet1[count_row, 7] = User::ROLE[obj.try(:user).try(:role).try{|r| r.to_sym}]
-      sheet1[count_row, 8] = obj.try(:user).try(:school)
-      sheet1[count_row, 9] = obj.try(:user).try(:academy)
-      sheet1[count_row, 10] = obj.try(:user).try(:profession)
-      sheet1[count_row, 11] = obj.try(:user).try(:position_name)
-      sheet1[count_row, 12] = obj.try(:user).try(:position)
-      sheet1[count_row, 13] = obj.try(:created_at).strftime("%Y-%m-%d %H:%M:%S")
+      sheet1[count_row, 1] = obj.try(:training_course).try(:name)
+      sheet1[count_row, 2] = obj.try(:user).try(:name)
+      sheet1[count_row, 3] = obj.try(:user).try(:email)
+      sheet1[count_row, 4] = User::UserGender[obj.try(:user).try(:gender).to_sym]
+      sheet1[count_row, 5] = obj.try(:user).try(:birth).try{|b| b.strftime("%F")}
+      sheet1[count_row, 6] = obj.try(:user).try(:address)
+      sheet1[count_row, 7] = obj.try(:user).try(:phone)
+      sheet1[count_row, 8] = User::ROLE[obj.try(:user).try(:role).try{|r| r.to_sym}]
+      sheet1[count_row, 9] = obj.try(:user).try(:school)
+      sheet1[count_row, 10] = obj.try(:user).try(:academy)
+      sheet1[count_row, 11] = obj.try(:user).try(:profession)
+      sheet1[count_row, 12] = obj.try(:user).try(:position_name)
+      sheet1[count_row, 13] = obj.try(:user).try(:position)
+      sheet1[count_row, 14] = obj.try(:created_at).strftime("%Y-%m-%d %H:%M:%S")
       if obj.state == nil
         sheet1[count_row, 14] = "待审核"
       elsif obj.state == false
