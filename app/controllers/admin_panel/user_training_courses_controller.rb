@@ -28,11 +28,16 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
 
   #根据日志数量是否合格判断
   def list_by_journals
-    if params[:status] == "reached"
-      @user_training_courses = UserTrainingCourse.where(training_course_id: params[:training_course_id]).select{|x| x.user.journals.length.to_i >= @training_course.journal_number.to_i}
-    elsif params[:status] == "unreached"
-      @user_training_courses = UserTrainingCourse.where(training_course_id: params[:training_course_id]).select{|x| x.user.journals.length.to_i < @training_course.journal_number.to_i}
-    end
+    reached_ids = UserTrainingCourse.where(training_course_id: params[:training_course_id])
+                            .select{|x| x.user.journals.length.to_i >= @training_course.journal_number.to_i}
+                            .map {|x| x.id}
+    unreached_ids = UserTrainingCourse.where(training_course_id: params[:training_course_id])
+                              .select{|x| x.user.journals.length.to_i < @training_course.journal_number.to_i}
+                              .map {|x| x.id}
+    #达标
+    @reached_user_training_courses = UserTrainingCourse.where({id: reached_ids}).page(params[:page]).per(15)
+    #未达标
+    @unreached_user_training_courses = UserTrainingCourse.where({id: unreached_ids}).page(params[:page]).per(15)
   end
 
   def show
