@@ -18,6 +18,13 @@ class TrainingCoursesController < BaseController
 
   def print
     @training_course = TrainingCourse.find(params[:id])
-    render layout: 'print'
+     respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => @training_course.name.to_s + "报名表",
+               :template => "training_courses/print.pdf.erb",
+               :layout => 'pdf.html.erb'
+      end
+    end
   end
 end

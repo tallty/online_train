@@ -5,7 +5,7 @@
 .content{
 	border-radius: 5px;
 	.left-head{
-		background: url(/assets/left_title_bg.png) no-repeat;
+		background: image-url("left_title_bg.png") no-repeat;
 		background-size: 100% 100%;
 		height: 40px;
 		line-height: 35px;
@@ -19,7 +19,7 @@
 		a{
 			color: $color-black;
 			&.active{
-				background: url(/assets/left_item_bg.png) no-repeat;
+				background: image-url("left_item_bg.png") no-repeat;
 				background-size: 95% 100%;
 				color: $color-blue;
 				background-position: center;
@@ -27,7 +27,7 @@
 		}
 	}
 	.right-head{
-		background: url(/assets/right_title_bg.png) no-repeat;
+		background: image-url("right_title_bg.png") no-repeat;
 		background-size: 100% 100%;
 		height: 35px;
 		line-height: 35px;
@@ -77,12 +77,12 @@
 			color: $color-blue;
 		}
 		.apply_info_nav > li{
-			background: url(/assets/apply_nav_bg.png) no-repeat;
+			background: image-url("apply_nav_bg.png") no-repeat;
 			background-size: 100% 100%;
 			height: 30px;
 			line-height: 25px;
 			&.active{
-				background: url(/assets/apply_nav_bg_active.png) no-repeat;
+				background: image-url("apply_nav_bg_active.png") no-repeat;
 				background-size: 100% 100%;
 				a, a:hover{
 					color: $color-white;

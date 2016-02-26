@@ -98,3 +98,7 @@ gem "spreadsheet_on_rails"
 
 #pdf文件阅读
 gem 'pdfjs_viewer-rails'
+
+#html to pdf
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

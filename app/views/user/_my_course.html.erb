@@ -34,7 +34,7 @@
         <% end %>
       </td>
       <td>
-        <%= link_to print_training_course_path(user_training_course.training_course), title: "打印" do%>
+        <%= link_to print_training_course_path(user_training_course.training_course, format: 'pdf'), title: "打印" do%>
           打印报名表
         <% end %>
         <!-- <br>

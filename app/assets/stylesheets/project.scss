@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .left-nav{
-	background: url(/assets/left_title_bg.png) no-repeat;
+	background: image-url("left_title_bg.png") no-repeat;
 	background-size: 100% 100%;
 	height: 40px;
 	line-height: 35px;
@@ -13,7 +13,7 @@
 	list-style: none;
 	padding:15px 0 ;
 	.alink{
-		background: url(/assets/left_item_bg.png) no-repeat;
+		background: image-url("left_item_bg.png") no-repeat;
 		background-size: 90% 100%;
 		background-position: center;
 		}
@@ -32,7 +32,7 @@
 	margin: 0px 10px;
 	}
 .right-nav{
-	background:url(/assets/right_title_bg.png) no-repeat;
+	background: image-url("right_title_bg.png") no-repeat;
 	height: 35px;
 	line-height: 35px;
 	margin-top: 5px;

@@ -15,4 +15,8 @@ module TrainingCoursesHelper
 # 	  # 	content_tag(:a, "请先登录", class: "btn btn-lg btn-primary apply-btn", href: new_user_session_path)
 # 	  end
 # 	end
+
+  def print_info info
+    info.present? ? info : content_tag(:div, "请完善相关信息!", class: "text-danger")
+  end
 end
