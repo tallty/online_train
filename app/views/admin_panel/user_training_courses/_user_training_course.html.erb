@@ -1,4 +1,15 @@
-<%= form_tag update_multiple_admin_panel_training_course_user_training_courses_path(@training_course), method: :patch do %>
+<hr>
+<div class="row" style="margin-top: 20px;">
+  <div class="col-sm-10">
+    <span>分组：</span>
+    <% @training_course.groups.split(" ").each do |group| %>
+      <%= link_to group, admin_panel_training_course_user_training_courses_path(@training_course, group: group), class: "btn btn-primary btn-xs"  %>
+    <% end %>
+  </div>
+</div>
+<hr>
+
+<%= form_tag update_multiple_admin_panel_training_course_user_training_courses_path(@training_course), id: "js-select-form", method: :patch, :authenticity_token => true do %>
   <% user_training_courses.each do |user_training_course| %>
     <% role = user_training_course.try(:user).try(:role) %>
     <% if role == params[:role] || params[:role].nil? %>
@@ -46,15 +57,22 @@
       </tr>
     <% end %>
   <% end %>
-  <%= select_tag "group", options_for_select(@training_course.groups.split(" ").collect{|v| v}), {:prompt => "--选择分组--"}%>
-  <%= submit_tag "修改分组", class: "btn btn-default" %>
-  <!-- 添加证书编号 -->
-  <div id="AddModal" class="modal fade" role="dialog">
-  </div>
+  <!-- 全部列表显示分组按钮 -->
+  <% if params[:action] == "index" && params[:role].blank? %>
+    <%= select_tag "group", options_for_select(@training_course.groups.split(" ").collect{|v| v}), {:prompt => "--选择分组--"} %>
+  <% end %>
 <% end %>
+<!-- 添加证书编号 -->
+<div id="AddModal" class="modal fade" role="dialog">
+</div>
 
 <script type="text/javascript">
   $(function() {
+    var form = $("#js-select-form");
+    $("#group").change(function(){
+      form.submit();
+    })
+
     var checked = $("#js-checked-all");
     checked.click(function(){
       if(checked.is(":checked")) {

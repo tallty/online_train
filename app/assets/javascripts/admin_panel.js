@@ -15,7 +15,16 @@
 //= require jquery_ujs
 //= require ./admin_panel/typeahead.min
 //= require ./admin_panel/left_size
+//= require nprogress
+//= require nprogress-turbolinks
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require jquery.remotipart
 //= require kindeditor
+
+
+NProgress.configure({
+  showSpinner: true,
+  ease: 'ease',
+  speed: 500
+});

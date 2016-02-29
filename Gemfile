@@ -102,3 +102,6 @@ gem 'pdfjs_viewer-rails'
 #html to pdf
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+
+#后台进度条
+gem 'nprogress-rails'

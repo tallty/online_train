@@ -46,7 +46,7 @@
           </tr>
         </thead>
         <tbody>
-          <%= render @user_training_courses %>
+          <%= render partial: "list_user_training_course", locals: {user_training_courses: @user_training_courses} %>
         </tbody>
       </table>
       <div class="text-center">

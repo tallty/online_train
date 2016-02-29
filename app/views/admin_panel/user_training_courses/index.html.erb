@@ -76,8 +76,8 @@
           <%= link_to("兼职教师", admin_panel_training_course_user_training_courses_path(@training_course, role: 'part_time'), 
                       class: "btn #{params[:role] == 'part_time' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
 
-          <%= link_to("日志达标教师", list_by_journals_admin_panel_training_course_user_training_courses_path(@training_course, status: 'reached'),class: "btn #{params[:status] == 'part_time' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
-          <%= link_to("日志未达标教师", list_by_journals_admin_panel_training_course_user_training_courses_path(@training_course, status: 'unreached'), class: "btn #{params[:status] == 'unreached' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
+          <%= link_to("日志达标教师【#{@reached_user_training_courses.length}】", list_by_journals_admin_panel_training_course_user_training_courses_path(@training_course, status: 'reached'),class: "btn #{params[:status] == 'part_time' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
+          <%= link_to("日志未达标教师【#{@unreached_user_training_courses.length}】", list_by_journals_admin_panel_training_course_user_training_courses_path(@training_course, status: 'unreached'), class: "btn #{params[:status] == 'unreached' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
 
           <%= link_to("导出到Excel", admin_panel_training_course_user_training_courses_path(@training_course, format: 'xls'), 
                       class: "btn btn-info pull-right") if current_admin.role == 'system' %>

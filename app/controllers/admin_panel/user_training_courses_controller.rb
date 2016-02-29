@@ -2,18 +2,20 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   before_action :set_training_course, only: [:index, :edit, :update, :applied, :disapplied, :add, :added, :list_by_journals, :update_multiple]
 	before_action :set_user_training_course, only: [:applied, :disapplied, :edit, :update, :add, :added]
   before_action :set_session, only: [:applied, :disapplied]
+  before_action :list_by_condition, only: [:index, :list_by_journals]
+  skip_before_action :verify_authenticity_token, only: :update_multiple
   load_and_authorize_resource
 
   def index
     cache = UserTrainingCourse.where(training_course_id: @training_course)
-    @user_training_courses = cache.keyword(params[:keyword]).page(params[:page]).per(15)
+    @user_training_courses = params[:group].present? ? cache.where(group: params[:group]).keyword(params[:keyword]).page(params[:page]).per(15) : cache.keyword(params[:keyword]).page(params[:page]).per(15)
     @applied_user_training_courses = @training_course.user_training_courses.where(state: true)
 
     add_breadcrumb "培训报名列表"
     respond_to do |format|
       format.html
       format.xls{
-        send_data( xls_content_for(cache, @applied_user_training_courses, @training_course),
+        send_data( xls_content_for(@user_training_courses, @applied_user_training_courses, @training_course),
           :type => "text/excel;charset=utf-8; header=present",
           :filename => "学员报名表(#{Time.now.strftime("%F %H%M%S")}).xls" )
       }
@@ -28,16 +30,6 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
 
   #根据日志数量是否合格判断
   def list_by_journals
-    reached_ids = UserTrainingCourse.where(training_course_id: params[:training_course_id])
-                            .select{|x| x.user.journals.length.to_i >= @training_course.journal_number.to_i}
-                            .map {|x| x.id}
-    unreached_ids = UserTrainingCourse.where(training_course_id: params[:training_course_id])
-                              .select{|x| x.user.journals.length.to_i < @training_course.journal_number.to_i}
-                              .map {|x| x.id}
-    #达标
-    @reached_user_training_courses = UserTrainingCourse.where({id: reached_ids}).page(params[:page]).per(15)
-    #未达标
-    @unreached_user_training_courses = UserTrainingCourse.where({id: unreached_ids}).page(params[:page]).per(15)
   end
 
   def show
@@ -100,6 +92,20 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   def set_training_course
     @training_course = TrainingCourse.find(params[:training_course_id])
     @notification = @training_course.notification
+  end
+
+  #计算达标和未达标老师数量
+  def list_by_condition
+    reached_ids = UserTrainingCourse.where(training_course_id: params[:training_course_id])
+                            .select{|x| x.user.journals.length.to_i >= @training_course.journal_number.to_i}
+                            .map {|x| x.id}
+    unreached_ids = UserTrainingCourse.where(training_course_id: params[:training_course_id])
+                              .select{|x| x.user.journals.length.to_i < @training_course.journal_number.to_i}
+                              .map {|x| x.id}
+    #达标
+    @reached_user_training_courses = UserTrainingCourse.where({id: reached_ids}).page(params[:page]).per(15)
+    #未达标
+    @unreached_user_training_courses = UserTrainingCourse.where({id: unreached_ids}).page(params[:page]).per(15)
   end
 
   def set_user_training_course
