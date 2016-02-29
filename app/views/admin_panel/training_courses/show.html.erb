@@ -63,6 +63,12 @@
 	      	  <% end %>
 	      	</td>
 	      </tr>
+
+	      <tr>
+	      	<th class="col-sm-2">分组</th>
+	      	<td><%= @training_course.groups %></td>
+	      </tr>
+
 	      <tr>
 	      	<th class="col-sm-1">起止时间</th>
 	      	<td><%= @training_course.start_time.try(:strftime, "%F")%> ~ <%= @training_course.end_time.try(:strftime,"%F") %></td>

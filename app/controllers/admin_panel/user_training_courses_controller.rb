@@ -1,5 +1,5 @@
 class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
-  before_action :set_training_course, only: [:index, :edit, :update, :applied, :disapplied, :add, :added, :list_by_journals]
+  before_action :set_training_course, only: [:index, :edit, :update, :applied, :disapplied, :add, :added, :list_by_journals, :update_multiple]
 	before_action :set_user_training_course, only: [:applied, :disapplied, :edit, :update, :add, :added]
   before_action :set_session, only: [:applied, :disapplied]
   load_and_authorize_resource
@@ -53,6 +53,17 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
     else
       flash[:notice] = "备注信息修改失败"
       return render action: :edit
+    end
+  end
+
+  #批量处理
+  def update_multiple
+    if UserTrainingCourse.where({id: params[:user_training_course]}).update_all(group: params[:group])
+      flash[:notice] = "处理成功"
+      return redirect_to admin_panel_training_course_user_training_courses_path(@training_course)
+    else
+      flash[:notice] = "处理失败"
+      return redirect_to admin_panel_training_course_user_training_courses_path(@training_course)
     end
   end
 

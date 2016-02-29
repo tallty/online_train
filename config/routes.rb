@@ -146,6 +146,8 @@ Rails.application.routes.draw do
           post :added
         end
         collection do
+          patch :update_multiple
+          post :update_multiple
           get :list_by_journals  #达标
         end
       end

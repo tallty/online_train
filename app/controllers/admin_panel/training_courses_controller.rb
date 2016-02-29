@@ -115,7 +115,7 @@ module AdminPanel
 		end
 
 		def training_course_params
-			params.require(:training_course).permit(:journal_number, :task_end_time, :email, :phone, :linkman, :fax, :mobile,
+			params.require(:training_course).permit(:groups, :journal_number, :task_end_time, :email, :phone, :linkman, :fax, :mobile,
 				                     :admin_id, :start_apply_time, :end_apply_time, :notification_id, :school_id, :name, :code, :start_time, :end_time,
 			                       :plan_number, :training_agency, :training_address, :training_fee,
 			                       :state, :remark, :info, :training_background, :training_target, :be_applied,
