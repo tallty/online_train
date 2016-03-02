@@ -69,18 +69,21 @@
           </tr>
         </thead>
         <tbody>
-          <%= link_to("全部老师", admin_panel_training_course_user_training_courses_path(@training_course), 
-                      class: "btn #{params[:role].nil? ? 'btn-primary' : 'btn-default'}") %>&nbsp;
-          <%= link_to("专职教师", admin_panel_training_course_user_training_courses_path(@training_course, role: 'full_time'), 
-                      class: "btn #{params[:role] == 'full_time' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
-          <%= link_to("兼职教师", admin_panel_training_course_user_training_courses_path(@training_course, role: 'part_time'), 
+          <div class="btn-group" role="group">
+            <%= link_to("全部老师", admin_panel_training_course_user_training_courses_path(@training_course), class: "btn #{params[:role].nil? ? 'btn-primary' : 'btn-default'}") %>&nbsp;
+            <%= link_to("专职教师", admin_panel_training_course_user_training_courses_path(@training_course, role: "full_time"),
+                        class: "btn #{params[:role] == 'full_time' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
+            <%= link_to("兼职教师", admin_panel_training_course_user_training_courses_path(@training_course, role: "part_time"),
                       class: "btn #{params[:role] == 'part_time' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
-
-          <%= link_to("日志达标教师【#{@reached_user_training_courses.length}】", list_by_journals_admin_panel_training_course_user_training_courses_path(@training_course, status: 'reached'),class: "btn #{params[:status] == 'part_time' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
-          <%= link_to("日志未达标教师【#{@unreached_user_training_courses.length}】", list_by_journals_admin_panel_training_course_user_training_courses_path(@training_course, status: 'unreached'), class: "btn #{params[:status] == 'unreached' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
-
-          <%= link_to("导出到Excel", admin_panel_training_course_user_training_courses_path(@training_course, format: 'xls'), 
+          </div>
+          <div class="btn-group" role="group">
+            <%= link_to("日志达标教师【#{@reached_user_training_courses.length}】", admin_panel_training_course_user_training_courses_path(@training_course, status: 'reached'),class: "btn #{params[:status] == 'reached' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
+            <%= link_to("日志未达标教师【#{@unreached_user_training_courses.length}】", admin_panel_training_course_user_training_courses_path(@training_course, status: 'unreached'), class: "btn #{params[:status] == 'unreached' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
+          </div>
+          <% if params[:group].blank? && params[:status].blank? && params[:role].blank? %>
+            <%= link_to("导出到Excel", admin_panel_training_course_user_training_courses_path(@training_course, format: 'xls'),
                       class: "btn btn-info pull-right") if current_admin.role == 'system' %>
+          <% end %>
           <%= render partial: "user_training_course", locals: {user_training_courses: @user_training_courses} %>
         </tbody>
       </table>

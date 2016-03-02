@@ -2,6 +2,7 @@
   <% role = user_training_course.try(:user).try(:role) %>
   <% if role == params[:role] || params[:role].nil? %>
     <tr>
+      <td><%= user_training_course.try(:training_course).try(:name)%></td>
       <td>
         <%= user_training_course.try(:user).try(:name)%>
         <% if role == "full_time" %>
@@ -12,9 +13,7 @@
       </td>
       <td><%= user_training_course.try(:user).try(:email)%></td>
       <td><%= User::UserGender[user_training_course.try(:user).try(:gender).to_sym]%></td>
-      <td><%= user_training_course.try(:user).try(:address)%></td>
       <td><%= user_training_course.try(:user).try(:phone)%><br><%= user_training_course.try(:user).try(:email)%></td>
-      <td>[学校]<%= user_training_course.try(:user).try(:school)%><br>[院系]<%= user_training_course.try(:user).try(:academy)%></td>
       <% if can? [:add, :added], UserTrainingCourse %>
         <td><%= link_to user_training_course.certificate_no.present? ? user_training_course.certificate_no : "证书编号", add_admin_panel_training_course_user_training_course_path(user_training_course.training_course, user_training_course), remote: true %></td>
       <% end %>

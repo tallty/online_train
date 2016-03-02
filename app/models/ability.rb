@@ -72,7 +72,7 @@ class Ability
     can [:manage], UserTrainingCourse
     can [:index, :list, :show], Journal
     can :manage, Task
-    can [:list, :show, :index, :download], UserTask
+    can [:list, :show, :index, :download, :unsubmit_users], UserTask
     can :manage, ManagerFeedback
     can :manage, StudentFeedback
     can :manage, Appraise

@@ -148,7 +148,6 @@ Rails.application.routes.draw do
         collection do
           patch :update_multiple
           post :update_multiple
-          get :list_by_journals  #达标
         end
       end
       member do

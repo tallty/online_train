@@ -53,4 +53,33 @@ class UserTrainingCourse < ActiveRecord::Base
       "%#{keyword}%"
     )
   end
+
+  scope :by_role, -> (role) {
+    return all if role.blank?
+    eager_load(:user).where("users.role = ?", User.roles[role])
+  }
+
+  scope :by_group, -> (group) {
+    return all if group.blank?
+    where("user_training_courses.group = ?", group)
+  }
+
+  def self.get_user_training_course training_course, status
+    return all if status.blank?
+    reached_user_ids = []
+    unreached_user_ids = []
+    training_course.user_training_courses.each do |user_training_course|
+      journals = Journal.where(training_course_id: training_course.id, user_id: user_training_course.user.id).length
+      if journals >= training_course.journal_number
+        reached_user_ids << user_training_course.user.id
+      else
+        unreached_user_ids << user_training_course.user.id
+      end
+    end
+    if status == "reached"
+      UserTrainingCourse.where({user_id: reached_user_ids})
+    else
+      UserTrainingCourse.where({user_id: unreached_user_ids})
+    end
+  end
 end

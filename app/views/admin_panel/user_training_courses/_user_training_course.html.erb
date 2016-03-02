@@ -3,7 +3,7 @@
   <div class="col-sm-10">
     <span>分组：</span>
     <% @training_course.groups.split(" ").each do |group| %>
-      <%= link_to group, admin_panel_training_course_user_training_courses_path(@training_course, group: group), class: "btn btn-primary btn-xs"  %>
+      <%= link_to group.to_s, admin_panel_training_course_user_training_courses_path(@training_course, group: group, role: params[:role], status: params[:status]), class: "btn btn-primary btn-xs"  %>
     <% end %>
   </div>
 </div>

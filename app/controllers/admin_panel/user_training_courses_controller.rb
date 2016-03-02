@@ -1,14 +1,19 @@
 class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
-  before_action :set_training_course, only: [:index, :edit, :update, :applied, :disapplied, :add, :added, :list_by_journals, :update_multiple]
+  before_action :set_training_course, only: [:index, :edit, :update, :applied, :disapplied, :add, :added, :update_multiple]
 	before_action :set_user_training_course, only: [:applied, :disapplied, :edit, :update, :add, :added]
   before_action :set_session, only: [:applied, :disapplied]
-  before_action :list_by_condition, only: [:index, :list_by_journals]
+  before_action :list_by_condition, only: [:index]
   skip_before_action :verify_authenticity_token, only: :update_multiple
   load_and_authorize_resource
 
   def index
-    cache = UserTrainingCourse.where(training_course_id: @training_course)
-    @user_training_courses = params[:group].present? ? cache.where(group: params[:group]).keyword(params[:keyword]).page(params[:page]).per(15) : cache.keyword(params[:keyword]).page(params[:page]).per(15)
+    @user_training_courses = UserTrainingCourse.where({training_course_id: @training_course.id})
+                                               .by_role(params[:role])
+                                               .by_group(params[:group])
+                                               .get_user_training_course(@training_course, params[:status])
+                                               .keyword(params[:keyword])
+                                               .page(params[:page]).per(15)
+
     @applied_user_training_courses = @training_course.user_training_courses.where(state: true)
 
     add_breadcrumb "培训报名列表"
@@ -26,10 +31,6 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
     @user_training_courses = UserTrainingCourse.all.page(params[:page]).per(15).keyword(params[:keyword])
     @role_count = UserTrainingCourse.role_count
     add_breadcrumb "报名列表"
-  end
-
-  #根据日志数量是否合格判断
-  def list_by_journals
   end
 
   def show
