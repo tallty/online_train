@@ -128,7 +128,7 @@ class TrainingCourse < ActiveRecord::Base
   def self.generate_messages
     current_user.user_training_courses.each do |user_training_course|
       now = Time.now.to_date
-      end_time = (user_training_course.training_course.task_end_time - 1.days).to_date
+      end_time = (user_training_course.training_course.task_end_time - 2.days).to_date
       if now == end_time
         message = Message.create!(title: "提交作业提醒", content: "您报名的#{user_training_course.try(:training_course).try(:name)}课程，提交作业的截止时间是#{user_training_course.try(:training_course).try(:task_end_time).strftime('%Y-%m-%d')}") unless @@warning_said
         UserMessage.create!(user_id: current_user.id, message_id: message.id) unless @@warning_said
