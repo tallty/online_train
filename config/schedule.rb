@@ -21,4 +21,8 @@ every 1.day, :at => '2 am' do
   command "backup perform -t online_train"
 end
 
+every 1.day, :at => '2 am' do
+  runner "TrainingCourse.generate_messages"
+end
+
 # Learn more: http://github.com/javan/whenever

@@ -2,6 +2,7 @@ require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rvm'    # for rvm support. (http://rvm.io)
+require 'mina/whenever'
 
 set :term_mode, nil
 
@@ -47,13 +48,13 @@ task :deploy => :environment do
   deploy do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
-    invoke :'git:clone'
     invoke :'bundle:install'
     invoke :'rails:assets_precompile'
     invoke :'deploy:link_shared_paths'
 
     to :launch do
       invoke :'unicorn:restart'
+      invoke :'whenever:update'
     end
   end
 end
