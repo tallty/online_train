@@ -1,0 +1,34 @@
+users
+
+1 , jack
+2 , lucy
+
+
+posts
+
+id, user_id
+1,  1
+2,  1
+3,  1
+
+User has_many posts belongs_to user
+
+User.joins(:posts).to_a
+user 1
+
+Post.joins(:user).to_a
+user 1
+
+Post.eager_load(:user).to_a
+post 1,2,3
+user 1
+
+User.eager_load(:posts).to_a
+user 1,2
+post 1,2,3
+
+
+
+
+
+

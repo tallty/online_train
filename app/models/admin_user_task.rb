@@ -21,7 +21,6 @@ class AdminUserTask < ActiveRecord::Base
 
   scope :keyword, -> (keyword) do
     return all if keyword.blank?
-    eager_load(:user_task)
-    .where("user_tasks.title like ?", "%#{keyword}%")
+    eager_load(:user_task).where("user_tasks.title like ?", "%#{keyword}%")
   end
 end

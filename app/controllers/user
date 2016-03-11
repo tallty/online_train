@@ -1,0 +1,40 @@
+user
+
+post
+
+
+votes
+
+user_id post_id
+
+
+model:
+class Post
+  def generate_votes user
+    vote = Vote.new
+    vote.post_id = self.id
+    vote.user_id = user.id
+    vote.save
+  end
+end
+
+
+controller:
+
+class PostsController 
+  def show
+    @post = Post.find(params[:id])
+  end
+
+end
+
+module ApplicationHelper
+  
+end
+
+class VotesController
+  def create
+    @post = Post.find(params[:id])
+    @post.generate_votes(current_user)
+  end
+end
