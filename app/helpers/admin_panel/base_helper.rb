@@ -27,4 +27,8 @@ module AdminPanel::BaseHelper
     action.include?(params[:action])
   end
 
+  def group_number group
+    group.to_s + " [ " + UserTrainingCourse.where(group: group).length.to_s + " ] "
+  end
+
 end

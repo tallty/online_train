@@ -84,6 +84,8 @@
             <%= link_to("导出到Excel", admin_panel_training_course_user_training_courses_path(@training_course, format: 'xls'),
                       class: "btn btn-info pull-right") if current_admin.role == 'system' %>
           <% end %>
+          <br>
+          <br>
           <%= render partial: "user_training_course", locals: {user_training_courses: @user_training_courses} %>
         </tbody>
       </table>

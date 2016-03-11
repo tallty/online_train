@@ -1,14 +1,15 @@
-<hr>
-<div class="row" style="margin-top: 20px;">
-  <div class="col-sm-10">
-    <span>分组：</span>
-    <% @training_course.groups.split(" ").each do |group| %>
-      <%= link_to group.to_s, admin_panel_training_course_user_training_courses_path(@training_course, group: group, role: params[:role], status: params[:status]), class: "btn btn-primary btn-xs"  %>
-    <% end %>
+<% if params[:action] == "index" && params[:role].blank? && params[:status].blank? %>
+  <hr>
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-sm-10">
+      <span>分组：</span>
+      <% @training_course.groups.split(" ").each do |group| %>
+        <%= link_to group_number(group), admin_panel_training_course_user_training_courses_path(@training_course, group: group, role: params[:role], status: params[:status]), class: "btn btn-primary btn-xs"  %>
+      <% end %>
+    </div>
   </div>
-</div>
-<hr>
-
+  <hr>
+<% end %>
 <%= form_tag update_multiple_admin_panel_training_course_user_training_courses_path(@training_course), id: "js-select-form", method: :patch, :authenticity_token => true do %>
   <% user_training_courses.each do |user_training_course| %>
     <% role = user_training_course.try(:user).try(:role) %>
@@ -58,7 +59,7 @@
     <% end %>
   <% end %>
   <!-- 全部列表显示分组按钮 -->
-  <% if params[:action] == "index" && params[:role].blank? %>
+  <% if params[:action] == "index" && params[:role].blank? && params[:status].blank? %>
     <%= select_tag "group", options_for_select(@training_course.groups.split(" ").collect{|v| v}), {:prompt => "--选择分组--"} %>
   <% end %>
 <% end %>
