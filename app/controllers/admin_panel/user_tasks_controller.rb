@@ -1,6 +1,6 @@
 class AdminPanel::UserTasksController < AdminPanel::BaseController
   load_and_authorize_resource
-  before_action :set_task, only: [:index, :download]
+  before_action :set_task, only: [:index, :download, :unsubmit_users]
 
   def index
   	@user_tasks = @task.user_tasks.keyword(params[:keyword]).page(params[:page]).per(15)
@@ -18,9 +18,11 @@ class AdminPanel::UserTasksController < AdminPanel::BaseController
 
   #未提交作业的用户
   def unsubmit_users
+    exclude_user_ids = @task.user_tasks.pluck(:user_id)
     training_course = TrainingCourse.find(params[:training_course_id])
-    user_training_course_ids = training_course.user_training_courses.select{|x| x.user.user_tasks.length == 0}.map {|x| x.id}
-    @user_training_courses = UserTrainingCourse.where({id: user_training_course_ids}).page(params[:page]).per(15)
+    @user_training_courses = training_course.user_training_courses
+                                            .where.not(id: exclude_user_ids)
+                                            .page(params[:page]).per(15)
     add_breadcrumb "未提交作业人员列表"
   end
 

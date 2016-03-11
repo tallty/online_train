@@ -23,12 +23,13 @@ class Task < ActiveRecord::Base
 
   #已提交作业人数
   def submitted_count
-  	self.training_course.present? ? self.training_course.user_training_courses.where(state: true).count - self.user_tasks.count : 0
+    self.user_tasks.count
   end
 
   #未提交作业人数
   def unsubmitted_count
-  	self.user_tasks.count
+    #总报名数 - 提交作业数
+  	self.training_course.user_training_courses.length - self.user_tasks.length
   end
 
   #搜索功能

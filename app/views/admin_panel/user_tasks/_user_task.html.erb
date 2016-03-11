@@ -1,0 +1,14 @@
+<tr>
+  <td><%= user_task.try(:user).name %></td>
+  <td><%= user_task.try(:user).try(:email) %><br><%= user_task.try(:user).try(:mobile) %></td>
+  <td><%= user_task.try(:task).title %></td>
+  <td><%= link_to(truncate(user_task.try(:attachment).try(:avatar_file_name), length: 18), download_admin_panel_task_user_task_path(user_task.task, user_task), title: user_task.try(:attachment).try(:avatar_file_name) ) %></a></td>
+  <td><%= user_task.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+  <% if can? :manage, AdminUserTask %>
+    <td>
+      <%= link_to new_admin_panel_user_task_admin_user_task_path(user_task), remote: true do %>
+        <%= user_task.list_admin.present? ? user_task.list_admin : '指定评阅老师'%>
+      <% end %>
+    </td>
+  <% end %>
+</tr>
