@@ -1,7 +1,7 @@
 class StudentFeedbacksController < BaseController
 	before_action :authenticate_user!
 	before_action :set_training_course
-	before_action :set_student_feedback, only: [:new, :edit, :update]
+	before_action :set_student_feedback
 
 	def new
 		if @student_feedback.blank?
@@ -35,7 +35,7 @@ class StudentFeedbacksController < BaseController
 	end
 
 	def set_student_feedback
-		@student_feedback = StudentFeedback.find_by(training_course_id: @training_course.id)
+		@student_feedback = StudentFeedback.where(training_course_id: @training_course.id, user_id: current_user.id).first
 	end
 
 	def student_feedback_params
