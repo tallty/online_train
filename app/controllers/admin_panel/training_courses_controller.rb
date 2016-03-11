@@ -29,6 +29,14 @@ module AdminPanel
 
 		def show
 			add_breadcrumb "查看"
+			respond_to do |format|
+	      format.xls{
+	        send_data( xls_content_for(@training_course),
+	          :type => "text/excel;charset=utf-8; header=present",
+	          :filename => "#{@training_course.name}(#{Time.now.strftime("%F %H%M%S")}).xls" )
+	      }
+	      format.html
+	    end
 		end
 
     #非管理员权限 查看
@@ -113,6 +121,25 @@ module AdminPanel
 		def set_training_course
 			@training_course = @notification.training_course
 		end
+
+		# 导出为xls
+	  def xls_content_for(obj)
+	    xls_report = StringIO.new
+	    book = Spreadsheet::Workbook.new
+	    sheet1 = book.create_worksheet :name => "培训班信息"
+
+	    blue = Spreadsheet::Format.new :color => :blue, :weight => :bold, :size => 10
+	    sheet1.row(0).default_format = blue
+
+	    sheet1.row(0).concat %w{培训班 计划数 实际培训数 日志达标人数}
+      sheet1[1, 0] = obj.name
+      sheet1[1, 1] = obj.plan_number
+      sheet1[1, 2] = obj.try(:user_training_courses).try(:length)
+      sheet1[1, 3] = obj.reached_journal_number.length
+
+	    book.write xls_report
+	    xls_report.string
+	  end
 
 		def training_course_params
 			params.require(:training_course).permit(:groups, :journal_number, :task_end_time, :email, :phone, :linkman, :fax, :mobile,

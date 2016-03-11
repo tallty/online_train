@@ -109,6 +109,28 @@ class TrainingCourse < ActiveRecord::Base
     end
   end
 
+  #日志达标
+  def reached_journal_number
+    journal_number = self.journal_number
+    ids = self.user_training_courses.select{|x| x.user.journals.length >= journal_number}.map {|x| x.id}
+    UserTrainingCourse.where({id: ids})
+  end
+
+  #日志不达标
+  def unreached_journal_number
+    journal_number = self.journal_number
+    ids = self.user_training_courses.select{|x| x.user.journals.length < journal_number}.map {|x| x.id}
+    UserTrainingCourse.where({id: ids})
+  end
+
+  # #作业提交人数
+  # def submit_task_numbers
+  #   task_ids = []
+  #   self.tasks.each do |task|
+  #     tasks = task.user_tasks
+  #   end
+  # end
+
   #个人中心添加日志时选取培训班列表
   def self.create_journal_list
     user_training_course_ids = UserTrainingCourse.where(user_id: current_user.id).pluck(:training_course_id)

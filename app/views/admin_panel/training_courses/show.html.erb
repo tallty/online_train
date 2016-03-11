@@ -26,6 +26,7 @@
 		    	<%= link_to "修改", edit_admin_panel_notification_training_course_path(@notification, @training_course), class: 'btn btn-primary', 'data-no-turbolink' => true %>
 		    <% end %>
 		    <%= link_to "联系信息", admin_panel_notification_training_course_path(@notification, @training_course, anchor: "well"), class: 'btn btn-primary'%>
+		    <%= link_to "导出", admin_panel_notification_training_course_path(@notification, @training_course, format: 'xls'), class: "btn btn-info pull-right"%>
 		  </div>
 		  <hr>
 	    <table class="table">

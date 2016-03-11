@@ -2,7 +2,6 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   before_action :set_training_course, only: [:index, :edit, :update, :applied, :disapplied, :add, :added, :update_multiple]
 	before_action :set_user_training_course, only: [:applied, :disapplied, :edit, :update, :add, :added]
   before_action :set_session, only: [:applied, :disapplied]
-  before_action :list_by_condition, only: [:index]
   skip_before_action :verify_authenticity_token, only: :update_multiple
   load_and_authorize_resource
 
@@ -13,6 +12,10 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
                                                .get_user_training_course(@training_course, params[:status])
                                                .keyword(params[:keyword])
                                                .page(params[:page]).per(15)
+    #达标
+    @reached_user_training_courses = @training_course.reached_journal_number.page(params[:page]).per(15)
+    #未达标
+    @unreached_user_training_courses = @training_course.unreached_journal_number.page(params[:page]).per(15)
 
     @applied_user_training_courses = @training_course.user_training_courses.where(state: true)
 
@@ -93,20 +96,6 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   def set_training_course
     @training_course = TrainingCourse.find(params[:training_course_id])
     @notification = @training_course.notification
-  end
-
-  #计算达标和未达标老师数量
-  def list_by_condition
-    reached_ids = UserTrainingCourse.where(training_course_id: params[:training_course_id])
-                            .select{|x| x.user.journals.length.to_i >= @training_course.journal_number.to_i}
-                            .map {|x| x.id}
-    unreached_ids = UserTrainingCourse.where(training_course_id: params[:training_course_id])
-                              .select{|x| x.user.journals.length.to_i < @training_course.journal_number.to_i}
-                              .map {|x| x.id}
-    #达标
-    @reached_user_training_courses = UserTrainingCourse.where({id: reached_ids}).page(params[:page]).per(15)
-    #未达标
-    @unreached_user_training_courses = UserTrainingCourse.where({id: unreached_ids}).page(params[:page]).per(15)
   end
 
   def set_user_training_course
