@@ -17,7 +17,7 @@
                <%= link_to download_material_path(material), style: "margin-right: 10px;" do %>
                  <span class="glyphicon glyphicon-download"></span> 下载
                <% end -%>
-               <%= link_to pdfjs.full_path(file: material.attachment.avatar.url), style: "margin-right: 30px;" do %>
+               <%= link_to pdfjs.full_path(file: material.try(:attachment).try(:avatar).try(:url)), style: "margin-right: 30px;" do %>
                  <span class="glyphicon glyphicon-eye-open"></span> 预览
                <% end -%>
                <%= material.created_at.strftime("%Y-%m-%d %H:%M:%S") %>&nbsp;</span>
