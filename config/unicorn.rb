@@ -1,4 +1,4 @@
-worker_processes 1
+worker_processes 6
 
 app_root = File.expand_path("../..", __FILE__)
 working_directory app_root
@@ -45,5 +45,13 @@ before_fork do |server, worker|
   # the following is highly recomended for Rails + "preload_app true"
   # as there's no need for the master process to hold a connection
   defined?(ActiveRecord::Base) and
-    ActiveRecord::Base.connection.disconnect!
+  ActiveRecord::Base.connection.disconnect!
+end
+
+after_fork do |server, worker|
+  # 禁止GC，配合后续的OOB，来减少请求的执行时间
+  GC.disable
+  # the following is *required* for Rails + "preload_app true",
+  defined?(ActiveRecord::Base) and
+    ActiveRecord::Base.establish_connection
 end
