@@ -26,7 +26,7 @@ end
 # end
 
 every 1.day, :at => '2 am' do
-  runner "TrainingCourse.generate_messages", environment: "development"
+  runner "TrainingCourse.generate_messages", environment: "production"
 end
 
 # Learn more: http://github.com/javan/whenever
