@@ -133,11 +133,17 @@ module AdminPanel
 	    blue = Spreadsheet::Format.new :color => :blue, :weight => :bold, :size => 10
 	    sheet1.row(0).default_format = blue
 
-	    sheet1.row(0).concat %w{培训班 计划数 实际培训数 日志达标人数}
-      sheet1[1, 0] = obj.name
-      sheet1[1, 1] = obj.plan_number
-      sheet1[1, 2] = obj.try(:user_training_courses).try(:length)
-      sheet1[1, 3] = obj.reached_journal_number.length
+	    count_row = 1
+	    sheet1.row(0).concat %w{作业 培训班 计划数 实际培训数 日志达标人数 作业提交人数}
+      obj.tasks.each do |task|
+	      sheet1[count_row, 0] = task.try(:attachment).try(:avatar_file_name)
+	      sheet1[count_row, 1] = task.try(:training_course).try(:name)
+	      sheet1[count_row, 2] = task.try(:training_course).plan_number
+	      sheet1[count_row, 3] = task.try(:training_course).try(:user_training_courses).try(:length)
+	      sheet1[count_row, 4] = task.try(:training_course).reached_journal_number.length
+	      sheet1[count_row, 5] = task.submitted_count
+	      count_row += 1
+	    end
 
 	    book.write xls_report
 	    xls_report.string
