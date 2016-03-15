@@ -15,6 +15,7 @@
 class UserTrainingCourse < ActiveRecord::Base
   belongs_to :user
   belongs_to :training_course
+  belongs_to :divide
 
   after_create do
     message = Message.create!(title: "已报名（待审核）", content: "报名“#{self.training_course.try(:name)}”成功")
@@ -59,9 +60,9 @@ class UserTrainingCourse < ActiveRecord::Base
     eager_load(:user).where("users.role = ?", User.roles[role])
   }
 
-  scope :by_group, -> (group) {
-    return all if group.blank?
-    where("user_training_courses.group = ?", group)
+  scope :by_divide, -> (divide_id) {
+    return all if divide_id.blank?
+    where("user_training_courses.divide_id = ?", divide_id.to_i)
   }
 
   def self.get_user_training_course training_course, status

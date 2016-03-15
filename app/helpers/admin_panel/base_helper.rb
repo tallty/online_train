@@ -27,8 +27,8 @@ module AdminPanel::BaseHelper
     action.include?(params[:action])
   end
 
-  def group_number group
-    group.to_s + " [ " + UserTrainingCourse.where(group: group).length.to_s + " ] "
+  def divide_number divide
+    "#{divide.name.to_s}[ #{UserTrainingCourse.where(divide_id: divide.id).length.to_s} ]"
   end
 
 end

@@ -22,15 +22,21 @@
         <div class="form-group">
           <%= label_tag :divides, '分组', class: 'col-sm-3 control-label' %>
           <%= f.fields_for :divides do |field| %>
-            <div class="col-sm-9 col-sm-offset-3">
-              <%= field.text_field :name, placeholder: "组名"%>
-              <%= field.select :header, @training_course.users.all.collect {|p| [ p.name, p.name ] }, { prompt: "请选择组长" } %>
-              <%= field.link_to_remove "删除分组" %>
+            <div class="col-sm-9 col-sm-offset-3 margin-b-10">
+              <div class="col-sm-3">
+                <%= field.text_field :name, placeholder: "组名", class: 'form-control'%>
+              </div>
+              <div class="col-sm-3">
+                <%= field.select :header, @training_course.users.all.collect {|p| [ p.name, p.name ] }, { prompt: "请选择组长" }, class: "form-control" %>
+              </div>
+              <%= field.link_to_remove do %>
+                <span class="glyphicon glyphicon-remove btn btn-danger"></span>
+              <% end %>
             </div>
           <% end %>
         </div>
         <div class="form-group">
-          <%= f.link_to_add "添加分组", :divides, class: "col-sm-9 col-sm-offset-3" %>
+          <%= f.link_to_add "添加分组", :divides, class: "col-sm-9 col-sm-offset-3 btn btn-xs" %>
         </div>
 
         <!-- <div class="form-group">
