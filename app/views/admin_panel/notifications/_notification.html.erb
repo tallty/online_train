@@ -1,5 +1,5 @@
 <tr class="tr-default-bg">
-	<td class="text-center"><%= Notification::ListCategory[notification.category.to_sym] %></td>
+	<td class="text-center"><%= Notification::ListCategory[notification.category.to_sym] if notification.category %></td>
 	<td class="text-center"><%= notification.title%></td>
 	<td class="text-center"><%= notification.sub_title%></td>
 	<td class="text-center"><%= notification.author%></td>

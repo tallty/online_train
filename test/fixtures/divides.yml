@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  traing_course_id: 
+  name: MyString
+  header: MyString
+
+two:
+  traing_course_id: 
+  name: MyString
+  header: MyString

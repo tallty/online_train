@@ -1,6 +1,6 @@
 <div class="panel-heading panel-active"><%= params[:action] == "new" ? "新建项目" : "修改项目"%></div>
   <div class="panel-body panel-default-bg">
-  	<%= simple_form_for [:admin_panel, @notification, @training_course], html: { class: 'form-horizontal' }, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {radio_buttons: :horizontal_radio_and_checkboxes, boolean: :horizontal_boolean } do |f|%>
+  	<%= nested_form_for [:admin_panel, @notification, @training_course], html: { class: 'form-horizontal' } do |f|%>
 
         <div class="form-group">
           <%= f.label :code, '培训班级代码', class: 'col-sm-3 control-label' %>
@@ -14,17 +14,31 @@
           <div class="col-sm-4">
             <% Teacher.all.each do |teacher| %>
               <%= check_box_tag("training_course[teacher_ids][]", teacher.id, teacher.id.in?(@training_course.teachers.collect(&:id)))%>
-              <%= teacher.name%>
+              <%= teacher.name %>
             <%end%>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :groups, '分组', class: 'col-sm-3 control-label' %>
-          <div class="col-sm-4">
-            <%= f.text_field :groups, placeholder: "不同组间用空格隔开, 如: 第一组, 第二组", class: 'form-control' %>
-          </div>
+          <%= label_tag :divides, '分组', class: 'col-sm-3 control-label' %>
+          <%= f.fields_for :divides do |field| %>
+            <div class="col-sm-9 col-sm-offset-3">
+              <%= field.text_field :name, placeholder: "组名"%>
+              <%= field.select :header, @training_course.users.all.collect {|p| [ p.name, p.name ] }, { prompt: "请选择组长" } %>
+              <%= field.link_to_remove "删除分组" %>
+            </div>
+          <% end %>
         </div>
+        <div class="form-group">
+          <%= f.link_to_add "添加分组", :divides, class: "col-sm-9 col-sm-offset-3" %>
+        </div>
+
+        <!-- <div class="form-group">
+          <%#= f.label :groups, '分组', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-4">
+            <%#= f.text_field :groups, placeholder: "不同组间用空格隔开, 如: 第一组, 第二组", class: 'form-control' %>
+          </div>
+        </div> -->
 
         <div class="form-group">
           <%= f.label :name, '培训班级名称', class: 'col-sm-3 control-label' %>
@@ -118,7 +132,12 @@
           </div>
         </div>
 
-        <%= f.input :be_applied, :as => :boolean, label: '是否可报名' %>
+        <div class="form-group">
+          <%= f.label :contact, "是否可报名", class: 'col-sm-3 control-label' %>
+          <div class="col-sm-4">
+            <%= f.check_box :be_applied %>
+          </div>
+        </div>
 
         <div class="form-group">
           <%= f.label :info, '项目信息', class: 'col-sm-3 control-label' %>

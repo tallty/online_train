@@ -7,7 +7,7 @@ module AdminPanel
 		before_action :set_grade_leader, only: [:new, :edit]
 
 	  def index
-			@search = TrainingCourse.all.keyword(params[:keyword]).page(params[:page]).per(15)
+			@training_courses = TrainingCourse.all.keyword(params[:keyword]).page(params[:page]).per(15)
 		end
 
     #根据培训机构获取培训班列表
@@ -46,6 +46,7 @@ module AdminPanel
 
 		def new
 			@training_course = TrainingCourse.new
+			@divide = @training_course.divides.build
 			add_breadcrumb "新建"
 		end
 
@@ -89,6 +90,7 @@ module AdminPanel
 		end
 
 		def edit
+			@divide = @training_course.divides.build
 			add_breadcrumb "修改"
 		end
 
@@ -146,7 +148,8 @@ module AdminPanel
 				                     :admin_id, :start_apply_time, :end_apply_time, :notification_id, :school_id, :name, :code, :start_time, :end_time,
 			                       :plan_number, :training_agency, :training_address, :training_fee,
 			                       :state, :remark, :info, :training_background, :training_target, :be_applied,
-			                       :training_content, :check_method, :project_leader, :grade_leader, :contact, :category, {teacher_ids: []})
+			                       :training_content, :check_method, :project_leader, :grade_leader, :contact, :category, {teacher_ids: []},
+			                       divides_attributes: [:id, :name, :header, :_destroy])
 		end
 	end
 end

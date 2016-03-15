@@ -67,7 +67,24 @@
 
 	      <tr>
 	      	<th class="col-sm-2">分组</th>
-	      	<td><%= @training_course.groups %></td>
+	      	<td>
+	      	  <table class="table table-bordered">
+	      	    <thead>
+	      	    	<tr>
+		      	  		<td class="text-center">分组</td>
+		      	  		<td class="text-center">组长</td>
+		      	  	</tr>
+	      	    </thead>
+	      	    <tbody>
+	      	      <% @training_course.divides.each do |divide| %>
+		      	    	<tr>
+		      	    		<td class="text-center"><%= divide.name %></td>
+		      	    		<td class="text-center"><%= divide.header %></td>
+		      	    	</tr>
+		      	    <% end %>
+	      	    </tbody>
+	      	  </table>
+	      	</td>
 	      </tr>
 
 	      <tr>

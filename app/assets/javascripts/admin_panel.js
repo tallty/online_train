@@ -20,6 +20,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require jquery.remotipart
+//= require jquery_nested_form
 //= require kindeditor
 
 

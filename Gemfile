@@ -105,3 +105,6 @@ gem 'wkhtmltopdf-binary'
 
 #后台进度条
 gem 'nprogress-rails'
+
+#嵌套表单
+gem "nested_form"

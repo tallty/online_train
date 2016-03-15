@@ -51,6 +51,12 @@ class TrainingCourse < ActiveRecord::Base
   has_many :course_resources, dependent: :destroy
   has_many :appraises, dependent: :destroy
   has_many :journals, dependent: :destroy
+  has_many :divides, dependent: :destroy
+  has_many :users, through: :user_training_courses
+
+  accepts_nested_attributes_for :divides,
+                                reject_if: proc { |attributes| attributes['name'].blank? },
+                                allow_destroy: true
 
   default_scope { order("created_at DESC") }
 

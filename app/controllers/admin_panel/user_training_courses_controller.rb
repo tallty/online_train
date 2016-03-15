@@ -55,6 +55,10 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   #批量处理
   def update_multiple
     if UserTrainingCourse.where({id: params[:user_training_course]}).update_all(group: params[:group])
+      UserTrainingCourse.where({id: params[:user_training_course]}).each do |user_training_course|
+        message = Message.create!(title: "报名分组", content: "您已经被分配到“#{user_training_course.training_course.try(:name)}” #{params[:group]}")
+        UserMessage.create!(user_id: user_training_course.user.id, message_id: message.id)
+      end
       flash[:notice] = "处理成功"
       return redirect_to admin_panel_training_course_user_training_courses_path(@training_course)
     else

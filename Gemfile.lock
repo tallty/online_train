@@ -126,6 +126,7 @@ GEM
     minitest (5.7.0)
     multi_json (1.11.0)
     mysql2 (0.3.18)
+    nested_form (0.3.2)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
     newrelic_rpm (3.13.2.302)
@@ -258,6 +259,7 @@ DEPENDENCIES
   mechanize
   mina
   mysql2
+  nested_form
   newrelic_rpm
   nokogiri
   nprogress-rails
