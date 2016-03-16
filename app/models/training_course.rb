@@ -105,14 +105,14 @@ class TrainingCourse < ActiveRecord::Base
 
   #日志达标
   def reached_journal_number
-    journal_number = self.journal_number
+    journal_number = self.journal_number.to_i
     ids = self.user_training_courses.select{|x| x.user.journals.length >= journal_number}.map {|x| x.id}
     UserTrainingCourse.where({id: ids})
   end
 
   #日志不达标
   def unreached_journal_number
-    journal_number = self.journal_number
+    journal_number = self.journal_number.to_i
     ids = self.user_training_courses.select{|x| x.user.journals.length < journal_number}.map {|x| x.id}
     UserTrainingCourse.where({id: ids})
   end
