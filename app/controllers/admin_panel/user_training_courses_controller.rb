@@ -53,10 +53,8 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   #批量处理
   def update_multiple
     if UserTrainingCourse.where({id: params[:user_training_course]}).update_all(divide_id: params[:divide_id])
-      p "xxxxxxxxxx"
       p params[:divide_id]
       UserTrainingCourse.where({id: params[:user_training_course]}).each do |user_training_course|
-        p "yyyyyyyyyyy"
         message = Message.create!(title: "报名分组", content: "您已经被分配到“#{user_training_course.training_course.try(:name)}” #{user_training_course.try(:divide).try(:name)}")
         UserMessage.create!(user_id: user_training_course.user.id, message_id: message.id)
       end

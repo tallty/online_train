@@ -4,6 +4,7 @@ class AdminPanel::StudentFeedbacksController < AdminPanel::BaseController
 	def list
 		@student_feedbacks = StudentFeedback.all.keyword(params[:keyword])
 		                                        .page(params[:page]).per(15)
+  end
 
 	def show
 		@student_feedback = StudentFeedback.find(params[:id])

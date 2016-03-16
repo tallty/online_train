@@ -1,3 +1,14 @@
+<ol class="breadcrumb">
+  <li>
+    <%= link_to "后台", admin_panel_root_path  %>
+  </li>
+  <li>
+    <%= link_to "用户列表", admin_panel_users_path  %>
+  </li>
+  <li><%= link_to @user.name, admin_panel_user_path(@user) %></li>
+  <li class="active">查看</li>
+</ol>
+
 <div class="main-content">
   <div class="panel panel-default">
     <div class="panel-heading panel-active">

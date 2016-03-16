@@ -1,3 +1,14 @@
+<ol class="breadcrumb">
+  <li>
+    <%= link_to "后台", admin_panel_root_path  %>
+  </li>
+  <li>
+    <%= link_to "用户列表", admin_panel_users_path  %>
+  </li>
+  <li><%= link_to @user.name, admin_panel_user_path(@user) %></li>
+  <li class="active">修改</li>
+</ol>
+
 <div class="panel-heading panel-active">用户：<%= @user.name %></div>
 <div class="panel-body panel-default-bg">
   <%= simple_form_for [:admin_panel, @user], html: { class: 'form-horizontal' }, remote: true do |f|%>

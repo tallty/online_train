@@ -1,3 +1,15 @@
+<ol class="breadcrumb">
+  <li>
+    <%= link_to "后台", admin_panel_root_path  %>
+  </li>
+  <li class="active" >
+    机构人员
+  </li>
+  <li class="active" >
+    <%= admin_role_name(params[:role]) %>
+  </li>
+</ol>
+
 <div id="adminContent" class="grades-main-content">
   <div class="panel panel-primary">
     <div class="panel-heading have-menu">
