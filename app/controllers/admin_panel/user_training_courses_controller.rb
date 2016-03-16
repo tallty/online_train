@@ -1,12 +1,12 @@
 class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   before_action :set_training_course, only: [:index, :edit, :update, :applied, :disapplied, :add, :added, :update_multiple]
-	before_action :set_user_training_course, only: [:applied, :disapplied, :edit, :update, :add, :added]
+	before_action :set_user_training_course, only: [:applied, :disapplied, :edit, :update, :add, :added, :delete, :restore]
   before_action :set_session, only: [:applied, :disapplied]
   skip_before_action :verify_authenticity_token, only: :update_multiple
   load_and_authorize_resource
 
   def index
-    @user_training_courses = UserTrainingCourse.where({training_course_id: @training_course.id})
+    @user_training_courses = UserTrainingCourse.enabled.where({training_course_id: @training_course.id})
                                                .by_role(params[:role])
                                                .by_divide(params[:divide_id])
                                                .get_user_training_course(@training_course, params[:status])
@@ -30,7 +30,7 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   end
 
   def list
-    @user_training_courses = UserTrainingCourse.all.page(params[:page]).per(15).keyword(params[:keyword])
+    @user_training_courses = UserTrainingCourse.enabled.page(params[:page]).per(15).keyword(params[:keyword])
     @role_count = UserTrainingCourse.role_count
   end
 
@@ -96,6 +96,18 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
     UserMessage.create!(user_id: @user_training_course.user.id, message_id: message.id)
   	return redirect_to session.delete(:return_to)
   end
+
+  def delete
+    @user_training_course.update(deleted_at: Time.now)
+    flash[:notice] = '删除成功'
+    redirect_to admin_panel_training_course_user_training_courses_path(@training_course)
+  end
+
+  # def restore
+  #   @user_training_course.update(deleted_at: nil)
+  #   flash[:notice] = '恢复成功'
+  #   redirect_to admin_panel_training_course_user_training_courses_path(@training_course)
+  # end
 
   private
   def set_training_course

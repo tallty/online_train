@@ -1,4 +1,4 @@
-F# encoding: UTF-8
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@ F# encoding: UTF-8
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315072208) do
+ActiveRecord::Schema.define(version: 20160316085239) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -337,6 +337,7 @@ ActiveRecord::Schema.define(version: 20160315072208) do
     t.string   "remark",             limit: 255
     t.string   "certificate_no",     limit: 255
     t.integer  "divide_id",          limit: 4
+    t.datetime "deleted_at"
   end
 
   add_index "user_training_courses", ["divide_id"], name: "index_user_training_courses_on_divide_id", using: :btree

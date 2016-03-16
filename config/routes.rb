@@ -144,6 +144,8 @@ Rails.application.routes.draw do
           get :add
           patch :added
           post :added
+          post :delete, :restore
+          patch :delete, :restore
         end
         collection do
           patch :update_multiple

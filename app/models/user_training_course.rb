@@ -45,6 +45,10 @@ class UserTrainingCourse < ActiveRecord::Base
     end
   end
 
+  scope :enabled, -> {
+    where("user_training_courses.deleted_at is null")
+  }
+
   # 统计报名学员的不同职位人数
   def self.role_count
     cache = User.includes(:user_training_courses).group(:role).count
