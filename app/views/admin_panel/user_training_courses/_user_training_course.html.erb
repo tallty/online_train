@@ -3,8 +3,10 @@
   <div class="row" style="margin-top: 20px;">
     <div class="col-sm-10">
       <span>分组：</span>
-      <% @training_course.divides.each do |divide| %>
-        <%= link_to divide_number(divide), admin_panel_training_course_user_training_courses_path(@training_course, divide_id: divide.id, role: params[:role], status: params[:status]), class: "btn btn-primary btn-xs"  %>
+      <% if @training_course.divides.present? %>
+        <% @training_course.divides.each do |divide| %>
+          <%= link_to divide_number(divide), admin_panel_training_course_user_training_courses_path(@training_course, divide_id: divide.id, role: params[:role], status: params[:status]), class: "btn btn-primary btn-xs"  %>
+        <% end %>
       <% end %>
     </div>
   </div>
