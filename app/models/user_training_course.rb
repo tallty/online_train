@@ -82,7 +82,7 @@ class UserTrainingCourse < ActiveRecord::Base
     unreached_user_ids = []
     training_course.user_training_courses.each do |user_training_course|
       journals = Journal.where(training_course_id: training_course.id, user_id: user_training_course.user.id).length
-      if journals >= training_course.journal_number
+      if journals >= training_course.journal_number.to_i
         reached_user_ids << user_training_course.user.id
       else
         unreached_user_ids << user_training_course.user.id
