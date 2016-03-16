@@ -4,7 +4,6 @@ class AdminPanel::TeachersController < AdminPanel::BaseController
   
   def index
     @teachers = Teacher.all.page(params[:page]).per(15)
-    add_breadcrumb "授课老师列表"
   end
 
   def new

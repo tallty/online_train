@@ -1,20 +1,16 @@
 class AdminPanel::MaterialsController < AdminPanel::BaseController
   load_and_authorize_resource
   before_action :set_material, only: [:show, :edit, :destroy, :download]
-  before_action :set_breadcrumb
 
   def index
     @materials = Material.order_desc.page(params[:page]).per(10)
-    add_breadcrumb "培训资源列表"
   end
 
   def show
-    add_breadcrumb "查看"
   end
 
   def new
     @material = Material.new
-    add_breadcrumb "新建"
   end
 
   def create
@@ -36,7 +32,6 @@ class AdminPanel::MaterialsController < AdminPanel::BaseController
   end
 
   def edit
-    add_breadcrumb "修改"
   end
 
   def destroy

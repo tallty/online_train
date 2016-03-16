@@ -5,12 +5,10 @@ class AdminPanel::CourseResourcesController < AdminPanel::BaseController
 
   def index
   	@course_resources = @training_course.course_resources.page(params[:page]).per(15)
-  	add_breadcrumb "课程附件列表"
   end
 
   def new
     @course_resource = CourseResource.new
-    add_breadcrumb "新建"
   end
 
   def create
@@ -32,7 +30,6 @@ class AdminPanel::CourseResourcesController < AdminPanel::BaseController
   end
 
   def edit
-    add_breadcrumb "修改"
   end
 
   def update

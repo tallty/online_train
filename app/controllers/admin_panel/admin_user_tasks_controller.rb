@@ -5,7 +5,6 @@ class AdminPanel::AdminUserTasksController < AdminPanel::BaseController
 
 	def new
 		@admin_user_task = @user_task.admin_user_tasks.new
-		add_breadcrumb "指定评阅老师"
 		respond_to do |format|
       format.js
     end
@@ -23,7 +22,6 @@ class AdminPanel::AdminUserTasksController < AdminPanel::BaseController
 	end
 
 	def edit
-		add_breadcrumb "添加评审"
 	end
 
 	def update
@@ -40,7 +38,6 @@ class AdminPanel::AdminUserTasksController < AdminPanel::BaseController
 		@admin_user_tasks = AdminUserTask.where(admin_id: current_admin.id)
 		                                 .page(params[:page]).per(15)
 		                                 .keyword(params[:keyword])
-		add_breadcrumb "待评作业列表"
 	end
 
   private

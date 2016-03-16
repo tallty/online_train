@@ -80,10 +80,6 @@ gem 'rails_kindeditor'
 #生产环境下解决rails_kindeditor编译问题
 gem 'sprockets', '~> 2.12.3'
 
-#面包屑效果
-gem "breadcrumbs_on_rails"
-
-
 #数据爬取
 gem 'nokogiri'
 gem 'mechanize'

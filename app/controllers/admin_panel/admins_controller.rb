@@ -5,18 +5,6 @@ class AdminPanel::AdminsController < AdminPanel::BaseController
   def index
     role = params[:role].present? ? params[:role] : "system"
     @admins = Admin.where(role: Admin.roles[role]).page(params[:page]).per(15)
-    case params[:role]
-    when "system"
-      add_breadcrumb "秘书处人员列表"
-    when "education"
-      add_breadcrumb "教育部门列表"
-    when "trainer"
-      add_breadcrumb "培训机构列表"
-    when "specialist"
-      add_breadcrumb "评审专家列表"
-    when "management"
-      add_breadcrumb "班级负责人列表"
-    end
   end
 
   #机构人员的new
@@ -84,7 +72,6 @@ class AdminPanel::AdminsController < AdminPanel::BaseController
   #账户设置编辑个人信息
   def edit_profile
     @admin = current_admin
-    add_breadcrumb "编辑我的信息"
   end
 
   def update_profile
@@ -100,7 +87,6 @@ class AdminPanel::AdminsController < AdminPanel::BaseController
 
   #账户设置编辑个人密码
   def edit_password
-    add_breadcrumb "编辑我的密码"
   end
 
   def update_password

@@ -1,3 +1,13 @@
+<ol class="breadcrumb">
+  <li>
+    <%= link_to "后台", admin_panel_root_path  %>
+  </li>
+  <li>
+    <%= link_to "报名列表", list_admin_panel_user_training_courses_path  %>
+  </li>
+  <li class="active"><%= params[:keyword].present? ? "搜索结果" : "全部"%></li>
+</ol>
+
 <div class="grades-main-content">
   <div class="panel panel-primary">
     <div class="panel-heading">

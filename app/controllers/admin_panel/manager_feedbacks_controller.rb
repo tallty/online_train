@@ -8,14 +8,10 @@ class AdminPanel::ManagerFeedbacksController < AdminPanel::BaseController
 	def list
 		@manager_feedbacks = ManagerFeedback.keyword(params[:keyword])
 		                                    .page(params[:page]).per(15)
-		add_breadcrumb "负责人反馈列表"
 	end
 
 	def show
 		@manager_feedback = ManagerFeedback.find(params[:id])
-
-		add_breadcrumb @manager_feedback.id, admin_panel_manager_feedback_path(@manager_feedback)
-		add_breadcrumb "查看"
 	end
 
 	def new
@@ -27,7 +23,6 @@ class AdminPanel::ManagerFeedbacksController < AdminPanel::BaseController
 	end
 
 	def edit
-		add_breadcrumb "修改"
 	end
 
 	def update

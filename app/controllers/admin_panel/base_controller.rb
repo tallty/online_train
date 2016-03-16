@@ -8,7 +8,6 @@ module AdminPanel
     protect_from_forgery with: :exception
     layout "admin_panel"
     before_action :authenticate_admin!, except: :download
-    before_action :set_breadcrumb
 
     # 捕捉权限异常
     rescue_from CanCan::AccessDenied do |e|
@@ -20,10 +19,6 @@ module AdminPanel
       # 将会将CanCan通过current_admin获取当前登录用户
       def current_ability
         @current_ability ||= Ability.new(current_admin)
-      end
-
-      def set_breadcrumb
-        add_breadcrumb "后台", admin_panel_root_path
       end
   end
 end

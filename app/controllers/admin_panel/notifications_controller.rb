@@ -4,12 +4,10 @@ class AdminPanel::NotificationsController < AdminPanel::BaseController
   def index
     @notifications = Notification.keyword(params[:keyword])
                                  .page(params[:page]).per(15)
-    add_breadcrumb "通知列表", admin_panel_notifications_path
   end
 
   def new
   	@notification = Notification.new
-    add_breadcrumb "新建通知"
   end
 
   def create
@@ -31,12 +29,10 @@ class AdminPanel::NotificationsController < AdminPanel::BaseController
   end
 
   def show
-    add_breadcrumb "查看"
   end
 
   def edit
     session[:return_to] ||= request.referer
-    add_breadcrumb "修改"
   end
 
   def update

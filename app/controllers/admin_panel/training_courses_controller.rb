@@ -2,7 +2,6 @@ module AdminPanel
 	class TrainingCoursesController < AdminPanel::BaseController
 		load_and_authorize_resource
 		before_action :set_notification, except: [:list, :list_by_school, :list_by_teacher, :detail]
-		before_action :set_breadcrumb, except: [:list, :list_by_school, :list_by_teacher]
 		before_action :set_training_course, only: [:edit, :update, :show, :unchecked, :checked_by_expert, :checked_by_seminar, :checked_by_educator]
 		before_action :set_grade_leader, only: [:new, :edit]
 
@@ -13,22 +12,18 @@ module AdminPanel
     #根据培训机构获取培训班列表
 		def list_by_school
       @training_courses = TrainingCourse.where(school_id: current_admin.adminable_id).page(params[:page]).per(15)
-      add_breadcrumb "培训班列表"
 		end
 
 		#根据培训机构获取培训班列表
 		def list_by_teacher
       @training_courses = TrainingCourse.where(admin_id: current_admin.id).page(params[:page]).per(15)
-      add_breadcrumb "培训班列表"
 		end
 
 		def list
 			@training_courses = TrainingCourse.all.keyword(params[:keyword]).page(params[:page]).per(15)
-		  add_breadcrumb "班级列表"
 		end
 
 		def show
-			add_breadcrumb "查看"
 			respond_to do |format|
 	      format.xls{
 	        send_data( xls_content_for(@training_course),
@@ -41,13 +36,11 @@ module AdminPanel
 
     #非管理员权限 查看
 		def detail
-			add_breadcrumb "查看"
 		end
 
 		def new
 			@training_course = TrainingCourse.new
 			@divide = @training_course.divides.build
-			add_breadcrumb "新建"
 		end
 
     #取消审核状态
@@ -91,7 +84,6 @@ module AdminPanel
 
 		def edit
 			@divide = @training_course.divides.build
-			add_breadcrumb "修改"
 		end
 
 		def update
@@ -115,10 +107,6 @@ module AdminPanel
 		def set_notification
 			@notification = Notification.find(params[:notification_id])
 		end
-
-		def set_breadcrumb
-			add_breadcrumb "培训班", admin_panel_training_courses_path
-    end
 
 		def set_training_course
 			@training_course = @notification.training_course

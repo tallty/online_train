@@ -4,16 +4,13 @@ class AdminPanel::UserTasksController < AdminPanel::BaseController
 
   def index
   	@user_tasks = @task.user_tasks.keyword(params[:keyword]).page(params[:page]).per(15)
-    add_breadcrumb "提交作业列表"
   end
 
   def list
   	@user_tasks = UserTask.all.keyword(params[:keyword]).page(params[:page]).per(15)
-    add_breadcrumb "提交作业列表"
   end
 
   def show
-  	add_breadcrumb "查看"
   end
 
   #未提交作业的用户
@@ -23,7 +20,6 @@ class AdminPanel::UserTasksController < AdminPanel::BaseController
     @user_training_courses = training_course.user_training_courses
                                             .where.not(id: exclude_user_ids)
                                             .page(params[:page]).per(15)
-    add_breadcrumb "未提交作业人员列表"
   end
 
   def download

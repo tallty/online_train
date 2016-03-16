@@ -19,7 +19,6 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
 
     @applied_user_training_courses = @training_course.user_training_courses.where(state: true)
 
-    add_breadcrumb "培训报名列表"
     respond_to do |format|
       format.html
       format.xls{
@@ -33,7 +32,6 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   def list
     @user_training_courses = UserTrainingCourse.all.page(params[:page]).per(15).keyword(params[:keyword])
     @role_count = UserTrainingCourse.role_count
-    add_breadcrumb "报名列表"
   end
 
   def show
