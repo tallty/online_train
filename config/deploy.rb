@@ -6,7 +6,7 @@ require 'mina/whenever'
 
 set :term_mode, nil
 
-set :domain, '172.16.150.48'
+set :domain, '222.72.145.138'
 set :deploy_to, '/opt/shsgzgzjxyjh/project/online_train'
 set :repository, 'https://github.com/xiaocuixt/online_train'
 set :branch, 'develop'
