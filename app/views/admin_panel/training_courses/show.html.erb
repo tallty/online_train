@@ -35,7 +35,7 @@
 	      	<td><%= @training_course.code %></td>
 	      </tr>
 	      <tr>
-	      	<th class="col-sm-1">分类</th>
+	      	<th class="col-sm-1">分类</th>     
 	      	<td><%= TrainingCourse::ListCategory[@training_course.category.to_sym] %></td>
 	      </tr>
 	      <tr>
@@ -76,12 +76,14 @@
 		      	  	</tr>
 	      	    </thead>
 	      	    <tbody>
-	      	      <% @training_course.divides.each do |divide| %>
-		      	    	<tr>
-		      	    		<td class="text-center"><%= divide.name %></td>
-		      	    		<td class="text-center"><%= divide.header %></td>
-		      	    	</tr>
-		      	    <% end %>
+	      	      <% if @training_course.divides.present? %>
+	      	      	<% @training_course.divides.each do |divide| %>
+			      	    	<tr>
+			      	    		<td class="text-center"><%= divide.name %></td>
+			      	    		<td class="text-center"><%= divide.header %></td>
+			      	    	</tr>
+			      	    <% end %>
+	      	      <% end %>
 	      	    </tbody>
 	      	  </table>
 	      	</td>
