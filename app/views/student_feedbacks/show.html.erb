@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="wrapper">
+    <div class="row">
+      <div class="personal_center right_message_tab col-md-3">
+        <%= render "user/personal_nav"%>
+      </div>
+      <div class="col-sm-9 courses">
+        <div class="panel panel-default course-panel">
+          <div class="panel-heading">
+            <%= render 'course_nav'%>
+          </div>
+          <div class="panel-body course-content">
+            <h3 class="text-center">学员评价</h3>
+            <hr>
+            <p>1.我对本期培训的感受（人选其一）</p>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th>（1）课堂教学</th>
+                  <td><%= StudentFeedback::CommentContent[@student_feedback.teach] %></td>
+                </tr>
+                <tr>
+                  <th>（2）谈论交流</th>
+                  <td><%= StudentFeedback::CommentContent[@student_feedback.discussion] %></td>
+                </tr>
+                <tr>
+                  <th>（3）参观考察</th>
+                  <td><%= StudentFeedback::CommentContent[@student_feedback.visiting] %></td>
+                </tr>
+                <tr>
+                  <th>（4）组织管理工作</th>
+                  <td><%= StudentFeedback::CommentContent[@student_feedback.organization] %></td>
+                </tr>
+                <tr>
+                  <th>（5）学习和生活条件</th>
+                  <td><%= StudentFeedback::CommentContent[@student_feedback.study_life] %></td>
+                </tr>
+              </tbody>
+            </table>
+            <p>2.我认为本期培训最有价值的课程和活动是什么？</p>
+            <div class="well">
+              <%= raw @student_feedback.most_value %>
+            </div>
+            <p>3.通过本期培训的学习，我最大的感受与收获是什么？（如前瞻性信息的吸纳、思维方式的启迪以及对实际工作的帮助等）</p>
+            <div class="well">
+              <%= raw @student_feedback.most_gain %>
+            </div>
+            <p>4.结业赠言</p>
+            <div class="well">
+              <%= raw @student_feedback.graduate_message %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

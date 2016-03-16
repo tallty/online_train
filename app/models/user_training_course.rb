@@ -22,7 +22,7 @@ class UserTrainingCourse < ActiveRecord::Base
     UserMessage.create!(user_id: current_user.id, message_id: message.id)
   end
 
-  #记录报名课程的3种状态
+  #记录报名课程的3种状态 -- 后台
   def user_training_course_status
     case self.state
     when nil
@@ -31,6 +31,17 @@ class UserTrainingCourse < ActiveRecord::Base
       "已通过"
     when false
       "未通过"
+    end
+  end
+
+  #记录报名课程的2种状态 -- 前台
+  def user_training_course_on_going
+    now = Time.zone.now
+    end_time = self.training_course.end_time
+    if now > end_time
+      "已结业"
+    else
+      "未结业"
     end
   end
 

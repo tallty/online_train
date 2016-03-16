@@ -16,29 +16,37 @@
                 <th width="20%">培训班</th>
                 <th width="20%">培训地点</th>
                 <th width="15%">开班起止时间</th>
-                <th>报名状态</th>
+                <th>学习状态</th>
                 <th>日志</th>
                 <th>证书编号</th>
                 <th>操作</th>
               </tr>
               <% @already_user_training_courses.each do |user_training_course|%>
                 <tr>
-                  <td><%= user_training_course.try(:training_course).created_at.strftime("%Y")%></td>
-                  <td><%= user_training_course.try(:training_course).name%></td>
-                  <td><%= user_training_course.try(:training_course).training_address%></td>
-                  <td><%= user_training_course.try(:training_course).start_time.strftime("%Y-%m-%d")%><br><%= user_training_course.try(:training_course).end_time.strftime("%Y-%m-%d")%></td>
-                  <td class="check"><%= user_training_course.user_training_course_status %></td>
-                  <td><%= link_to "查看", training_course_journals_path(user_training_course.training_course)%></td>
+                  <td><%= user_training_course.try(:training_course).created_at.strftime("%Y") %></td>
+                  <td><%= user_training_course.try(:training_course).name %></td>
+                  <td><%= user_training_course.try(:training_course).training_address %></td>
+                  <td><%= user_training_course.try(:training_course).start_time.strftime("%Y-%m-%d") %><br><%= user_training_course.try(:training_course).end_time.strftime("%Y-%m-%d") %></td>
+                  <td class="check"><%= user_training_course.user_training_course_on_going %></td>
+                  <td><%= link_to "查看", training_course_journals_path(user_training_course.training_course) %></td>
                   <td><%= user_training_course.certificate_no %></td>
                   <td>
-                    <%= link_to new_training_course_student_feedback_path(user_training_course.try(:training_course)) do %>
-                      学员反馈
+                    <% student_feedback = StudentFeedback.where(user_id: user_training_course.user.id, training_course_id: user_training_course.training_course.id).first %>
+                    <% if student_feedback.present? %>
+                      <%= link_to training_course_student_feedback_path(user_training_course.try(:training_course), student_feedback) do %>
+                        已反馈
+                      <% end %>
+                    <% else %>
+                      <%= link_to new_training_course_student_feedback_path(user_training_course.try(:training_course)) do %>
+                        学员反馈
+                      <% end %>
                     <% end %>
                     <br>
+
                     <% appraise = Appraise.where(user_id: user_training_course.user.id, training_course_id: user_training_course.training_course.id).first %>
                     <% if appraise.present? %>
                       <%= link_to list_training_course_appraises_path(user_training_course.try(:training_course)) do %>
-                        学员评师
+                        已评价
                       <% end %>
                     <% else %>
                       <%= link_to new_training_course_appraise_path(user_training_course.try(:training_course)) do %>

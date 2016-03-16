@@ -103,18 +103,6 @@ class TrainingCourse < ActiveRecord::Base
 		self.user_training_courses.where(state: true).count
 	end
 
-	#记录报名课程的3种状态
-  def user_training_course_status
-    case self.state
-    when nil
-      "审核中"
-    when true
-      "已通过"
-    when false
-      "未通过"
-    end
-  end
-
   #日志达标
   def reached_journal_number
     journal_number = self.journal_number

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       get :print
     end
     resources :journals, only: [:index]
-    resources :student_feedbacks, only: [:new, :edit, :update]
+    resources :student_feedbacks, only: [:new, :edit, :update, :show]
     resources :appraises, only: [:index, :new, :create, :edit, :update] do
       collection do
         get :list
