@@ -64,9 +64,11 @@
       </tr>
     <% end %>
   <% end %>
-  <!-- 全部列表显示分组按钮 -->
-  <% if params[:action] == "index" && params[:role].blank? && params[:status].blank? %>
-    <%= select_tag "divide_id", options_for_select(@training_course.divides.collect{|v| [v.name, v.id]}), {:prompt => "--选择分组--"} %>
+  <% if can? :update_multiple, UserTrainingCourse %>
+    <!-- 全部列表显示分组按钮 -->
+    <% if params[:action] == "index" && params[:role].blank? && params[:status].blank? %>
+      <%= select_tag "divide_id", options_for_select(@training_course.divides.collect{|v| [v.name, v.id]}), {:prompt => "--选择分组--"} %>
+    <% end %>
   <% end %>
 <% end %>
 <!-- 添加证书编号 -->

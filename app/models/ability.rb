@@ -40,7 +40,7 @@ class Ability
     can :manage, Journal
     cannot [:list], AdminUserTask
     cannot [:list_by_school, :list_by_teacher], TrainingCourse
-    can [:add, :added], UserTrainingCourse
+    can [:add, :added, :update_multiple], UserTrainingCourse
     can :manage, Material
     can :manage, User
   end
