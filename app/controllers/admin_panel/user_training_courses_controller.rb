@@ -13,9 +13,9 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
                                                .keyword(params[:keyword])
                                                .page(params[:page]).per(15)
     #达标
-    @reached_user_training_courses = @training_course.reached_journal_number.page(params[:page]).per(15)
+    @reached_user_training_courses_length = @training_course.reached_journal_number.length
     #未达标
-    @unreached_user_training_courses = @training_course.unreached_journal_number.page(params[:page]).per(15)
+    @unreached_user_training_courses_length = @training_course.unreached_journal_number.length
 
     @applied_user_training_courses = @training_course.user_training_courses.where(state: true)
 

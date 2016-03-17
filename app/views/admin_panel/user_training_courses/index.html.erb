@@ -86,8 +86,8 @@
                       class: "btn #{params[:role] == 'part_time' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
           </div>
           <div class="btn-group" role="group">
-            <%= link_to("日志达标教师【#{@reached_user_training_courses.length}】", admin_panel_training_course_user_training_courses_path(@training_course, status: 'reached'),class: "btn #{params[:status] == 'reached' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
-            <%= link_to("日志未达标教师【#{@unreached_user_training_courses.length}】", admin_panel_training_course_user_training_courses_path(@training_course, status: 'unreached'), class: "btn #{params[:status] == 'unreached' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
+            <%= link_to("日志达标教师【#{@reached_user_training_courses_length}】", admin_panel_training_course_user_training_courses_path(@training_course, status: 'reached'),class: "btn #{params[:status] == 'reached' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
+            <%= link_to("日志未达标教师【#{@unreached_user_training_courses_length}】", admin_panel_training_course_user_training_courses_path(@training_course, status: 'unreached'), class: "btn #{params[:status] == 'unreached' ? 'btn-primary' : 'btn-default'}") %>&nbsp;
           </div>
           <% if params[:group].blank? && params[:status].blank? && params[:role].blank? %>
             <%= link_to("导出到Excel", admin_panel_training_course_user_training_courses_path(@training_course, format: 'xls'),

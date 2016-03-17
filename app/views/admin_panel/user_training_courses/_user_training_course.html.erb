@@ -55,7 +55,9 @@
               <% end %>
             </td>
             <td>
-              <%= link_to "删除", delete_admin_panel_training_course_user_training_course_path(@training_course, user_training_course), method: :patch, data: { confirm: '确定要删除吗？' }, class: 'btn btn-xs btn-danger' %>
+              <%= link_to delete_admin_panel_training_course_user_training_course_path(@training_course, user_training_course), method: :patch, data: { confirm: '确定要删除吗？' }, class: 'btn btn-xs btn-danger' do %>
+                <span class="glyphicon glyphicon-remove"></span>
+              <% end %>
             </td>
           <% end %>
         <% end %>
