@@ -49,7 +49,7 @@
 	      </tr>
 	      <tr>
 	      	<th class="col-sm-1">分类</th>     
-	      	<td><%= TrainingCourse::ListCategory[@training_course.category.to_sym] %></td>
+	      	<td><%= TrainingCourse::ListCategory[@training_course.try(:category).try(:to_sym)] %></td>
 	      </tr>
 	      <tr>
 	      	<th class="col-sm-1">培训班</th>
