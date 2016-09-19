@@ -12,10 +12,10 @@ set -e
 
 # Feel free to change any of the following variables for your app:
 TIMEOUT=${TIMEOUT-60}
-APP_ROOT=/opt/shsgzgzjxyjh/project/online_train
+APP_ROOT=/mnt/www/online_train/online_train
 PID=$APP_ROOT/tmp/pids/unicorn.pid
 CMD="cd $APP_ROOT; bundle exec unicorn -D -c $APP_ROOT/config/unicorn.rb -E production"
-AS_USER=root
+AS_USER=deploy
 set -u
 
 OLD_PIN="$PID.oldbin"
