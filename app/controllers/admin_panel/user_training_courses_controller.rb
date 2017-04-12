@@ -11,7 +11,7 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
                                                .by_divide(params[:divide_id])
                                                .get_user_training_course(@training_course, params[:status])
                                                .keyword(params[:keyword])
-                                               .page(params[:page]).per(15)
+                                               .page(params[:page]).per(200)
     #达标
     @reached_user_training_courses_length = @training_course.reached_journal_number.length
     #未达标
@@ -30,7 +30,7 @@ class AdminPanel::UserTrainingCoursesController < AdminPanel::BaseController
   end
 
   def list
-    @user_training_courses = UserTrainingCourse.enabled.page(params[:page]).per(15).keyword(params[:keyword])
+    @user_training_courses = UserTrainingCourse.enabled.page(params[:page]).per(200).keyword(params[:keyword])
     @role_count = UserTrainingCourse.role_count
   end
 
